@@ -1,0 +1,265 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="informatieRecord.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormSearchHeader-->
+   
+   <!--EndFormSearchHeader-->
+   <!--BeginFormSearch--><form method="GET" action="{ActionPage}" name="Search">
+    <input type="hidden" name="FormName" value="Search"><input type="hidden" name="FormAction" value="search">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><a name="Search"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Bedrijf</font></td>
+      <td class="DataTD"><input type="text" name="s_bedrijf" maxlength="100" value="{s_bedrijf}" size="20"></td>
+     </tr>
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Plaats</font></td>
+      <td class="DataTD"><input type="text" name="s_woonplaats" maxlength="100" value="{s_woonplaats}" size="20"></td>
+     </tr>
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Business Unit</font></td>
+      <td class="DataTD"><select name="s_categories_id"><!--BeginSearchLBs_categories_id--><option value="{ID}" {Selected}>{Value}</option><!--EndSearchLBs_categories_id--></select></td>
+     </tr>
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Afgehandeld?</font></td>
+      <td class="DataTD"><select name="s_afgehandeld"><!--BeginSearchLBs_afgehandeld--><option value="{ID}" {Selected}>{Value}</option><!--EndSearchLBs_afgehandeld--></select></td>
+     </tr>
+     <tr>
+      <td align="right" colspan="3"><input type="submit" value="Zoeken"></td>
+     </tr>
+    </table>
+    </form><!--EndFormSearch-->
+   <!--BeginFormSearchFooter-->
+   
+   <!--EndFormSearchFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginForminformatieHeader-->
+   
+   <!--EndForminformatieHeader-->
+   <!--BeginForminformatie--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="5"><a name="informatie"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Forminformatie_Sorting=1&Forminformatie_Sorted={Form_Sorting}&"><font class="ColumnFONT">Bedrijf</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Forminformatie_Sorting=2&Forminformatie_Sorted={Form_Sorting}&"><font class="ColumnFONT">Bestemd voor</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Forminformatie_Sorting=3&Forminformatie_Sorted={Form_Sorting}&"><font class="ColumnFONT">Afgehandeld?</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Forminformatie_Sorting=4&Forminformatie_Sorted={Form_Sorting}&"><font class="ColumnFONT">Datum</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListinformatie-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{bedrijf}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{categories_id}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{gelezen}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{datum}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?informatie_id={Prmedit_informatie_id}&{TransitParams}"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListinformatie--> 
+     <!--BegininformatieNoRecords-->
+     <tr><td colspan="5" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndinformatieNoRecords--> 
+     <!--BegininformatieNavigator-->
+     <tr>
+      <td colspan="5" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href{informatieNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Forminformatie_Page=1#informatie"><font class="ColumnFONT">Eerste pagina</font></a>
+        <a href{informatieNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Forminformatie_Page={PrevPage}#informatie"><font class="ColumnFONT">Vorige</font></a>
+        [ <!--BegininformatieNavigatorPages--><a href{NavigatorPageSwitch}="{FileName}?{FormParams}{SortParams}Forminformatie_Page={NavigatorPageNumber}#informatie"><font class="ColumnFONT">{NavigatorPageNumberView}</font></a>&nbsp;<!--EndinformatieNavigatorPages-->]
+        <a href{informatieNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Forminformatie_Page={NextPage}#informatie"><font class="ColumnFONT">Volgende</font></a>
+        <a href{informatieNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Forminformatie_Page=last#informatie"><font class="ColumnFONT">Laatste pagina</font></a>
+       </font>
+      </td>
+     </tr>
+    <!--EndinformatieNavigator-->
+    </table>
+   <!--EndForminformatie-->
+   <!--BeginForminformatieFooter-->
+   <br>
+   <!--EndForminformatieFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginForminformatie1Header-->
+   
+   <!--EndForminformatie1Header-->
+   <!--BeginForminformatie1-->
+   <form method="POST" action="{FileName}" name="informatie1">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">Informatie aanvraag: {bedrijf}</font></td>
+     </tr>
+     <!--Begininformatie1Error-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{sinformatie1Err}</font></td>
+     </tr>
+     <!--Endinformatie1Error-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Bedrijf</font></td>
+      <td class="DataTD"><font class="DataFONT">{bedrijf}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Contactpersoon</font></td>
+      <td class="DataTD"><font class="DataFONT">{contactpersoon}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Adres</font></td>
+      <td class="DataTD"><font class="DataFONT">{adres}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Postcode</font></td>
+      <td class="DataTD"><font class="DataFONT">{postcode}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Woonplaats</font></td>
+      <td class="DataTD"><font class="DataFONT">{woonplaats}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Land</font></td>
+      <td class="DataTD"><font class="DataFONT">{land}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Telefoon</font></td>
+      <td class="DataTD"><font class="DataFONT">{telefoon}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Fax</font></td>
+      <td class="DataTD"><font class="DataFONT">{fax}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">E-mail</font></td>
+      <td class="DataTD"><font class="DataFONT">{email}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Website adres</font></td>
+      <td class="DataTD"><font class="DataFONT">{url}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Datum</font></td>
+      <td class="DataTD"><font class="DataFONT">{datum}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Bestemd voor</font></td>
+      <td class="DataTD"><font class="DataFONT">{categories_id}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Bestelde brochure</font></td>
+      <td class="DataTD"><font class="DataFONT">{folder_id}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Opmerking</font></td>
+      <td class="DataTD"><font class="DataFONT">{memo}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Afgehandeld?</font></td>
+      <td class="DataTD"><input {gelezen_CHECKED} type="checkbox" name="gelezen"></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--Begininformatie1Edit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--Begininformatie1Update-->
+      <input type="submit" value="Opslaan" onclick="document.informatie1.FormAction.value = 'update';"/>
+      <!--Endinformatie1Update-->
+      
+      <!--Begininformatie1Delete-->
+      <input type="submit" value="Verwijderen" onclick="document.informatie1.FormAction.value = 'delete';"/>
+      <!--Endinformatie1Delete-->
+      
+      <!--Endinformatie1Edit-->
+      
+      <!--Begininformatie1Cancel-->
+      <input type="submit" value="Annuleren" onclick="document.informatie1.FormAction.value = 'cancel';"/>
+      <!--Endinformatie1Cancel-->
+      
+      <input type="hidden" name="FormName" value="informatie1"/>
+      
+      <input type="hidden" name="Rqd_informatie_id" value="{Rqd_informatie_id}"/>
+      <input type="hidden" name="PK_informatie_id" value="{PK_informatie_id}"/>
+      <input type="hidden" name="informatie_id" value="{informatie_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndForminformatie1-->
+   <!--BeginForminformatie1Footer-->
+   <SCRIPT Language="JavaScript">
+if (document.forms["informatie1"])
+document.informatie1.onsubmit=delconf;
+function delconf() {
+if (document.informatie1.FormAction.value == 'delete')
+  return confirm('Aanvraag verwijderen?');
+}
+</SCRIPT>
+   <!--EndForminformatie1Footer-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

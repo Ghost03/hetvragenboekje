@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="pagina.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtreeHeader-->
+   
+   <!--EndFormtreeHeader-->
+   <!--BeginFormtree-->
+  <table class="FormTABLE">
+  
+  <tr><td class="ColumnTD"><nobr><font class="ColumnFONT"><a href="{ActionPage}?FormName=tree"><font class="ColumnFONT">Top</font></a><!--BeginCatPath--> > <a href="{ActionPage}?FormName=tree&categories_id={CategoryID}"><font class="ColumnFONT">{Category}</font></a><!--EndCatPath--> {CurrentCategory}</font></nobr></td></tr>
+  <!--BeginCategoryList-->
+  <tr><td class="DataTD"><a href="{FileName}?FormName=tree&categories_id={CategoryID}"><font class="DataFONT">{Category}</font></a></td></tr>
+  <!--EndCategoryList-->
+  </table>
+<!--EndFormtree-->
+   <!--BeginFormtreeFooter-->
+   
+   <!--EndFormtreeFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormpaginaHeader-->
+   
+   <!--EndFormpaginaHeader-->
+   <!--BeginFormpagina-->
+   <form method="POST" action="{FileName}" name="pagina">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">1. Pagina {naam} beheer</font></td>
+     </tr>
+     <!--BeginpaginaError-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{spaginaErr}</font></td>
+     </tr>
+     <!--EndpaginaError-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Menu naam<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam" maxlength="50" value="{naam}" size="25"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Menu naam<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam_uk" maxlength="100" value="{naam_uk}" size="25"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Hoofdpagina</font></td>
+      <td class="DataTD"><select name="parent"><!--BeginpaginaLBparent--><option value="{ID}" {Selected}>{Value}</option><!--EndpaginaLBparent--></select></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Tekstblok</font></td>
+      <td class="DataTD"><select name="bloktekst"><!--BeginpaginaLBbloktekst--><option value="{ID}" {Selected}>{Value}</option><!--EndpaginaLBbloktekst--></select></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Brochure</font></td>
+      <td class="DataTD"><select name="brochure"><!--BeginpaginaLBbrochure--><option value="{ID}" {Selected}>{Value}</option><!--EndpaginaLBbrochure--></select></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Veiligheidsblad</font></td>
+      <td class="DataTD"><select name="veiligheidsblad"><!--BeginpaginaLBveiligheidsblad--><option value="{ID}" {Selected}>{Value}</option><!--EndpaginaLBveiligheidsblad--></select></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BeginpaginaInsert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Nieuwe pagina aanmaken" onclick="document.pagina.FormAction.value = 'insert';">
+      <!--EndpaginaInsert-->
+      
+      <!--BeginpaginaEdit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--BeginpaginaUpdate-->
+      <input type="submit" value="Opslaan" onclick="document.pagina.FormAction.value = 'update';"/>
+      <!--EndpaginaUpdate-->
+      
+      <!--BeginpaginaDelete-->
+      <input type="submit" value="Verwijderen" onclick="document.pagina.FormAction.value = 'delete';"/>
+      <!--EndpaginaDelete-->
+      
+      <!--EndpaginaEdit-->
+      
+      <!--BeginpaginaCancel-->
+      <input type="submit" value="Annuleren" onclick="document.pagina.FormAction.value = 'cancel';"/>
+      <!--EndpaginaCancel-->
+      
+      <input type="hidden" name="FormName" value="pagina"/>
+      
+      <input type="hidden" name="Rqd_categories_id" value="{Rqd_categories_id}"/>
+      <input type="hidden" name="PK_categories_id" value="{PK_categories_id}"/>
+      <input type="hidden" name="categories_id" value="{categories_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormpagina-->
+   <!--BeginFormpaginaFooter-->
+   <SCRIPT Language="JavaScript">
+if (document.forms["pagina"])
+document.pagina.onsubmit=delconf;
+function delconf() {
+if (document.pagina.FormAction.value == 'delete')
+  return confirm('Pagina verwijderen?');
+}
+</SCRIPT>
+   <!--EndFormpaginaFooter-->
+   </td>
+   <td valign="top">
+   <!--BeginFormtekstenHeader-->
+   
+   <!--EndFormtekstenHeader-->
+   <!--BeginFormteksten--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><a name="teksten"><font class="FormHeaderFONT">2. Tekst op pagina {naam}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formteksten_Sorting=1&Formteksten_Sorted={Form_Sorting}&"><font class="ColumnFONT">Tekst</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListteksten-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{tekst_id}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?tekst_id={Prmedit_tekst_id}&categories_id={Prmedit_categories_id}&{TransitParams}"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListteksten--> 
+     <!--BegintekstenNoRecords-->
+     <tr><td colspan="2" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndtekstenNoRecords--> 
+     <tr>
+      <td colspan="2" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Aanmaken</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BegintekstenNavigator-->
+        <a href{tekstenNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formteksten_Page={PrevPage}#teksten"><font class="ColumnFONT">Vorige</font></a>
+        [ {tekstenCurrentPage} ]
+        <a href{tekstenNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formteksten_Page={NextPage}#teksten"><font class="ColumnFONT">Volgende</font></a>
+        <!--EndtekstenNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormteksten-->
+   <!--BeginFormtekstenFooter-->
+   
+   <!--EndFormtekstenFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

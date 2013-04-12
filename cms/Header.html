@@ -1,0 +1,149 @@
+<script type="text/javascript">
+function init() {
+  if (!document.getElementById) return
+  var imgOriginSrc;
+  var imgTemp = new Array();
+  var imgarr = document.getElementsByTagName('img');
+  for (var i = 0; i < imgarr.length; i++) {
+    if (imgarr[i].getAttribute('hsrc')) {
+        imgTemp[i] = new Image();
+        imgTemp[i].src = imgarr[i].getAttribute('hsrc');
+        imgarr[i].onmouseover = function() {
+            imgOriginSrc = this.getAttribute('src');
+            this.setAttribute('src',this.getAttribute('hsrc'))
+        }
+        imgarr[i].onmouseout = function() {
+            this.setAttribute('src',imgOriginSrc)
+        }
+    }
+  }
+}
+onload=init;
+</script>
+
+<head>
+
+
+<title>Profiltra.nl - maatwerk in oplossingen -</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="nl">
+<style type="text/css">
+<!--
+A:visited {text-decoration:none; color:FF9600;}
+A:link {text-decoration:none; color:FF9600;}
+A:hover {text-decoration:underline; color:000000;}
+--></style>
+
+<title>Profiltra B.V. - C.M.S</title>
+
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#EEEEEE">
+
+<div align="center">
+
+<table border="0" width="779" cellspacing="0" cellpadding="0">
+  
+<tr>
+
+<td width="777" height="79" background="files/top.jpg" colspan="3" valign="top">
+&nbsp;
+</td>
+    
+</tr>
+  
+  <center>
+
+<tr>
+
+<td width="158" background="../images/nav.jpg" valign="top" align="left">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" bgcolor="#999999">&nbsp;</td>
+    <td width="94%" bgcolor="#999999">
+      <p align="center"><b>
+              <font face="Arial, Helvetica, sans-serif" size="2" color="white">
+              <script language="JavaScript">
+//<!--
+var today = new Date()
+var day = today.getDate()
+var month = today.getMonth()
+var year = today.getYear()
+var months = new Array(12)
+months[0] = "Januari"
+months[1] = "Februari"
+months[2] = "Maart"
+months[3] = "April"
+months[4] = "Mei"
+months[5] = "Juni"
+months[6] = "Juli"
+months[7] = "Augustus"
+months[8] = "September"
+months[9] = "Oktober"
+months[10] = "November"
+months[11] = "December"
+if (year < 2000){
+	year = year + 1900
+} 
+var date = day + " "+ months[month] + " " + year
+document.write(date)
+//-->
+                      </script>
+              </font></b></td>
+  </tr>
+  <tr>
+    <td width="6%"></td>
+    <td width="94%">
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormHeader--><table class="HeaderFormTABLE">
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field8}"><font class="HeaderDataFONT">- Home</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field5}"><font class="HeaderDataFONT">- Pagina's</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field6}"><font class="HeaderDataFONT">&nbsp;&nbsp;- Tekstblok</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><font class="HeaderDataFONT">{uploader}</font></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field1}"><font class="HeaderDataFONT">- Nieuws</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field2}"><font class="HeaderDataFONT">- Informatie</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field10}"><font class="HeaderDataFONT">&nbsp;&nbsp;- Brochures</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field4}"><font class="HeaderDataFONT">- Links</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{Field7}"><font class="HeaderDataFONT">- Gebruikers</font></a></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><font class="HeaderDataFONT"><a href="http://www.nedstatbasic.net/s?tab=1&link=1&id=2195621" target="_blank">- Teller</a></font></td>
+     </tr>
+     <tr>
+      <td class="HeaderDataTD"><a href="{login}"><font class="HeaderDataFONT">- Aan / Afmelden</font></a></td>
+     </tr>
+    </table><!--EndFormHeader-->
+   
+   </td>
+  </tr>
+ </table>
+</td>
+  </tr>
+</table>
+
+</td>
+
+<td width="19" bgcolor="#FFFFFF">&nbsp;</td>
+ <td width="600" valign="top" align="left" bgcolor="#FFFFFF" height="330" background="../images/main.jpg">
+<BR>

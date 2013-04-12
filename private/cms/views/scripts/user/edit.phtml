@@ -1,0 +1,33 @@
+<?php
+
+$action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+
+$this->layout()->title = $action == 'add' ? 'Voeg een gebruiker toe' : 'Wijzigen';
+
+$form = $this->form;
+
+?>
+<form method=POST>
+    <p>
+        <label class=required>Naam</label>
+        <?php echo $form->getElement('first_name') ?>
+    </p>
+    <p>
+        <label class=required>Achternaam</label>
+        <?php echo $form->getElement('last_name') ?>
+    </p>
+    <p>
+        <label class=required>E-mail</label>
+        <?php echo $form->getElement('email') ?>
+    </p>
+    <p>
+        <label class=required>Wachtwoord</label>
+        <?php echo $form->getElement('password') ?>
+    </p>
+    <p>
+        <label>Actief</label>
+        <?php echo $form->getElement('active') ?>
+    </p>
+    
+    <input type=submit value=<?php echo $action == 'add' ? 'Toevoegen' : 'Wijzigen'?>>
+</form>

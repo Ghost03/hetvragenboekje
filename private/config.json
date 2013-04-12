@@ -1,0 +1,43 @@
+{    
+    
+    "baseurl": "http://localhost/qanda/",
+    
+    "defaultlanguage" : "en",
+    
+    "languages": [
+        {
+            "id"     : 1,
+            "code"   : "en",
+            "name"   : "English",
+            "active" : 1
+        },
+        {
+            "id"     : 3,
+            "code"   : "de",
+            "name"   : "Deutsch",
+            "active" : 1
+        }
+    ],
+    
+    
+    "database": {
+        "adapter": "Pdo_Mysql",
+        "params": {
+            "hostname": "localhost",
+            "dbname":   "qanda",
+            "username": "root",
+            "password": "PitGroup93"
+        }
+    },
+    
+    "mailer": {
+        "from" : "Q&A",
+        "email": "info@q&a.com"
+    },
+    
+    "google" : {
+        "analytics"    : "",
+        "verification" : ""
+    }
+    
+}

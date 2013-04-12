@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="brochures.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormBrochuresHeader-->
+   
+   <!--EndFormBrochuresHeader-->
+   <!--BeginFormBrochures--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="3"><a name="Brochures"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}FormBrochures_Sorting=1&FormBrochures_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam NL</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}FormBrochures_Sorting=2&FormBrochures_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam UK</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListBrochures-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{foldernaam}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{foldernaam_uk}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?folder_id={Prmedit_folder_id}&{TransitParams}"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListBrochures--> 
+     <!--BeginBrochuresNoRecords-->
+     <tr><td colspan="3" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndBrochuresNoRecords--> 
+     <tr>
+      <td colspan="3" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Aanmaken</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BeginBrochuresNavigator-->
+        <a href{BrochuresNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}FormBrochures_Page={PrevPage}#Brochures"><font class="ColumnFONT">Vorige</font></a>
+        [ {BrochuresCurrentPage} ]
+        <a href{BrochuresNavigatorLastPage}="{FileName}?{FormParams}{SortParams}FormBrochures_Page={NextPage}#Brochures"><font class="ColumnFONT">Volgende</font></a>
+        <!--EndBrochuresNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormBrochures-->
+   <!--BeginFormBrochuresFooter-->
+   
+   <!--EndFormBrochuresFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormBrochures2Header-->
+   
+   <!--EndFormBrochures2Header-->
+   <!--BeginFormBrochures2-->
+   <form method="POST" action="{FileName}" name="Brochures2">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <!--BeginBrochures2Error-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{sBrochures2Err}</font></td>
+     </tr>
+     <!--EndBrochures2Error-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Naam<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><input type="text" name="foldernaam" maxlength="50" value="{foldernaam}" size="30"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Naam<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><input type="text" name="foldernaam_uk" maxlength="100" value="{foldernaam_uk}" size="30"></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BeginBrochures2Insert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Aanmaken" onclick="document.Brochures2.FormAction.value = 'insert';">
+      <!--EndBrochures2Insert-->
+      
+      <!--BeginBrochures2Edit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--BeginBrochures2Update-->
+      <input type="submit" value="Opslaan" onclick="document.Brochures2.FormAction.value = 'update';"/>
+      <!--EndBrochures2Update-->
+      
+      <!--BeginBrochures2Delete-->
+      <input type="submit" value="Verwijderen" onclick="document.Brochures2.FormAction.value = 'delete';"/>
+      <!--EndBrochures2Delete-->
+      
+      <!--EndBrochures2Edit-->
+      
+      <!--BeginBrochures2Cancel-->
+      <input type="submit" value="Annuleren" onclick="document.Brochures2.FormAction.value = 'cancel';"/>
+      <!--EndBrochures2Cancel-->
+      
+      <input type="hidden" name="FormName" value="Brochures2"/>
+      
+      <input type="hidden" name="PK_folder_id" value="{PK_folder_id}"/>
+      <input type="hidden" name="folder_id" value="{folder_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormBrochures2-->
+   <!--BeginFormBrochures2Footer-->
+   <SCRIPT Language="JavaScript">
+if (document.forms["Brochures2"])
+document.Brochures2.onsubmit=delconf;
+function delconf() {
+if (document.Brochures2.FormAction.value == 'delete')
+  return confirm('Brochure verwijderen?');
+}
+</SCRIPT>
+   <!--EndFormBrochures2Footer-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

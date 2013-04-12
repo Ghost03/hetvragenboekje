@@ -1,0 +1,114 @@
+<?php
+$action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+$form   = $this->form;
+$forms  = $form->getSubForms();
+
+$submit = '<input type=submit class=button value="' . $this->translate('Save')  . '" />';
+?>
+       
+<form class="standard" method=POST>
+    
+<div class="content-box">
+    <div class="content-box-header">
+        <ul class="content-box-tabs">
+            <?php
+            $j = 0;
+            foreach($forms as $i => $subform):
+            ?>
+            <?php
+            if($j == 0)
+            {
+                echo '<li><a class="current" href="#tabgeneral'. $subform->getName() .'">'. $subform->getName() .'</a></li>';
+            }
+            else
+            {
+                echo '<li><a href="#tab'. $subform->getName() .'">'. $subform->getName() .'</a></li>';
+            }
+            ?>
+            <?php
+            $j++;
+            endforeach;
+            ?>
+        </ul> 
+        <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+        
+        <!-- Language info -->
+        <?php
+        foreach($forms as $i => $subform):
+        ?>        
+        <div class="tab-content <?php if($i == "English") { echo ' default-tab'; }  ?>" id="tab<?php echo $i;?>">      
+            <p>
+                <label class=required><?php echo $this->translate('Head title');?></label>
+                <?php echo $form->getElement('menu_1') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Menu Title');?></label>
+                <?php echo $form->getElement('menu_title') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Title');?></label>
+                <?php echo $subform->getElement('title') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Content');?></label>
+                <?php echo $subform->getElement('content')->addClass('ck') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Pigment Type');?></label>
+                <?php echo $form->getElement('pigment_type') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Properties');?></label>
+                <?php echo $form->getElement('properties')->addClass('ck') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Description');?></label>
+                <?php echo $form->getElement('description')->addClass('ck') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Color');?></label>
+                <?php echo $form->getElement('color_index') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('Product Code');?></label>
+                <?php echo $form->getElement('product_code') ?>
+            </p>
+            <p>
+                <?php echo $submit;?>
+            </p>   
+        </div>
+        <?php
+        endforeach;
+        ?>
+        
+    </div>
+</div>
+
+</form>  
+
+<?php $this->headScript()->captureStart(); ?>
+$(document).ready(function(){
+
+    // display hidden images
+    $('.image_preview').each(function(){
+        if($(this).attr('src') != '../')
+            $(this).show();
+    });
+
+    var active = '';    
+    function SetFileField(fileUrl) {
+        $('.image' + active).val(fileUrl);
+        $('.preview' + active).attr('src','../' + fileUrl).show();
+    }
+    
+    var finder = new CKFinder();
+    finder.selectActionFunction = SetFileField;
+    $(".image_browser").bind("click", function(){ 
+        active = $(this).attr('rel');
+        finder.popup();
+    });
+}); 
+<?php $this->headScript()->captureEnd(); 
+?>

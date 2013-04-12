@@ -1,0 +1,32 @@
+<?php
+
+$this->layout()->title = 'Gebruikers overzicht';
+
+
+?>
+<section class=user>
+    <table>
+        <thead>
+            <tr>
+                <th>Naam
+                <th>E-mail adres
+                <th width=50>Actief
+                <th width=50>&nbsp;
+                <th width=50>&nbsp;
+            </tr>
+        </thead>
+        <?php foreach($this->users as $user): ?>
+        <tr>
+            <td><?php echo $user['first_name']?> <?php echo $user['last_name'] ?>
+            <td><?php echo $user['email'] ?>
+            <td><?php echo $user['active'] ? "<img src=resources/images/icons/tick_circle.png>" : '';?>
+            <td>
+                <a href="<?php echo $this->url(array('action' => 'edit', 'id' => $user['id'])) ?>">Wijzigen</a>
+            </td>
+            <td class=delete>
+                <a href="<?php echo $this->url(array('action' => 'delete', 'id' => $user['id'])) ?>">Verwijderen</a>
+            </td>
+        </tr>
+        <?php endforeach ?>
+    </table>
+</section>

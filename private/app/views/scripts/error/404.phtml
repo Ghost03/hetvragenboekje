@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl"> 
+    <head> 
+        <?php
+        $config = Zend_Registry::get('config');
+        ?>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <base href="<?php echo $config->baseurl;?>" /> 
+        <title><?php echo $this->translate('Page not found');?></title> 
+        <link rel="shortcut icon" href="/favicon.ico" /> 
+        <style>
+        * { margin: 0; padding: 0; }
+        body { 
+            font: normal 12px/15px Arial;
+        }
+        .container {
+            margin: 0 auto 0;
+            width: 650px;
+        }
+        #logo {
+            display: block;
+            margin: 25px auto;
+        }
+        h2, h3 { line-height: 25px; }
+        </style>
+    </head> 
+    <body>
+    <div class="container">
+        <a href="<?php echo $config->baseurl;?>">
+            <img src="http://www.5minuten.tv/resources/images/footer/5minutentv.png" id="logo" />
+        </a>
+        <?php if(isset($this->error)):?>
+            <h2><?php echo get_class($this->error);?></h2>
+            <h3><?php echo $this->error->getMessage();?></h3>
+            <p><?php echo nl2br($this->error->getTraceAsString());?></p>
+            <h3>Location</h3>
+            <p><?php echo $this->error->getFile();?><br/>line <?php echo $this->error->getLine();?></p>
+        <?php else:?>
+            <h2><?php echo $this->translate('Page not found');?></h2>
+            <p><?php echo $this->translate('The page you are looking for does not exists.');?></p>
+            <ul>
+                <li><a href="<?php echo $config->baseurl;?>"><?php echo $this->translate('Go back to the homepage.');?></a>
+            </ul>
+        <?php endif;?>
+    </div>
+        
+    </body>
+</html>

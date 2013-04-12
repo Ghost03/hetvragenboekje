@@ -1,0 +1,29 @@
+<?php
+$this->layout()->title = $this->translate('Slides overview');
+?>
+<section class=categories>
+    <table>
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Title');?>
+                <th><?php echo $this->translate('Description');?>
+                <th width="90">Active
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+        </thead>
+        <tbody>
+            <?php 
+            $items = $this->items;
+            foreach($items as $i => $item):?>
+            <tr>
+                <td><?php echo $item['title']; ?></td>
+                <td><?php echo $item['text']; ?></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])) ?>"><?php echo $this->translate('Update');?></a></td>
+                <td class=delete><a href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])) ?>"><?php echo $this->translate('Delete');?></a></td>
+            </tr>
+            <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</section>

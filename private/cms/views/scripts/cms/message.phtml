@@ -1,0 +1,21 @@
+<?php
+$types = array(
+	1 => 'success',
+	2 => 'error',
+	3 => 'warning',
+	4 => 'notification',
+);
+if( isset( $this->layout()->messages ) ): foreach( $this->layout()->messages as $message):
+	if( is_array( $message ) ):
+	?>
+	<div class="notification <?php echo $types[$message['type']];?> png_bg">
+		<a href="#" class="close"><img src="resources/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+		<div><?php echo $message['content'];?></div>
+	</div>
+	<?php else:?>
+	<div class="notification notification png_bg">
+		<a href="#" class="close"><img src="resources/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+		<div><?php echo $message;?></div>
+	</div>
+	<?php endif;
+endforeach; endif; ?>

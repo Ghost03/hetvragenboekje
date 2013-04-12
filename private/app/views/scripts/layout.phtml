@@ -1,0 +1,279 @@
+<?php
+ $config = Zend_Registry::get('config');
+ $db = Zend_Registry::get('db');
+ $request = Zend_Controller_Front::getInstance()->getRequest();
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <base href="<?= $config->baseurl; ?>" />
+    <title>Questions and Answers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Le fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+
+    <!-- Le bootstrap -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-centered">
+        <div class="navbar-inner">
+            <div class="container">
+            <ul class="nav">
+              <li <?php if($request->controller == 'page') echo 'class="active"'; ?>><a href="#">Home</a></li>
+              <li <?php if($request->controller == 'categorieen') echo 'class="active"'; ?>><a href="categorieen">Categorieën</a></li>
+              <?php if(isset($_SESSION['user'])): ?><li <?php if($request->action == 'overview') echo 'class="active"'; ?>><a href="questions">Mijn vragen</a></li><?php endif; ?>
+              <?php if(isset($_SESSION['user'])): ?><li <?php if($request->controller == 'ask') echo 'class="active"'; ?>><a href="steleenvraag">Stel een vraag</a></li><?php endif; ?>
+              <?php if(isset($_SESSION['user'])): ?><li <?php if($request->controller == 'profile') echo 'class="active"'; ?>><a href="profiel">Bewerk profiel</a></li><?php endif; ?>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row-fluid content">
+
+            <div class="span8 left">
+                
+                <div class="search">
+
+                    <h1>De leukste vragensite van Nederland met mogelijkheid tot printen in A5-formaat !</h1>
+
+                    <form action="zoeken" method="POST">
+
+                        <input type="search" id="field" name="s" placeholder="Zoek op vragen en antwoorden.." />
+                        <input type="submit" id="hidden" name="submit" />
+
+                    </form> 
+
+                    <div class="search-button">&nbsp;</div>
+
+                </div>
+
+                <!--
+                
+                <div class="popular">
+
+                    <h2>Populair op het vragenboekje</h2>
+
+                </div>
+
+                -->
+
+                <?php
+                    echo $this->layout()->content;
+                ?>
+
+            </div>
+
+            <div class="span4 right fixed">
+                
+
+                <?php if(!$_SESSION['user']): ?>
+
+                <div class="login">
+
+                    <form action="inloggen" method="POST">
+
+                        <h2>Inloggen</h2>
+
+                        <fieldset>
+
+                            <input type="text" name="email" id="email" placeholder="E-mail..." />
+                            <input type="password" name="password" id="password" placeholder="Wachtwoord..." /><br />
+                            <input type="submit" name="submit" id="submit" value="Inloggen" />
+
+                        </fieldset>
+
+                    </form>
+
+                </div>
+
+                <?php 
+
+                else: 
+                    $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
+                    $total_questions = count( $db->fetchAll('SELECT * FROM questions WHERE user_id = ?', $user['id']) );
+                    $total_answers = count( $db->fetchAll('SELECT * FROM answers WHERE user_id = ?', $user['id']) );
+                ?>
+
+                <div id="profile">
+                            
+                    <h2>Welkom, <?php echo $_SESSION['user']; ?> !<h2>
+                    
+                    <ul class="user_info">
+                        <li><span>Info</span></li>
+                        <li class="asked">Mijn gestelde vragen: <a href="questions"><?php echo $total_questions; ?></a></li>
+                        <li class="answered">Mijn beantwoorde vragen: <a href="questions"><?php echo $total_answers; ?></a></li>
+                    </ul>
+
+                    <ul class="short_nav">
+                        <li><span>Snel menu</span></li>
+                        <li class="asked"><a href="steleenvraag">Stel een vraag</a></li>
+                        <li class="edit"><a href="profiel">Profiel bewerken</a></li>
+                        <li class="logout"><a href="uitloggen">Uitloggen</a></li>
+                    </ul>
+
+                </div>
+
+                <?php endif; ?>
+
+                <?php if(!$_SESSION['user']): ?>
+
+                <div class="register">
+
+                    <form action="registreren" method="POST">
+
+                        <h2>Registreren</h2>
+
+                        <fieldset>
+
+                            <input type="text" name="email" id="email" placeholder="E-mail..." />
+                            <input type="text" name="name" id="name" placeholder="Naam.." />
+                            <input type="password" name="password" id="password" placeholder="Wachtwoord.." />
+                            <input type="password" name="password2" id="password" placeholder="Wachtwoord herhalen..." /><br />
+                            <input type="submit" name="submit" id="submit" value="Registreren" />
+
+                        </fieldset>
+
+                    </form>
+
+                </div>
+
+                <?php else: ?>
+
+                <div id="notifications">
+
+                    <h2>Notificaties</h2>
+
+                    <ul>
+                        <li class="answers"><a href="profile">5 Nieuwe antwoorden</a></li>
+                    </ul>
+
+                </div>
+
+                <?php endif; ?>
+
+                <div class="social clearfix">
+
+                    <ul>
+                        <li><a href="#"><img src="./assets/img/youtube.png" /></a></li>
+                        <li><a href="#"><img src="./assets/img/twitter.png" /></a></li>
+                        <li><a href="#"><img src="./assets/img/facebook.png" /></a></li>
+                        <li><a href="#"><img src="./assets/img/vimeo.png" /></a></li>
+                    </ul>
+
+                </div>
+
+                <div class="top-3">
+                    
+                    <h2>Top 3 vandaag</h2>
+
+                    <ul>
+                        <li><span>1</span><a href="#">Is Redbull gevaarlijk?</a></li>
+                        <li><span>2</span><a href="#">Logitech goed of niet?</a></li>
+                        <li><span>3</span><a href="#">Downloaden illegaal?</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        <div class="container">
+
+            <div class="row-fluid">
+
+                <div class="span3">
+
+                    <h2>Home</h2>
+
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Copyright</a></li>
+                        <li><a href="">Mobiel</a></li>
+                        <li><a href="">Algemene voorwaarden</a></li>
+                        <?php if($_SESSION['user']): ?><li><a href="questions">Mijn vragen</a></li><?php endif; ?>
+                    </ul>
+
+                </div>
+
+                <div class="span3 no-margin">
+
+                    <h2>Categorieën</h2>
+
+                    <ul>
+                        <li><a href="#">Computers & Internet</a></li>
+                        <li><a href="#">Elektronica</a></li>
+                        <li><a href="#">Entertainment & Muziek</a></li>
+                        <li><a href="#">Eten & Drinken</a></li>
+                        <li><a href="#">Financien & Werk</a></li>
+                        <li><a href="#">Huis & Tuin</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="span3 no-margin">
+
+                    <h2>&nbsp;</h2>
+
+                    <ul>
+                        <li><a href="#">Kunst & Cultuur</a></li>
+                        <li><a href="#">Maatschappij</a></li>
+                        <li><a href="#">Overig</a></li>
+                        <li><a href="#">Persoon & Gezondheid</a></li>
+                        <li><a href="#">Sport, spel & recreatie</a></li>
+                        <li><a href="#">Vakantie & Reizen</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="span3 no-margin">
+
+                    <h2>Mijnvragenboekje.nl</h2>
+
+                    <ul>
+                        <li><a href="#">Over ons</a></li>
+                        <li><a href="#">F.A.Q.</a></li>
+                        <li><a href="#">Regels</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Inloggen</a></li>
+                        <li><a href="#">Registreren</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+            <div class="container">&copy;2013 <a href="./">Mijnvragenboekje.nl</a></div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<div id="overview">
+
+	<h1>Stel een vraag</h1>
+
+	<div class="formulier">
+
+		<form action="steleenvraag" method="POST">
+
+			<fieldset>
+
+				<label>* Categorie:</label>
+				<?php echo $this->form->getElement('category_id'); ?>
+
+				<label for="tags">Tags (gescheiden door ;)</label>
+				<?php echo $this->form->getElement('tags'); ?>
+
+				<label for="vraag">* Stel je vraag:</label>
+				<?php echo $this->form->getElement('name'); ?><br /><br />
+
+				<input type="submit" class="btn-primary submit" value="Vraag stellen" />
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</div>

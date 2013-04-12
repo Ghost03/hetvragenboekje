@@ -1,0 +1,83 @@
+<?php
+ $db = Zend_Registry::get('db'); 
+?>
+
+<div id="overview">
+
+	<h1>Vraag</h1>
+
+</div>
+
+<div class="question">
+
+    <a class="answers"><?php echo count( $this->answers ); ?></a>
+
+    <a id="category" href="categorieen/<?php echo $this->category['url']; ?>"><?php echo $this->category['name']; ?></a>
+
+    <span class="stars"><?php if($this->question_rating): echo $this->question_rating; else: echo '0'; endif; ?></span>
+
+    <a class="print" href="#">&nbsp;</a>
+
+    <span class="q"><?php echo $this->question['name']; ?></span>
+    <span class="user"><a href="question/is-een-banaan-echt-wel-zo-gezond"><?php echo $this->questioner['name']; ?></a> vraagt..</span>
+
+    <div class="tags">
+
+        <?php foreach($this->tags as $tag) echo '<span>' . $tag . '</span>'; ?>
+
+    </div>
+
+</div>
+
+
+
+<div id="overview">
+
+	<?php if( $this->answers ): ?>
+
+        <h1>Antwoorden</h1>
+
+        <?php 
+
+        foreach($this->answers as $answer): 
+
+            $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);?>        
+
+    		<div class="answer">
+
+    		    <span class="stars"><?php if($this->answer_rating): echo $this->answer_rating; else: echo '0'; endif; ?></span>
+
+    		    <span class="a"><?php echo $answer['name']; ?></span>
+
+                <span class="user"><?php echo $answerer['name']; ?> antwoord..</span>
+
+    		</div>
+
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <h1>Er is nog niet geantwoord op deze vraag</h1>
+    
+    <?php endif; ?>
+
+    <?php if(isset($_SESSION['user'] )): ?>
+
+        <form action="antwoord" id="answer_form" method="POST">
+
+            <fieldset>
+
+                <label for="answer">Beantwoord deze vraag</label>
+                <?php echo $this->form->getElement('name'); ?>
+                <input type="hidden" name="question_id" value="<?php echo $this->question['id']; ?>" />
+                <input type="hidden" name="question_name" value="<?php echo sanitize($this->question['name']); ?>" />
+
+                <input type="submit" name="submit" class="btn-primary submit" value="Antwoord">
+
+            </fieldset>
+
+        </form>
+
+    <?php endif; ?>
+
+</div>

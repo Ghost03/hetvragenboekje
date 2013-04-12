@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<script language="Javascript1.2"><!-- 
+_editor_url = "";                     
+var win_ie_ver = parseFloat(navigator.appVersion.split("MSIE")[1]);
+if (navigator.userAgent.indexOf('Mac')        >= 0) { win_ie_ver = 0; }
+if (navigator.userAgent.indexOf('Windows CE') >= 0) { win_ie_ver = 0; }
+if (navigator.userAgent.indexOf('Opera')      >= 0) { win_ie_ver = 0; }
+if (win_ie_ver >= 5.5) {
+  document.write('<scr' + 'ipt src="' +_editor_url+ 'editor.js"');
+  document.write(' language="Javascript1.2"></scr' + 'ipt>');  
+} else { document.write('<scr'+'ipt>function editor_generate() { return false; }</scr'+'ipt>'); }
+// --></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="nieuwsRecord2.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   <!--BeginFormnieuwsHeader-->
+   
+   <!--EndFormnieuwsHeader-->
+   <!--BeginFormnieuws-->
+   <form method="POST" action="{FileName}" name="nieuws">
+    <table class="nieuwsFormTABLE">
+     <tr>
+      <td class="nieuwsFormHeaderTD" colspan="2"><font class="nieuwsFormHeaderFONT">Nieuwsbericht: {titel}</font></td>
+     </tr>
+     <!--BeginnieuwsError-->
+     <tr>
+      <td class="nieuwsDataTD" colspan="2"><font class="nieuwsDataFONT">{snieuwsErr}</font></td>
+     </tr>
+     <!--EndnieuwsError-->
+    
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Titel<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="nieuwsDataTD"><input type="text" name="titel" maxlength="100" value="{titel}" size="30"></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">titel_uk<br><b><font color=red>Engels</font></b></font></td>
+      <td class="nieuwsDataTD"><input type="text" name="titel_uk" maxlength="100" value="{titel_uk}" size="30"></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Datum(jjjj-mm-dd)</font></td>
+      <td class="nieuwsDataTD"><input type="text" name="datum" maxlength="10" value="{datum}" size="10"></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Alinea 1<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="nieuwsDataTD"><textarea name="alinea1" cols="57" rows="3">{alinea1}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Alinea 1<br><b><font color=red>Engels</font></b></font></td>
+      <td class="nieuwsDataTD"><textarea name="alinea1_uk" cols="57" rows="3">{alinea1_uk}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT"></font></td>
+      <td class="nieuwsDataTD"><font class="nieuwsDataFONT">{plaatjes}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Alinea 2<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="nieuwsDataTD"><textarea name="alinea2" cols="57" rows="8">{alinea2}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Alinea 2<br><b><font color=red>Engels</font></b></font></td>
+      <td class="nieuwsDataTD"><textarea name="alinea2_uk" cols="57" rows="8">{alinea2_uk}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="nieuwsFieldCaptionTD"><font class="nieuwsFieldCaptionFONT">Type bericht</font></td>
+      <td class="nieuwsDataTD"><select name="categories_id"><!--BeginnieuwsLBcategories_id--><option value="{ID}" {Selected}>{Value}</option><!--EndnieuwsLBcategories_id--></select></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BeginnieuwsInsert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Aanmaken" onclick="document.nieuws.FormAction.value = 'insert';">
+      <!--EndnieuwsInsert-->
+      
+      <!--BeginnieuwsEdit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--BeginnieuwsUpdate-->
+      <input type="submit" value="Opslaan" onclick="document.nieuws.FormAction.value = 'update';"/>
+      <!--EndnieuwsUpdate-->
+      
+      <!--BeginnieuwsDelete-->
+      <input type="submit" value="Verwijderen" onclick="document.nieuws.FormAction.value = 'delete';"/>
+      <!--EndnieuwsDelete-->
+      
+      <!--EndnieuwsEdit-->
+      
+      <!--BeginnieuwsCancel-->
+      <input type="submit" value="Annuleren" onclick="document.nieuws.FormAction.value = 'cancel';"/>
+      <!--EndnieuwsCancel-->
+      
+      <input type="hidden" name="FormName" value="nieuws"/>
+      
+      <input type="hidden" name="Trn_nieuws_id" value="{Trn_nieuws_id}"/>
+      <input type="hidden" name="PK_nieuws_id" value="{PK_nieuws_id}"/>
+      <input type="hidden" name="nieuws_id" value="{nieuws_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormnieuws-->
+   <!--BeginFormnieuwsFooter-->
+   <script language="javascript1.2">
+editor_generate('alinea2');
+</script>
+
+<script language="javascript1.2">
+editor_generate('alinea2_uk');
+</script>
+
+<SCRIPT Language="JavaScript">
+if (document.forms["nieuws"])
+document.nieuws.onsubmit=delconf;
+function delconf() {
+if (document.nieuws.FormAction.value == 'delete')
+  return confirm('Bericht verwijderen?');
+}
+</SCRIPT>
+   <!--EndFormnieuwsFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

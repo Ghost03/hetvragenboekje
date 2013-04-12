@@ -1,0 +1,36 @@
+.clearfix:before, .clearfix:after {  content: "\0020"; display: block; height: 0; visibility: hidden;	 } 
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+section.group-map form.filters div.align-left {
+	width: 300px;
+	margin-right: 10px;
+}
+
+section.group-map form.filters div.align-left:first-child {
+    width: 200px;
+}
+
+section.group-map form.filters .fixed {
+	position: absolute;
+	top: 0;
+	left: 600px;
+}
+
+section.group-map .red {
+	background: #fdd;
+}
+
+section.group-map .green {
+	background: #dfd;
+}
+
+section.group-map td {
+	vertical-align: middle;
+}
+
+section.items-progress ul {
+	height: 150px;
+	overflow: auto;
+}
+

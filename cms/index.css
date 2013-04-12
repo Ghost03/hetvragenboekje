@@ -1,0 +1,20 @@
+.titelFormTABLE {} 
+.titelFormHeaderTD {border: 0px solid} 
+.titelFormHeaderFONT {color: #000000; font-size: 11pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.titelFieldCaptionTD {} 
+.titelFieldCaptionFONT {} 
+.titelDataTD {} 
+.titelDataFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.titelColumnTD {} 
+.titelColumnFONT {} 
+.titelRecordSeparatorTD {} 
+.uitlegFormTABLE {border: 1px solid #C0C0C0} 
+.uitlegFormHeaderTD {text-align: Center; background-color: #0053C0; border: 1px solid #C0C0C0} 
+.uitlegFormHeaderFONT {font-size: 12pt; color: #FFFFFF; font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.uitlegFieldCaptionTD {background-color: #6999C1} 
+.uitlegFieldCaptionFONT {; color: #000000; font-size: 10pt; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.uitlegDataTD {background-color: #EEEEEE} 
+.uitlegDataFONT {color: #000000; font-size: 10pt; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.uitlegColumnTD {background-color: #6999C1} 
+.uitlegColumnFONT {color: #000000; font-size: 10pt; font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.uitlegRecordSeparatorTD {background-color: #DDE4F0}

@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.3 / Templates.ccp build 10/17/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="plaatjes.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <BR>
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormplaatjes--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="3"><a name="plaatjes"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formplaatjes_Sorting=1&Formplaatjes_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formplaatjes_Sorting=2&Formplaatjes_Sorted={Form_Sorting}&"><font class="ColumnFONT">Bestand naam</font></a></td>
+       <td class="ColumnTD"><a ><font class="ColumnFONT">Plaatje</font></a></td>
+     </tr>
+     <!--BeginDListplaatjes-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{name}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{location}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{plaatje}&nbsp;</font></td>
+     </tr>
+     <!--EndDListplaatjes--> 
+     <!--BeginplaatjesNoRecords-->
+     <tr><td colspan="3" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndplaatjesNoRecords--> 
+     <!--BeginplaatjesNavigator-->
+     <tr>
+      <td colspan="3" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href{plaatjesNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formplaatjes_Page={PrevPage}#plaatjes"><font class="ColumnFONT">Vorige</font></a>
+        [ {plaatjesCurrentPage} of {plaatjesPageCount} ]
+        <a href{plaatjesNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formplaatjes_Page={NextPage}#plaatjes"><font class="ColumnFONT">Volgende</font></a>
+       </font>
+      </td>
+     </tr>
+    <!--EndplaatjesNavigator-->
+    </table>
+   <!--EndFormplaatjes-->
+   
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

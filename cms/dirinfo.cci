@@ -1,0 +1,54 @@
+<!-- This file is used by CodeCharge for locking edited files. It may be removed when file locking is not desired. -->
+<Files><File name="brochures.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="brochures.html" time="12/9/2003 2:34:31 PM" page="brochures"/>
+	<File name="brochures.php" time="12/9/2003 2:34:30 PM" page="brochures"/>
+	<File name="common.php" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="db_mysql.inc" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="editor.js" time="30-1-2003 11:11:12" page=""/>
+	<File name="footer.html" time="10/27/2003 11:35:32 AM" page="Footer"/>
+	<File name="footer.php" time="12/9/2003 2:34:30 PM" page="Footer"/>
+	<File name="gebruikers.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="gebruikers.html" time="12/9/2003 2:34:31 PM" page="gebruikers"/>
+	<File name="gebruikers.php" time="12/9/2003 2:34:30 PM" page="gebruikers"/>
+	<File name="header.css" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="header.html" time="10/27/2003 11:45:06 AM" page="Header"/>
+	<File name="header.php" time="12/9/2003 2:34:30 PM" page="Header"/>
+	<File name="index.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="index.html" time="12/9/2003 2:34:31 PM" page="index"/>
+	<File name="index.php" time="12/9/2003 2:34:30 PM" page="index"/>
+	<File name="informatierecord.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="informatierecord.html" time="12/9/2003 2:34:31 PM" page="informatieRecord"/>
+	<File name="informatierecord.php" time="12/9/2003 2:34:30 PM" page="informatieRecord"/>
+	<File name="linksrecord.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="linksrecord.html" time="12/9/2003 2:34:31 PM" page="linksRecord"/>
+	<File name="linksrecord.php" time="12/9/2003 2:34:30 PM" page="linksRecord"/>
+	<File name="login.css" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="login.html" time="12/9/2003 2:34:31 PM" page="Login"/>
+	<File name="login.php" time="12/9/2003 2:34:30 PM" page="Login"/>
+	<File name="nieuwsrecord.css" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="nieuwsrecord.html" time="12/9/2003 2:34:31 PM" page="nieuwsRecord"/>
+	<File name="nieuwsrecord.php" time="12/9/2003 2:34:30 PM" page="nieuwsRecord"/>
+	<File name="nieuwsrecord2.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="nieuwsrecord2.html" time="12/9/2003 2:34:31 PM" page="nieuwsRecord2"/>
+	<File name="nieuwsrecord2.php" time="12/9/2003 2:34:30 PM" page="nieuwsRecord2"/>
+	<File name="pagina.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="pagina.html" time="12/9/2003 2:34:31 PM" page="pagina"/>
+	<File name="pagina.php" time="12/9/2003 2:34:30 PM" page="pagina"/>
+	<File name="paginabloktekst.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="paginabloktekst.html" time="12/9/2003 2:34:31 PM" page="paginabloktekst"/>
+	<File name="paginabloktekst.php" time="12/9/2003 2:34:30 PM" page="paginabloktekst"/>
+	<File name="paginatekst.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="paginatekst.html" time="12/9/2003 2:34:31 PM" page="paginatekst"/>
+	<File name="paginatekst.php" time="12/9/2003 2:34:30 PM" page="paginatekst"/>
+	<File name="paginatekst2.css" time="12/9/2003 2:34:31 PM" page=""/>
+	<File name="paginatekst2.html" time="12/9/2003 2:34:31 PM" page="paginatekst2"/>
+	<File name="paginatekst2.php" time="12/9/2003 2:34:30 PM" page="paginatekst2"/>
+	<File name="productgroepen.css" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="productgroepen.html" time="12/9/2003 2:34:31 PM" page="Productgroepen"/>
+	<File name="productgroepen.php" time="12/9/2003 2:34:30 PM" page="Productgroepen"/>
+	<File name="productgroepen2.css" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="productgroepen2.html" time="12/9/2003 2:34:31 PM" page="Productgroepen2"/>
+	<File name="productgroepen2.php" time="12/9/2003 2:34:30 PM" page="Productgroepen2"/>
+	<File name="site.css" time="12/9/2003 2:34:30 PM" page=""/>
+	<File name="template.php" time="12/9/2003 2:34:30 PM" page=""/>
+</Files>

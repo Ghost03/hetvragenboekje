@@ -1,0 +1,538 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Scouph\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-02 11:23+0100\n"
+"PO-Revision-Date: 2012-01-02 11:23+0100\n"
+"Last-Translator: frank <fbroersen@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/Frank/Sites/scouph/private/app\n"
+"X-Poedit-SearchPath-1: /Users/Frank/Sites/scouph/private/lib/Sparx\n"
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/FacebookController.php:35
+msgid "You have registered in using your Facebook account."
+msgstr "Je hebt geregistreerd met je Facebook account."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/FacebookController.php:38
+msgid "Your Facebook account is linked to your Scouph account."
+msgstr "Je Facebook account is nu gelinkt aan je Scouph account."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/FacebookController.php:40
+msgid "You have logged in using your Facebook account."
+msgstr "Je bent nu ingelogd met je Facebook account."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/MyController.php:11
+msgid "My Scouph"
+msgstr "Mijn Scouph"
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/OrderController.php:16
+msgid "This order can not be cancelled."
+msgstr "Deze bestelling kan niet worden geannuleerd."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/OrderController.php:32
+msgid "Your order has been cancelled."
+msgstr "Je bestelling is geannuleerd."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/OrderController.php:55
+msgid "An error occured:"
+msgstr "Er is een fout opgetreden:"
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/ShoppingcartController.php:27
+msgid "The product is not available in that size and color combination."
+msgstr "Het product is niet beschikbaar in die kleur / maat combinatie."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/ShoppingcartController.php:52
+msgid "Some of the products in your shoppingcart request more stock than we have available, the quantities have been updated."
+msgstr "Van sommige producten in je winkelmandje hebben we minder voorraad dan je wilt bestellen, we hebben de aantallen in je winkelmandje aangepast naar het maximaal aantal te bestellen producten."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/ShoppingcartController.php:251
+msgid "Your Scouph order"
+msgstr "Je bestelling bij Scouph"
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/ShoppingcartController.php:290
+msgid "The requested page has expired."
+msgstr "De pagina is verlopen."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:27
+msgid "Your account has already been activated."
+msgstr "Je account is al geactiveerd."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:35
+msgid "Your account has been activated."
+msgstr "Je account is geactiveerd."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:126
+msgid "We did not find any account for this email address."
+msgstr "Er is geen account actief op dit email adres."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:135
+msgid "Your Scouph password"
+msgstr "Je Scouph wachtwoord"
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:142
+msgid "An email has been send with instructions to reset your password."
+msgstr "Er is een email gestuurd met daarin instructies om je wachtwoord te wijzigen."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:166
+msgid "You have successfully changed your password."
+msgstr "Je wachtwoord is gewijzigd."
+
+#: /Users/Frank/Sites/scouph/private/app/controllers/UserController.php:180
+msgid "The information you provided is incorrect."
+msgstr "De ingevoerde informatie is onjuist."
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:3
+msgid "article"
+msgstr "artikel"
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:4
+msgid "articles"
+msgstr "artikelen"
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:7
+msgid "Your zipcode is invalid"
+msgstr "Je postcode is ongeldig."
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:8
+msgid "Value is required and can't be empty"
+msgstr "Dit veld is verplicht."
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:9
+msgid "Invalid type given. String expected"
+msgstr "Vul een geldige waarde in."
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:10
+msgid "'%value%' is no valid email address in the basic format local-part@hostname"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:11
+msgid "'%hostname%' is no valid hostname for email address '%value%'"
+msgstr "'%value%' is geen geldige hostnaam voor het email adres '%value%'"
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:12
+msgid "'%hostname%' does not appear to have a valid MX record for the email address '%value%'"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:13
+msgid "'%hostname%' is not in a routable network segment. The email address '%value%' should not be resolved from public network"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:14
+#, php-format
+msgid "'%localPart%' can not be matched against dot-atom format"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:15
+#, php-format
+msgid "'%localPart%' can not be matched against quoted-string format"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:16
+msgid "'%localPart%' is no valid local part for email address '%value%'"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:17
+msgid "'%value%' exceeds the allowed length"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:18
+msgid "Invalid type given. String, integer or float expected"
+msgstr "Vul een geldige waarde in."
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:19
+msgid "'%value%' contains characters which are non alphabetic and no digits"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:20
+msgid "'%value%' is an empty string"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:21
+msgid "'%value%' is not between '%min%' and '%max%', inclusively"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/languages/mapping.php:22
+msgid "'%value%' is not strictly between '%min%' and '%max%'"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/lib/Sparx/User.php:31
+msgid "Your login information is incorrect."
+msgstr "Je gegevens zijn onjuist. Wachtwoord vergeten? <a href=\"password\">Klik hier</a>"
+
+#: /Users/Frank/Sites/scouph/private/lib/Sparx/User.php:71
+msgid "This email address already exists in our database."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/lib/Sparx/User.php:95
+msgid "Your Scouph registration"
+msgstr "Je Scouph registratie"
+
+#: /Users/Frank/Sites/scouph/private/lib/Sparx/User.php:104
+msgid "Your registration is almost complete, check your email!"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/lib/Sparx/User.php:126
+msgid "You need to login to view this page."
+msgstr "Je moet ingelogd zijn om deze pagina te bekijken."
+
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/register.phtml:2
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/reset.phtml:2
+msgid "Dear :firstname"
+msgstr "Beste :firstname"
+
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/register.phtml:4
+msgid "Thank you for registering with the scouph.com webshop!"
+msgstr "Bedankt voor je registratie bij Scouph.com!"
+
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/register.phtml:6
+msgid "To complete your registration, click the confirmation link below:"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/register.phtml:9
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/reset.phtml:9
+msgid "Scouph.com"
+msgstr "Scouph.com"
+
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/reset.phtml:4
+msgid "You have requested a new password on Scouph."
+msgstr "Je hebt een nieuw wachtwoord aangevraagd bij Scoup.com."
+
+#: /Users/Frank/Sites/scouph/private/app/views/emails/user/reset.phtml:6
+msgid "To reset your password, click the link below:"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:68
+msgid "Login"
+msgstr "Inloggen"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:69
+msgid "New at Scouph?"
+msgstr "Nieuw bij Scouph?"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:69
+msgid "Register yourself"
+msgstr "Registeren"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:71
+msgid "Welcome"
+msgstr "Welkom"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:72
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:78
+msgid "Shopping bag:"
+msgstr "Shopping bag:"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:80
+msgid "Checkout"
+msgstr "Afrekenen"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:83
+msgid "Your shoppingbag is empty."
+msgstr "Je Shopping Bag is leeg"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:91
+msgid "Logo alt text"
+msgstr "Scouph"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/layout.phtml:152
+msgid "Our twitter feed is currently not available."
+msgstr "Onze twitter feed is op dit moment niet beschikbaar."
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/catalogue/aside.phtml:26
+msgid "Featured"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/error/404.phtml:9
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/error/404.phtml:39
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/error/404.phtml:40
+msgid "The page you are looking for does not exists."
+msgstr "De pagina die je probeert te bekijken bestaat niet."
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/error/404.phtml:42
+msgid "Go back to the homepage."
+msgstr "Ga terug naar de homepage."
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/look/detail.phtml:2
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/look/index.phtml:2
+msgid "Looks"
+msgstr "Looks"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/look/detail.phtml:9
+msgid "Items"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/product/index.phtml:23
+msgid "Zoom"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/product/index.phtml:24
+msgid "View full screen"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/product/index.phtml:25
+msgid "Share"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/product/index.phtml:33
+msgid "Previous"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/product/index.phtml:34
+msgid "Back to overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/product/index.phtml:35
+msgid "Next"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:6
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:2
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:2
+msgid "Shoppingbag"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:7
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:202
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/top.phtml:3
+msgid "Payment"
+msgstr "Betaling"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:37
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:41
+msgid "Color"
+msgstr "Kleur"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:40
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:44
+msgid "Size"
+msgstr "Maat"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:44
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:48
+msgid "Delivery time"
+msgstr "Bezorging"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:45
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:49
+msgid "Amount"
+msgstr "Aantal"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:48
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:52
+msgid "Price"
+msgstr "Prijs"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:49
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:73
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:53
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:76
+msgid "Total"
+msgstr "Totaal"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:50
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:54
+msgid "Remove from cart"
+msgstr "Verwijder uit je shopping bag"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:60
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:63
+msgid "Total articles:"
+msgstr "Totaal artikelen:"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:63
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:66
+msgid "Indication delivery costs"
+msgstr "Indicatie bezorgkosten"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:64
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:67
+msgid "Free"
+msgstr "Gratis"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:68
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:71
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:83
+msgid "Vouchers and discount codes"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:91
+msgid "Check"
+msgstr "Controleer"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:108
+msgid "Delivery address"
+msgstr "Aflever adres"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:112
+msgid "Please complete your delivery address."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:115
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:156
+msgid "Name"
+msgstr "Naam:"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:120
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:161
+msgid "Street"
+msgstr "Straat"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:125
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:166
+msgid "Zipcode"
+msgstr "Postcode"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:130
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:171
+msgid "City"
+msgstr "Plaats"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:134
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:175
+msgid "Country"
+msgstr "Land"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:145
+msgid "Different invoice address"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:153
+msgid "Please complete your invoice address."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:184
+msgid "Delivery"
+msgstr "Bezorging"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:191
+msgid "Select a delivery date."
+msgstr "Kies een afleverdatum."
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:208
+msgid "Select a payment method."
+msgstr "Kies een betaalmethode."
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/checkout.phtml:219
+msgid "Finish order"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/confirm.phtml:5
+msgid "Thank you for your order"
+msgstr "Bedankt voor je bestelling"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:10
+msgid "I already have a Scouph account"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:12
+msgid "Login with Facebook"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:16
+msgid "Of login with your scouph account"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:23
+msgid "E-mailaddress"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:28
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:76
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/login.phtml:18
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:51
+msgid "I am a new customer"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:53
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/login.phtml:27
+msgid "Register with Facebook"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:57
+msgid "Or create a Scouph account"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:64
+msgid "Firstname"
+msgstr "Voornaam"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:68
+msgid "Lastname"
+msgstr "Achternaam"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:72
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/login.phtml:14
+msgid "Email"
+msgstr "Email"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:80
+msgid "Repeat password"
+msgstr "Herhaal wachtwoord"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/login.phtml:88
+msgid "Register"
+msgstr "Registreren"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:8
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:84
+msgid "Order"
+msgstr "Bestellen"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/review.phtml:15
+msgid "There are no products in your shoppingcart, <a href=\"/\">go get some!</a>"
+msgstr "Je hebt nog geen producten in je shopping bag, <a href=\"/\">winkelen dus!</a>"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/shoppingcart/top.phtml:4
+msgid "Confirmation"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/login.phtml:7
+msgid "Login with your Scouph account"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/login.phtml:26
+msgid "Login with your Facebook account"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/password.phtml:2
+msgid "Password reset"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/password.phtml:14
+msgid "Enter a new password for the account <strong>:email</strong>:"
+msgstr "Voer een nieuw wachtwoord in voor de account <strong>:email</strong:>"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/password.phtml:20
+msgid "Reset my password"
+msgstr "Stel mijn wachtwoord opnieuw in"
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/register.phtml:7
+msgid "Register a Scouph account"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/app/views/scripts/user/register.phtml:37
+msgid "Register using your Facebook account"
+msgstr ""
+
+#~ msgid "Your voucher code is invalid."
+#~ msgstr "Je voucher is ongeldig."
+
+#~ msgid "Gratis"
+#~ msgstr "Gratis"

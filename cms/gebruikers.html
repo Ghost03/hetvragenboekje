@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="gebruikers.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormoverzichtHeader-->
+   
+   <!--EndFormoverzichtHeader-->
+   <!--BeginFormoverzicht--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="5"><a name="overzicht"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formoverzicht_Sorting=1&Formoverzicht_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formoverzicht_Sorting=2&Formoverzicht_Sorted={Form_Sorting}&"><font class="ColumnFONT">Gebruikersnaam</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formoverzicht_Sorting=3&Formoverzicht_Sorted={Form_Sorting}&"><font class="ColumnFONT">Wachtwoord</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formoverzicht_Sorting=4&Formoverzicht_Sorted={Form_Sorting}&"><font class="ColumnFONT">Niveau</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListoverzicht-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{naam}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{gebruikersnaam}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{wachtwoord}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{niveau}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?login_id={Prmedit_login_id}&{TransitParams}"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListoverzicht--> 
+     <!--BeginoverzichtNoRecords-->
+     <tr><td colspan="5" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndoverzichtNoRecords--> 
+     <tr>
+      <td colspan="5" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Nieuwe aanmaken</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BeginoverzichtNavigator-->
+        <a href{overzichtNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formoverzicht_Page={PrevPage}#overzicht"><font class="ColumnFONT">Vorige</font></a>
+        [ {overzichtCurrentPage} ]
+        <a href{overzichtNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formoverzicht_Page={NextPage}#overzicht"><font class="ColumnFONT">Volgende</font></a>
+        <!--EndoverzichtNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormoverzicht-->
+   <!--BeginFormoverzichtFooter-->
+   
+   <!--EndFormoverzichtFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormaanpassenHeader-->
+   
+   <!--EndFormaanpassenHeader-->
+   <!--BeginFormaanpassen-->
+   <form method="POST" action="{FileName}" name="aanpassen">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">Gebruiker {naam} beheer</font></td>
+     </tr>
+     <!--BeginaanpassenError-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{saanpassenErr}</font></td>
+     </tr>
+     <!--EndaanpassenError-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Naam</font></td>
+      <td class="DataTD"><input type="text" name="naam" maxlength="50" value="{naam}" size="20"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Gebruikersnaam</font></td>
+      <td class="DataTD"><input type="text" name="gebruikersnaam" maxlength="25" value="{gebruikersnaam}" size="20"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Wachtwoord</font></td>
+      <td class="DataTD"><input type="text" name="wachtwoord" maxlength="25" value="{wachtwoord}" size="20"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Niveau</font></td>
+      <td class="DataTD"><select name="niveau"><!--BeginaanpassenLBniveau--><option value="{ID}" {Selected}>{Value}</option><!--EndaanpassenLBniveau--></select></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Businessunit</font></td>
+      <td class="DataTD"><select name="categories_id"><!--BeginaanpassenLBcategories_id--><option value="{ID}" {Selected}>{Value}</option><!--EndaanpassenLBcategories_id--></select></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BeginaanpassenInsert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Aanmaken" onclick="document.aanpassen.FormAction.value = 'insert';">
+      <!--EndaanpassenInsert-->
+      
+      <!--BeginaanpassenEdit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--BeginaanpassenUpdate-->
+      <input type="submit" value="Opslaan" onclick="document.aanpassen.FormAction.value = 'update';"/>
+      <!--EndaanpassenUpdate-->
+      
+      <!--BeginaanpassenDelete-->
+      <input type="submit" value="Verwijderen" onclick="document.aanpassen.FormAction.value = 'delete';"/>
+      <!--EndaanpassenDelete-->
+      
+      <!--EndaanpassenEdit-->
+      
+      <!--BeginaanpassenCancel-->
+      <input type="submit" value="Annuleren" onclick="document.aanpassen.FormAction.value = 'cancel';"/>
+      <!--EndaanpassenCancel-->
+      
+      <input type="hidden" name="FormName" value="aanpassen"/>
+      
+      <input type="hidden" name="PK_login_id" value="{PK_login_id}"/>
+      <input type="hidden" name="login_id" value="{login_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormaanpassen-->
+   <!--BeginFormaanpassenFooter-->
+   <SCRIPT Language="JavaScript">
+if (document.forms["aanpassen"])
+document.aanpassen.onsubmit=delconf;
+function delconf() {
+if (document.aanpassen.FormAction.value == 'delete')
+  return confirm('Gebruiker verwijderen?');
+}
+</SCRIPT>
+   <!--EndFormaanpassenFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

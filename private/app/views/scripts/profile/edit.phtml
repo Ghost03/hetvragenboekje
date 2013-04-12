@@ -1,0 +1,28 @@
+<div id="overview">
+
+	<h1>Pas je profiel aan</h1>
+
+	<div class="formulier">
+
+		<form action="profiel" method="POST">
+
+			<fieldset>
+
+				<label for="name">* Naam:</label>
+				<?php echo $this->form->getElement('name'); ?>
+
+				<label for="name">Achternaam:</label>
+				<?php echo $this->form->getElement('lastname'); ?>
+
+				<label for="tags">Email</label>
+				<?php echo $this->form->getElement('email'); ?><br /><br />
+
+				<input type="submit" class="btn" value="Submit" />
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</div>

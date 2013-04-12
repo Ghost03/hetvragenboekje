@@ -1,0 +1,18 @@
+<?php $parameter = isset($this->layout()->paging_parameter) ? $this->layout()->paging_parameter : 'page'; ?>
+
+<?php if($this->pageCount > 1): ?>
+<ul class="cmspager clearfix">
+    <?php if(isset($this->previous)): ?>
+    <li><a href="<?php echo $this->url(array($parameter => $this->next)); ?>">&laquo;</a>
+    <?php endif ?>
+    
+    <?php foreach ($this->pagesInRange as $page): ?>
+    <li <?php echo $page == $this->current ? 'class=act' : ''?>>
+        <a href="<?php echo $this->url(array($parameter => $page)); ?>"><?php echo $page; ?></a>
+    <?php endforeach; ?>
+    
+    <?php if(isset($this->next)): ?>
+    <li><a href="<?php echo $this->url(array($parameter => $this->next)); ?>">&raquo;</a>
+    <?php endif ?>
+</ul>
+<?php endif ?>

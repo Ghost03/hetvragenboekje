@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="linksRecord.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormlinksHeader-->
+   
+   <!--EndFormlinksHeader-->
+   <!--BeginFormlinks--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="3"><a name="links"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formlinks_Sorting=1&Formlinks_Sorted={Form_Sorting}&"><font class="ColumnFONT">Link naam NL</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formlinks_Sorting=2&Formlinks_Sorted={Form_Sorting}&"><font class="ColumnFONT">Link naam UK</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListlinks-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{naam}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{naam_uk}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?links_id={Prmedit_links_id}&"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListlinks--> 
+     <!--BeginlinksNoRecords-->
+     <tr><td colspan="3" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndlinksNoRecords--> 
+     <tr>
+      <td colspan="3" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Aanmaken</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BeginlinksNavigator-->
+        <a href{linksNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formlinks_Page={PrevPage}#links"><font class="ColumnFONT">Vorige</font></a>
+        [ <!--BeginlinksNavigatorPages--><a href{NavigatorPageSwitch}="{FileName}?{FormParams}{SortParams}Formlinks_Page={NavigatorPageNumber}#links"><font class="ColumnFONT">{NavigatorPageNumberView}</font></a>&nbsp;<!--EndlinksNavigatorPages-->]
+        <a href{linksNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formlinks_Page={NextPage}#links"><font class="ColumnFONT">Volgende</font></a>
+        <!--EndlinksNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormlinks-->
+   <!--BeginFormlinksFooter-->
+   
+   <!--EndFormlinksFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormlinks1Header-->
+   
+   <!--EndFormlinks1Header-->
+   <!--BeginFormlinks1-->
+   <form method="POST" action="{FileName}" name="links1">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <!--Beginlinks1Error-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{slinks1Err}</font></td>
+     </tr>
+     <!--Endlinks1Error-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Naam<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam" maxlength="100" value="{naam}" size="35"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Naam<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam_uk" maxlength="100" value="{naam_uk}" size="35"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Url</font></td>
+      <td class="DataTD"><input type="text" name="url" maxlength="65535" value="{url}" size="35"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Omschrijving<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><textarea name="omschrijving" cols="25" rows="4">{omschrijving}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Omschrijving<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><textarea name="omschrijving_uk" cols="25" rows="4">{omschrijving_uk}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--Beginlinks1Insert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Aanmaken" onclick="document.links1.FormAction.value = 'insert';">
+      <!--Endlinks1Insert-->
+      
+      <!--Beginlinks1Edit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--Beginlinks1Update-->
+      <input type="submit" value="Opslaan" onclick="document.links1.FormAction.value = 'update';"/>
+      <!--Endlinks1Update-->
+      
+      <!--Beginlinks1Delete-->
+      <input type="submit" value="Verwijderen" onclick="document.links1.FormAction.value = 'delete';"/>
+      <!--Endlinks1Delete-->
+      
+      <!--Endlinks1Edit-->
+      
+      <!--Beginlinks1Cancel-->
+      <input type="submit" value="Annuleren" onclick="document.links1.FormAction.value = 'cancel';"/>
+      <!--Endlinks1Cancel-->
+      
+      <input type="hidden" name="FormName" value="links1"/>
+      
+      <input type="hidden" name="PK_links_id" value="{PK_links_id}"/>
+      <input type="hidden" name="links_id" value="{links_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormlinks1-->
+   <!--BeginFormlinks1Footer-->
+   <SCRIPT Language="JavaScript">
+if (document.forms["links1"])
+document.links1.onsubmit=delconf;
+function delconf() {
+if (document.links1.FormAction.value == 'delete')
+  return confirm('Link verwijderen?');
+}
+</SCRIPT>
+   <!--EndFormlinks1Footer-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

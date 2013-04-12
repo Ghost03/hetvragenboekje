@@ -1,0 +1,10 @@
+.titelFormTABLE {} 
+.titelFormHeaderTD {border: 0px solid} 
+.titelFormHeaderFONT {color: #000000; font-size: 11pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.titelFieldCaptionTD {} 
+.titelFieldCaptionFONT {} 
+.titelDataTD {} 
+.titelDataFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.titelColumnTD {} 
+.titelColumnFONT {} 
+.titelRecordSeparatorTD {}

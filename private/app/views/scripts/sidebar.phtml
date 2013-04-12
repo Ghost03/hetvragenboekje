@@ -1,0 +1,28 @@
+<aside>
+    <header>
+        <?php 
+        foreach($this->sidebar['buttons'] as $i => $button) 
+            echo $this->button($button,$i,'tab','tabs');
+        ?>
+    </header>
+    <div id="tabs">
+        <div class="viewport">
+            <div class="overview">
+                <?php for($j = 0; $j <= $i; $j++):?>
+                <div id="tab-<?php echo $j;?>" class="tab box <?php echo $j == 0 ? 'default' : 'inactive';?>"><?php if($j == 0) echo $this->sidebar['html']; ?></div>
+                <?php endfor;?>
+            </div>
+        </div>
+        <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+    </div>
+    <ul class="tab-0-share share active">
+        <?php 
+        $config = Zend_Registry::get('config');
+        $href = substr($config->baseurl,0,-1) . $this->url();
+        ?>
+        <li><fb:like send="false" show_faces="false" href="<?php echo $href;?>" layout="button_count"></fb:like></li>				
+        <li><a href="http://twitter.com/share" data-text="<?php echo $href;?>" data-url="<?php echo $href;?>" class="twitter-share-button">Tweet</a></li>
+        <li><iframe id="hyves" src="http://www.hyves.nl/respect/button?url=<?php echo $href;?>" scrolling="no" frameborder="0" allowTransparency="true" ></iframe></li>
+    </ul>
+</aside>
+<a id="open"></a>

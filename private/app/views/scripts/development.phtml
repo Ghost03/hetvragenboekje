@@ -1,0 +1,324 @@
+<?php
+define('NO_MEMCACHE',true);
+?>
+
+<style>
+    #debug {
+        background: #000;
+        color: #fff;
+        top: 0; left: 0;
+        position: fixed;
+        margin: 5px; padding: 0;
+        z-index: 1000;
+        opacity: .6;
+    }    
+    #debug li {
+        display: block;
+        border-bottom: 1px solid #fff;
+        padding: 6px 5px 5px; margin: 0;
+    }
+    #debug a {
+        color: #fff;
+        cursor: pointer;
+    }
+    #debug li.white {
+        /*background: #fff;*/
+    }
+    #profiler {
+        border-top: 1px solid #000;
+        margin: 50px 0 0;
+        padding: 50px;
+    }
+    code.sql
+    {
+        background: #FCFCFC;
+        border: #E8E8E8 solid 1px;
+        color: #000000;
+        display: block;
+        padding: 20px;
+    }
+
+    code.sql .keyword
+    {
+        color: #990099;
+    }
+
+    code.sql .operator
+    {
+        color: #FF00FF;
+    }
+
+    code.sql .quoted
+    {
+        color: #008000;
+    }
+
+    code.sql .ticked
+    {
+        color: #000080;
+    }
+
+    code.sql .bracket
+    {
+        color: #FF00FF;
+    }
+</style>
+
+<ul id="debug">
+    <li><strong>Debug information</strong>
+    <li>View: <?php echo Zend_Controller_Front::getInstance()->getRequest()->getControllerName() . ' / ' . Zend_Controller_Front::getInstance()->getRequest()->getActionName(); ?>
+    <li>Route: <?php echo Zend_Controller_Front::getInstance()->getRouter()->getCurrentRouteName(); ?>
+    <li>Load: <?php echo number_format(microtime(true) - APP_START, 2); ?> s. / <?php echo number_format((memory_get_usage(true) / 1024) / 1024, 2); ?> m.</div>
+    <li class="white"><br/></li>
+    <li><a target=_blank href="cms">Open cms (new window)</a>
+        <?php if (isset($_SESSION['profiling'])): ?>
+        <li><a href="cms/dashboard/profiling/status/0">Database profiling off</a>
+        <?php else: ?>
+        <li><a href="cms/dashboard/profiling/status/1">Database profiling on</a>
+        <?php endif; ?>    
+</ul>
+
+<?php
+if (isset($_SESSION['profiling'])):
+    $db = Zend_Registry::get('db');
+    $profiler = $db->getProfiler();
+    
+    $totalTime    = $profiler->getTotalElapsedSecs();
+    $queryCount   = $profiler->getTotalNumQueries();
+    $longestTime  = 0;
+    $longestQuery = null;
+    foreach ($profiler->getQueryProfiles() as $query) {
+        if ($query->getElapsedSecs() > $longestTime) {
+            $longestTime  = $query->getElapsedSecs();
+            $longestQuery = $query->getQuery();
+        }
+    }
+    ?>
+<div id="profiler">
+    <table>
+        <tr>
+            <td width="200">Total queries:</td>
+            <td><?php echo $profiler->getTotalNumQueries(); ?></td>
+        </tr>
+        <tr>
+            <td>Total query duration:</td>
+            <td><?php echo number_format($totalTime,4); ?></td>
+        </tr>
+        <tr>
+            <td>Average length:</td>
+            <td><?php echo number_format($totalTime / $queryCount,4); ?></td>
+        </tr>
+        <tr>
+            <td>Longest query duration:</td>
+            <td><?php echo number_format($longestTime,4); ?></td>
+        </tr>
+        <tr>
+            <td>Longest query:</td>
+            <td><?php echo $longestQuery; ?></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td width="500"><strong>Query:</strong></td>
+            <td><strong>Duration</strong></td>
+        </tr>
+        <?php
+        $queries = $profiler->getQueryProfiles();
+        foreach ($queries as $query):
+            $sql = strtr(str_replace("\t", " ", $query->getQuery()),$query->getQueryParams());
+            ?>
+            <tr>
+                <td width="500"><?php echo highlight_sql($sql); ?></td>
+                <td><?php echo number_format($query->getElapsedSecs(),4); ?></td>
+            </tr>
+            <?php
+        endforeach;
+        ?>
+    </table>
+    </div>
+    <?php
+endif;
+
+
+/*
+    Function: highlight_sql
+    Author: ME Wieringa <pholeron@hotmail.com>
+
+    Description: Highlight your query on the fly
+*/
+function highlight_sql($string)
+{
+    $aKeywords = array(); 
+
+    // SQL syntax
+    $aKeywords[] = array('and', true); // keyword name (any string [a-zA-Z0-9_], or any character), keyword to next line (true or false, default: false), css class (default: 'keyword')
+    $aKeywords[] = array('as', false);
+    $aKeywords[] = array('asc', false);
+    $aKeywords[] = array('binary', false);
+    $aKeywords[] = array('by', false);
+    $aKeywords[] = array('delete', true);
+    $aKeywords[] = array('desc', false);
+    $aKeywords[] = array('from', true);
+    $aKeywords[] = array('having', true);
+    $aKeywords[] = array('group', true);
+    $aKeywords[] = array('insert', true);
+    $aKeywords[] = array('in', true);
+    $aKeywords[] = array('into', false);
+    $aKeywords[] = array('join', false);
+    $aKeywords[] = array('left', false);
+    $aKeywords[] = array('like', false);
+    $aKeywords[] = array('limit', true);
+    $aKeywords[] = array('order', true);
+    $aKeywords[] = array('on', false);
+    $aKeywords[] = array('or', true);
+    $aKeywords[] = array('right', false);
+    $aKeywords[] = array('select', true);
+    $aKeywords[] = array('set', true);
+    $aKeywords[] = array('values', true);
+    $aKeywords[] = array('where', true);
+    $aKeywords[] = array('xor', true);
+
+    // Operators
+    $aKeywords[] = array('+', false, 'operator');
+    $aKeywords[] = array('-', false, 'operator');
+    $aKeywords[] = array('*', false, 'operator');
+    $aKeywords[] = array('/', false, 'operator');
+    $aKeywords[] = array('=', false, 'operator');
+    $aKeywords[] = array('<', false, 'operator');
+    $aKeywords[] = array('>', false, 'operator');
+    $aKeywords[] = array('%', false, 'operator');
+    $aKeywords[] = array('.', false, 'operator');
+    $aKeywords[] = array(',', false, 'operator');
+
+
+    $aKeywords[] = array('true', false, 'quoted');
+    $aKeywords[] = array('false', false, 'quoted');
+    $aKeywords[] = array('null', false, 'quoted');
+    $aKeywords[] = array('unkown', false, 'quoted');
+
+
+
+    // Split query into pieces (quoted values, ticked values, string and/or numeric values, and all others).
+    $expr = '/(\'((\\\\.)|[^\\\\\\\'])*\')|(\`((\\\\.)|[^\\\\\\\`])*\`)|([a-z0-9_]+)|([\s\n]+)|(.)/i';
+    preg_match_all($expr, $string, $matches);
+
+    // Use a buffer to build up lines.
+    $buffer = '';
+
+    // Keep track of brackets to indent/outdent
+    $iTab = 0;
+    
+    $result = '';
+
+    for($i = 0; $i < sizeof($matches[0]); $i++)
+    {
+        if(strcasecmp($match = $matches[0][$i], "") !== 0)
+        {
+            if(in_array($match, array("(", ")"))) // Bracket found
+            {
+                $buffer = trim($buffer);
+
+                if(strlen($buffer) > 0)
+                {
+                    $result .= $buffer . '<br>';
+                }
+
+                $buffer = '';
+
+                if(strcasecmp($match, ")") === 0)
+                {
+                    $iTab--;
+
+                    if($iTab < 0)
+                    {
+                        $iTab = 0;
+                    }
+
+                    $result .= str_repeat('&nbsp;', 4 * $iTab) . '<span class="bracket">' . htmlentities($match) . '</span><br>';
+                }
+                else // if(strcasecmp($match, "(") === 0)
+                {
+                    $result .= str_repeat('&nbsp;', 4 * $iTab) . '<span class="bracket">' . htmlentities($match) . '</span><br>';
+                    $iTab++;
+                }
+            }
+            elseif(preg_match('/^[\s\n]+$/', $match)) // Space character(s)
+            {
+                if(strlen($buffer) === 0)
+                {
+                    // Ignore space character(s)!
+                }
+                else
+                {
+                    $buffer .= ' ';
+                }
+            }
+            else
+            {
+                $aKeyword = false;
+
+                for($j = 0; $j < sizeof($aKeywords); $j++)
+                {
+                    if(strcasecmp($match, $aKeywords[$j][0]) === 0)
+                    {
+                        $aKeyword = $aKeywords[$j];
+                        break;
+                    }
+                }
+
+                if($aKeyword) // Keyword found
+                {
+                    if(isset($aKeyword[1]) && $aKeyword[1] === true) // Keyword to next line
+                    {
+                        $buffer = trim($buffer);
+
+                        if(strlen($buffer) > 0)
+                        {
+                            $result .= $buffer . '<br>';
+                        }
+
+                        $buffer = ''; 
+                    }
+
+                    if(strlen($buffer) === 0) // Indent
+                    {
+                        $buffer .= str_repeat('&nbsp;', 4 * $iTab); 
+                    }
+
+                    $buffer .= '<span class="' . (isset($aKeyword[2]) ? $aKeyword[2] : 'keyword') . '">' . htmlentities(strtoupper($match)) . '</span>';
+                }
+                else
+                {
+                    if(strlen($buffer) === 0) // Indent
+                    {
+                        $buffer = str_repeat('&nbsp;', 4 * $iTab);
+                    }
+
+                    if((strcasecmp(substr($match, 0, 1), "'") === 0) || is_numeric($match)) // Quoted value or number
+                    {
+                        $buffer .= '<span class="quoted">' . htmlentities($match) . '</span>';
+                    }
+                    elseif((strcasecmp(substr($match, 0, 1), "`") === 0) || preg_match('/[a-z0-9_]+/i', $match)) // Ticked value or unquoted string (table/column name?!)
+                    {
+                        $buffer .= '<span class="ticked">' . htmlentities($match) . '</span>';
+                    }
+                    else // All other chars
+                    {
+                        $buffer .= htmlentities($match);
+                    }
+                }
+            }
+        }
+    }
+
+    $buffer = trim($buffer);
+
+    if(strlen($buffer) > 0)
+    {
+        $result .= $buffer;
+    }
+
+    return '<code class="sql">' . $result . '</code>';
+}
+
+?>

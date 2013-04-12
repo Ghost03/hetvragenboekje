@@ -1,0 +1,102 @@
+<?php
+$action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+$form   = $this->form;
+$forms  = $form->getSubForms();
+
+$submit = '<input type=submit class=button value="' . $this->translate('Save')  . '" />';
+?>
+       
+<form class="standard" method=POST>
+    
+<div class="content-box">
+    <div class="content-box-header">
+        <ul class="content-box-tabs">
+            <?php
+            $j = 0;
+            foreach($forms as $i => $subform):
+            ?>
+            <?php
+            if($j == 0)
+            {
+                echo '<li><a class="current" href="#tab'. $subform->getName() .'">'. $subform->getName() .'</a></li>';
+            }
+            else
+            {
+                echo '<li><a href="#tab'. $subform->getName() .'">'. $subform->getName() .'</a></li>';
+            }
+            ?>
+            <?php
+            $j++;
+            endforeach;
+            ?>
+        </ul> 
+        <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+               
+        <!-- Language info -->
+        <?php
+        foreach($forms as $i => $subform):
+        ?>    
+        <div class="tab-content<?php if($i == "English") { echo ' default-tab'; }  ?>" id="tab<?php echo $i;?>">      
+            <p>
+                <label class=required><?php echo $this->translate('news');?></label>
+                <?php echo $subform->getElement('news') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('phonenumber');?></label>
+                <?php echo $subform->getElement('phonenumber') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('search');?></label>
+                <?php echo $subform->getElement('search') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('resultaten');?></label>
+                <?php echo $subform->getElement('resultaten') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('adres');?></label>
+                <?php echo $subform->getElement('adres') ?>
+            </p>
+            <p>
+                <label class=required><?php echo $this->translate('more news');?></label>
+                <?php echo $subform->getElement('more_news') ?>
+            </p>
+            
+            <p>
+                <?php echo $submit;?>
+            </p>   
+        </div>
+        <?php
+        endforeach;
+        ?>
+        
+    </div>
+</div>
+
+</form>  
+
+<?php $this->headScript()->captureStart(); ?>
+$(document).ready(function(){
+
+    // display hidden images
+    $('.image_preview').each(function(){
+        if($(this).attr('src') != '../')
+            $(this).show();
+    });
+
+    var active = '';    
+    function SetFileField(fileUrl) {
+        $('.image' + active).val(fileUrl);
+        $('.preview' + active).attr('src','../' + fileUrl).show();
+    }
+    
+    var finder = new CKFinder();
+    finder.selectActionFunction = SetFileField;
+    $(".image_browser").bind("click", function(){ 
+        active = $(this).attr('rel');
+        finder.popup();
+    });       
+}); 
+<?php $this->headScript()->captureEnd(); ?>

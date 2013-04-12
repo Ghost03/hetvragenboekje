@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<script language="Javascript1.2"><!-- 
+_editor_url = "";                     
+var win_ie_ver = parseFloat(navigator.appVersion.split("MSIE")[1]);
+if (navigator.userAgent.indexOf('Mac')        >= 0) { win_ie_ver = 0; }
+if (navigator.userAgent.indexOf('Windows CE') >= 0) { win_ie_ver = 0; }
+if (navigator.userAgent.indexOf('Opera')      >= 0) { win_ie_ver = 0; }
+if (win_ie_ver >= 5.5) {
+  document.write('<scr' + 'ipt src="' +_editor_url+ 'editor.js"');
+  document.write(' language="Javascript1.2"></scr' + 'ipt>');  
+} else { document.write('<scr'+'ipt>function editor_generate() { return false; }</scr'+'ipt>'); }
+// --></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="paginabloktekst.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormoverzichtHeader-->
+   
+   <!--EndFormoverzichtHeader-->
+   <!--BeginFormoverzicht--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="3"><a name="overzicht"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formoverzicht_Sorting=1&Formoverzicht_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam NL</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formoverzicht_Sorting=2&Formoverzicht_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam UK</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListoverzicht-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{naam}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{naam_uk}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?tekst_id={Prmedit_tekst_id}&{TransitParams}"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListoverzicht--> 
+     <!--BeginoverzichtNoRecords-->
+     <tr><td colspan="3" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndoverzichtNoRecords--> 
+     <tr>
+      <td colspan="3" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Aanmaken</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BeginoverzichtNavigator-->
+        <a href{overzichtNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formoverzicht_Page={PrevPage}#overzicht"><font class="ColumnFONT">Vorige</font></a>
+        [ {overzichtCurrentPage} ]
+        <a href{overzichtNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formoverzicht_Page={NextPage}#overzicht"><font class="ColumnFONT">Volgende</font></a>
+        <!--EndoverzichtNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormoverzicht-->
+   <!--BeginFormoverzichtFooter-->
+   
+   <!--EndFormoverzichtFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormbloktekstHeader-->
+   
+   <!--EndFormbloktekstHeader-->
+   <!--BeginFormbloktekst-->
+   <form method="POST" action="{FileName}" name="bloktekst">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">Tekstblok {naam} aanpassen</font></td>
+     </tr>
+     <!--BeginbloktekstError-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{sbloktekstErr}</font></td>
+     </tr>
+     <!--EndbloktekstError-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Titel<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam" maxlength="50" value="{naam}" size="25"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Titel<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam_uk" maxlength="100" value="{naam_uk}" size="25"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Tekst<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><textarea name="tekst" cols="50" rows="6">{tekst}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Tekst<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><textarea name="tekst_uk" cols="50" rows="6">{tekst_uk}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BeginbloktekstInsert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Aanmaken" onclick="document.bloktekst.FormAction.value = 'insert';">
+      <!--EndbloktekstInsert-->
+      
+      <!--BeginbloktekstEdit-->
+      <input type="hidden" value="update" name="FormAction"/>
+      
+      <!--BeginbloktekstUpdate-->
+      <input type="submit" value="Opslaan" onclick="document.bloktekst.FormAction.value = 'update';"/>
+      <!--EndbloktekstUpdate-->
+      
+      <!--BeginbloktekstDelete-->
+      <input type="submit" value="Verwijderen" onclick="document.bloktekst.FormAction.value = 'delete';"/>
+      <!--EndbloktekstDelete-->
+      
+      <!--EndbloktekstEdit-->
+      
+      <!--BeginbloktekstCancel-->
+      <input type="submit" value="Annuleren" onclick="document.bloktekst.FormAction.value = 'cancel';"/>
+      <!--EndbloktekstCancel-->
+      
+      <input type="hidden" name="FormName" value="bloktekst"/>
+      
+      <input type="hidden" name="Trn_categories_id" value="{Trn_categories_id}"/>
+      <input type="hidden" name="Rqd_tekst_id" value="{Rqd_tekst_id}"/>
+      <input type="hidden" name="PK_tekst_id" value="{PK_tekst_id}"/>
+      <input type="hidden" name="tekst_id" value="{tekst_id}"/>
+      <input type="hidden" name="type" value="{type}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormbloktekst-->
+   <!--BeginFormbloktekstFooter-->
+   <script language="javascript1.2">
+editor_generate('tekst');
+</script>
+
+<script language="javascript1.2">
+editor_generate('tekst_uk');
+</script>
+
+<SCRIPT Language="JavaScript">
+if (document.forms["bloktekst"])
+document.bloktekst.onsubmit=delconf;
+function delconf() {
+if (document.bloktekst.FormAction.value == 'delete')
+  return confirm('Tekstblok verwijderen?');
+}
+</SCRIPT>
+   <!--EndFormbloktekstFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

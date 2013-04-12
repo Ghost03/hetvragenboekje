@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<script language="Javascript1.2"><!-- 
+_editor_url = "";                     
+var win_ie_ver = parseFloat(navigator.appVersion.split("MSIE")[1]);
+if (navigator.userAgent.indexOf('Mac')        >= 0) { win_ie_ver = 0; }
+if (navigator.userAgent.indexOf('Windows CE') >= 0) { win_ie_ver = 0; }
+if (navigator.userAgent.indexOf('Opera')      >= 0) { win_ie_ver = 0; }
+if (win_ie_ver >= 5.5) {
+  document.write('<scr' + 'ipt src="' +_editor_url+ 'editor.js"');
+  document.write(' language="Javascript1.2"></scr' + 'ipt>');  
+} else { document.write('<scr'+'ipt>function editor_generate() { return false; }</scr'+'ipt>'); }
+// --></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="paginatekst2.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtekstenHeader-->
+   
+   <!--EndFormtekstenHeader-->
+   <!--BeginFormteksten-->
+   <form method="POST" action="{FileName}" name="teksten">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <!--BegintekstenError-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{stekstenErr}</font></td>
+     </tr>
+     <!--EndtekstenError-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Pagina titel<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam" maxlength="50" value="{naam}" size="30"></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Pagina titel<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><input type="text" name="naam_uk" maxlength="100" value="{naam_uk}" size=""></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT"></font></td>
+      <td class="DataTD"><font class="DataFONT">{plaatjes}&nbsp;</font></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Tekst<br><b><font color=blue>Nederlands</font></b></font></td>
+      <td class="DataTD"><textarea name="tekst" cols="57" rows="8">{tekst}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Tekst<br><b><font color=red>Engels</font></b></font></td>
+      <td class="DataTD"><textarea name="tekst_uk" cols="57" rows="8">{tekst_uk}</textarea></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BegintekstenInsert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Opslaan" onclick="document.teksten.FormAction.value = 'insert';">
+      <!--EndtekstenInsert-->
+      
+      <!--BegintekstenCancel-->
+      <input type="submit" value="Annuleren" onclick="document.teksten.FormAction.value = 'cancel';"/>
+      <!--EndtekstenCancel-->
+      
+      <input type="hidden" name="FormName" value="teksten"/>
+      
+      <input type="hidden" name="Trn_categories_id" value="{Trn_categories_id}"/>
+      <input type="hidden" name="PK_tekst_id" value="{PK_tekst_id}"/>
+      <input type="hidden" name="tekst_id" value="{tekst_id}"/>
+      <input type="hidden" name="type" value="{type}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormteksten-->
+   <!--BeginFormtekstenFooter-->
+   <script language="javascript1.2">
+editor_generate('tekst');
+</script>
+
+<script language="javascript1.2">
+editor_generate('tekst_uk');
+</script>
+   <!--EndFormtekstenFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormcombinatieHeader-->
+   
+   <!--EndFormcombinatieHeader-->
+   <!--BeginFormcombinatie-->
+   <form method="POST" action="{FileName}" name="combinatie">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><font class="FormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <!--BegincombinatieError-->
+     <tr>
+      <td class="DataTD" colspan="2"><font class="DataFONT">{scombinatieErr}</font></td>
+     </tr>
+     <!--EndcombinatieError-->
+    
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Tekst</font></td>
+      <td class="DataTD"><select name="tekst_id"><!--BegincombinatieLBtekst_id--><option value="{ID}" {Selected}>{Value}</option><!--EndcombinatieLBtekst_id--></select></td>
+     </tr>
+     
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Pagina</font></td>
+      <td class="DataTD"><select name="categories_id"><!--BegincombinatieLBcategories_id--><option value="{ID}" {Selected}>{Value}</option><!--EndcombinatieLBcategories_id--></select></td>
+     </tr>
+     
+     <tr>
+      <td colspan="2" align="right">
+
+      <!-- ***   Buttons   *** -->
+      
+      <!--BegincombinatieInsert-->
+      <input type="hidden" value="insert" name="FormAction">
+      <input type="submit" value="Opslaan" onclick="document.combinatie.FormAction.value = 'insert';">
+      <!--EndcombinatieInsert-->
+      
+      <!--BegincombinatieCancel-->
+      <input type="submit" value="Annuleren" onclick="document.combinatie.FormAction.value = 'cancel';"/>
+      <!--EndcombinatieCancel-->
+      
+      <input type="hidden" name="FormName" value="combinatie"/>
+      
+      <input type="hidden" name="Trn_categories_id" value="{Trn_categories_id}"/>
+      <input type="hidden" name="PK_tekst_combi_id" value="{PK_tekst_combi_id}"/>
+      <input type="hidden" name="tekst_combi_id" value="{tekst_combi_id}"/>
+     </td>
+    </tr>
+   </table>
+  </form>
+<!--EndFormcombinatie-->
+   <!--BeginFormcombinatieFooter-->
+   
+   <!--EndFormcombinatieFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<div id="overview">
+
+	<h1><?php $x = (count( $this->results ) == 1) ? "resultaat": "resultaten"; echo count( $this->results ) . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+
+    <form action="zoeken" method="POST">
+
+        <input type="search" name="s" class="search-input" value="<?php echo $this->search; ?>" />
+        <input type="submit" id="hidden" name="submit" />
+
+    </form> 
+
+	<?php if($this->results): ?>
+
+  		<ul id="results-questions">
+  			
+  			<?php 
+  				$i = 0;
+  				foreach($this->results as $result):
+  					if (strlen($result['name']) <= 70) {
+					   $result['name'] = $result['name'];
+					} else {
+					   $result['name'] = substr($result['name'], 0, strpos(wordwrap($result['name'], 70), "\n")) . "...";
+					}
+  					echo '<li><a href="question/' . $result['url'] . '">' . str_ireplace( $this->search, "<span>" . $this->search . "</span>", $result['name'] ) . '</a></li>';
+  				endforeach;
+  			?>
+
+  		</ul>
+
+	  	<?php // if( count( $this->results ) > 10): ?>
+	  		<span id="loadmore" loaded="10">Meer vragen</span>
+	  	<?php // endif; ?>
+
+  	 <?php
+  		else:
+  	?>
+
+  		<h2 class="noresults">Helaas, geen vragen of antwoorden gevonden</h2>
+
+  	<?php endif; ?>
+
+</div>
+
+<script type="text/javascript">
+
+$(function() {
+    $('#loadmore').click(function() {
+    	
+    	var loaded = parseInt( $(this).attr('loaded') );
+    	var input = $(".search-input").val();
+
+	    	$.ajax({
+		        url:'zoeken-meer',
+		        type:'get',
+		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
+		        success: function (res) {
+		            var data = $.parseJSON(res);
+		            data.each(function() {
+		                $('#results-questions').append('<ul>' + this + '</ul>');
+		            });
+		            $('#loadmore').attr('loaded', loaded + 10);
+		        }
+	    	});
+	});
+});
+
+</script>

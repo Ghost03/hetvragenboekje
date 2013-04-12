@@ -1,0 +1,486 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Scouph CMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-09 13:32+0100\n"
+"PO-Revision-Date: 2012-01-09 13:38+0100\n"
+"Last-Translator: frank <fbroersen@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/Frank/Sites/scouph/private/cms\n"
+
+#: /Users/Frank/Sites/scouph/private/cms/controllers/ProductController.php:110
+msgid "The chosen url already exists in our database!"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:4
+msgid "Main image"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:5
+msgid "Thumbnail"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:6
+msgid "Zoom preview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:7
+msgid "Zoom large"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:9
+msgid "Extra image"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:10
+msgid "Add to cart popup"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:13
+msgid "Overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:14
+msgid "Add"
+msgstr "Create"
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:16
+msgid "Value is required and can't be empty"
+msgstr "Please enter a value"
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:18
+msgid "Monday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:19
+msgid "Tueday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:20
+msgid "Wednesday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:21
+msgid "Thursday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:22
+msgid "Friday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:23
+msgid "Saturday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/languages/mapping.php:24
+msgid "Sunday"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/layout.phtml:115
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/tree.phtml:15
+msgid "Delete"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/layout.phtml:116
+msgid "Confirm"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/layout.phtml:133
+msgid "You have made changes that have not been saved, are you sure you want to leave this page?"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/banner/edit.phtml:5
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:6
+msgid "Save"
+msgstr "Save"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:14
+msgid "General information"
+msgstr "General information"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:31
+msgid "Parent category"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:33
+msgid "This is a parent category, to change this parent, remove the child categories"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:36
+msgid "Image"
+msgstr "Image"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:38
+msgid "Browse"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:52
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/list.phtml:8
+msgid "Name"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/edit.phtml:56
+msgid "Url"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/list.phtml:2
+msgid "Category overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/category/tree.phtml:14
+msgid "Update"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/color/edit.phtml:31
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/color/list.phtml:14
+msgid "Color code"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/color/list.phtml:3
+msgid "Color overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/color/list.phtml:6
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/list.phtml:6
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/loundry/list.phtml:6
+msgid "Drag the elements in the order you like using the drag icon on the left, the new positions will be saved automatically."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:15
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:29
+msgid "Email address"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:19
+msgid "Registration date"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:21
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:26
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:31
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:60
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:61
+msgid "Never"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:24
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:49
+msgid "Last login"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:29
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:50
+msgid "Last order"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:36
+msgid "View Facebook profile"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:41
+#, fuzzy
+msgid "Update the customer information"
+msgstr "General information"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:49
+msgid "Login history"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:61
+#, fuzzy
+msgid "Whois information"
+msgstr "General information"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:67
+msgid "View the complete login history"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:81
+msgid "Addresses"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/detail.phtml:94
+msgid "Orders"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:13
+#, fuzzy
+msgid "Customer information"
+msgstr "General information"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:21
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:17
+msgid "Firstname"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:25
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:21
+msgid "Lastname"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:34
+msgid "Password"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:38
+msgid "Click here to edit the customers' password"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/edit.phtml:49
+msgid "Cancel"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:4
+msgid "Customers"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:10
+msgid "Search customers"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:14
+msgid "Enter atleast 1 of the fields below to search for a customer:"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:25
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:48
+msgid "Email"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:30
+msgid "Search"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:38
+msgid "Newest customers"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/customer/list.phtml:62
+msgid "Details"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:51
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/list.phtml:14
+msgid "Date start"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:55
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/list.phtml:15
+msgid "Date end"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:59
+msgid "Small image"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:63
+msgid "The size of the look image is 233 x 346"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:66
+msgid "Large image"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:70
+msgid "The size of the look image is 793 x 330"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:73
+msgid "Products"
+msgstr "Products"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:89
+msgid "-- Select a product to add --"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:95
+msgid "You can change the positions of the products bij dragging and dropping them."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/edit.phtml:96
+msgid "To remove a product, uncheck the checkbox in front of the product name and save the look."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/look/list.phtml:3
+msgid "Look overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/loundry/list.phtml:3
+msgid "Loundry overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/oud/category/edit.phtml:43
+msgid "Title"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/oud/category/edit.phtml:47
+msgid "Description"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/oud/category/edit.phtml:52
+msgid "Keywords"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/oud/category/edit.phtml:56
+msgid "Keywords extra"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/oud/category/edit.phtml:61
+msgid "Content"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/page/edit.phtml:30
+msgid "Parent page"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/page/list.phtml:2
+msgid "Page overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:35
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:19
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:13
+#, fuzzy
+msgid "Product information"
+msgstr "General information"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:37
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:20
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:14
+msgid "Product quantity"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:38
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:21
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:15
+msgid "Product images"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:48
+msgid "Style code"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:55
+msgid "Select an existing style code"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:64
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/tag/edit.phtml:50
+msgid "Category"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:68
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:11
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:29
+msgid "Color"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:72
+msgid "Product tags"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:89
+msgid "-- Select a tag to add --"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:95
+msgid "To remove a tag, uncheck the checkbox in front of the tag name."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:109
+#, fuzzy
+msgid "Sale information"
+msgstr "General information"
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:117
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:13
+msgid "Sale start"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:121
+msgid "Sale end"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:126
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:31
+msgid "Base price"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/edit.phtml:164
+msgid "This url already exists in our database."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:3
+msgid "Product images, "
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:9
+msgid "Delete image"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:84
+msgid "Image files"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:124
+msgid "Are you sure you want to delete this image?"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/images.phtml:132
+msgid "An error occured. Contact the system administrator."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:3
+msgid "Product overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:10
+msgid "Style"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:14
+msgid "Sale stop"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:30
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:33
+msgid "Quantity"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/list.phtml:31
+msgid "Images"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:3
+msgid "Product quantity, "
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:30
+msgid "Size"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/product/quantity.phtml:32
+msgid "Price"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/size/list.phtml:3
+msgid "Size overview"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/tag/edit.phtml:62
+msgid "Add a product"
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/tag/edit.phtml:84
+msgid "To remove a product, uncheck the checkbox in front of the product name."
+msgstr ""
+
+#: /Users/Frank/Sites/scouph/private/cms/views/scripts/tag/list.phtml:3
+msgid "Tag overview"
+msgstr ""
+

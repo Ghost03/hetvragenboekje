@@ -1,0 +1,39 @@
+<?php 
+    $db = Zend_Registry::get('db');
+
+    foreach($this->questions as $question): 
+
+    $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
+    $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+    $tags = explode(';', $question['tags']);
+
+    $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
+    $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
+
+    foreach($question_ratings as $question_rating)
+        $question_rating = $question_rating['total'] / $question_rating['votes'];
+
+?>
+    <div class="question">
+
+        <a class="answers" href="question/<?php echo sanitize($question['name']); ?>"><?php echo (int) $answers ?></a>
+
+        <a id="category" href="categorieen/<?php echo $category['url']; ?>"><?php echo $category['name']; ?></a>
+
+        <span class="stars"><?php if($question_rating): echo $question_rating; else: echo '0'; endif; ?></span>
+
+        <a class="print" href="#">&nbsp;</a>
+
+        <a class="q" href="question/<?php echo sanitize($question['name']); ?>"><?php echo $question['name']; ?></a>
+
+        <span class="user"><a href="question/<?php echo sanitize($question['name']); ?>"><?php echo $user; ?></a> vraagt..</span>
+
+        <div class="tags">
+
+            <?php foreach($tags as $tag) echo '<span>' . $tag . '</span>'; ?>
+
+        </div>
+
+    </div>
+
+<?php endforeach; ?>

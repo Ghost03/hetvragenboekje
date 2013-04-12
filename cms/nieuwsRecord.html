@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>CMS</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="nieuwsRecord.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   <!--BeginFormSearchHeader-->
+   
+   <!--EndFormSearchHeader-->
+   <!--BeginFormSearch--><form method="GET" action="{ActionPage}" name="Search">
+    <input type="hidden" name="FormName" value="Search"><input type="hidden" name="FormAction" value="search">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD"  colspan="5"><a name="Search"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Titel</font></td>
+      <td class="DataTD"><input type="text" name="s_titel" maxlength="100" value="{s_titel}" size="20"></td>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Datum</font></td>
+      <td class="DataTD"><input type="text" name="s_datum" maxlength="10" value="{s_datum}" size="10"></td>
+      <td><input type="submit" value="Zoek"></td>
+     </tr>
+    </table>
+    </form><!--EndFormSearch-->
+   <!--BeginFormSearchFooter-->
+   
+   <!--EndFormSearchFooter-->
+   <!--BeginFormnieuwsHeader-->
+   
+   <!--EndFormnieuwsHeader-->
+   <!--BeginFormnieuws--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="5"><a name="nieuws"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formnieuws_Sorting=1&Formnieuws_Sorted={Form_Sorting}&"><font class="ColumnFONT">Titel NL</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formnieuws_Sorting=2&Formnieuws_Sorted={Form_Sorting}&"><font class="ColumnFONT">Titel UK</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formnieuws_Sorting=3&Formnieuws_Sorted={Form_Sorting}&"><font class="ColumnFONT">Datum</font></a></td>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}Formnieuws_Sorting=4&Formnieuws_Sorted={Form_Sorting}&"><font class="ColumnFONT">Business Units</font></a></td>
+       <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListnieuws-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{titel}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{titel_uk}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{datum}&nbsp;</font></td>
+      <td class="DataTD"><font class="DataFONT">{categories_id}&nbsp;</font></td>
+      <td class="DataTD"><a href="{edit_URLLink}?nieuws_id={Prmedit_nieuws_id}&{TransitParams}"><font class="DataFONT">{edit}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListnieuws--> 
+     <!--BeginnieuwsNoRecords-->
+     <tr><td colspan="5" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndnieuwsNoRecords--> 
+     <tr>
+      <td colspan="5" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Aanmaken</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BeginnieuwsNavigator-->
+        <a href{nieuwsNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formnieuws_Page=1#nieuws"><font class="ColumnFONT">Eerste</font></a>
+        <a href{nieuwsNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formnieuws_Page={PrevPage}#nieuws"><font class="ColumnFONT">Vorige</font></a>
+        [ <!--BeginnieuwsNavigatorPages--><a href{NavigatorPageSwitch}="{FileName}?{FormParams}{SortParams}Formnieuws_Page={NavigatorPageNumber}#nieuws"><font class="ColumnFONT">{NavigatorPageNumberView}</font></a>&nbsp;<!--EndnieuwsNavigatorPages-->of {nieuwsPageCount} ]
+        <a href{nieuwsNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formnieuws_Page={NextPage}#nieuws"><font class="ColumnFONT">Volgende</font></a>
+        <a href{nieuwsNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formnieuws_Page=last#nieuws"><font class="ColumnFONT">Laatste</font></a>
+        <!--EndnieuwsNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormnieuws-->
+   <!--BeginFormnieuwsFooter-->
+   
+   <!--EndFormnieuwsFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

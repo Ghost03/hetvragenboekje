@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>Content Management System</title>
+<meta name="GENERATOR" content="YesSoftware CodeCharge v.2.0.5 / Templates.ccp build 11/01/2001">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><link rel="stylesheet" href="Site.css" type="text/css">
+<link rel="stylesheet" href="Productgroepen.css" type="text/css">
+<link rel="stylesheet" href="Header.css" type="text/css"></head>
+<body class="PageBODY">
+{Header}
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormtitelHeader-->
+   
+   <!--EndFormtitelHeader-->
+   <!--BeginFormtitel--><table class="titelFormTABLE">
+     <tr>
+      <td colspan="0"  class="titelFormHeaderTD"><font class="titelFormHeaderFONT">{FormTitle}</font></td>
+     </tr>
+     <tr><td class="titelDataTD"></td>
+     </tr>
+    </table><!--EndFormtitel-->
+   <!--BeginFormtitelFooter-->
+   <BR>
+   <!--EndFormtitelFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormzoekenHeader-->
+   
+   <!--EndFormzoekenHeader-->
+   <!--BeginFormzoeken--><form method="GET" action="{ActionPage}" name="zoeken">
+    <input type="hidden" name="FormName" value="zoeken"><input type="hidden" name="FormAction" value="search">
+    <table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><a name="zoeken"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+      <td class="FieldCaptionTD"><font class="FieldCaptionFONT">Naam</font></td>
+      <td class="DataTD"><input type="text" name="s_naam" maxlength="50" value="{s_naam}" size="25"></td>
+     </tr>
+     <tr>
+      <td align="right" colspan="3"><input type="submit" value="Zoeken"></td>
+     </tr>
+    </table>
+    </form><!--EndFormzoeken-->
+   <!--BeginFormzoekenFooter-->
+   
+   <!--EndFormzoekenFooter-->
+   </td>
+  </tr>
+ </table>
+ <table>
+  <tr>
+   <td valign="top">
+   <!--BeginFormZoekresultatenHeader-->
+   
+   <!--EndFormZoekresultatenHeader-->
+   <!--BeginFormZoekresultaten--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="1"><a name="Zoekresultaten"><font class="FormHeaderFONT">{FormTitle}</font></a></td>
+     </tr>
+     <tr>
+       <td class="ColumnTD"><a href="{FileName}?{FormParams}FormZoekresultaten_Sorting=1&FormZoekresultaten_Sorted={Form_Sorting}&"><font class="ColumnFONT">Naam klant</font></a></td>
+     </tr>
+     <!--BeginDListZoekresultaten-->
+     <tr>
+      <td class="DataTD"><a href="{naam_URLLink}?login_id={Prmnaam_login_id}&{TransitParams}"><font class="DataFONT">{naam}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListZoekresultaten--> 
+     <!--BeginZoekresultatenNoRecords-->
+     <tr><td colspan="1" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndZoekresultatenNoRecords--> 
+     <!--BeginZoekresultatenNavigator-->
+     <tr>
+      <td colspan="1" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href{ZoekresultatenNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}FormZoekresultaten_Page={PrevPage}#Zoekresultaten"><font class="ColumnFONT">Vorige</font></a>
+        [ {ZoekresultatenCurrentPage} ]
+        <a href{ZoekresultatenNavigatorLastPage}="{FileName}?{FormParams}{SortParams}FormZoekresultaten_Page={NextPage}#Zoekresultaten"><font class="ColumnFONT">Volgende</font></a>
+       </font>
+      </td>
+     </tr>
+    <!--EndZoekresultatenNavigator-->
+    </table>
+   <!--EndFormZoekresultaten-->
+   <!--BeginFormZoekresultatenFooter-->
+   
+   <!--EndFormZoekresultatenFooter-->
+   </td>
+   <td valign="top">
+   <!--BeginFormvariabeleHeader-->
+   
+   <!--EndFormvariabeleHeader-->
+   <!--BeginFormvariabele--><table class="FormTABLE">
+     <tr>
+     </tr>
+     <!--BeginDListvariabele-->
+     <tr>
+     </tr>
+     <!--EndDListvariabele--> 
+     <!--BeginvariabeleNoRecords-->
+     <tr><td colspan="0" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndvariabeleNoRecords--> 
+    </table>
+   <!--EndFormvariabele-->
+   <!--BeginFormvariabeleFooter-->
+   
+   <!--EndFormvariabeleFooter-->
+   </td>
+   <td valign="top">
+   <!--BeginFormgroepenHeader-->
+   
+   <!--EndFormgroepenHeader-->
+   <!--BeginFormgroepen--><table class="FormTABLE">
+     <tr>
+      <td class="FormHeaderTD" colspan="2"><a name="groepen"><font class="FormHeaderFONT">Productgroepen {naam}</font></a></td>
+     </tr>
+     <tr>
+      <td class="ColumnTD"><font class="ColumnFONT">Productgroepen</font></td>
+      <td class="ColumnTD"><font class="ColumnFONT"></font></td>
+     </tr>
+     <!--BeginDListgroepen-->
+     <tr>
+      <td class="DataTD"><font class="DataFONT">{productgroep_id}&nbsp;</font></td>
+      <td class="DataTD"><a href="{verwijderen_URLLink}?klant_combi_id={Prmverwijderen_klant_combi_id}&{TransitParams}"><font class="DataFONT">{verwijderen}</font></a>&nbsp;</td>
+     </tr>
+     <!--EndDListgroepen--> 
+     <!--BegingroepenNoRecords-->
+     <tr><td colspan="2" class="DataTD"><font class="DataFONT">No records</font></td></tr>
+     <!--EndgroepenNoRecords--> 
+     <tr>
+      <td colspan="2" class="ColumnTD">
+       <font class="ColumnFONT">
+       
+        <a href="{FormAction}?{TransitParams}"><font class="ColumnFONT">Productgroep toevoegen</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--BegingroepenNavigator-->
+        <a href{groepenNavigatorFirstPage}="{FileName}?{FormParams}{SortParams}Formgroepen_Page={PrevPage}#groepen"><font class="ColumnFONT">Vorige</font></a>
+        [ {groepenCurrentPage} ]
+        <a href{groepenNavigatorLastPage}="{FileName}?{FormParams}{SortParams}Formgroepen_Page={NextPage}#groepen"><font class="ColumnFONT">Volgende</font></a>
+        <!--EndgroepenNavigator-->
+       </font>
+      </td>
+     </tr>
+    </table>
+   <!--EndFormgroepen-->
+   <!--BeginFormgroepenFooter-->
+   
+   <!--EndFormgroepenFooter-->
+   </td>
+  </tr>
+ </table>
+
+
+{Footer}
+
+</body>
+</html>

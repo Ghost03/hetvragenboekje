@@ -1,0 +1,110 @@
+<?php
+$this->layout()->title = $this->translate('Page overview');
+?>
+<section class=categories>
+    
+    <table>
+        <thead>
+            <tr>
+                <th width="50">&nbsp;
+                <th><?php echo $this->translate('Algemene pagina\'s');?>
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+        </thead>
+        <tbody>
+            <?php 
+            $items = $this->items;
+            $parent_id = false;
+            foreach($items as $i => $item): 
+                if($item['footer']) continue;
+                if($item['page_id']) continue; 
+                $parent_id = $item['id']; ?>
+             <tr class="element" data-id="<?php echo $item['id']; ?>">
+                <td><img src="resources/images/drag.png"><?php if($item['redirect']):?><a title="<?php echo $this->translate('This is a redirect');?>" alt="<?php echo $this->translate('This is a redirect');?>" class="icon pull-right icon-share"></a><?php endif;?></td>
+                <td><?php if($item['page_id']) echo '- '; ?> <?php echo $item['name']; ?></td>
+                <td><?php if($item['noindex']) echo 'noindex'; ?></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])) ?>"><?php echo $this->translate('Update');?></a></td>
+                <td class=delete><a href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])) ?>"><?php echo $this->translate('Delete');?></a></td>
+            </tr>
+            <?php 
+                $parent = $item['url'];
+                foreach($items as $i => $item): if($item['page_id'] != $parent_id) continue; ?>
+                 <tr class="element" data-id="<?php echo $item['id']; ?>">
+                    <td><img src="resources/images/drag.png"></td>
+                    <td>- <?php echo $item['name']; ?></td>
+                    <td><?php if($item['noindex']) echo 'noindex'; ?></td>
+                    <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])) ?>"><?php echo $this->translate('Update');?></a></td>
+                    <td class=delete><a href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])) ?>"><?php echo $this->translate('Delete');?></a></td>
+                </tr>
+                <?php 
+                endforeach;
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+    
+    <table>
+        <thead>
+            <tr>
+                <th width="50">&nbsp;
+                <th><?php echo $this->translate('Footer pagina\'s');?>
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+        </thead>
+        <tbody>
+            <?php
+            $parent_id = false;
+            foreach($items as $i => $item): 
+                if(!$item['footer']) continue;
+                if($item['page_id']) continue; 
+                $parent_id = $item['id']; ?>
+             <tr class="element" data-id="<?php echo $item['id']; ?>">
+                <td><img src="resources/images/drag.png"><?php if($item['redirect']):?><a title="<?php echo $this->translate('This is a redirect');?>" alt="<?php echo $this->translate('This is a redirect');?>" class="icon pull-right icon-share"></a><?php endif;?></td>
+                <td><?php if($item['page_id']) echo '- '; ?> <?php echo $item['name']; ?></td>
+                <td><?php if($item['noindex']) echo 'noindex'; ?></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])) ?>"><?php echo $this->translate('Update');?></a></td>
+                <td class=delete><a href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])) ?>"><?php echo $this->translate('Delete');?></a></td>
+            </tr>
+            <?php 
+                $parent = $item['url'];
+                foreach($items as $i => $item): if($item['page_id'] != $parent_id) continue; ?>
+                 <tr class="element" data-id="<?php echo $item['id']; ?>">
+                    <td><img src="resources/images/drag.png"></td>
+                    <td>- <?php echo $item['name']; ?></td>
+                    <td><?php if($item['noindex']) echo 'noindex'; ?></td>
+                    <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])) ?>"><?php echo $this->translate('Update');?></a></td>
+                    <td class=delete><a href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])) ?>"><?php echo $this->translate('Delete');?></a></td>
+                </tr>
+                <?php 
+                endforeach;
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</section>
+
+
+<?php $this->headScript()->captureStart() ?>
+
+$('table tbody').sortable({
+stop: function(e, ui) {
+    var ids = [], i = 0;
+    $('.element').each(function(){
+        ids[i] = $(this).attr('data-id');
+        i++;
+    });
+    $.post(<?php echo json_encode($this->url()) ?>, {
+        ids: ids.join(',')
+    });
+    updateRows();
+}});
+$('table tbody').disableSelection();
+
+function updateRows(){
+    $('.alt-row').removeClass("alt-row");
+    $('tbody tr:even').addClass("alt-row");
+}
+
+<?php $this->headScript()->captureEnd() ?>

@@ -1,0 +1,55 @@
+<?php
+$this->layout()->title = $this->translate('Products overview');
+$db = Zend_Registry::get('db');
+?>
+<section class=categories>
+    <table>
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Title');?>
+                <th width="90">&nbsp;
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+        </thead>
+        <tbody>
+        <?php 
+           
+            $items = $this->items;
+
+            foreach($items as $i => $item)
+            {
+                // Get headcategory
+                $q = $db->prepare('SELECT cl.name FROM product_language AS pl
+                                   LEFT JOIN product AS p ON pl.product_id = p.id 
+                                   LEFT JOIN category AS c ON p.category_id = c.id 
+                                   LEFT JOIN category_language AS cl ON c.parent_id = cl.category_id
+                                   WHERE pl.product_id = :product_id');
+                $q->bindValue(':product_id', $item['id']);
+                $q->execute();
+                $head_category = $q->fetch(PDO::FETCH_ASSOC);
+
+                // Get subcategory
+                $q = $db->prepare('SELECT cl.name FROM product_language AS pl 
+                                   LEFT JOIN product AS p ON pl.product_id = p.id 
+                                   LEFT JOIN category_language AS cl ON p.category_id = cl.category_id
+                                   WHERE pl.product_id = :product_id');
+                $q->bindValue(':product_id', $item['id']);
+                $q->execute();
+                $sub_category = $q->fetch(PDO::FETCH_ASSOC);
+
+                $menu .= '<tr><td style="text-transform: capitalize;"><b>' . $head_category['name'] . '</b> - ' . $sub_category['name'] . ' - '. $item['name'] . ' - ' . $item['color_index'] . '</td><td></td>
+                <td><a href="' . $this->url(array('action' => 'edit', 'id' => $item['id'])) . '">' . $this->translate('Update') . '</a></td>
+                <td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $item['id'])) . '">' . $this->translate('Delete') . '</a>
+                </td></tr>';
+            }
+
+            echo $menu;
+
+        ?>
+            </tr>
+            <?php
+            //endforeach;
+            ?>
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,28 @@
+<?php
+$menu = require_once APP_PATH . 'menu.php';
+
+$request    = Zend_Controller_Front::getInstance()->getRequest();
+$controller = isset( $this->layout()->controller ) ? $this->layout()->controller : $request->getControllerName();
+$action     = isset( $this->layout()->action ) ? $this->layout()->action : $request->getActionName();
+?>
+<ul id="main-nav">
+    <?php foreach( $menu as $url => $item ):?>
+    <?php if($item == 'spacer'):?>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+    <?php continue; endif;?>
+    <li>
+            <a href="<?php echo $url;?>/list" class="nav-top-item<?php if( $url == $controller ):?> current<?php endif; if( !isset( $item['items'] ) ) echo ' no-submenu'; ?>"><?php echo $this->translate($item['name']);?></a>
+            <?php if( !isset( $item['items'] ) ) continue; ?>
+            <ul><?php foreach( $item['items'] as $sub_url => $sub_name ):?>
+        <li>
+            <?php if(is_array($sub_name)): $label = $sub_name['label']; unset($sub_name['label']); ?>
+            <a href="<?php echo $this->url($sub_name, 'default') ?>"><?php echo $this->translate($label) ?></a>
+            <?php else:?>
+            <a<?php if( $url == $controller && $sub_url == $action ):?> class=current<?php endif;?> href="<?php echo $url?>/<?php echo $sub_url;?>"><?php echo $this->translate($sub_name);?></a>
+            <?php endif ?>
+
+            <?php endforeach;?></ul>
+    </li>
+    <?php endforeach;?>
+</ul>

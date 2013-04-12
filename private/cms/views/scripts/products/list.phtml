@@ -1,0 +1,81 @@
+<?php
+$this->layout()->title = $this->translate('Products overview');
+$db = Zend_Registry::get('db');
+?>
+<section class=categories>
+    <table>
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Title');?>
+                <th width="90">Active
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+        </thead>
+        <tbody>
+            <?php 
+            $items = $this->items;
+            //foreach($items as $i => $item):
+            ?>
+            <?php 
+            foreach($items as $i => $item) {
+                
+                if($item['active'] == 1) { 
+                    $menu.='<tr><td>' . $item['menu_title'] . '</td><td><a href="products/active/language/1/id/'. $item['id'] .'">Make inactive</a></td>
+                    <td><a href="' . $this->url(array('action' => 'edit', 'id' => $item['id'])) . '">' . $this->translate('Update') . '</a></td>
+                    <td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $item['id'])) . '">' . $this->translate('Delete') . '</a>
+                    </td></tr>'; 
+                }
+                else { 
+                    $menu.= '<tr><td>' . $item['menu_title'] . '</td><td><a href="products/active/language/1/id/'. $item['id'] .'">Make active</a></td><td><a href="' . $this->url(array('action' => 'edit', 'id' => $item['id'])) . '">' . $this->translate('Update') . '</a></td>
+                    <td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $item['id'])) . '">' . $this->translate('Delete') . '</a>
+                    </td></tr>'; 
+                };
+
+                $q = $db->prepare('SELECT * FROM products WHERE parent_id = :parent_id');
+                $q->bindValue(':parent_id', $item['id']);
+                $q->execute();
+                $submenu_items = $q->fetchAll(PDO::FETCH_ASSOC);
+
+                $rowCount = count($submenu_items);
+
+                if($rowCount > 0) {
+                    foreach($submenu_items as $i => $submenu_item) {
+                       
+                        if($item['active'] == 1) { 
+                            $menu.='<tr><td style="padding: 0 0 0 20px;">- ' . $submenu_item['menu_title'] . '</td><td><a href="products/active/language/1/id/'. $submenu_item['id'] .'">Make inactive</a></td><td><a href="' . $this->url(array('action' => 'edit', 'id' => $submenu_item['id'])) . '">' . $this->translate('Update') . '</a></td><td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $submenu_item['id'])) . '">' . $this->translate('Delete') . '</a>
+                                </td></tr>'; 
+                        }
+                        else { 
+                            $menu.= '<tr><td style="padding: 0 0 0 20px;">- ' . $submenu_item['menu_title'] . '</td><td><a href="products/active/language/1/id/'. $submenu_item['id'] .'">Make active</a></td><td><a href="' . $this->url(array('action' => 'edit', 'id' => $submenu_item['id'])) . '">' . $this->translate('Update') . '</a></td><td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $submenu_item['id'])) . '">' . $this->translate('Delete') . '</a>
+                                </td></tr>'; 
+                        }
+
+                        $q = $db->prepare('SELECT * FROM products WHERE parent_parent_id = :parent_id AND parent_id = :id');
+                        $q->bindValue(':parent_id', $submenu_item['parent_id']);
+                        $q->bindValue(':id', $submenu_item['id']);
+                        $q->execute();
+                        $subsubmenu_items = $q->fetchAll(PDO::FETCH_ASSOC);
+
+                        foreach($subsubmenu_items as $i => $subsubmenu_item) {
+                         
+                            if($item['active'] == 1) { 
+                                $menu.='<tr><td style="padding: 0 0 0 40px;">- ' . $subsubmenu_item['pigment_type'] . '</td><td><a href="products/active/language/1/id/'. $subsubmenu_item['id'] .'">Make inactive</a></td><td><a href="' . $this->url(array('action' => 'edit', 'id' => $subsubmenu_item['id'])) . '">' . $this->translate('Update') . '</a></td><td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $subsubmenu_item['id'])) . '">' . $this->translate('Delete') . '</a>
+                                    </td></tr>'; 
+                            }
+                            else { 
+                                $menu.= '<tr><td style="padding: 0 0 0 40px;">- ' . $subsubmenu_item['pigment_type'] . '</td><td><a href="products/active/language/1/id/'. $subsubmenu_item['id'] .'">Make active</a></td><td><a href="' . $this->url(array('action' => 'edit', 'id' => $subsubmenu_item['id'])) . '">' . $this->translate('Update') . '</a></td><td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $subsubmenu_item['id'])) . '">' . $this->translate('Delete') . '</a>
+                                    </td></tr>'; 
+                            }   
+                        }
+                    }
+                }
+            }
+            echo $menu;
+            ?>
+            </tr>
+            <?php
+            //endforeach;
+            ?>
+        </tbody>
+    </table>
+</section>

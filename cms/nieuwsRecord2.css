@@ -1,0 +1,20 @@
+.nieuwsFormTABLE {border: 1px solid #C0C0C0} 
+.nieuwsFormHeaderTD {text-align: Center; background-color: #0053C0; border: 1px solid #C0C0C0} 
+.nieuwsFormHeaderFONT {font-size: 12pt; color: #FFFFFF; font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.nieuwsFieldCaptionTD {background-color: #6999C1} 
+.nieuwsFieldCaptionFONT {; color: #000000; font-size: 10pt; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.nieuwsDataTD {background-color: #EEEEEE} 
+.nieuwsDataFONT {font-size: 10pt; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.nieuwsColumnTD {background-color: #6999C1} 
+.nieuwsColumnFONT {color: #000000; font-size: 10pt; font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.nieuwsRecordSeparatorTD {background-color: #DDE4F0} 
+.titelFormTABLE {} 
+.titelFormHeaderTD {border: 0px solid} 
+.titelFormHeaderFONT {color: #000000; font-size: 11pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.titelFieldCaptionTD {} 
+.titelFieldCaptionFONT {} 
+.titelDataTD {} 
+.titelDataFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.titelColumnTD {} 
+.titelColumnFONT {} 
+.titelRecordSeparatorTD {}

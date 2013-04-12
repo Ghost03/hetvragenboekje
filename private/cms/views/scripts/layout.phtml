@@ -1,0 +1,143 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="nl" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="nl" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="nl" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="nl" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=UTF-8>
+    <meta http-equiv=X-UA-Compatibile content="IE=edge,chrome=1">
+    <?php
+        $title = $this->layout()->title;
+        if($title) {
+            $this->headTitle($title);
+        }
+        $this->headTitle()->setSeparator(' - ');
+        echo $this->headTitle();
+
+	$config = Zend_Registry::get('config');
+    ?>
+	<base href="<?php echo $config->baseurl; ?>cms/">
+        <meta name=description content="">
+        <meta name=author content="">
+        <meta name="robots" content="noindex, nofollow">
+	<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="resources/cupertino/jquery-ui-1.8.13.custom.css" type="text/css" media="screen" />
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../assets/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+	<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+	<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+        <script src=http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js></script>
+	<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<?php
+$request = Zend_Controller_Front::getInstance()->getRequest();
+$isHome = $request->getControllerName() == 'dashboard';
+$action = $request->getActionName();
+?>
+<?php echo $this->headStyle() ?>
+</head>
+<body><div id="body-wrapper">
+            <div id="sidebar">
+                <div id="sidebar-wrapper">
+                    <h1 id="sidebar-title"><a href="dashboard/home"></a></h1>
+                    <a style="font-size: 22px; color: white; display: block; margin: 20px 0 !important; width: 230px; text-align: center;" href="dashboard/home">IOSS League CMS</a>
+                    <?php if($action != 'login'): ?>
+                        <?php echo $this->partial('cms/menu.phtml') ?>
+                    <div id=profile-links>
+                    <br/>
+                    <a href="user/logout">Uitloggen</a>                    
+                    </div>
+                    <?php endif ?>
+                </div>
+            </div> 
+        
+            <div id="main-content"> 
+                <noscript>
+                        <div class="notification error png_bg"><div>
+                        Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+                        </div></div>
+                </noscript>
+
+                <?php echo $this->partial('cms/message.phtml');?>
+
+                <?php if( $isHome || isset( $this->layout()->noBox ) ): ?>
+                    <?php echo $this->layout()->content; ?>
+                <?php else:?>
+                <div class="content-box">
+                    <div class="content-box-header">
+                        <h3><?php echo $title;?></h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="content-box-content">
+                        <div class="tab-content default-tab" id="ajax">
+                            <?php echo $this->layout()->content ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endif;?>
+                <br/><br/>
+            </div>
+	</div>
+
+<?php
+if($action != 'login'):
+    $this->headScript()->appendFile('ckeditor/ckeditor.js')
+                       ->appendFile('ckfinder/ckfinder.js')
+                       ->appendFile('ckeditor/adapters/jquery.js');
+
+    $this->headScript()->captureStart();
+
+    ?>
+
+    $('.ck').each(function(){
+        var editor = CKEDITOR.replace( $(this).attr('id'),{});
+        CKFinder.setupCKEditor( editor, '<?php echo $config->baseurl;?>cms/ckfinder/' ) ;
+    });
+
+    $('.date-input').datepicker({
+        "dateFormat" : 'yy-mm-dd'
+    });
+
+    $('.delete a').click(function(){ 
+        if($(this).html() != '<?php echo $this->translate('Delete');?>') return true;
+        $(this).addClass('red').html('<?php echo $this->translate('Confirm');?>');
+        return false;
+    });
+
+    var dirty = false;
+    $('input,textarea').each(function(){
+       $(this).change(function(){
+           dirty = true;
+       }) 
+    });
+
+    $('.button').click(function(){
+        dirty = false;
+    });
+
+    function navigate()
+    {
+        if(dirty) return '<?php echo $this->translate('You have made changes that have not been saved, are you sure you want to leave this page?');?>';
+    }
+    window.onbeforeunload = navigate;
+
+    setInterval(function(){
+        $.get('<?php echo $config->baseurl;?>cms/dashboard/ping',function(data){
+            if(typeof console != 'undefined' && typeof console.log != 'undefined') console.log(data);            
+        });
+    },60000);
+    
+    <?php $this->headScript()->captureEnd() ?>
+
+<?php endif;
+echo $this->headScript() ?>
+</body>

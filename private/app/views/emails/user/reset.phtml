@@ -1,0 +1,9 @@
+
+<?php echo strtr($this->translate('Dear :firstname'),array(':firstname'=>$this->customer['firstname']));?>,<br/>
+<br/>
+<?php echo $this->translate('You have requested a new password on 5minuten.tv.');?><br/>
+<br/>
+<?php echo $this->translate('To reset your password, click the link below:');?><br/>
+<a href="<?php echo $this->link;?>"><?php echo $this->link;?></a><br/><br/>
+<br/>
+5Minuten.tv

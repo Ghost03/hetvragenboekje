@@ -1,0 +1,61 @@
+<?php
+$this->layout()->title = $this->translate('Categories overview');
+$db = Zend_Registry::get('db');
+$request = Zend_Controller_Front::getInstance()->getRequest();
+?>
+<section class=categories>
+    <table>
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Title');?>
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+                <th width="50">&nbsp;
+        </thead>
+        <tbody>
+            <?php 
+            
+            $items = $this->items;
+            
+            foreach($items as $i => $item)
+            {
+                if($item['parent_id'] == 0)
+                {
+                    $menu .= '<tr><td>' . $item['name'] . '</td><td></td>
+                    <td><a href="' . $this->url(array('action' => 'edit', 'id' => $item['id'])) . '">' . $this->translate('Update') . '</a></td>
+                    <td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $item['id'])) . '">' . $this->translate('Delete') . '</a>
+                    </td></tr>';
+
+                    $q = $db->prepare('SELECT * FROM category_language AS cl 
+                                       LEFT JOIN category AS c
+                                       ON cl.category_id = c.id
+                                       WHERE cl.language_id = :language_id');
+                    $q->bindValue(':language_id', $request->language);
+                    $q->execute();
+                    $subpages = $q->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    $rowCount = count($subpages);
+                    if($rowCount > 0) {
+                        foreach($subpages as $i => $subpage)
+                        {
+                            if($subpage['parent_id'] == $item['id'])
+                            { 
+                             $menu.='<tr><td style="padding: 0 0 0 20px;">- ' . $subpage['name'] . '</td><td></td><td><a href="' . $this->url(array('action' => 'edit', 'id' => $subpage['id'])) . '">' . $this->translate('Update') . '</a></td><td class=delete><a href="' . $this->url(array('action' => 'delete', 'id' => $subpage['id'])) . '">' . $this->translate('Delete') . '</a>
+                                 </td></tr>';  
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            echo $menu;
+
+            ?>
+            </tr>
+            <?php
+            //endforeach;
+            ?>
+        </tbody>
+    </table>
+</section>

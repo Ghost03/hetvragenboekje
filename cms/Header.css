@@ -1,0 +1,11 @@
+.HeaderPageBODY {background-color: #F1F1F1; color: #000000}
+.HeaderFormTABLE {} 
+.HeaderFormHeaderTD {border: 0px solid} 
+.HeaderFormHeaderFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.HeaderFieldCaptionTD {} 
+.HeaderFieldCaptionFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.HeaderDataTD {} 
+.HeaderDataFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.HeaderColumnTD {} 
+.HeaderColumnFONT {color: #000000; font-size: 10pt;  font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica} 
+.HeaderRecordSeparatorTD {}

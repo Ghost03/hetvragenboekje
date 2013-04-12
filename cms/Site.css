@@ -1,0 +1,11 @@
+.PageBODY {background-color: #EEEEEE; color: #000000}
+.FormTABLE {border: 1px solid #C0C0C0}
+.FormHeaderTD {text-align: Center; background-color: #0053C0; border: 1px solid #C0C0C0}
+.FormHeaderFONT {font-size: 12pt; color: #FFFFFF; font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica}
+.FieldCaptionTD {background-color: #6999C1}
+.FieldCaptionFONT {; color: #000000; font-size: 10pt; font-family: Arial, Tahoma, Verdana, Helvetica}
+.DataTD {background-color: #EEEEEE}
+.RecordSeparatorTD {background-color: #DDE4F0}
+.DataFONT {font-size: 10pt; font-family: Arial, Tahoma, Verdana, Helvetica}
+.ColumnFONT {color: #000000; font-size: 10pt; font-weight: bold; font-family: Arial, Tahoma, Verdana, Helvetica}
+.ColumnTD {background-color: #6999C1}
