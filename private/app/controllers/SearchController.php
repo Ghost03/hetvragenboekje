@@ -41,7 +41,7 @@ class SearchController extends AppController {
     	
             $search = trim($_POST['s']);
 
-        	$results = $db->fetchAll('SELECT * FROM questions WHERE name LIKE ?', '%' . $search . '%');
+        	$results = $db->fetchAll('SELECT * FROM questions WHERE name LIKE ? LIMIT 10', '%' . $search . '%');
 
         	// Views
         	$this->view->search = $search;

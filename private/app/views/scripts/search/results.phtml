@@ -52,12 +52,13 @@ $(function() {
 	    	$.ajax({
 		        url:'zoeken-meer',
 		        type:'get',
+            dataType: "json",
+            contentType: "application/jsons", 
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
-		        success: function (res) {
-		            var data = $.parseJSON(res);
-		            data.each(function() {
-		                $('#results-questions').append('<ul>' + this + '</ul>');
-		            });
+		        success: function (data) {
+                for (var i=0; i < data.length; i++) { 
+                 $('#results-questions').append('<li>' + data[i] + '</li>');
+                }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }
 	    	});

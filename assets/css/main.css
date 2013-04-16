@@ -118,6 +118,10 @@ body {
     background: url('../img/search.png') no-repeat 10px 15px #fff;
 }
 
+.search #field:focus {
+    box-shadow: none;
+}
+
 input[type="search"]::-webkit-input-placeholder {
     color: #d8347e;
 }
