@@ -43,6 +43,7 @@ class QuestionsController extends CrudController {
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
         $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
+        $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
 
         foreach($question_ratings as $question_rating)
             $question_rating = $question_rating['total'] / $question_rating['votes'];
