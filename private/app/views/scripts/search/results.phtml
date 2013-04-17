@@ -27,9 +27,9 @@
 
   		</ul>
 
-	  	<?php // if( count( $this->results ) > 10): ?>
+	  	<?php if( count( $this->results ) >= 10): ?>
 	  		<span id="loadmore" loaded="10">Meer vragen</span>
-	  	<?php // endif; ?>
+	  	<?php endif; ?>
 
   	 <?php
   		else:
@@ -56,8 +56,8 @@ $(function() {
             contentType: "application/jsons", 
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
 		        success: function (data) {
-                for (var i=0; i < data.length; i++) { 
-                 $('#results-questions').append('<li>' + data[i] + '</li>');
+                for (var i in data) { 
+                 $('#results-questions').append($('<li><a href="' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(2000));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }

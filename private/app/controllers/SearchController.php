@@ -23,8 +23,10 @@ class SearchController extends AppController {
 
 		$arr = array();
 
-		foreach($questions as $question)
-			array_push($arr, $question['name']);
+		foreach($questions as $k => $question):
+			$arr[$k]['name'] = $question['name'];
+            $arr[$k]['url'] = sanitize($question['name']);
+        endforeach;
 
         header( "Content-type: text/json" );
         
