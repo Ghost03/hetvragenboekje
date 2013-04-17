@@ -1,6 +1,6 @@
 <div id="overview">
 
-	<h1><?php $x = (count( $this->results ) == 1) ? "resultaat": "resultaten"; echo count( $this->results ) . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+	<h1><?php $x = ( $this->total == 1) ? "resultaat": "resultaten"; echo $this->total . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
 
     <form action="zoeken" method="POST">
 
@@ -57,7 +57,7 @@ $(function() {
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
 		        success: function (data) {
                 for (var i in data) { 
-                 $('#results-questions').append($('<li><a href="' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(2000));
+                 $('#results-questions').append($('<li><a href="' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(500));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }
