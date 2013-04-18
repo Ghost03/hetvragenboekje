@@ -6,11 +6,7 @@ class PageController extends AppController {
     {   
         // Includes
         $db = Zend_Registry::get('db');
-        /*require_once('dompdf/dompdf_config.inc.php');
-        
-        $pdf = new dompdf();
-        $pdf->set_paper('a4', 'portrait');
-        $pdf->load_html("<html><head></head><body><p>test</p></body></html>");*/
+
 
         
         // Queries

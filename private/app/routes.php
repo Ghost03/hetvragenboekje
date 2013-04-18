@@ -19,5 +19,6 @@ return array(
     'question' => new Zend_Controller_Router_Route('question/:question', array('controller' => 'questions', 'action' => 'detail')),
     'steleenvraag' => new Zend_Controller_Router_Route('steleenvraag', array('controller' => 'ask', 'action' => 'index')),
     'antwoord' => new Zend_Controller_Router_Route('antwoord', array('controller' => 'questions', 'action' => 'detail')),
-
+    'printpdf' => new Zend_Controller_Router_Route('printpdf', array('controller' => 'questions', 'action' => 'generatehtml')),
+    'createpdf' => new Zend_Controller_Router_Route('createpdf', array('controller' => 'questions', 'action' => 'createpdf')),
 );
