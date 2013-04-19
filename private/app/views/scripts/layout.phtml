@@ -27,7 +27,8 @@
     <!-- Le bootstrap -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-
+    <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="assets/js/validate.js"></script>
   </head>
 
   <body>
@@ -90,7 +91,7 @@
 
                 <div class="login">
 
-                    <form action="inloggen" method="POST">
+                    <form action="checklogin" id="inloggen">
 
                         <h2>Inloggen</h2>
 
@@ -98,7 +99,7 @@
 
                             <input type="text" name="email" id="email" placeholder="E-mail..." />
                             <input type="password" name="password" id="password" placeholder="Wachtwoord..." /><br />
-                            <input type="submit" name="submit" id="submit" value="Inloggen" />
+                            <button id="submit">Inloggen</button>
 
                         </fieldset>
 
@@ -139,7 +140,7 @@
 
                 <div class="register">
 
-                    <form action="registreren" method="POST">
+                    <form action="registreren" id="register" method="POST">
 
                         <h2>Registreren</h2>
 
@@ -147,8 +148,8 @@
 
                             <input type="text" name="email" id="email" placeholder="E-mail..." />
                             <input type="text" name="name" id="name" placeholder="Naam.." />
-                            <input type="password" name="password" id="password" placeholder="Wachtwoord.." />
-                            <input type="password" name="password2" id="password" placeholder="Wachtwoord herhalen..." /><br />
+                            <input type="password" name="rpassword" id="rpassword" placeholder="Wachtwoord.." />
+                            <input type="password" name="rpassword2" id="rpassword2" placeholder="Wachtwoord herhalen..." /><br />
                             <input type="submit" name="submit" id="submit" value="Registreren" />
 
                         </fieldset>

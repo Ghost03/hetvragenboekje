@@ -11,9 +11,9 @@
 		$answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
 		$tags = explode(';', $question['tags']);
 
-        $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
+		$question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
 
-        foreach($question_ratings as $question_rating)
+		foreach($question_ratings as $question_rating)
            $question_rating = $question_rating['total'] / $question_rating['votes'];
 
 	?>
@@ -31,7 +31,7 @@
 
 		    <div class="tags">
 
-		        <?php foreach($tags as $tag) echo '<span>' . $tag . '</span>'; ?>
+		    <?php foreach($tags as $tag) echo '<span>' . $tag . '</span>'; ?>
 
 		    </div>
 

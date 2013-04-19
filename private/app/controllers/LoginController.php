@@ -19,31 +19,47 @@ class LoginController extends CrudController {
         $hash = sha1($hash.substr($salt,6));
         return $hash;
     }
-
-    public function indexAction()
-    {   
-        while($_POST) {
-
-            $db = Zend_Registry::get('db');
-
-            $email = trim($this->_getParam('email'));
-            $password = trim($this->_getParam('password'));
-            
-            $q = "SELECT * FROM `users` WHERE email = ?";
-            $user = $db->fetchRow($q, $email);
-            
-            if(!$user || $user['hash'] != self::_hashPassword($password,$user['salt'])) {
-                break;
-            }
-
-            unset($user['hash']);
-
-            $_SESSION['user'] = $user['name'];
-            
-            $this->_redirect('/questions');
-        }    
-    }
     
+    public function checkemailAction() {
+	   $this->_helper->viewRenderer->setNoRender();
+	   $this->view->layout()->disableLayout();
+	   
+	   $ajaxEmail = $_GET['email'];
+	   $db = Zend_Registry::get('db');
+
+	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
+
+	   if (!$emailDB) {
+		  echo "test";
+	   }
+	   else
+	   {
+		   $this->_redirect('/inloggen');
+	   }
+	   
+	  
+    }
+
+    public function indexAction() {
+
+	   while ($_POST) {
+		  $email = trim($this->_getParam('email'));
+		  $password = trim($this->_getParam('password'));
+
+		  $q = "SELECT * FROM `users` WHERE email = ?";
+		  $user = $db->fetchRow($q, $email);
+
+		  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
+			 break;
+		  }
+
+		  unset($user['hash']);
+
+		  $_SESSION['user'] = $user['name'];
+
+		  $this->_redirect('/questions');
+	   }
+    }
 }
 
 ?>

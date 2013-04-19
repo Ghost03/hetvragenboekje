@@ -131,11 +131,11 @@ class QuestionsController extends CrudController {
        // PDF
        $pdf = new DOMpdf();
        $pdf->set_paper('a4', 'landscape');
-	   $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id );
+	  $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id );
 	   
        $pdf->load_html($html);
-	   $pdf->render();
-	   $pdf->stream("test.pdf", array("Attachment" => 0));
+	  $pdf->render();
+	  $pdf->stream("test.pdf", array("Attachment" => 0));
     }
     
 }

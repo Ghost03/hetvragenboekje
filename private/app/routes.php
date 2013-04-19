@@ -12,6 +12,7 @@ return array(
     'profiel' => new Zend_Controller_Router_Route('profiel', array('controller' => 'profile', 'action' => 'edit')),
 
     'inloggen' => new Zend_Controller_Router_Route('inloggen', array('controller' => 'login', 'action' => 'index')),
+    'checklogin' => new Zend_Controller_Router_Route('checklogin', array('controller' => 'login', 'action' => 'checkemail')),
     'uitloggen' => new Zend_Controller_Router_Route('uitloggen', array('controller' => 'user', 'action' => 'logout')),
     'registreren' => new Zend_Controller_Router_Route('registreren', array('controller' => 'register', 'action' => 'index')),
 
