@@ -300,6 +300,7 @@ input[type="password"]
 .shadow-border-2
 {
     background: url("../img/shadow_2.png") no-repeat left;
+    margin-bottom: 20px;
 }
 
 #login, #registreren
