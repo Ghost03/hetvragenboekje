@@ -43,8 +43,8 @@ $(function()
    
 	 $("#inloggen #submit").on("click",function()
 	 {
-		
 	   var loginMail = $("#inloggen #email").val();
+
 		console.log(loginMail);
 		  $.ajax({
 			 type: "GET",

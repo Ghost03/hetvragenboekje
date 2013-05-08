@@ -31,19 +31,20 @@ class RegisterController extends CrudController {
         $form = $this->view->form = new usersForm;
         
         while($_POST) {
+
             if(!$form->isValid($_POST)) break;
             
             $values = $form->getValues();
 
-            if($values['rpassword']) {
+            if($values['password']) {
                 $salt = self::_generateSalt();
-                $hash = self::_hashPassword($values['rpassword'],$salt);
+                $hash = self::_hashPassword($values['password'],$salt);
                 
                 $values['hash'] = $hash;
                 $values['salt'] = $salt;
             }
 
-            unset($values['rpassword']);
+            unset($values['password']);
 
             $this->_add($values);
 
