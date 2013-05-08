@@ -57,7 +57,6 @@ body {
 .menu {
     background: url('../img/navigation.jpg') repeat-x;
     height: 40px;
-    margin: 0 0 52px 0;
 }
 
 .menu ul li {
@@ -109,7 +108,7 @@ input[type="password"]
    margin: 0px;
 }
 
-input[type="text"]::-webkit-input-placeholder {
+.search-bar input[type="text"]::-webkit-input-placeholder {
     color: #d3327a;
 }
 
@@ -210,7 +209,7 @@ input[type="text"]::-webkit-input-placeholder {
     margin: 15px 0 0 0;
 }
 
-.question-info span {
+.question-info .category {
     font-weight: bold;
     text-decoration: none;
     display: block;
