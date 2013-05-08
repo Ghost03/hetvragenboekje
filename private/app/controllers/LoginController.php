@@ -36,8 +36,6 @@ class LoginController extends CrudController {
 	   {
 		   $this->_redirect('/inloggen');
 	   }
-	   
-	  
     }
 
     public function indexAction() {
@@ -45,8 +43,12 @@ class LoginController extends CrudController {
        $db = Zend_Registry::get('db');
 
 	   while ($_POST) {
+	   	
 		  $email = trim($this->_getParam('email'));
 		  $password = trim($this->_getParam('password'));
+
+		  var_dump($email, $password);
+		  exit;
 
 		  $q = "SELECT * FROM `users` WHERE email = ?";
 		  $user = $db->fetchRow($q, $email);

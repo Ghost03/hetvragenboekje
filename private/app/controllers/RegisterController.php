@@ -31,6 +31,7 @@ class RegisterController extends CrudController {
         $form = $this->view->form = new usersForm;
         
         while($_POST) {
+
             if(!$form->isValid($_POST)) break;
             
             $values = $form->getValues();

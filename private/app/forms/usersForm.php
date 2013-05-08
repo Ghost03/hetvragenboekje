@@ -14,7 +14,7 @@ class usersForm extends Sparx_BaseForm
                 ->setAttrib('placeholder', 'Naam');
         $this->addElement($element);
         
-        $element = new Sparx_SimplePassword('password');
+        $element = new Sparx_SimplePassword('rpassword');
         $element->setRequired(true)
                 ->setAttrib('placeholder', 'Wachtwoord');
         $this->addElement($element);
