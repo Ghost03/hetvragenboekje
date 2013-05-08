@@ -88,11 +88,57 @@
 
               </div>
 
-              <div class="content-right">
-
-                <p>TEST</p>
-
-              </div>
+               <div class="content-right">
+				<div class="box">
+				    <div class="head">
+					   <h1>Inloggen</h1>
+				    </div>
+				    <div class="box-content">
+					   <div id="login">
+						  <div class="profile-img"><img src="assets/img/user.png"/></div>
+						  <form action="inloggen" method="POST">
+							 <div class="user-field">
+								<input type="text" name="email" id="email" placeholder="E-mail"/>
+							 </div>
+							 <div class="key-field">
+								<input type="password" name="password" id="password" placeholder="Wachtwoord"/>
+							 </div>
+							 <div class="login-box">
+								<div id="switch" class="switch"></div>
+								<span>Onthoud mij</span>
+								<input type="submit" name="submit" id="submit" value="Inloggen"/>
+							 </div>
+						  </form>
+					   </div>
+				    </div>
+				    <div class="shadow-border-2">&nbsp;</div>
+				</div>
+				<div class="box">
+				    <div class="head">
+					   <h1>Registreren</h1>
+				    </div>
+				    <div class="box-content">
+					   <div id="registreren">
+						  <form action="registreren" method="POST">
+							 <div class="user-field">
+								<input type="text" name="email" id="email" placeholder="E-mail"/>
+							 </div>
+							 <div class="user-field">
+								<input type="text" name="name" id="name" placeholder="Naam"/>
+							 </div>
+							 <div class="key-field">
+								<input type="password" name="password" id="password" placeholder="Wachtwoord"/>
+							 </div>
+							 <div class="key-field">
+								<input type="password" name="password2" id="password" placeholder="Wachtwoord herhalen"/>
+							 </div>
+							 <input type="submit" name="submit" id="submit" value="Registreren"/>
+						  </form>
+					   </div>
+				    </div>
+				    <div class="shadow-border-2">&nbsp;</div>
+				</div>
+			 </div>
 
         </div>
 

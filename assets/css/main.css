@@ -57,6 +57,7 @@ body {
 .menu {
     background: url('../img/navigation.jpg') repeat-x;
     height: 40px;
+    margin: 0 0 52px 0;
 }
 
 .menu ul li {
@@ -103,6 +104,11 @@ body {
     border: 1px solid #dddddd;
 }
 
+input[type="password"]
+{
+   margin: 0px;
+}
+
 input[type="text"]::-webkit-input-placeholder {
     color: #d3327a;
 }
@@ -128,33 +134,51 @@ input[type="text"]::-webkit-input-placeholder {
     margin: 15px 0 20px 0;
 }
 
-.search-bar {
-    background: url('../img/search-3.png') no-repeat 10px 0px;
+.user-field, .key-field{
+    margin-top: 5px;
+}
+
+.search-bar, .user-field, .key-field {
+
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0 0 0 55px;
+}
+
+.search-bar{
+        background: url('../img/search-3.png') no-repeat 10px 0px;
 }
 
 .search-bar .submit {
     display: none;
 }
 
-.search-box input {
-    width: 340px;
-    padding: 8px;
-    font-size: 21px;
+.user-field
+{
+     background: url('../img/user-2.png') no-repeat;
+}
+
+.key-field
+{
+     background: url('../img/key.png') no-repeat;
+}
+
+.search-box input, .key-field input, .user-field input {
     font-family: candara;
     color: #d3327a;
     outline: none;
     border: 1px solid;
     border-color: transparent;
+    border: none;
     background: white;
     -webkit-appearance: none;
 }
 
-.shadow-border {
-    background: url('../img/shadow_1.png') no-repeat left;
-    margin: -5px 0 20px 0;
+.search-box input
+{
+    width: 340px;
+    padding: 8px;
+    font-size: 21px;
 }
 
 .header {
@@ -186,7 +210,7 @@ input[type="text"]::-webkit-input-placeholder {
     margin: 15px 0 0 0;
 }
 
-.question-info .category {
+.question-info span {
     font-weight: bold;
     text-decoration: none;
     display: block;
@@ -215,6 +239,144 @@ input[type="text"]::-webkit-input-placeholder {
 .content-right {
     float: left;
     width: 317px;
+}
+
+/* Right Sidebar */
+.content-right .box
+{
+    width: 317px;
+    min-height: 200px;
+}
+
+.content-right .box .head
+{
+    position: relative;
+    top: 5px;
+    background: url("../img/ribbon.png") no-repeat;
+    width: 100%;
+    height: 37px;
+    z-index: 999;
+}
+
+.content-right .box .head h1
+{
+    font-family: Arial;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+.content-right .box .box-content
+{
+    position: relative;
+    background-color: #fff;
+    width: 300px;
+    min-height: 250px;
+    margin: 0px 10px;
+    z-index: 998;
+    top: -37px;
+}
+
+.content-right .box .box-content input[type="text"],
+.content-right .box .box-content input[type="password"] 
+{
+    height: 27px;
+    display: block;
+}
+
+.shadow-border
+{
+    margin: -5px 0 20px 0px;
+}
+
+.shadow-border-2
+{
+    margin: -43px 0px 0px 10px;
+}
+.shadow-border{
+    background: url("../img/shadow_1.png") no-repeat left;
+}
+
+.shadow-border-2
+{
+    background: url("../img/shadow_2.png") no-repeat left;
+}
+
+#login, #registreren
+{
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    left: 40px;
+}
+
+#login .login-box
+{
+    margin-top: 15px;
+}
+
+#login .login-box #switch
+{
+    width: 60px;
+    height: 20px;
+    float: left;
+    margin-top: 2px;
+}
+
+#login .login-box span
+{
+    font-size: 11px;
+    margin-left: -5px;
+    line-height: 23px;
+}
+
+#login .login-box .switch-active
+{
+    background: url('../img/switch.png');
+    background-position-y: 20px;
+}
+
+#login .login-box .switch
+{
+    background: url('../img/switch.png');
+}
+
+#registreren input[type="submit"]
+{
+    margin-top: 10px;
+}
+
+input[type="submit"]
+{
+    background: url('../img/navigation.jpg');
+    color: #fff;
+    float: right;
+    border: 0px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -5px;
+}
+
+/* icons */
+.search-img {
+    background: url('../img/preview.png') no-repeat;
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 15px 15px 0 15px;
+}
+
+.password-img{
+    background: url('../img/key.png') no-repeat;
+    width: 150px;
+    height: 32px;
+    float: left;
+}
+
+.focus{
+    border-color: #d3327a;
 }
 
 .footer {
@@ -253,3 +415,4 @@ input[type="text"]::-webkit-input-placeholder {
     color: #bdbdbd;
     font-size: 12px;
 }
+
