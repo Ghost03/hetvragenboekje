@@ -42,6 +42,8 @@ class LoginController extends CrudController {
 
     public function indexAction() {
 
+       $db = Zend_Registry::get('db');
+
 	   while ($_POST) {
 		  $email = trim($this->_getParam('email'));
 		  $password = trim($this->_getParam('password'));
