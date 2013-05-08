@@ -36,15 +36,15 @@ class RegisterController extends CrudController {
             
             $values = $form->getValues();
 
-            if($values['password']) {
+            if($values['rpassword']) {
                 $salt = self::_generateSalt();
-                $hash = self::_hashPassword($values['password'],$salt);
+                $hash = self::_hashPassword($values['rpassword'],$salt);
                 
                 $values['hash'] = $hash;
                 $values['salt'] = $salt;
             }
 
-            unset($values['password']);
+            unset($values['rpassword']);
 
             $this->_add($values);
 
