@@ -21,16 +21,15 @@ class LoginController extends CrudController {
     }
     
     public function checkemailAction() {
-	   $this->_helper->viewRenderer->setNoRender();
-	   $this->view->layout()->disableLayout();
-	   
-	   $ajaxEmail = $_GET['email'];
+	   $ajaxEmail = $_POST['email'];
+	   if(!isset($ajaxEmail)) exit;
 	   $db = Zend_Registry::get('db');
 
 	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
 
 	   if (!$emailDB) {
-		  echo "test";
+		  $data = array("fuckyou");
+		  $this->_forward("home", "page", 'default', $data);
 	   }
 	   else
 	   {
@@ -46,9 +45,6 @@ class LoginController extends CrudController {
 	   	
 		  $email = trim($this->_getParam('email'));
 		  $password = trim($this->_getParam('password'));
-
-		  var_dump($email, $password);
-		  exit;
 
 		  $q = "SELECT * FROM `users` WHERE email = ?";
 		  $user = $db->fetchRow($q, $email);

@@ -38,23 +38,3 @@ $(function()
 		 rpassword2: "Please enter your password"
 	  }
    });
-   
-  
-   
-	 $("#inloggen #submit").on("click",function()
-	 {
-	   var loginMail = $("#inloggen #email").val();
-
-		console.log(loginMail);
-		  $.ajax({
-			 type: "GET",
-			 url: "checklogin",
-			 data: { email: loginMail}
-		    }).success(function( msg ) {
-			   console.log("testje");
-			   console.log(msg)
-		});
-	 });
-	 
-});
-

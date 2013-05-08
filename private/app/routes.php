@@ -15,6 +15,7 @@ return array(
     'checklogin' => new Zend_Controller_Router_Route('checklogin', array('controller' => 'login', 'action' => 'checkemail')),
     'uitloggen' => new Zend_Controller_Router_Route('uitloggen', array('controller' => 'user', 'action' => 'logout')),
     'registreren' => new Zend_Controller_Router_Route('registreren', array('controller' => 'register', 'action' => 'index')),
+   
 
     'questions' => new Zend_Controller_Router_Route('questions', array('controller' => 'questions', 'action' => 'overview')),
     'question' => new Zend_Controller_Router_Route('question/:question', array('controller' => 'questions', 'action' => 'detail')),
