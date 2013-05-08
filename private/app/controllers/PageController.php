@@ -6,8 +6,6 @@ class PageController extends AppController {
     {   
         // Includes
         $db = Zend_Registry::get('db');
-
-
         
         // Queries
         $questions = $db->fetchAll('SELECT * FROM questions ORDER BY date_created DESC LIMIT 5');

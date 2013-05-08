@@ -1,3 +1,7 @@
+<h1 class="header">Vragen</h1>
+
+<div class="shadow-border">&nbsp;</div>
+
 <?php 
     $db = Zend_Registry::get('db');
 
@@ -14,26 +18,27 @@
         $question_rating = $question_rating['total'] / $question_rating['votes'];
 
 ?>
+
     <div class="question">
 
-        <a class="answers" href="question/<?php echo sanitize($question['name']); ?>"><?php echo (int) $answers ?></a>
+        <div class="question-image">
+        
+            <img src="assets/img/preview.png" />
 
-        <a id="category" href="categorieen/<?php echo $category['url']; ?>"><?php echo $category['name']; ?></a>
+        </div>
 
-        <span class="stars"><?php if($question_rating): echo $question_rating; else: echo '0'; endif; ?></span>
+        <div class="question-info">
 
-        <a class="print" href="#">&nbsp;</a>
-
-        <a class="q" href="question/<?php echo sanitize($question['name']); ?>"><?php echo $question['name']; ?></a>
-
-        <span class="user"><a href="question/<?php echo sanitize($question['name']); ?>"><?php echo $user; ?></a> vraagt..</span>
-
-        <div class="tags">
-
-            <?php foreach($tags as $tag) echo '<span>' . $tag . '</span>'; ?>
+            <a href="categorieen/<?= $category['url'] ?>'" class="category"><?php echo $category['name']; ?></a>
+            
+            <p>
+                <a href="question/<?= $question['url'] ?>'" class="title"><?php echo $question['name']; ?></a>
+            </p>
 
         </div>
 
     </div>
+
+    <div class="shadow-border">&nbsp;</div>
 
 <?php endforeach; ?>
