@@ -38,3 +38,7 @@ $(function()
 		 rpassword2: "Please enter your password"
 	  }
    });
+   var emailError = $("#email-error").text();
+  $("#inloggen").children(".user-field").append('<label for="email" class="error" style="">'+emailError+'</label>')
+   
+});

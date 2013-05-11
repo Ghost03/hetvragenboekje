@@ -28,7 +28,7 @@ class LoginController extends CrudController {
 	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
 
 	   if (!$emailDB) {
-		  $data = array("fuckyou");
+		  $data = array("error" => "fuckyou");
 		  $this->_forward("home", "page", 'default', $data);
 	   }
 	   else
