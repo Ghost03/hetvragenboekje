@@ -22,27 +22,29 @@ class LoginController extends CrudController {
     
     public function checkemailAction() {
 	   $ajaxEmail = $_POST['email'];
+	   $ajaxPassword = $_POST['password'];
+	   
+	   $array = array("email" => $ajaxEmail, "password" => $ajaxPassword);
+	   
 	   if(!isset($ajaxEmail)) exit;
 	   $db = Zend_Registry::get('db');
 
 	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
 
 	   if (!$emailDB) {
-		  $data = array("error" => "fuckyou");
+		  $data = array("error" => "E-Mail is al in gebruik.");
 		  $this->_forward("home", "page", 'default', $data);
 	   }
 	   else
 	   {
-		   $this->_redirect('/inloggen');
+		   $this->_forward("login", "login", 'default', $array);
 	   }
     }
 
-    public function indexAction() {
+    public function loginAction() {
 
        $db = Zend_Registry::get('db');
 
-	   while ($_POST) {
-	   	
 		  $email = trim($this->_getParam('email'));
 		  $password = trim($this->_getParam('password'));
 
@@ -50,7 +52,7 @@ class LoginController extends CrudController {
 		  $user = $db->fetchRow($q, $email);
 
 		  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
-			 break;
+			
 		  }
 
 		  unset($user['hash']);
@@ -58,7 +60,6 @@ class LoginController extends CrudController {
 		  $_SESSION['user'] = $user['name'];
 
 		  $this->_redirect('/questions');
-	   }
     }
 }
 
