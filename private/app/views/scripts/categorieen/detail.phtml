@@ -1,6 +1,6 @@
-<div id="overview">
+<h1 class="header">Vragen in de categorie <?php echo $this->category['name'] . ' (' . count( $this->questions ) . ')'; ?></h1>
 
-	<h1>Vragen in de categorie " <?php echo $this->category['name']; ?> "</h1>
+<div class="shadow-border">&nbsp;</div>
 
 	<?php 
 		$db = Zend_Registry::get('db');
@@ -14,6 +14,9 @@
 			$user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
 			$tags = explode(';', $question['tags']);
 	?>
+		<!-- 
+
+		// TO DO: VRAAG FIXEN VOLGENS NIEUW DESIGN
 
 			<div class="question">
 
@@ -37,6 +40,31 @@
 
 			</div>
 
+		-->
+
+			<div class="question">
+
+			    <div class="question-image">
+			    
+			        <img src="assets/img/preview.png" />
+
+			    </div>
+
+			    <div class="question-info">
+
+			        <a href="categorieen/<?= $this->category['url'] ?>" class="category"><?php echo $category['name']; ?></a>
+			        
+			        <p>
+			            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->question['name']; ?></a>
+			            <p class="title"><?php echo $question['name']; ?></p>
+			        </p>
+
+			    </div>
+
+			</div>
+
+			<div class="shadow-border">&nbsp;</div>
+
 	<?php 
 			endforeach; 
 
@@ -50,5 +78,3 @@
 
 		endif;
 	?>
-
-</div>

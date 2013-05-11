@@ -2,13 +2,11 @@
  $db = Zend_Registry::get('db'); 
 ?>
 
-<div id="overview">
+<h1 class="header">Vraag</h1>
 
-	<h1>Vraag</h1>
+<div class="shadow-border">&nbsp;</div>
 
-</div>
-
-<div class="question">
+<!--<div class="question">
 
     <a class="answers"><?php echo count( $this->answers ); ?></a>
 
@@ -27,21 +25,50 @@
 
     </div>
 
+</div>-->
+
+<!-- // TO DO: VRAAG FIXEN MET NIEUW DESIGN -->
+
+<div class="question">
+
+    <div class="question-image">
+    
+        <img src="assets/img/preview.png" />
+
+    </div>
+
+    <div class="question-info">
+
+        <a href="categorieen/<?= $this->category['url'] ?>" class="category"><?php echo $this->category['name']; ?></a>
+        
+        <p>
+            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->question['name']; ?></a></br />
+            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $user; ?></a>
+        </p>
+
+    </div>
+
 </div>
 
-
+<div class="shadow-border">&nbsp;</div>
 
 <div id="overview">
 
 	<?php if( $this->answers ): ?>
 
-        <h1>Antwoorden</h1>
+        <h1 class="header">Antwoorden</h1>
+
+        <div class="shadow-border">&nbsp;</div>
 
         <?php 
 
         foreach($this->answers as $answer): 
 
             $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);?>        
+
+            <!--
+
+            // TO DO: ANTWOORDEN FIXEN MET NIEUW DESIGN
 
     		<div class="answer">
 
@@ -52,6 +79,27 @@
                 <span class="user"><?php echo $answerer['name']; ?> antwoord..</span>
 
     		</div>
+            -->
+
+            <div class="answer">
+
+                <div class="answer-image">
+                
+                    <img src="assets/img/preview.png" />
+
+                </div>
+
+                <div class="answer-info">
+
+                    <span style="display: block; float: left; margin-right: 5px;">Beantwoord door:</span><a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $answerer['name']; ?></a>
+                    
+                    <p class="title"><?php echo $answer['name']; ?></p>
+
+                </div>
+
+            </div>
+
+    <div class="shadow-border">&nbsp;</div>
 
         <?php endforeach; ?>
 

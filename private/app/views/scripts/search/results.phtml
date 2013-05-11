@@ -1,11 +1,13 @@
-<div id="overview">
+<h1 class="header"><?php $x = (count( $this->results ) == 1) ? "resultaat": "resultaten"; echo count( $this->results ) . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
 
-	<h1><?php $x = ( $this->total == 1) ? "resultaat": "resultaten"; echo $this->total . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+<div class="shadow-border">&nbsp;</div>
+
+  <div class="search-results">
 
     <form action="zoeken" method="POST">
 
         <input type="search" name="s" class="search-input" value="<?php echo $this->search; ?>" />
-        <input type="submit" id="hidden" name="submit" />
+        <input type="submit" class="hidden" name="submit" />
 
     </form> 
 

@@ -2,7 +2,14 @@
  $config = Zend_Registry::get('config');
  $db = Zend_Registry::get('db');
  $request = Zend_Controller_Front::getInstance()->getRequest();
+
+ // TO DO: INLOGGEN FIXEN
+
+ // Als ingelogd om te testen voor pagina's
+ $_SESSION['user'] = 'Fons';
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,8 +52,10 @@
         <div class="centered">
 
             <ul>
+
                 <li class="active"><a href="">Home</a></li>
                 <li><a href="categorieen">Categorieën</a></li>
+            
             </ul>
 
         </div>
@@ -69,12 +78,12 @@
 
                             <p>De leukste vragensite van Nederland met mogelijheden tot printen op A5 formaat!</p>
 
-                            <form action="#" method="POST">
+                            <form action="zoeken" method="POST">
 
                                 <div class="search-bar">
 
                                     <input type="text" name="s" placeholder="Zoek op vragen.." />
-                                    <input type="submit" class="submit" />
+                                    <input type="submit" class="submit hidden" />
 
                                 </div>
 
@@ -93,6 +102,8 @@
                <div class="content-right">
 
 				<div class="box">
+
+                    <?php if( !isset($_SESSION['user'] ) ): ?>
 
 				    <div class="head">
 
@@ -134,7 +145,7 @@
 
 				    </div>
 				    
-                    <div class="shadow-border-2">&nbsp;</div>
+                <div class="shadow-border-2">&nbsp;</div>
 
 				</div>
 
@@ -185,6 +196,43 @@
 					   </div>
 
 				    </div>
+
+                    <!-- TO DO: DESIGN NIEUWE LOGIN VORMGEVING -->
+
+                    <?php else: ?>
+
+                    <div class="head">
+
+                       <h1>Welkom <?php echo $_SESSION['user']; ?></h1>
+
+                    </div>
+
+                    <div class="box-content">
+
+                       <div id="login">
+
+                          <div class="profile-img"><img src="assets/img/user.png"/></div>
+
+                          <ul class="user_info">
+
+                            <li>Mijn gestelde vragen: <a href="questions">11</a></li>
+                            <li>Mijn beantwoorde vragen: <a href="answers">2</a></li>
+
+                          </ul>
+
+                          <ul class="short_nav">
+
+                            <li class="asked"><a href="steleenvraag">Stel een vraag</a></li>
+                            <li class="edit"><a href="profiel">Profiel bewerken</a></li>
+                            <li class="logout"><a href="uitloggen">Uitloggen</a></li>
+
+                          </ul>
+
+                       </div>
+
+                    </div>
+
+                <?php endif; ?>
 
 				    <div class="shadow-border-2">&nbsp;</div>
 

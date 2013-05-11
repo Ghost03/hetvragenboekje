@@ -1,42 +1,45 @@
-<div id="overview">
+<h1 class="header">Mijn Vragen</h1>
 
-	<h1>Mijn vragenboekje overzicht</h1>
+<div class="shadow-border">&nbsp;</div>
 
-	<?php 
-		$db = Zend_Registry::get('db');
+<?php 
+    $db = Zend_Registry::get('db');
 
-		foreach($this->questions as $question): 
+    foreach($this->questions as $question): 
 
-		$category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
-		$answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
-		$tags = explode(';', $question['tags']);
+    $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
+    $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+    $tags = explode(';', $question['tags']);
 
-		$question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
+    $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
+    $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
 
-		foreach($question_ratings as $question_rating)
-           $question_rating = $question_rating['total'] / $question_rating['votes'];
+    foreach($question_ratings as $question_rating)
+        $question_rating = $question_rating['total'] / $question_rating['votes'];
 
-	?>
-		<div class="question">
+?>
 
-		    <a class="answers" href="question/<?php echo sanitize($question['name']); ?>"><?php echo (int) $answers ?></a>
+    <div class="question">
 
-		    <a id="category" href="categorieen/<?php echo $category['url']; ?>"><?php echo $category['name']; ?></a>
+        <div class="question-image">
+        
+            <img src="assets/img/preview.png" />
 
-		    <span class="stars"><?php if($question_ratings): echo $question_rating; else: echo '0'; endif; ?></span>
+        </div>
 
-		    <a class="print" href="#">&nbsp;</a>
+        <div class="question-info">
 
-		    <a class="q" href="question/<?php echo sanitize($question['name']); ?>"><?php echo $question['name']; ?></a>
+            <a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $category['name']; ?></a>
+            
+            <p>
+                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a></br />
+                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $user; ?></a>
+            </p>
 
-		    <div class="tags">
+        </div>
 
-		    <?php foreach($tags as $tag) echo '<span>' . $tag . '</span>'; ?>
+    </div>
 
-		    </div>
+    <div class="shadow-border">&nbsp;</div>
 
-		</div>
-
-	<?php endforeach; ?>
-
-</div>
+<?php endforeach; ?>

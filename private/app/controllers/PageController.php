@@ -5,8 +5,8 @@ class PageController extends AppController {
     public function homeAction()
     {         
 	   $request = Zend_Controller_Front::getInstance()->getRequest();
-	   var_dump($request->_params);
-	   exit();
+	   //var_dump($request->_params);
+	   //exit();
         // Includes
         $db = Zend_Registry::get('db');
 	   $db = Zend_Registry::get('db');
