@@ -35,7 +35,7 @@ $(function()
 		 name: "Vul een naam in",
 		 email: "Vul een valide e-mailadres in",
 		 rpassword: "Vul een wachtwoord in",
-		 rpassword2: "Please enter your password"
+		 rpassword2: "Wachtwoord komt niet overeen"
 	  }
    });
    var emailError = $("#email-error").text();
