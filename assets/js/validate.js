@@ -10,8 +10,8 @@ $(function()
 			
 	  },
 	  messages: {
-		 email: "Please enter a valid email address",
-		 password: "Please enter your password"
+		 email: "Vul een valide e-mailadres in",
+		 password: "Vul een wachtwoord in"
 	  }
    });
    
@@ -32,9 +32,9 @@ $(function()
 		 }
 	  },
 	  messages: {
-		 name: "Naam",
-		 email: "Please enter a valid email address",
-		 rpassword: "Please enter your password",
+		 name: "Vul een naam in",
+		 email: "Vul een valide e-mailadres in",
+		 rpassword: "Vul een wachtwoord in",
 		 rpassword2: "Please enter your password"
 	  }
    });
