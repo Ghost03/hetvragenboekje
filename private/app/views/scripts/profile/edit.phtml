@@ -1,28 +1,26 @@
-<div id="overview">
+<h1 class="header">Pas je profiel aan</h1>
 
-	<h1>Pas je profiel aan</h1>
+<div class="shadow-border">&nbsp;</div>
 
-	<div class="formulier">
+<div class="formulier">
 
-		<form action="profiel" method="POST">
+	<form action="profiel" method="POST">
 
-			<fieldset>
+		<fieldset>
 
-				<label for="name">* Naam:</label>
-				<?php echo $this->form->getElement('name'); ?>
+			<label for="name">* Naam:</label>
+			<?php echo $this->form->getElement('name'); ?><br />
 
-				<label for="name">Achternaam:</label>
-				<?php echo $this->form->getElement('lastname'); ?>
+			<label for="name">Achternaam:</label>
+			<?php echo $this->form->getElement('lastname'); ?><br />
 
-				<label for="tags">Email</label>
-				<?php echo $this->form->getElement('email'); ?><br /><br />
+			<label for="tags">Email</label>
+			<?php echo $this->form->getElement('email'); ?><br /><br />
 
-				<input type="submit" class="btn" value="Submit" />
+			<input type="submit" class="btn" value="Aanpassen" />
 
-			</fieldset>
+		</fieldset>
 
-		</form>
-
-	</div>
+	</form>
 
 </div>

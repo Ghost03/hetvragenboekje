@@ -1,28 +1,26 @@
-<div id="overview">
+<h1 class="header">Stel een vraag</h1>
 
-	<h1>Stel een vraag</h1>
+<div class="shadow-border">&nbsp;</div>
 
-	<div class="formulier">
+<div class="formulier">
 
-		<form action="steleenvraag" method="POST">
+	<form action="steleenvraag" method="POST">
 
-			<fieldset>
+		<fieldset>
 
-				<label>* Categorie:</label>
-				<?php echo $this->form->getElement('category_id'); ?>
+			<label>* Categorie:</label>
+			<?php echo $this->form->getElement('category_id'); ?>
 
-				<label for="tags">Tags (gescheiden door ;)</label>
-				<?php echo $this->form->getElement('tags'); ?>
+			<label for="tags">Tags (gescheiden door ;)</label>
+			<?php echo $this->form->getElement('tags'); ?>
 
-				<label for="vraag">* Stel je vraag:</label>
-				<?php echo $this->form->getElement('name'); ?><br /><br />
+			<label for="vraag">* Stel je vraag:</label>
+			<?php echo $this->form->getElement('name'); ?><br /><br />
 
-				<input type="submit" class="btn-primary submit" value="Vraag stellen" />
+			<input type="submit" class="btn-primary submit" value="Vraag stellen" />
 
-			</fieldset>
+		</fieldset>
 
-		</form>
-
-	</div>
+	</form>
 
 </div>

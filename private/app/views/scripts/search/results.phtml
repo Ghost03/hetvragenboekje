@@ -1,4 +1,12 @@
+<?php if(!empty( $_POST['s'] )): ?>
+
 <h1 class="header"><?php $x = (count( $this->results ) == 1) ? "resultaat": "resultaten"; echo count( $this->results ) . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+
+<?php else: ?>
+
+<h1 class="header">Zoek naar vragen</h1>
+
+<?php endif; ?>
 
 <div class="shadow-border">&nbsp;</div>
 
@@ -37,7 +45,11 @@
   		else:
   	?>
 
-  		<h2 class="noresults">Helaas, geen vragen of antwoorden gevonden</h2>
+      <?php if(!empty( $_POST['s'] )): ?>
+    		
+        <h2 class="noresults">Helaas, geen vragen of antwoorden gevonden</h2>
+
+      <?php endif; ?>
 
   	<?php endif; ?>
 
@@ -59,6 +71,9 @@ $(function() {
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
 		        success: function (data) {
                 for (var i in data) { 
+                if(data.length < 10) {
+                  $('#loadmore').hide();
+                }
                  $('#results-questions').append($('<li><a href="' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(500));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);

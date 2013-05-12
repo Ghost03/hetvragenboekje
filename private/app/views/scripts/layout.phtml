@@ -53,8 +53,15 @@
 
             <ul>
 
-                <li class="active"><a href="">Home</a></li>
-                <li><a href="categorieen">Categorieën</a></li>
+                <li <?php if($request->controller == 'page') echo 'class="active"'; ?>><a href="">Home</a></li>
+                <li <?php if($request->controller == 'categorieen') echo 'class="active"'; ?>><a href="categorieen">Categorieën</a></li>
+                <li <?php if($request->controller == 'search') echo 'class="active"'; ?>><a href="zoeken">Zoeken</a></li>
+                <?php if(isset($_SESSION['user'])): ?><li <?php if($request->action == 'overview') echo 'class="active"'; ?>><a href="questions">Mijn vragen</a></li><?php endif; ?>
+                
+                <!-- SUBMENU
+                <?php if(isset($_SESSION['user'])): ?><li <?php if($request->controller == 'ask') echo 'class="active"'; ?>><a href="steleenvraag">Stel een vraag</a></li><?php endif; ?>
+                <?php if(isset($_SESSION['user'])): ?><li <?php if($request->controller == 'profile') echo 'class="active"'; ?>><a href="profiel">Bewerk profiel</a></li><?php endif; ?>
+                -->
             
             </ul>
 
@@ -199,7 +206,13 @@
 
                     <!-- TO DO: DESIGN NIEUWE LOGIN VORMGEVING -->
 
-                    <?php else: ?>
+                    <?php else: 
+
+                    $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
+                    $total_questions = count( $db->fetchAll('SELECT * FROM questions WHERE user_id = ?', $user['id']) );
+                    $total_answers = count( $db->fetchAll('SELECT * FROM answers WHERE user_id = ?', $user['id']) );
+
+                    ?>
 
                     <div class="head">
 
@@ -215,8 +228,8 @@
 
                           <ul class="user_info">
 
-                            <li>Mijn gestelde vragen: <a href="questions">11</a></li>
-                            <li>Mijn beantwoorde vragen: <a href="answers">2</a></li>
+                            <li>Mijn gestelde vragen: <a href="questions"><?= $total_questions ?></a></li>
+                            <li>Mijn beantwoorde vragen: <a href="questions"><?= $total_answers ?></a></li>
 
                           </ul>
 

@@ -15,8 +15,7 @@ $(function()
 		  }
     });
     
-    
-    $("input").on("click",function()
+    $("input").on("focus",function()
     {
 	   $("input").parents(".search-bar, .key-field, .user-field").removeClass("focus");
 	   $(this).parents(".search-bar, .key-field, .user-field").addClass("focus");

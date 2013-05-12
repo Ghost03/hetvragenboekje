@@ -8,7 +8,7 @@ class ErrorController extends Zend_Controller_Action
         
         header('HTTP/1.0 404 Not Found');
         
-        #if($_SERVER['REMOTE_ADDR'] == '95.97.14.122')
+        #if($_SERVER['REMOTE_ADDR'] == '212.187.45.130')
             $this->view->error = $error->exception;
         
         $view = $this->getHelper('ViewRenderer')->view;
