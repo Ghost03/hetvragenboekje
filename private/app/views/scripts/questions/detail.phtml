@@ -51,6 +51,19 @@
      <div class="question-data">
 		  
 		  <span class="date">Geplaatst <?php echo $this->date;?></span>
+
+          <?php if(isset($_SESSION['user'] )): ?>
+
+            <span class="print">
+
+                <img src="assets/img/print.png"/>
+
+                <!-- ANTWOORD ID PAKKEN MET MEESTE THUMBS EN PLAATSEN -->
+                <a target="_blank" href="createpdf?q=<?= $this->question['id'] ?>&a=1">Print als PDF</a>
+
+            </span>
+
+          <?php endif; ?>
 		  
 		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
 		  

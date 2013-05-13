@@ -232,19 +232,24 @@ input[type="password"]
 }
 
 .question-data .answers,
-.question-data .votes
+.question-data .votes,
+.question-data .print
 {
     position: absolute;
     display: block;
     text-align: left;
     width: 100%;
     margin-left: 28px
-   
 }
 
 .question-data .answers
 {
-     bottom: 50px;
+    bottom: 50px;
+}
+
+.question-data .print
+{
+    bottom: 70px;
 }
 
 .question-data .votes{
@@ -255,6 +260,19 @@ input[type="password"]
 .question-data .votes img
 {
     margin-right: 5px;
+}
+
+.question-data .print img {
+    margin-right: 2px;
+}
+
+.question-data .print a {
+    text-decoration: none;
+    color: #d3327a;
+}
+
+.question-data .print a:hover {
+    text-decoration: underline;
 }
 
 .question-info .category {
