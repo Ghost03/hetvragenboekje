@@ -37,7 +37,7 @@
 
   		</ul>
 
-	  	<?php if( count( $this->results ) >= 10): ?>
+	  	<?php if( $this->total > 10): ?>
 	  		<span id="loadmore" loaded="10">Meer vragen</span>
 	  	<?php endif; ?>
 
@@ -71,6 +71,7 @@ $(function() {
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
 		        success: function (data) {
                 for (var i in data) { 
+                  console.log(data[i]);
                   if(data.length < 10) {
                     $('#loadmore').hide();
                   }
