@@ -238,6 +238,7 @@ input[type="password"]
 
 .question-data .answers,
 .question-data .votes,
+.question-data .thumbs,
 .question-data .print
 {
     position: absolute;
@@ -258,6 +259,10 @@ input[type="password"]
 }
 
 .question-data .votes{
+    bottom: 30px;
+}
+
+.question-data .thumbs {
     bottom: 30px;
 }
 
@@ -723,4 +728,8 @@ input[type="submit"]
 #formulier .submit {
     float: left;
     padding: 10px;
+}
+
+#thumbs-up {
+    cursor: pointer;
 }

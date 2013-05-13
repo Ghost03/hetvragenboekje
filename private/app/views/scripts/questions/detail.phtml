@@ -43,14 +43,14 @@
         
         <p>
             <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->question['name']; ?></a><br />
-            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $user; ?></a>
+            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->user['name']; ?></a>
         </p>
 
     </div>
 
      <div class="question-data">
 		  
-		  <span class="date">Geplaatst <?php echo $this->date;?></span>
+		  <span class="date">Geplaatst <?php echo $this->questiondate;?></span>
 
           <?php if(isset($_SESSION['user'] )): ?>
 
@@ -66,8 +66,6 @@
           <?php endif; ?>
 		  
 		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
-		  
-		  <span class="votes"><img src="assets/img/up.png"/>+<?php echo $votes = 0;?></span>
 		  
 	   </div>
 </div>
@@ -92,32 +90,21 @@
 
         foreach($this->answers as $answer): 
 
-            $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);?>        
+            $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);
+            $thumbs = $db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']);
+            $answerdate = new Zend_Date($answer['date_created']);
 
-            <!--
+        ?>        
 
-            // TO DO: ANTWOORDEN FIXEN MET NIEUW DESIGN
+            <div class="question">
 
-    		<div class="answer">
-
-    		    <span class="stars"><?php if($this->answer_rating): echo $this->answer_rating; else: echo '0'; endif; ?></span>
-
-    		    <span class="a"><?php echo $answer['name']; ?></span>
-
-                <span class="user"><?php echo $answerer['name']; ?> antwoord..</span>
-
-    		</div>
-            -->
-
-            <div class="answer">
-
-                <div class="answer-image">
+                <div class="question-image">
                 
-                    <img src="assets/img/profile_unknown.png" />
+                    <img src="assets/img/preview.png" />
 
                 </div>
 
-                <div class="answer-info">
+                <div class="question-info">
 
                     <span style="display: block; float: left; margin-right: 5px;">Beantwoord door:</span><a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $answerer['name']; ?></a>
                     
@@ -125,9 +112,26 @@
 
                 </div>
 
+                 <div class="question-data">
+                      
+                      <span class="date">Beantwoord <?php echo $answerdate->toString("dd MMMM YYYY"); ?></span>
+
+                      <?php 
+                        $arrIds = array();
+                        foreach($thumbs as $thumb)
+                            $arrIds[] = $thumb['user_id'];
+
+                        if( in_array($this->user['id'], $arrIds) )
+                            echo '<span class="thumbs"><img style="margin: 0 5px 0 0;" src="assets/img/up-active.png"/>+'. count ( $thumbs ) . '</span>';
+                        else
+                            echo '<span class="votes"><img id="thumbs-up" src="assets/img/up.png"/>+<span data-user="' . $this->user['id'] . '" data-answer="' . $answer['id'] . '" data-question="' . $this->question['id'] . '" data-thumb="' . count ( $thumbs ) . '">' . count ( $thumbs ) . '</span></span>';
+                      ?>
+                      
+                   </div>
+
             </div>
 
-    <div class="shadow-border">&nbsp;</div>
+            <div class="shadow-border">&nbsp;</div>
 
         <?php endforeach; ?>
 
@@ -162,5 +166,7 @@
     </div>
 
     <?php endif; ?>
+
+    <script type="text/javascript" src="assets/js/thumbsup.js"></script>
 
 </div>
