@@ -231,11 +231,6 @@ input[type="password"]
     position: relative;
 }
 
-.question-data .date
-{
-    text-transform: capitalize;
-}
-
 .question-data .answers,
 .question-data .votes,
 .question-data .thumbs,
