@@ -397,7 +397,12 @@ input[type="password"]
     position: absolute;
     top: 50px;
     text-align: center;
+    left: 40px;
+}
+
+.loginFix{
     width: 100%;
+    margin-left: -40px;
 }
 
 #login .login-box
