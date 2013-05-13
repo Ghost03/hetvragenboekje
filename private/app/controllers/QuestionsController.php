@@ -17,7 +17,7 @@ class QuestionsController extends CrudController {
         }
 
     	// Includes 
-    	$request = Zend_Controller_Front::getInstance()->getRequest();
+	   $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
         $config = Zend_Registry::get('config');
 
@@ -41,9 +41,15 @@ class QuestionsController extends CrudController {
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);
         $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
+	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
         $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
         $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
+	   
+	   
+			$date = new Zend_Date($question['date_created']);
+			
+			($countedAnswers == 0 ? $countedAnswers = "Nog niet beantwoord." : $countedAnswers .= "x beantwoord");
 
         foreach($question_ratings as $question_rating)
             $question_rating = $question_rating['total'] / $question_rating['votes'];
@@ -65,6 +71,8 @@ class QuestionsController extends CrudController {
         $this->view->answer_rating = $answer_rating;
         $this->view->category = $category;
         $this->view->tags = explode(';', $question['tags']);
+	   $this->view->date = $date->toString("dd-MMMM-YYYY");
+	   $this->view->countedAnswers = $countedAnswers;
 	   
         // Answer data
         while($_POST) {

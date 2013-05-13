@@ -16,6 +16,10 @@
 
     foreach($question_ratings as $question_rating)
         $question_rating = $question_rating['total'] / $question_rating['votes'];
+    
+     $date = new Zend_Date($question['date_created']);
+
+    ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
 
 ?>
 
@@ -39,7 +43,13 @@
 
         </div>
 	   <div class="question-data">
+		  
 		  <span class="date">Geplaatst <?php echo $date->toString("dd-MMMM-YYYY");?></span>
+		  
+		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
+		  
+		  <span class="votes"><img src="assets/img/up.png"/>+<?php echo $votes = 0;?></span>
+		  
 	   </div>
 
     </div>
