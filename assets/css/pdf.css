@@ -6,9 +6,204 @@
         Purpose of the stylesheet follows.
 */
 
+@page
+{
+    margin: 0px;
+}
+
+body
+{
+    font-family: 'helvetica';
+}
+
 #question
 {
-    background-color: red;
-    width: 200px;
-    height: 300px;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    border-right: 2px dotted #000;
+}
+
+#logo
+{
+    position: relative;;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: url("../img/logo.png") no-repeat #000 center;
+    color: #fff;
+}
+
+#notepad
+{
+    position: absolute;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+    border-left: 2px dashed #000;
+}
+
+#cut-line
+{
+    position: absolute;
+    height: 100%;
+    bottom: 0px;
+    width: 100%;
+    background: url("../img/scissors.png") no-repeat 49.99% bottom;
+}
+
+/* Question */
+
+.header {
+    background: url('../img/article.jpg') repeat-x;
+    height: 48px;
+    color: white;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.shadow-border1,
+.shadow-border2,
+.shadow-border3{
+    position: relative;
+    background: url("../img/shadow_1.png") no-repeat top center;
+    
+}
+
+.shadow-border1
+{
+    top: -8px;
+}
+
+.shadow-border3
+{
+    top: -10px;
+}
+.question {
+    position: relative;
+    background: white;
+    height: 183px;
+    width: 100%;
+    border: 1px solid #dddddd;
+}
+
+.question-image {
+    width: 150px;
+    margin: 15px;
+}
+
+.question-info {
+    position: absolute;
+    top: 10px;
+    width: 300px;
+    left: 180px;
+}
+
+.question-info .category {
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    color: #323232;
+    margin: 0 0 5px 0;
+}
+
+.question-info .title {
+    text-decoration: none;
+    color: #666666;
+    margin: 0 0 5px 0;
+}
+
+.question-info p {
+    line-height: 22px;
+}
+
+.question-data{
+    position: absolute;
+    top: 15px;
+    font-size: 12px;
+    color: #d3327a;
+    text-align: right;
+    height: 100%;
+}
+
+.question-data .date
+{
+    position: absolute;
+    top: 0px;
+    right: 18px;
+}
+
+.question-data .print
+{
+    position: absolute;
+    top: 140px;
+    right: 20px;
+}
+
+.answer-data .votes img,
+.question-data .print img
+{
+    margin-right: 5px;
+}
+
+/* ANSWER */
+.answer {
+    position: relative;
+    background: white;
+    height: 183px;
+    width: 100%;
+    border: 1px solid #dddddd;
+}
+
+.answer-image {
+    float: left;
+    width: 150px;
+    margin: 15px;
+}
+
+.answer-info {
+    position: absolute;
+    top: 10px;
+    width: 280px;
+    left: 180px;
+}
+
+.answer-info .category {
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    color: #323232;
+    margin: 0 0 5px 0;
+}
+
+.answer-info .title {
+    text-decoration: none;
+    color: #666666;
+    margin: 0 0 5px 0;
+}
+
+.answer-data{
+    position: absolute;
+    top: 12px;
+    font-size: 12px;
+    color: #d3327a;
+    text-align: right;
+    height: 100%;
+}
+
+.answer-data .votes
+{
+    position: absolute;
+    top: 140px;
+    right: 18px;
+}
+
+.answer-data .date
+{
+    position: absolute;
+    top: 0px;
+    right: 18px;
 }

@@ -4,12 +4,10 @@ class PageController extends AppController {
 
     public function homeAction()
     {         
-	 
-	   // Request
+	  // Request
 	   $request = Zend_Controller_Front::getInstance()->getRequest();
 	   $params = $request->getParams();
 	   $error = $params['error'];	   
-       
        // Includes
        $db = Zend_Registry::get('db');
         
@@ -18,8 +16,7 @@ class PageController extends AppController {
 
        // Views
        $this->view->questions = $questions;
-	   $this->view->error = $error;
-    
+	  $this->view->error = $error;
     }
     
 }

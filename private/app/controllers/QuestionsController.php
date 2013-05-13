@@ -17,7 +17,7 @@ class QuestionsController extends CrudController {
         }
 
     	// Includes 
-	    $request = Zend_Controller_Front::getInstance()->getRequest();
+	   $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
         $config = Zend_Registry::get('config');
 
@@ -41,7 +41,7 @@ class QuestionsController extends CrudController {
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);
         $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
-	    $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
         $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
 	   
@@ -55,8 +55,8 @@ class QuestionsController extends CrudController {
         $this->view->answers = $answers;
         $this->view->category = $category;
         $this->view->tags = explode(';', $question['tags']);
-	    $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
-	    $this->view->countedAnswers = $countedAnswers;
+	   $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
+	   $this->view->countedAnswers = $countedAnswers;
         $this->view->user = $user;
 	   
         // Answer data
@@ -90,11 +90,31 @@ class QuestionsController extends CrudController {
 	   
 	   // Queries 
 	   $question = $db->fetchRow('SELECT * FROM questions WHERE id = ?', $question_id);
-       $answer = $db->fetchRow('SELECT * FROM answers WHERE id = ?', $answer_id);
+	   $answer = $db->fetchRow('SELECT * FROM answers WHERE id = ?', $answer_id);
+	   $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
+	   $userQ = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
+	   $userA = $db->fetchOne('SELECT name FROM users WHERE id = ?', $answer['user_id']);
+	   $thumbs = count($db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']));
+	   
+	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+	   
+	    $dateQ = new Zend_Date($question['date_created']);
+	    $dateA = new Zend_Date($answer['date_created']);
+	    $dateToday = new Zend_Date(time());
+
+	   ($countedAnswers == 0 ? $countedAnswers = "Nog niet beantwoord." : $countedAnswers .= "x beantwoord");
 	   
 	   $data = array(
 		  "question" => $question,
-		  "answer" => $answer
+		  "answer" => $answer,
+		  "category" => $category,
+		  "countedAnswers" => $countedAnswers,
+		  "dateQ" => $dateQ->toString("dd MMMM YYYY"),
+		  "dateA" => $dateA->toString("dd MMMM YYYY"),
+		  "userQ" => $userQ,
+		  "userA" => $userA,
+		  "dateToday" => $dateToday->toString("dd MMMM YYYY"),
+		  "thumbs" => $thumbs
 	   );
 	   
 	   $this->view->layout()->disableLayout();
@@ -121,14 +141,14 @@ class QuestionsController extends CrudController {
 	   $autoloader = Zend_Loader_Autoloader::getInstance();
 	   $autoloader->pushAutoloader('DOMPDF_autoload'); 
 	
-       // PDF
-       $pdf = new DOMpdf();
-       $pdf->set_paper('a4', 'landscape');
-	  $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id );
-	   
-       $pdf->load_html($html);
-	  $pdf->render();
-	  $pdf->stream("test.pdf", array("Attachment" => 0));
+	   // PDF
+	   $pdf = new DOMpdf();
+	   $pdf->set_paper('a4', 'landscape');
+	   $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id );
+
+	   $pdf->load_html($html);
+	   $pdf->render();
+	   $pdf->stream("test.pdf", array("Attachment" => 0));
     }
     
 }
