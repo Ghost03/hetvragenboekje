@@ -41,38 +41,23 @@ class QuestionsController extends CrudController {
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);
         $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
-	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
-        $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
+	    $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
         $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
 	   
-	   
-			$date = new Zend_Date($question['date_created']);
-			
-			($countedAnswers == 0 ? $countedAnswers = "Nog niet beantwoord." : $countedAnswers .= "x beantwoord");
-
-        foreach($question_ratings as $question_rating)
-            $question_rating = $question_rating['total'] / $question_rating['votes'];
-
-        foreach($answers as $answer):
-            $answer_ratings = $db->fetchAll('SELECT * FROM votes WHERE answer_id = ?', $answer['id']);
-
-            foreach($answer_ratings as $answer_rating):
-                $answer_rating = $answer_rating['total'] / $answer_rating['votes'];
-            endforeach;
-
-        endforeach;
+        $questiondate = new Zend_Date($question['date_created']);
+		
+		($countedAnswers == 0 ? $countedAnswers = "Nog niet beantwoord." : $countedAnswers .= "x beantwoord");
 
         // Views
         $this->view->questioner = $questioner;
         $this->view->question = $question;
         $this->view->answers = $answers;
-        $this->view->question_rating = $question_rating;
-        $this->view->answer_rating = $answer_rating;
         $this->view->category = $category;
         $this->view->tags = explode(';', $question['tags']);
-	   $this->view->date = $date->toString("dd MMMM YYYY");
-	   $this->view->countedAnswers = $countedAnswers;
+	    $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
+	    $this->view->countedAnswers = $countedAnswers;
+        $this->view->user = $user;
 	   
         // Answer data
         while($_POST) {

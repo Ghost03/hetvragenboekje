@@ -22,4 +22,6 @@ return array(
     'antwoord' => new Zend_Controller_Router_Route('antwoord', array('controller' => 'questions', 'action' => 'detail')),
     'printpdf' => new Zend_Controller_Router_Route('printpdf', array('controller' => 'questions', 'action' => 'generatehtml')),
     'createpdf' => new Zend_Controller_Router_Route('createpdf', array('controller' => 'questions', 'action' => 'createpdf')),
+
+    'thumbsup' => new Zend_Controller_Router_Route('thumbsup', array('controller' => 'answer', 'action' => 'thumbsup')),
 );
