@@ -252,6 +252,52 @@
 
 				</div>
 
+                <div class="box">
+
+                    <div class="head">
+
+                       <h1>Top 3 vandaag</h1>
+
+                    </div>
+
+                    <div class="box-content">
+
+                       <div id="top-3">
+
+                            <ul>
+                                <?php 
+                                    $top3 = $db->fetchAll('SELECT * FROM questions WHERE DATE(date_created) = DATE(NOW()) LIMIT 3');
+                                    foreach($top3 as $question)
+                                        echo '<li class="favo"><a href="question/' . $question['url'] . '">' . $question['name'] . '</a></li>';
+                                ?>
+                            </ul>
+
+                       </div>
+
+                    </div>
+                    
+                <div class="shadow-border-2">&nbsp;</div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="head">
+
+                       <h1>Facebook</h1>
+
+                    </div>
+
+                    <div class="box-content">
+
+                        <iframe src="//www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/hetvragenboekje&amp;width=297&amp;height=210&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color=%23fff&amp;header=false" scrolling="no" frameborder="0" style="border:none; margin: 45px 0 0 0; overflow:hidden; width:297px; height:210px;" allowtransparency="true"></iframe>
+
+                    </div>
+                    
+                <div class="shadow-border-2">&nbsp;</div>
+
+                </div>
+
 			 </div>
 
         </div>
@@ -330,8 +376,8 @@
 
     </div>
 
-  <script type="text/javascript" src="assets/js/validate.js"></script>
-  <script type="text/javascript" src="assets/js/js.js"></script>
+    <script type="text/javascript" src="assets/js/validate.js"></script>
+    <script type="text/javascript" src="assets/js/js.js"></script>
 
   </body>
 
