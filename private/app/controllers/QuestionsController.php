@@ -17,7 +17,7 @@ class QuestionsController extends CrudController {
         }
 
     	// Includes 
-	   $request = Zend_Controller_Front::getInstance()->getRequest();
+	    $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
         $config = Zend_Registry::get('config');
 
@@ -71,7 +71,7 @@ class QuestionsController extends CrudController {
         $this->view->answer_rating = $answer_rating;
         $this->view->category = $category;
         $this->view->tags = explode(';', $question['tags']);
-	   $this->view->date = $date->toString("dd-MMMM-YYYY");
+	   $this->view->date = $date->toString("dd MMMM YYYY");
 	   $this->view->countedAnswers = $countedAnswers;
 	   
         // Answer data

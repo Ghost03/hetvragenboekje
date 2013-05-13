@@ -186,6 +186,10 @@ input[type="password"]
     font-size: 21px;
 }
 
+.noresults {
+    font-size: 20px;
+}
+
 .header {
     background: url('../img/article.jpg') repeat-x;
     height: 48px;
@@ -508,12 +512,19 @@ input[type="submit"]
     font-size: 15px;
     font-family: arial;
     color: #000;
+    line-height: 24px;
 }
 
 #results-questions li a:hover {
     text-decoration: underline;
     color: blue;
 }
+
+#results-questions li a span {
+    background: yellow;
+    padding: 2px;
+}
+
 
 #loadmore {
     display: block;
@@ -665,17 +676,21 @@ input[type="submit"]
     text-decoration: none;
     font-size: 13px;
     font-family: candara;
+    text-transform: capitalize;
 }
 
 #top-3 .favo a:hover {
     text-decoration: underline;
 }
 
+/* FORMULIEREN */
+
 #formulier {
     background: white;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin: 0 0 20px 0;
 }
 
 #formulier textarea {
