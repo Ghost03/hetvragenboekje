@@ -42,9 +42,11 @@ class SearchController extends AppController {
         if(!empty( $_POST['s'] )):
     	
             $search = trim($_POST['s']);
+            $sbind = '%' . $search . '%';
 
         	$results = $db->fetchAll('SELECT * FROM questions WHERE name LIKE ? LIMIT 10', '%' . $search . '%');
-            $q = $db->prepare('SELECT * FROM questions');
+            $q = $db->prepare('SELECT * FROM questions WHERE name LIKE :search');
+            $q->bindValue(":search", $sbind, PDO::PARAM_STR);
             $q->execute();
             $total = $q->rowCount();
 

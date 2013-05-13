@@ -1,6 +1,6 @@
 <?php if(!empty( $_POST['s'] )): ?>
 
-<h1 class="header"><?php $x = (count( $this->results ) == 1) ? "resultaat": "resultaten"; echo count( $this->results ) . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+<h1 class="header"><?php $x = ( $this->total == 1 ) ? "resultaat": "resultaten"; echo $this->total . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
 
 <?php else: ?>
 
@@ -71,10 +71,10 @@ $(function() {
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
 		        success: function (data) {
                 for (var i in data) { 
-                if(data.length < 10) {
-                  $('#loadmore').hide();
-                }
-                 $('#results-questions').append($('<li><a href="' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(500));
+                  if(data.length < 10) {
+                    $('#loadmore').hide();
+                  }
+                  $('#results-questions').append($('<li><a href="question/' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(500));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }
