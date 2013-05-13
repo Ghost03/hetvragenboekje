@@ -397,7 +397,7 @@ input[type="password"]
     position: absolute;
     top: 50px;
     text-align: center;
-    left: 40px;
+    width: 100%;
 }
 
 #login .login-box
@@ -744,7 +744,7 @@ input[type="submit"]
 .user_info li {
     padding: 5px 0 5px 25px;
     text-align: left;
-        font-size: 13px;
+    font-size: 13px;
     color: #323232;
 }
 
@@ -758,21 +758,34 @@ input[type="submit"]
     text-decoration: underline;
 }
 
+.user_info li span
+{
+    padding-left: 25px;
+}
+
+.user_info .dark
+{
+    background-color: #f2f2f2;
+}
+
+.user_info .light{
+    background-color: #e7e7e7;
+}
 
 .user_info .gestelde-vragen {
-    background: #f2f2f2 url('../img/ask.png') no-repeat left;
+    background:  url('../img/ask.png') no-repeat left;
 }
 
 .user_info .beantwoorde-vragen {
-    background: #e7e7e7 url('../img/answer.png') no-repeat left;
+    background:  url('../img/answer.png') no-repeat left;
 }
 
 .user_info .stel-een-vraag {
-    background: #f2f2f2 url('../img/stelvraag.png') no-repeat left;
+    background:  url('../img/stelvraag.png') no-repeat left;
 }
 
 .short_nav {
-
+    margin: 0 25px;
 }
 
 .short_nav li {
