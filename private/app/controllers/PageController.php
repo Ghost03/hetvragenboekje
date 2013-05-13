@@ -4,8 +4,6 @@ class PageController extends AppController {
 
     public function homeAction()
     {         
-	 
-	   
 	   $request = Zend_Controller_Front::getInstance()->getRequest();
 	   $params = $request->getParams();
 	   $error = $params['error'];	   
