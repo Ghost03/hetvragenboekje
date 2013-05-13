@@ -4,6 +4,8 @@ class SearchController extends AppController {
 
 	public function getresultsAction()
     {   
+        // Get 10 more search results for questions
+        
 		if (!isset($_GET['from'])) exit;
 		if (!isset($_GET['to'])) exit;
 
@@ -12,12 +14,12 @@ class SearchController extends AppController {
         $from = (int) $_GET['from'];
 		$to = (int) $_GET['to'];
         $s = $_GET['s'];
-		$diff = $from - $to;
+		$total = (int) 10;
 
-		$q = $db->prepare('SELECT * FROM questions WHERE name LIKE :search LIMIT :start,:end');
+		$q = $db->prepare('SELECT * FROM questions WHERE name LIKE :search ORDER BY date_created LIMIT :start, :total');
         $q->bindValue(':search', '%' . $s . '%', PDO::PARAM_STR);
         $q->bindValue(':start', $from, PDO::PARAM_INT);
-        $q->bindValue(':end', $to, PDO::PARAM_INT);
+        $q->bindValue(':total', $total, PDO::PARAM_INT);
         $q->execute();
         $questions = $q->fetchAll(PDO::FETCH_ASSOC);
 
@@ -44,7 +46,7 @@ class SearchController extends AppController {
             $search = trim($_POST['s']);
             $sbind = '%' . $search . '%';
 
-        	$results = $db->fetchAll('SELECT * FROM questions WHERE name LIKE ? LIMIT 10', '%' . $search . '%');
+        	$results = $db->fetchAll('SELECT * FROM questions WHERE name LIKE ? ORDER BY date_created LIMIT 10', '%' . $search . '%');
             $q = $db->prepare('SELECT * FROM questions WHERE name LIKE :search');
             $q->bindValue(":search", $sbind, PDO::PARAM_STR);
             $q->execute();

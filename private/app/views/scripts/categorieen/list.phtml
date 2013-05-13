@@ -2,7 +2,7 @@
 
 <div class="shadow-border">&nbsp;</div>
 
-<div class="categories">
+<div id="categories">
 
 	<?php 
 
@@ -10,7 +10,7 @@
 	foreach( $this->categories as $category ):
 	$i++;
 
-	if( $i % 3 == 0 )
+	if( $i % 2 == 0 )
 		$class = 'last';
 	else $class = '';
 

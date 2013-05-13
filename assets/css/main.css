@@ -248,6 +248,7 @@ input[type="password"]
 }
 
 /* Right Sidebar */
+
 .content-right .box
 {
     width: 317px;
@@ -512,4 +513,100 @@ input[type="submit"]
 
 .answer-info p {
     line-height: 22px;
+}
+
+/* CATEGORIES */
+
+#categories h1 {
+    font-size: 30px;
+    margin: 0 0 30px 0;
+    font-family: "Kristen ITC";
+    background: #d8347e;
+    border-radius: 6px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#categories .last {
+    margin-right: 0;
+}
+
+#categories .category {
+    padding: 10px;
+    width: 270px;
+    margin: 0 30px 30px 0;
+    font-size: 20px;
+    font-family: calibri;
+    float: left;
+    box-shadow: 1px 3px 3px #aaa;
+    position: relative;
+    background: #f8f8f8 url('../img/categories/6.png') no-repeat;
+    border-radius: 4px;
+    height: 150px;
+}
+
+#categories .category .name {
+    font-size: 18px;
+    font-family: calibri;
+    background: #d8347e;
+    font-weight: bold;
+    color: white;
+    display: block;
+    margin: 0 0 50px -5px;
+    padding: 2px;
+    text-align: center;
+    border-bottom: 2px solid #aa0d54;
+}
+
+#categories .category-question {
+    font-size: 14px;
+    position: absolute;
+    background: transparent url('../img/categories/bg-cat-q.png') no-repeat;
+    margin: 0 0 0 -10px;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+#categories .category-question .cat-q {
+    font-size: 14px;
+    line-height: 20px;
+    text-shadow: 0px 1px 0px white;
+    color: #1f1f1f;
+    display: block;
+    margin: 0 0 10px 0;
+    clear: both;
+}
+
+#categories .category-question .cat-a {
+    font-size: 12px;
+}
+
+/* TOP 3 */
+
+#top-3 {
+    position: absolute;
+    top: 60px;
+}
+
+#top-3 ul {
+    margin: 0 0 0 10px;
+}
+
+#top-3 .favo {
+    background: url('../img/favo.png') no-repeat left;
+    padding: 0 0 0 40px;
+    margin: 0 0 15px 0;
+    line-height: 22px;
+}
+
+#top-3 .favo a {
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: candara;
+}
+
+#top-3 .favo a:hover {
+    text-decoration: underline;
 }
