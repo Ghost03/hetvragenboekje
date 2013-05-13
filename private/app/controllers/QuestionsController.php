@@ -41,7 +41,7 @@ class QuestionsController extends CrudController {
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);
         $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
-	    $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
         $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
 	   
@@ -55,8 +55,8 @@ class QuestionsController extends CrudController {
         $this->view->answers = $answers;
         $this->view->category = $category;
         $this->view->tags = explode(';', $question['tags']);
-	    $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
-	    $this->view->countedAnswers = $countedAnswers;
+	   $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
+	   $this->view->countedAnswers = $countedAnswers;
         $this->view->user = $user;
 	   
         // Answer data
@@ -94,6 +94,7 @@ class QuestionsController extends CrudController {
 	   $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
 	   $userQ = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
 	   $userA = $db->fetchOne('SELECT name FROM users WHERE id = ?', $answer['user_id']);
+	   $thumbs = count($db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']));
 	   
 	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
 	   
@@ -112,7 +113,8 @@ class QuestionsController extends CrudController {
 		  "dateA" => $dateA->toString("dd MMMM YYYY"),
 		  "userQ" => $userQ,
 		  "userA" => $userA,
-		  "dateToday" => $dateToday->toString("dd MMMM YYYY")
+		  "dateToday" => $dateToday->toString("dd MMMM YYYY"),
+		  "thumbs" => $thumbs
 	   );
 	   
 	   $this->view->layout()->disableLayout();
