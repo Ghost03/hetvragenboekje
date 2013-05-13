@@ -135,20 +135,25 @@
 
     <?php if(isset($_SESSION['user'] )): ?>
 
+    <div id="formulier">
+
         <form action="antwoord" id="answer_form" method="POST">
 
             <fieldset>
 
-                <label for="answer">Beantwoord deze vraag</label>
-                <?php echo $this->form->getElement('name'); ?>
+                <label for="name">Beantwoord deze vraag</label>
+                <?php echo $this->form->getElement('name'); ?><br /><br />
+
                 <input type="hidden" name="question_id" value="<?php echo $this->question['id']; ?>" />
                 <input type="hidden" name="question_name" value="<?php echo sanitize($this->question['name']); ?>" />
 
-                <input type="submit" name="submit" class="btn-primary submit" value="Antwoord">
+                <input type="submit" name="submit" class="submit" value="Antwoord">
 
             </fieldset>
 
         </form>
+
+    </div>
 
     <?php endif; ?>
 

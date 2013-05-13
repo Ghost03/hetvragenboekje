@@ -2,7 +2,7 @@
 
 <div class="shadow-border">&nbsp;</div>
 
-<div class="formulier">
+<div id="formulier">
 
 	<form action="profiel" method="POST">
 
@@ -11,13 +11,13 @@
 			<label for="name">* Naam:</label>
 			<?php echo $this->form->getElement('name'); ?><br />
 
-			<label for="name">Achternaam:</label>
+			<label for="lastname">Achternaam:</label>
 			<?php echo $this->form->getElement('lastname'); ?><br />
 
-			<label for="tags">Email</label>
+			<label for="email">Email</label>
 			<?php echo $this->form->getElement('email'); ?><br /><br />
 
-			<input type="submit" class="btn" value="Aanpassen" />
+			<input type="submit" class="submit" value="Aanpassen" />
 
 		</fieldset>
 
