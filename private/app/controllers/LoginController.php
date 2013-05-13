@@ -32,7 +32,7 @@ class LoginController extends CrudController {
 	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
 
 	   if (!$emailDB) {
-		  $data = array("error" => "E-Mail is al in gebruik.");
+		  $data = array("error" => "E-mail bestaat niet.");
 		  $this->_forward("home", "page", 'default', $data);
 	   }
 	   else

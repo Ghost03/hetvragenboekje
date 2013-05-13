@@ -30,13 +30,17 @@
         <div class="question-info">
 
             <a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $category['name']; ?></a>
+		  
             
             <p>
-                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a></br />
+                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a><br />
                 <a href="question/<?= $question['url'] ?>" class="title"><?php echo $user; ?></a>
             </p>
 
         </div>
+	   <div class="question-data">
+		  <span class="date">Geplaatst <?php echo $date->toString("dd-MMMM-YYYY");?></span>
+	   </div>
 
     </div>
 

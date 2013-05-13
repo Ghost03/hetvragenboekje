@@ -41,10 +41,9 @@ Zend_Registry::set('config',$config);
 /*
  * Locale
  */
-$locale = new Zend_Locale('en_EN');
-Zend_Registry::set('locale',$locale);
+$locale = new Zend_Locale('nl_NL');
+Zend_Registry::set('Zend_Locale',$locale);
 date_default_timezone_set('Europe/Amsterdam');
-
 /*
  * Cachine
  */
