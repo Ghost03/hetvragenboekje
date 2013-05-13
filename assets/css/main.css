@@ -137,10 +137,11 @@ input[type="password"]
 }
 
 .search-box p {
-    width: 342px;
-    font-size: 14px;
+    width: 371px;
+    font-size: 22px;
     color: #666666;
-    margin: 15px 0 20px 0;
+    margin: 0 0 27px 0;
+    line-height: 25px;
 }
 
 .user-field, .key-field{
@@ -431,16 +432,9 @@ input[type="submit"]
 }
 
 /* icons */
-.search-img {
-    background: url('../img/preview.png') no-repeat;
-    width: 150px;
-    height: 150px;
-    float: left;
-    margin: 15px 15px 0 15px;
-}
 
 .password-img{
-    background: url('../img/key.png') no-repeat;
+    background: url('../img/key.png') no-repeat 0 50px;
     width: 150px;
     height: 32px;
     float: left;
