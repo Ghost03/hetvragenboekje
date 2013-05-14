@@ -52,6 +52,6 @@ $(function()
 	  }
    });
    var emailError = $("#email-error").text();
-  $("#inloggen").children(".user-field").append('<label for="email" class="error" style="">'+emailError+'</label>')
+  $("#login").children(".errors").append('<div for="email" class="error" style="">'+emailError+'</div>')
    
 });
