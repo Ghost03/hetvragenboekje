@@ -1,11 +1,12 @@
 $(function()
 {
    $("#inloggen").validate({
-	  errorElement: "div",
-	  errorContainer: $(".error"),
-	  errorPlacement: function(error, element){
-		 error.appendTo(element.parents("error"));
-	  },
+	 errorElement: "div",
+	  errorContainer: $("div.errors"),
+	  errorPlacement: function(error, element) {
+				$(".errors").html("");
+				error.appendTo( element.parent("div").parent("form").parent("div").children(".errors") );
+			},
 	  rules: {
 		 email: {
 				required: true,
@@ -21,11 +22,13 @@ $(function()
    });
    
    $("#register").validate({
+	  
 	  errorElement: "div",
-	  errorContainer: $(".error"),
-	  errorPlacement: function(error, element){
-		 error.appendTo(element.parents("error"));
-	  },
+	  errorContainer: $("div.errors"),
+	  errorPlacement: function(error, element) {
+				$(".errors").html("");
+				error.appendTo( element.parent("div").parent("form").parent("div").children(".errors") );
+			},
 	  rules: {
 		 email: {
 			required: true,
