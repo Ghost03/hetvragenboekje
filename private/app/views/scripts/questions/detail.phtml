@@ -6,29 +6,6 @@
 
 <div class="shadow-border">&nbsp;</div>
 
-<!--<div class="question">
-
-    <a class="answers"><?php echo count( $this->answers ); ?></a>
-
-    <a id="category" href="categorieen/<?php echo $this->category['url']; ?>"><?php echo $this->category['name']; ?></a>
-
-    <span class="stars"><?php if($this->question_rating): echo $this->question_rating; else: echo '0'; endif; ?></span>
-
-    <a class="print" href="printToPDF">&nbsp;</a>
-
-    <span class="q"><?php echo $this->question['name']; ?></span>
-    <span class="user"><a href="question/is-een-banaan-echt-wel-zo-gezond"><?php echo $this->questioner['name']; ?></a> vraagt..</span>
-
-    <div class="tags">
-
-        <?php foreach($this->tags as $tag) echo '<span>' . $tag . '</span>'; ?>
-
-    </div>
-
-</div>-->
-
-<!-- // TO DO: VRAAG FIXEN MET NIEUW DESIGN -->
-
 <div class="question">
 
     <div class="question-image">
@@ -51,13 +28,11 @@
           
           <span class="date">Geplaatst <?php echo $this->questiondate;?></span>
 
-          <?php if(isset($_SESSION['user'] )): ?>
+          <?php if(isset($_SESSION['user'] ) && $this->answers): ?>
 
             <span class="print">
 
                 <img src="assets/img/print.png"/>
-
-                <!-- ANTWOORD ID PAKKEN MET MEESTE THUMBS EN PLAATSEN -->
 
                 <?php
 
