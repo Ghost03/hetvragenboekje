@@ -1,6 +1,11 @@
 $(function()
 {
    $("#inloggen").validate({
+	  errorElement: "div",
+	  errorContainer: $(".error"),
+	  errorPlacement: function(error, element){
+		 error.appendTo(element.parents("error"));
+	  },
 	  rules: {
 		 email: {
 				required: true,
@@ -16,6 +21,11 @@ $(function()
    });
    
    $("#register").validate({
+	  errorElement: "div",
+	  errorContainer: $(".error"),
+	  errorPlacement: function(error, element){
+		 error.appendTo(element.parents("error"));
+	  },
 	  rules: {
 		 email: {
 			required: true,
