@@ -381,6 +381,11 @@ input[type="password"]
     display: block;
 }
 
+.shadow-border-search
+{
+    margin: -15px 0 10px 0px;
+    background: url("../img/shadow_1.png") no-repeat left;
+}
 .shadow-border
 {
     margin: -5px 0 20px 0px;
@@ -530,6 +535,10 @@ input[type="submit"]
 
 #results-questions li {
     margin: 0 0 10px 0;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dddddd;
 }
 
 #results-questions li a {
@@ -538,17 +547,18 @@ input[type="submit"]
     font-family: arial;
     color: #000;
     line-height: 24px;
+    text-transform: capitalize;
 }
 
 #results-questions li a:hover {
     text-decoration: underline;
-    color: blue;
+    color: #d3327a;
 }
 
-#results-questions li a span {
+/*#results-questions li a span {
     background: yellow;
     padding: 2px;
-}
+}*/
 
 
 #loadmore {
