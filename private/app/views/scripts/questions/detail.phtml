@@ -42,15 +42,15 @@
         <a href="categorieen/<?= $this->category['url'] ?>" class="category"><?php echo $this->category['name']; ?></a>
         
         <p>
-            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->question['name']; ?></a><br /><br />
+            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->question['name']; ?></a><br />
             <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->user['name']; ?></a>
         </p>
 
     </div>
 
      <div class="question-data">
-		  
-		  <span class="date">Geplaatst op: <?php echo $this->questiondate;?></span>
+          
+          <span class="date">Geplaatst <?php echo $this->questiondate;?></span>
 
           <?php if(isset($_SESSION['user'] )): ?>
 
@@ -59,15 +59,38 @@
                 <img src="assets/img/print.png"/>
 
                 <!-- ANTWOORD ID PAKKEN MET MEESTE THUMBS EN PLAATSEN -->
-                <a target="_blank" href="createpdf?q=<?= $this->question['id'] ?>&a=1">Print als PDF</a>
+
+                <?php
+
+                    foreach($this->answers as $answer): 
+
+                        $last_answer = $db->fetchOne('SELECT id FROM answers WHERE question_id = ? ORDER BY date_created LIMIT 1', $this->question['id']);
+                        $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);
+                        $thumbs = $db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']);
+                        $answerdate = new Zend_Date($answer['date_created']);
+                        $answer_id = '';
+
+                        if( $thumbs ):
+                            foreach($thumbs as $thumb)
+                            $answer_id = $db->fetchOne('SELECT answer_id, COUNT(answer_id) AS a_id FROM thumbs WHERE question_id = ? GROUP BY answer_id ORDER BY a_id DESC LIMIT 1', $this->question['id']);
+                        endif;
+
+                        if( ! count( $answer_id ) )
+                            $answer_id = $last_answer;
+
+                    endforeach;
+
+                ?>
+
+                <a target="_blank" href="createpdf?q=<?= $this->question['id'] ?>&a=<?= $answer_id ?>">Print als PDF</a>
 
             </span>
 
           <?php endif; ?>
-		  
-		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
-		  
-	   </div>
+          
+          <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
+          
+       </div>
 </div>
 
 <div class="shadow-border">&nbsp;</div>
@@ -80,7 +103,7 @@
 
 <div id="overview">
 
-	<?php if( $this->answers ): ?>
+    <?php if( $this->answers ): ?>
 
         <h1 class="header">Antwoorden</h1>
 
@@ -93,6 +116,10 @@
             $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);
             $thumbs = $db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']);
             $answerdate = new Zend_Date($answer['date_created']);
+
+            foreach($thumbs as $thumb)
+                $answer_id = $db->fetchOne('SELECT answer_id, COUNT(answer_id) AS a_id FROM thumbs GROUP BY answer_id ORDER BY a_id DESC LIMIT 1');
+
 
         ?>        
 
