@@ -810,3 +810,9 @@ input[type="submit"]
 .short_nav .logout {
     float: right;
 }
+
+.errors
+{
+    font-size: 12px;
+    color: #f00;
+}
