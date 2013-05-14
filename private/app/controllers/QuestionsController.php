@@ -144,7 +144,17 @@ class QuestionsController extends CrudController {
 	   // PDF
 	   $pdf = new DOMpdf();
 	   $pdf->set_paper('a4', 'landscape');
-	   $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id );
+	  
+	   //LATER CONTEXT VARIABLE ERUIT HALEN
+	   $username = "examen";
+	   $password = "toegang";
+	   
+	   $context = stream_context_create(array(
+    'http' => array(
+        'header'  => "Authorization: Basic " . base64_encode("$username:$password")
+    )
+));
+	   $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id, false, $context );
 
 	   $pdf->load_html($html);
 	   $pdf->render();
