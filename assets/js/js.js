@@ -23,5 +23,11 @@ $(function()
     });
     
     $("input").placeholder();
+   
+    var pathArray = window.location.pathname.split( '/' );
+    var url = pathArray[0];
+    var items = Array(1,2,3,4,5,6,7,8,9,10,11,12);
+    var item = items[Math.floor(Math.random()*items.length)];
+    $(".search-img").html('<img src="'+url+'assets/img/categories/'+item+'.png" width="150" height="150"/>');
     
 });
