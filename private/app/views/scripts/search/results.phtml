@@ -31,7 +31,8 @@
 					} else {
 					   $result['name'] = substr($result['name'], 0, strpos(wordwrap($result['name'], 70), "\n")) . "...";
 					}
-  					echo '<li><a href="question/' . $result['url'] . '">' . str_ireplace( $this->search, "<span>" . $this->search . "</span>", $result['name'] ) . '</a></li>';
+  					echo '<li><a href="question/' . $result['url'] . '">' . str_ireplace( $this->search, "<span>" . $this->search . "</span>", $result['name'] ) . '</a></li>
+            <div class="shadow-border-search">&nbsp;</div>';
   				endforeach;
   			?>
 
@@ -64,7 +65,7 @@ $(function() {
                   if(data.length < 10) {
                     $('#loadmore').hide();
                   }
-                  $('#results-questions').append($('<li><a href="question/' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li>').fadeIn(500));
+                  $('#results-questions').append($('<li><a href="question/' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li><div class="shadow-border-search">&nbsp;</div>').fadeIn(500));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }
