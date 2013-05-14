@@ -204,7 +204,7 @@ input[type="password"]
 
 .question {
     background: white;
-    height: 183px;
+    height: 201px;
     border: 1px solid #dddddd;
 }
 
@@ -306,8 +306,19 @@ input[type="password"]
     line-height: 22px;
 }
 
+.question .user {
+    font-size: 14px;
+    font-weight: bold;
+    color: #d3327a;
+    position: absolute;
+    display: block;
+    clear: both;
+    bottom: 28px;
+    left: -450px;
+}
+
 .tags {
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
 }
 
 .tags span {

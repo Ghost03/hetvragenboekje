@@ -42,7 +42,6 @@
             
             <p>
                 <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a><br /><br />
-                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $user; ?></a>
             </p>
 
 		  
@@ -53,6 +52,8 @@
 		  <span class="date">Geplaatst op: <?php echo $date->toString("dd MMMM YYYY");?></span>
 		  
 		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
+
+          <span class="user"><?php echo $user; ?></span>
 		  
 	   </div>
 
