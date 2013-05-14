@@ -13,7 +13,7 @@
 	else $class = '';
 
 	echo '
-	<div class="category ' . $class . '">
+	<div class="category ' . $class . '" style="background: url("assets/img/categories/'.$i.'.png") no-repeat;">
 
 		<a href="' . $this->config->baseurl . $this->request->controller . '/' . $category['url'] . '" class="name">' . $category['name'] . '</a> 
 

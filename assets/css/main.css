@@ -635,7 +635,6 @@ input[type="submit"]
     float: left;
     box-shadow: 1px 3px 3px #aaa;
     position: relative;
-    background: #f8f8f8 url('../img/categories/6.png') no-repeat;
     border-radius: 4px;
     height: 150px;
 }
@@ -643,7 +642,7 @@ input[type="submit"]
 #categories .category .name {
     font-size: 18px;
     font-family: calibri;
-    background: #d8347e;
+    background: #d3327a;
     font-weight: bold;
     color: white;
     display: block;
@@ -828,4 +827,63 @@ input[type="submit"]
 {
     font-size: 12px;
     color: #f00;
+}
+#c1
+{
+     background: url("../img/categories/1.png");
+}
+
+#c2
+{
+     background: url("../img/categories/2.png");
+}
+
+#c3
+{
+     background: url("../img/categories/3.png");
+}
+
+#c4
+{
+     background: url("../img/categories/4.png");
+}
+
+#c5
+{
+     background: url("../img/categories/5.png");
+}
+
+#c6
+{
+     background: url("../img/categories/6.png");
+}
+
+#c7
+{
+    background: url("../img/categories/7.png");
+}
+
+#c8
+{
+     background: url("../img/categories/8.png");
+}
+
+#c9
+{
+     background: url("../img/categories/9.png");
+}
+
+#c10
+{
+     background: url("../img/categories/10.png");
+}
+
+#c11
+{
+     background: url("../img/categories/11.png");
+}
+
+#c12
+{
+     background: url("../img/categories/12.png");
 }
