@@ -50,7 +50,7 @@ class RegisterController extends CrudController {
 
             $_SESSION['user'] = $values['name'];
                 
-            $this->_redirect('');
+            $this->_redirect('/questions');
         }
     }
     

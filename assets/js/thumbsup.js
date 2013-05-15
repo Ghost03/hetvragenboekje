@@ -1,6 +1,6 @@
  $(function()
 {
-    var thumb = $("#thumbs-up");
+    var thumb = $(".thumbs-up");
 
     thumb.hover( function()
     {
