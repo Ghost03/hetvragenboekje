@@ -24,4 +24,5 @@ return array(
     'createpdf' => new Zend_Controller_Router_Route('createpdf', array('controller' => 'questions', 'action' => 'createpdf')),
 
     'thumbsup' => new Zend_Controller_Router_Route('thumbsup', array('controller' => 'answer', 'action' => 'thumbsup')),
+    'tag' => new Zend_Controller_Router_Route('tag/:tag', array('controller' => 'tag', 'action' => 'detail')),
 );

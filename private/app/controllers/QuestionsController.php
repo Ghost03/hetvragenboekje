@@ -17,7 +17,7 @@ class QuestionsController extends CrudController {
         }
 
     	// Includes 
-	   $request = Zend_Controller_Front::getInstance()->getRequest();
+	    $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
         $config = Zend_Registry::get('config');
 
@@ -37,7 +37,7 @@ class QuestionsController extends CrudController {
 
     public function detailAction()
     {  
-        // Includes 
+        // I ncludes 
         $form = $this->view->form = new AnswerForm;
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
@@ -47,7 +47,7 @@ class QuestionsController extends CrudController {
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);
         $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
-	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+	    $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
         $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
 	   
@@ -64,8 +64,8 @@ class QuestionsController extends CrudController {
         $this->view->answers = $answers;
         $this->view->category = $category;
         $this->view->tags = explode(';', $question['tags']);
-	   $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
-	   $this->view->countedAnswers = $countedAnswers;
+	    $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
+	    $this->view->countedAnswers = $countedAnswers;
         $this->view->user = $user;
 	   $this->view->appID = $app_id;
 	   $this->view->baseurl = $config->baseurl;
