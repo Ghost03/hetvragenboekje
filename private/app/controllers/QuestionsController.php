@@ -26,8 +26,13 @@ class QuestionsController extends CrudController {
         $user_id = $db->fetchOne('SELECT id FROM users WHERE name = ?', $session);
         $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created LIMIT 5', $user_id);
 
+	   // Data 
+	   $app_id = "117716921766168";
+	   
         // Views
         $this->view->questions = $questions;
+	   $this->view->appID = $app_id;
+	   $this->view->baseurl = $config->baseurl;
     }
 
     public function detailAction()
@@ -36,6 +41,7 @@ class QuestionsController extends CrudController {
         $form = $this->view->form = new AnswerForm;
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
+	   $config = Zend_Registry::get('config');
 	   
         // Queries
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);
@@ -48,6 +54,9 @@ class QuestionsController extends CrudController {
         $questiondate = new Zend_Date($question['date_created']);
 		
 		($countedAnswers == 0 ? $countedAnswers = "Nog niet beantwoord." : $countedAnswers .= "x beantwoord");
+		
+	   // Data 
+	   $app_id = "117716921766168";
 
         // Views
         $this->view->questioner = $questioner;
@@ -58,7 +67,8 @@ class QuestionsController extends CrudController {
 	   $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
 	   $this->view->countedAnswers = $countedAnswers;
         $this->view->user = $user;
-	   
+	   $this->view->appID = $app_id;
+	   $this->view->baseurl = $config->baseurl;
         // Answer data
         while($_POST) {
 
