@@ -53,8 +53,12 @@
 
                     endforeach;
 
-                ?>
-
+                $sharelink = "https://www.facebook.com/dialog/feed?app_id=".$this->appID."&link=".$this->baseurl.'question/'.$question['url']."&picture=".$this->baseurl."assets/img/fb.png&name=".$question['name']."&caption=".$category['name']."&redirect_uri=".$this->baseurl.'question/'.$question['url'];
+	   
+?>
+		  
+		  
+		  
                 <a target="_blank" href="createpdf?q=<?= $this->question['id'] ?>&a=<?= $answer_id ?>">Print als PDF</a>
 
             </span>
@@ -62,6 +66,7 @@
           <?php endif; ?>
           
           <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
+		<span class="share"><a href="<?=$sharelink?>">Share</a></span>
           <span class="user"><?php echo $this->user['name']; ?></span>
           
        </div>
@@ -128,12 +133,7 @@
                         else
                             echo '<span class="votes"><img class="thumbs-up" src="assets/img/up.png"/>+<span data-user="' . $this->user['id'] . '" data-answer="' . $answer['id'] . '" data-question="' . $this->question['id'] . '" data-thumb="' . count ( $thumbs ) . '">' . count ( $thumbs ) . '</span></span>';
 				    
-				    $sharelink = "https://www.facebook.com/dialog/feed?app_id=".$this->appID."&link=".$this->baseurl.'question/'.$question['url']."&picture=".$this->baseurl."assets/img/fb.png&name=".$question['name']."&caption=".$category['name']."&redirect_uri=".$this->baseurl.'question/'.$question['url'];
-	   
-?>
-		  
-		  
-		  <span class="share"><a href="<?=$sharelink?>">Share</a></span>
+				   ?>
                    </div>
 
             </div>
