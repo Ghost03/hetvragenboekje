@@ -127,8 +127,13 @@
                             echo '<span class="thumbs"><img style="margin: 0 5px 0 0;" src="assets/img/up-active.png"/>+'. count ( $thumbs ) . '</span>';
                         else
                             echo '<span class="votes"><img class="thumbs-up" src="assets/img/up.png"/>+<span data-user="' . $this->user['id'] . '" data-answer="' . $answer['id'] . '" data-question="' . $this->question['id'] . '" data-thumb="' . count ( $thumbs ) . '">' . count ( $thumbs ) . '</span></span>';
-                      ?>
-                      
+				    
+				    $sharelink = "https://www.facebook.com/dialog/feed?app_id=".$this->appID."&link=".$this->baseurl.'question/'.$question['url']."&picture=".$this->baseurl."assets/img/fb.png&name=".$question['name']."&caption=".$category['name']."&redirect_uri=".$this->baseurl.'question/'.$question['url'];
+	   
+?>
+		  
+		  
+		  <span class="share"><a href="<?=$sharelink?>">Share</a></span>
                    </div>
 
             </div>

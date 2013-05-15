@@ -52,7 +52,15 @@
 		  <span class="date">Geplaatst op: <?php echo $date->toString("dd MMMM YYYY");?></span>
 		  
 		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
+<?php  
 
+	  $sharelink = "https://www.facebook.com/dialog/feed?app_id=".$this->appID."&link=".$this->baseurl.'question/'.$question['url']."&picture=".$this->baseurl."assets/img/fb.png&name=".$question['name']."&caption=".$category['name']."&redirect_uri=".$this->baseurl.'question/'.$question['url'];
+	   
+?>
+		  
+		  
+		  <span class="share"><a href="<?=$sharelink?>">Share</a></span>
+		  
           <span class="user"><?php echo $user; ?></span>
 		  
 	   </div>
