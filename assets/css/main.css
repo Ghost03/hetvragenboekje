@@ -327,6 +327,12 @@ input[type="password"]
     border: none;
     border-radius: 4px;
     color: white;
+    text-decoration: none;
+}
+
+.tags span a {
+    color: white;
+    text-decoration: none;
 }
 
 .content-right {
