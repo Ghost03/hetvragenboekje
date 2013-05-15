@@ -14,7 +14,6 @@
 
     thumb.on("click", function() {
         
-        var thumbsup = parseInt($(this).parent().find('span').attr('data-thumb')) + 1;
         var answer = $(this).parent().find('span').attr('data-answer');
         var question = $(this).parent().find('span').attr('data-question');
         var user = $(this).parent().find('span').attr('data-user');
@@ -27,6 +26,7 @@
             type:'get',
             data:{'a': answer, 'q' : question, 'u' : user},
             success: function (data) {
+                var thumbsup = parseInt($(this).parent().find('span').attr('data-thumb')) + 1;
                 location.reload();
             }
         });
