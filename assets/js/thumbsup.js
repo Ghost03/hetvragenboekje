@@ -18,7 +18,6 @@
         var question = $(this).parent().find('span').attr('data-question');
         var user = $(this).parent().find('span').attr('data-user');
 
-        $(this).parent().find('span').html(thumbsup);
         $(this).attr("src", "assets/img/up-active.png");
 
         $.ajax({
@@ -26,7 +25,8 @@
             type:'get',
             data:{'a': answer, 'q' : question, 'u' : user},
             success: function (data) {
-                var thumbsup = parseInt($(this).parent().find('span').attr('data-thumb')) + 1;
+                var thumbsup = parseInt(thumb.parent().find('span').attr('data-thumb')) + 1;
+                thumb.parent().find('span').html(thumbsup);
                 location.reload();
             }
         });

@@ -35,22 +35,21 @@
                 <img src="assets/img/print.png"/>
 
                 <?php
+                    $answer_id = $db->fetchOne('SELECT id FROM answers 
+                                                  WHERE question_id = ? 
+                                                  ORDER BY date_created DESC 
+                                                  LIMIT 1', $this->question['id']);
 
                     foreach($this->answers as $answer): 
 
-                        $last_answer = $db->fetchOne('SELECT id FROM answers WHERE question_id = ? ORDER BY date_created LIMIT 1', $this->question['id']);
                         $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);
                         $thumbs = $db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']);
                         $answerdate = new Zend_Date($answer['date_created']);
-                        $answer_id = '';
 
-                        if( $thumbs ):
+                        if( isset($thumbs) ) {
                             foreach($thumbs as $thumb)
                             $answer_id = $db->fetchOne('SELECT answer_id, COUNT(answer_id) AS a_id FROM thumbs WHERE question_id = ? GROUP BY answer_id ORDER BY a_id DESC LIMIT 1', $this->question['id']);
-                        endif;
-
-                        if( ! count( $answer_id ) )
-                            $answer_id = $last_answer;
+                        }
 
                     endforeach;
 
@@ -87,7 +86,7 @@
 
         <?php 
 
-        foreach($this->answers as $answer): 
+        foreach($this->answers as $answer):
 
             $answerer = $db->fetchRow('SELECT * FROM users WHERE id = ?', $answer['user_id']);
             $thumbs = $db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']);

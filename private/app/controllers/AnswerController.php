@@ -26,13 +26,16 @@ class AnswerController extends CrudController {
 
        $user = $db->fetchRow('SELECT * FROM users WHERE id = ?', $user_id);
 
-       if (!isset($_SESSION['user']) || $_SESSION['user'] != $user['name']) exit;
-
-       $q = $db->prepare('INSERT INTO thumbs (user_id, answer_id, question_id) VALUES (:user_id, :answer_id, :question_id)');
-       $q->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-       $q->bindValue(':answer_id', $answer_id, PDO::PARAM_INT);
-       $q->bindValue(':question_id', $question_id, PDO::PARAM_INT);
-       $q->execute();
+       if (!isset($_SESSION['user']) || $_SESSION['user'] != $user['name']) {
+        exit;
+       }
+       else {
+         $q = $db->prepare('INSERT INTO thumbs (user_id, answer_id, question_id) VALUES (:user_id, :answer_id, :question_id)');
+         $q->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+         $q->bindValue(':answer_id', $answer_id, PDO::PARAM_INT);
+         $q->bindValue(':question_id', $question_id, PDO::PARAM_INT);
+         $q->execute();
+      }
     }
     
 }
