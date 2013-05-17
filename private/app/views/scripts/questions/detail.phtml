@@ -66,7 +66,9 @@
           <?php endif; ?>
           
           <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
-		<span class="share"><a href="<?=$sharelink?>">Share</a></span>
+		<a href="<?=$sharelink?>" class="fb-share">Share</a>
+		<a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$question['url'];?>&counturl=<?=$this->baseurl.'question/'.$question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $category['name']);?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
+          <span class="user"><?php echo $user; ?></span>
           <span class="user"><?php echo $this->user['name']; ?></span>
           
        </div>

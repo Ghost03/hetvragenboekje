@@ -24,9 +24,15 @@
         "adapter": "Pdo_Mysql",
         "params": {
             "hostname": "localhost",
+<<<<<<< HEAD
             "dbname":   "qanda",
             "username": "root",
             "password": ""
+=======
+            "dbname":   "gfopaiwq_qa",
+            "username": "admin",
+            "password": "adminkat"
+>>>>>>> 4f875bb9954119bac84b4e01372a27cd4f28d838
         }
     },
     
