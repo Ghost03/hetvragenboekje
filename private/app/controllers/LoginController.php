@@ -52,14 +52,16 @@ class LoginController extends CrudController {
 	  $user = $db->fetchRow($q, $email);
 
 	  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
-		$this->_redirect('/');
+		$data = array("error" => "Verkeerd wachtwoord.");
+		$this->_forward("home", "page", 'default', $data);
+	
 	  }
-
-	  unset($user['hash']);
-
-	  $_SESSION['user'] = $user['name'];
-
-	  $this->_redirect('/questions');
+	  else
+	  {
+		  unset($user['hash']);
+		  $_SESSION['user'] = $user['name'];
+		  $this->_redirect('/questions');
+	  }
     }
 }
 
