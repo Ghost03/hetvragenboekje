@@ -43,23 +43,23 @@ class LoginController extends CrudController {
 
     public function loginAction() {
 
-       $db = Zend_Registry::get('db');
+   	  $db = Zend_Registry::get('db');
 
-		  $email = trim($this->_getParam('email'));
-		  $password = trim($this->_getParam('password'));
+	  $email = trim($this->_getParam('email'));
+	  $password = trim($this->_getParam('password'));
 
-		  $q = "SELECT * FROM `users` WHERE email = ?";
-		  $user = $db->fetchRow($q, $email);
+	  $q = "SELECT * FROM `users` WHERE email = ?";
+	  $user = $db->fetchRow($q, $email);
 
-		  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
-			
-		  }
+	  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
+		$this->_redirect('/');
+	  }
 
-		  unset($user['hash']);
+	  unset($user['hash']);
 
-		  $_SESSION['user'] = $user['name'];
+	  $_SESSION['user'] = $user['name'];
 
-		  $this->_redirect('/questions');
+	  $this->_redirect('/questions');
     }
 }
 
