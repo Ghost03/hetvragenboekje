@@ -24,7 +24,7 @@ class QuestionsController extends CrudController {
         // Queries
         $session = $_SESSION['user'];
         $user_id = $db->fetchOne('SELECT id FROM users WHERE name = ?', $session);
-        $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created LIMIT 5', $user_id);
+        $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created', $user_id);
 
 	    // Data 
 	    $app_id = "117716921766168";
@@ -41,7 +41,7 @@ class QuestionsController extends CrudController {
         $form = $this->view->form = new AnswerForm;
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $db = Zend_Registry::get('db');
-	   $config = Zend_Registry::get('config');
+	    $config = Zend_Registry::get('config');
 	   
         // Queries
         $question = $db->fetchRow('SELECT * FROM questions WHERE url = ?', $request->question);

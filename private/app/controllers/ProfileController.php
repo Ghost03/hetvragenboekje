@@ -37,6 +37,7 @@ class ProfileController extends CrudController {
         // Includes
         $db = Zend_Registry::get('db');
         $form = $this->view->form = new ProfileForm;
+        $form->setAttrib('enctype', 'multipart/form-data');
 
         $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
 
@@ -54,6 +55,55 @@ class ProfileController extends CrudController {
             $this->_redirect('profiel');
         }
 
+        // Views
+        $this->view->user = $user;
+
+    }
+
+    public function photoAction()
+    {
+        $db = Zend_Registry::get('db');
+
+        $user = $_SESSION['user'];
+        $user_id = $db->fetchOne("SELECT id FROM users WHERE name = ?", $user);
+
+        $targetFolder = '/uploads/images/';
+
+        $verifyToken = md5('unique_salt' . $_POST['timestamp']);
+
+        if ( !empty($_FILES) && $_POST['token'] == $verifyToken ) {
+
+            $tempFile = $_FILES['Filedata']['tmp_name'];
+            $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
+            $targetFile = rtrim( $targetPath,'/' ) . '/' . $_FILES['Filedata']['name'];
+            
+            // Validate the file type
+            $fileTypes = array('jpg','jpeg','gif','png');
+            $fileParts = pathinfo( $_FILES['Filedata']['name'] );
+            
+            if (in_array($fileParts['extension'],$fileTypes)) {
+                move_uploaded_file($tempFile, $targetFile);
+                $q = $db->prepare('UPDATE users SET image = :image WHERE id = :id');
+                $q->bindValue(':file', $_FILES['Filedata']['name']);
+                $q->bindValue(':id', $user['id']);
+                $q->execute();
+                echo '1';
+            } else {
+                echo 'Invalid file type.';
+            }
+
+        }
+    }
+
+    public function checkexistsAction()
+    {
+        $targetFolder = '/uploads/images/';
+
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $targetFolder . '/' . $_POST['filename'])) {
+            echo 1;
+        } else {
+            echo 0;
+        }
     }
     
 }

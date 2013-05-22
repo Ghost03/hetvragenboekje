@@ -1,12 +1,30 @@
+<link rel="stylesheet" type="text/css" href="assets/css/uploadify.css" />
+
 <h1 class="header">Pas je profiel aan</h1>
 
 <div class="shadow-border">&nbsp;</div>
 
 <div id="formulier">
 
-	<form action="profiel" method="POST">
+	<form enctype="multipart/form-data" action="profiel" method="POST">
 
 		<fieldset>
+
+			<div class="preview">
+
+				<?php if( $this->user['image'] ): ?>
+
+					<img id="thumb" width="100" height="100" src="uploads/images/<?= $this->user['image'] ?>" />
+
+				<?php else: ?>
+
+					<img id="thumb" width="100" height="100" src="assets/img/profile_unknown.png" />
+
+				<?php endif; ?>
+
+			</div>
+
+			<input type="file" name="file" id="file_upload" >
 
 			<label for="name">* Naam:</label>
 			<?php echo $this->form->getElement('name'); ?><br />
@@ -24,3 +42,22 @@
 	</form>
 
 </div>
+
+<script type="text/javascript" src="assets/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+    $('#file_upload').uploadify({
+    	'buttonText' : 'Upload Profielfoto',
+    	'checkExisting' : 'check-exists',
+        'swf'      : 'assets/swf/uploadify.swf',
+        'uploader' : 'photo',
+        'uploadLimit' : 1,
+        'onUploadComplete' : function(file) {
+            alert('The file ' + file.name + ' finished processing.');
+            $("#thumb").attr("src", "uploads/images/" + file.name);
+        }
+    });
+});
+
+</script>

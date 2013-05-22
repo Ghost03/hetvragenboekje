@@ -958,3 +958,8 @@ input[type="submit"]
     float: left;
     margin: -1px 0 0 0;
 }
+
+.preview img {
+    border: 1px dashed #ccc;
+    margin: 0 0 10px 0;
+}
