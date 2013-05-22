@@ -29,12 +29,15 @@ class RegisterController extends CrudController {
     public function indexAction()
     {   
         $form = $this->view->form = new usersForm;
+
+        $db = Zend_Registry::get('db');
         
         while($_POST) {
 
             if(!$form->isValid($_POST)) break;
             
             $values = $form->getValues();
+            $id = $db->fetchOne('SELECT id FROM users ORDER BY id DESC LIMIT 1') + 1;
 
             if($values['rpassword']) {
                 $salt = self::_generateSalt();
