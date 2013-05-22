@@ -5,6 +5,8 @@
 <?php 
     $db = Zend_Registry::get('db');
 
+    $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $category['name'] . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
+
     foreach($this->questions as $question): 
 
     $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
@@ -35,30 +37,23 @@
 
             <a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $category['name']; ?></a>
 		  
-            
             <p>
-                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a><br /><br />
+                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a>
+                <a href="<?= $sharelink ?>" class="fb-share">Share</a>
+                <a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$question['url'];?>&counturl=<?=$this->baseurl.'question/'.$question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $category['name']);?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
             </p>
 
         </div>
-	   <div class="question-data">
-		  
-		  <span class="date">Geplaatst op: <?php echo $date->toString("dd MMMM YYYY");?></span>
-		  
-		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
-		  
-		  <?php  
 
-	  $sharelink = "https://www.facebook.com/dialog/feed?app_id=".$this->appID."&link=".$this->baseurl.'question/'.$question['url']."&picture=".$this->baseurl."assets/img/fb.png&name=".$question['name']."&caption=".$category['name']."&redirect_uri=".$this->baseurl.'question/'.$question['url'];
-	   
-?>
+	    <div class="question-data">
 		  
-		  <a href="<?=$sharelink?>" class="fb-share">Share</a>
-		  <a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$question['url'];?>&counturl=<?=$this->baseurl.'question/'.$question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $category['name']);?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
-
-          <span class="user"><?php echo $user; ?></span>
+    	    <span class="date">Geplaatst op: <?php echo $date->toString("dd MMMM YYYY");?></span>
+    	  
+    	    <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
+    	  
+            <span class="user"><?php echo $user; ?></span>
 		  
-	   </div>
+	    </div>
 
     </div>
 

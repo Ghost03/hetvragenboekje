@@ -1,5 +1,6 @@
 <?php
  $db = Zend_Registry::get('db'); 
+ $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $category['name'] . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
 ?>
 
 <h1 class="header">Vraag</h1>
@@ -19,7 +20,9 @@
         <a href="categorieen/<?= $this->category['url'] ?>" class="category"><?php echo $this->category['name']; ?></a>
         
         <p>
-            <a href="question/<?= $this->question['url'] ?>" class="title"><?php echo $this->question['name']; ?></a><br /><br />
+            <span class="question-title"><?php echo $this->question['name']; ?></span>
+            <a href="<?= $sharelink ?>" class="fb-share">Share</a>
+            <a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$question['url'];?>&counturl=<?=$this->baseurl.'question/'.$question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $category['name']);?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
         </p>
 
     </div>
@@ -52,12 +55,8 @@
                         }
 
                     endforeach;
-
-                $sharelink = "https://www.facebook.com/dialog/feed?app_id=".$this->appID."&link=".$this->baseurl.'question/'.$question['url']."&picture=".$this->baseurl."assets/img/fb.png&name=".$question['name']."&caption=".$category['name']."&redirect_uri=".$this->baseurl.'question/'.$question['url'];
 	   
-?>
-		  
-		  
+                ?>
 		  
                 <a target="_blank" href="createpdf?q=<?= $this->question['id'] ?>&a=<?= $answer_id ?>">Print als PDF</a>
 
@@ -66,8 +65,6 @@
           <?php endif; ?>
           
           <span class="answers"><img src="assets/img/comment.png"/><?php echo $this->countedAnswers;?></span>
-		<a href="<?=$sharelink?>" class="fb-share">Share</a>
-		<a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$question['url'];?>&counturl=<?=$this->baseurl.'question/'.$question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $category['name']);?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
           <span class="user"><?php echo $user; ?></span>
           <span class="user"><?php echo $this->user['name']; ?></span>
           
@@ -102,7 +99,6 @@
             foreach($thumbs as $thumb)
                 $answer_id = $db->fetchOne('SELECT answer_id, COUNT(answer_id) AS a_id FROM thumbs GROUP BY answer_id ORDER BY a_id DESC LIMIT 1');
 
-
         ?>        
 
             <div class="question">
@@ -115,9 +111,9 @@
 
                 <div class="question-info">
 
-                    <span style="display: block; float: left; margin-right: 5px;">Beantwoord door:</span><a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $answerer['name']; ?></a>
+                    <span style="display: block; float: left; margin-right: 5px;">Beantwoord door:</span><span class="answerer"><?php echo $answerer['name']; ?></span>
                     
-                    <p class="title"><?php echo $answer['name']; ?></p>
+                    <p class="answer-title"><?php echo $answer['name']; ?></p>
 
                 </div>
 

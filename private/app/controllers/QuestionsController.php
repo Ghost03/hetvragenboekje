@@ -26,13 +26,13 @@ class QuestionsController extends CrudController {
         $user_id = $db->fetchOne('SELECT id FROM users WHERE name = ?', $session);
         $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created LIMIT 5', $user_id);
 
-	   // Data 
-	   $app_id = "117716921766168";
+	    // Data 
+	    $app_id = "117716921766168";
 	   
         // Views
         $this->view->questions = $questions;
-	   $this->view->appID = $app_id;
-	   $this->view->baseurl = $config->baseurl;
+	    $this->view->appID = $app_id;
+	    $this->view->baseurl = $config->baseurl;
     }
 
     public function detailAction()
@@ -55,8 +55,8 @@ class QuestionsController extends CrudController {
 		
 		($countedAnswers == 0 ? $countedAnswers = "Nog niet beantwoord." : $countedAnswers .= "x beantwoord");
 		
-	   // Data 
-	   $app_id = "117716921766168";
+	    // Data 
+	    $app_id = "117716921766168";
 
         // Views
         $this->view->questioner = $questioner;
@@ -67,8 +67,9 @@ class QuestionsController extends CrudController {
 	    $this->view->questiondate = $questiondate->toString("dd MMMM YYYY");
 	    $this->view->countedAnswers = $countedAnswers;
         $this->view->user = $user;
-	   $this->view->appID = $app_id;
-	   $this->view->baseurl = $config->baseurl;
+	    $this->view->appID = $app_id;
+	    $this->view->baseurl = $config->baseurl;
+        
         // Answer data
         while($_POST) {
 
@@ -159,11 +160,8 @@ class QuestionsController extends CrudController {
 	   $username = "examen";
 	   $password = "toegang";
 	   
-	   $context = stream_context_create(array(
-    'http' => array(
-        'header'  => "Authorization: Basic " . base64_encode("$username:$password")
-    )
-));
+	   $context = stream_context_create(array('http' => array('header'  => "Authorization: Basic " . base64_encode("$username:$password"))));
+	   
 	   $html = file_get_contents( $config->baseurl . "printpdf?q=" . $question_id . "&a=" . $answer_id, false, $context );
 
 	   $pdf->load_html($html);

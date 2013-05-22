@@ -39,8 +39,12 @@ class CategorieenController extends AppController {
                 $question_rating = $question_rating['total'] / $question_rating['votes'];
 
         endforeach;
+
+        // Data
+        $app_id = "117716921766168";
         
         // Views
+        $this->view->appID = $app_id;
         $this->view->category = $category;
         $this->view->questions = $questions;
         $this->view->question_rating = $question_rating;
