@@ -81,10 +81,10 @@ class ProfileController extends CrudController {
             $fileTypes = array('jpg','jpeg','gif','png');
             $fileParts = pathinfo( $_FILES['Filedata']['name'] );
             
-            if (in_array($fileParts['extension'],$fileTypes)) {
+            if (in_array($fileParts['extension'], $fileTypes)) {
                 move_uploaded_file($tempFile, $targetFile);
                 $q = $db->prepare('UPDATE users SET image = :image WHERE id = :id');
-                $q->bindValue(':file', $_FILES['Filedata']['name']);
+                $q->bindValue(':image', $_FILES['Filedata']['name']);
                 $q->bindValue(':id', $user['id']);
                 $q->execute();
                 echo '1';
