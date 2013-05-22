@@ -945,7 +945,7 @@ input[type="submit"]
     background: url("../img/share_fb.png");
     height: 26px;
     width: 77px;
-    text-indent: 9999px;
+    font-size: 0px;
     margin: 0 10px 0 0;
 }
 
@@ -954,9 +954,15 @@ input[type="submit"]
     background: url("../img/share_tweet.png");
     height: 26px;
     width: 79px;
-    text-indent: 9999px;
+    font-size: 0px;
     float: left;
     margin: -1px 0 0 0;
+}
+
+.twitter-share:hover,
+.fb-share:hover{
+    background-color: red;
+    /* HOVER? */
 }
 
 .preview img {
