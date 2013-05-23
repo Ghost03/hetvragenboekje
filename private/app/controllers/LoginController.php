@@ -52,7 +52,7 @@ class LoginController extends CrudController {
 	  $user = $db->fetchRow($q, $email);
 
 	  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
-		$data = array("error" => "Verkeerd wachtwoord.");
+		$data = array("login-error" => "Verkeerd wachtwoord.");
 		$this->_forward("home", "page", 'default', $data);
 	  }
 	  else

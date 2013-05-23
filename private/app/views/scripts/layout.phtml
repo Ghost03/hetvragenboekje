@@ -267,7 +267,12 @@
 
                             <ul>
                                 <?php 
-                                    $top3 = $db->fetchAll('SELECT * FROM questions WHERE DATE(date_created) = DATE(NOW()) LIMIT 3');
+                                    $top3 = $db->fetchAll('SELECT * FROM questions WHERE date_created > DATE_SUB(NOW(), INTERVAL 24 HOUR) LIMIT 3');
+							 if(!$top3)
+							 {
+								echo '<li>Er zijn geen vragen gesteld vandaag.</li>';
+							 }
+								
                                     foreach($top3 as $question)
                                         echo '<li class="favo"><a href="question/' . $question['url'] . '">' . $question['name'] . '</a></li>';
                                 ?>
