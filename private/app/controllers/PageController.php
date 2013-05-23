@@ -7,7 +7,8 @@ class PageController extends AppController {
 	  // Request
 	  $request = Zend_Controller_Front::getInstance()->getRequest();
 	  $params = $request->getParams();
-	  $error = $params['error'];	   
+	  $l_error = $params['login-error'];
+	  $r_error = $params['register-error'];
 	  $config = Zend_Registry::get('config');
 	  
        // Includes
@@ -22,7 +23,8 @@ class PageController extends AppController {
 	  
        // Views
        $this->view->questions = $questions;
-	  $this->view->error = $error;
+	  $this->view->l_error = $l_error;
+	  $this->view->r_error = $r_error;
 	  $this->view->appID = $app_id;
 	  $this->view->baseurl = $config->baseurl;
 	  
