@@ -83,7 +83,7 @@ class UserController extends CrudController
     
     public function editAction()
     {
-        $form = $this->view->form = new userForm;
+        $form = $this->view->form = new UserForm;
         
         $user = array();
         if($this->_request->getActionName() == 'edit')
