@@ -10,11 +10,11 @@ $form = $this->form;
 <form method=POST>
     <p>
         <label class=required>Naam</label>
-        <?php echo $form->getElement('first_name') ?>
+        <?php echo $form->getElement('name') ?>
     </p>
     <p>
         <label class=required>Achternaam</label>
-        <?php echo $form->getElement('last_name') ?>
+        <?php echo $form->getElement('lastname') ?>
     </p>
     <p>
         <label class=required>E-mail</label>
@@ -25,9 +25,13 @@ $form = $this->form;
         <?php echo $form->getElement('password') ?>
     </p>
     <p>
+        <label>Admin</label>
+        <?php echo $form->getElement('admin') ?>
+    </p>
+    <p>
         <label>Actief</label>
         <?php echo $form->getElement('active') ?>
     </p>
     
-    <input type=submit value=<?php echo $action == 'add' ? 'Toevoegen' : 'Wijzigen'?>>
+    <input class="button" type=submit value=<?php echo $action == 'add' ? 'Toevoegen' : 'Wijzigen'?>>
 </form>

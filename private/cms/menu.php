@@ -2,19 +2,18 @@
 
 return array(
    
-		'news' => array(
+		'user' => array(
 	    'name'  => 'Gebruikers',
 	    'items' => array(
-                'list' => 'Overview',
-                'add' => 'Add',
+                'list' => 'Overzicht',
+                'add' => 'Toevoegen',
 	    )
 	),
 
-		'clubs' => array(
+		'vragen' => array(
 	    'name'  => 'Vragen',
 	    'items' => array(
-                'list' => 'Overview',
-                'add' => 'Add',
+                'list' => 'Overzicht'
 	    )
 	)
 );
