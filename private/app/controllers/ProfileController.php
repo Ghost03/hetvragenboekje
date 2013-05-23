@@ -63,15 +63,14 @@ class ProfileController extends CrudController {
     public function photoAction()
     {
         $db = Zend_Registry::get('db');
+        $this->view->layout()->disableLayout();
 
         $user = $_SESSION['user'];
         $user_id = $db->fetchOne("SELECT id FROM users WHERE name = ?", $user);
 
         $targetFolder = '/uploads/images/';
 
-        $verifyToken = md5('unique_salt' . $_POST['timestamp']);
-
-        if ( !empty($_FILES) && $_POST['token'] == $verifyToken ) {
+        if ( !empty($_FILES) ) {
 
             $tempFile = $_FILES['Filedata']['tmp_name'];
             $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;

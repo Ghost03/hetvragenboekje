@@ -52,10 +52,11 @@ $(function() {
     	'swf'      : 'assets/swf/uploadify.swf',
     	'checkExisting' : 'check-exists',
         'uploader' : 'photo',
+        'queueSizeLimit' : 1,
         'uploadLimit' : 1,
         'fileSizeLimit' : '150KB',
-        'onUploadComplete' : function(file) {
-            alert('The file ' + file.name + ' finished processing.');
+        'onUploadSuccess' : function(file, data, response) {
+            alert('De  foto' + file.name + ' is succesvol geupload');
             $("#thumb").attr("src", "uploads/images/" + file.name);
         }
     });
