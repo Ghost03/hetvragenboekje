@@ -51,8 +51,10 @@ $(function()
 			 rpassword2: "Wachtwoord komt niet overeen"
 		  }
 	   });
-	   var emailError = $("#email-error").text();
-	   $("#login").children(".errors").append('<div for="email" class="error" style="">'+emailError+'</div>')
+	   var l_emailError = $("#l-email-error").text();
+	   $("#login").children(".errors").append('<div for="email" class="error" style="">'+l_emailError+'</div>')
+	   var r_emailError = $("#r-email-error").text();
+	   $("#registreren").children(".errors").append('<div for="email" class="error" style="">'+r_emailError+'</div>')
    
 	   var checklogin = $(location).attr('pathname');
 
@@ -65,6 +67,10 @@ $(function()
 	   if(checklogin == "checklogin")
 	   {
 		  $("#login").parents(".box").css("height", "280px").effect("shake", 600);
+	   }
+	   if(checklogin == "registreren")
+	   {
+		  $("#registreren").parents(".box").css("height", "280px").effect("shake", 600);
 	   }
    
 });

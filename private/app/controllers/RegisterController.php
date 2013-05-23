@@ -37,23 +37,34 @@ class RegisterController extends CrudController {
             if(!$form->isValid($_POST)) break;
             
             $values = $form->getValues();
-            $id = $db->fetchOne('SELECT id FROM users ORDER BY id DESC LIMIT 1') + 1;
+		  
+		  $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $values['email']);
 
-            if($values['rpassword']) {
+		  if ($emailDB) {
+			 $data = array("register-error" => "E-mail bestaat al.");
+			 $this->_forward("home", "page", 'default', $data);
+			 break;
+		  }
+		  else
+		  {
+			 if($values['rpassword']) {
                 $salt = self::_generateSalt();
                 $hash = self::_hashPassword($values['rpassword'],$salt);
                 
                 $values['hash'] = $hash;
                 $values['salt'] = $salt;
-            }
+			 }
 
-            unset($values['rpassword']);
+			 unset($values['rpassword']);
 
-            $this->_add($values);
+			 $this->_add($values);
 
-            $_SESSION['user'] = $values['name'];
-                
-            $this->_redirect('/questions');
+			 $_SESSION['user'] = $values['name'];
+
+			 $this->_redirect('/questions');
+		  }
+		  
+            
         }
     }
     
