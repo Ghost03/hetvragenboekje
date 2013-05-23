@@ -4,11 +4,11 @@ class userForm extends Sparx_BaseForm
 {
     public function __construct()
     {
-        $firstName = new Sparx_SimpleText('first_name');
+        $firstName = new Sparx_SimpleText('name');
         $firstName->setRequired(true);
         $this->addElement($firstName);
         
-        $lastName = new Sparx_SimpleText('last_name');
+        $lastName = new Sparx_SimpleText('lastname');
         $lastName->setRequired(true);
         $this->addElement($lastName);
         
@@ -29,5 +29,10 @@ class userForm extends Sparx_BaseForm
         $active->setRequired(true);
         $this->addElement($active);
         $this->setDefault('active', true);
+
+        $admin = new Sparx_SimpleCheck('admin');
+        $admin->setRequired(true);
+        $this->addElement($admin);
+        $this->setDefault('admin', false);
     }
 }

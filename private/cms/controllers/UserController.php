@@ -2,6 +2,12 @@
 
 class UserController extends CrudController
 {
+    public function preDispatch()
+    {
+        parent::preDispatch();
+        $this->_relation = 'users';
+    }
+
     private static function _generateSalt()
     {
         $salt = '';
@@ -91,8 +97,8 @@ class UserController extends CrudController
                 $salt = self::_generateSalt();
                 $hash = self::_hashPassword($values['password'],$salt);
                 
-                $values['password_hash'] = $hash;
-                $values['password_salt'] = $salt;
+                $values['hash'] = $hash;
+                $values['salt'] = $salt;
             }
             unset($values['password']);
             

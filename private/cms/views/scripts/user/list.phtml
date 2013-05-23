@@ -9,7 +9,9 @@ $this->layout()->title = 'Gebruikers overzicht';
         <thead>
             <tr>
                 <th>Naam
+                <th>Achternaam
                 <th>E-mail adres
+                <th width=50>Admin
                 <th width=50>Actief
                 <th width=50>&nbsp;
                 <th width=50>&nbsp;
@@ -17,8 +19,10 @@ $this->layout()->title = 'Gebruikers overzicht';
         </thead>
         <?php foreach($this->users as $user): ?>
         <tr>
-            <td><?php echo $user['first_name']?> <?php echo $user['last_name'] ?>
+            <td><?php echo $user['name']?>
+            <td><?php echo $user['lastname'] ?></td>
             <td><?php echo $user['email'] ?>
+            <td><?php echo $user['admin'] ? "<img src=resources/images/icons/tick_circle.png>" : '';?>
             <td><?php echo $user['active'] ? "<img src=resources/images/icons/tick_circle.png>" : '';?>
             <td>
                 <a href="<?php echo $this->url(array('action' => 'edit', 'id' => $user['id'])) ?>">Wijzigen</a>
