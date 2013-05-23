@@ -969,3 +969,8 @@ input[type="submit"]
     border: 1px dashed #ccc;
     margin: 0 0 10px 0;
 }
+
+.ui-effects-wrapper
+{
+    height: 400px;
+}
