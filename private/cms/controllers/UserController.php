@@ -26,10 +26,10 @@ class UserController extends CrudController
             $email = trim($this->_getParam('email'));
             $password = trim($this->_getParam('password'));
             
-            $q = "SELECT * FROM `user` WHERE email = ?";
+            $q = "SELECT * FROM `users` WHERE email = ? AND admin = 1";
             $user = $this->_db->fetchRow($q, $email);
             
-            if(!$user || $user['password_hash'] != self::_hashPassword($password,$user['password_salt'])) {
+            if(!$user || $user['hash'] != self::_hashPassword($password,$user['salt'])) {
                 break;
             }
             
@@ -37,8 +37,8 @@ class UserController extends CrudController
                 break;
             }
             
-            unset($user['password_hash']);
-            unset($user['password_salt']);
+            unset($user['hash']);
+            unset($user['salt']);
             
             $user['admin'] = 1;
             

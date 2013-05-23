@@ -3,7 +3,7 @@
 return array(
    
 		'news' => array(
-	    'name'  => 'News',
+	    'name'  => 'Gebruikers',
 	    'items' => array(
                 'list' => 'Overview',
                 'add' => 'Add',
@@ -11,23 +11,7 @@ return array(
 	),
 
 		'clubs' => array(
-	    'name'  => 'Clubs',
-	    'items' => array(
-                'list' => 'Overview',
-                'add' => 'Add',
-	    )
-	),
-
-		'players' => array(
-	    'name'  => 'Players',
-	    'items' => array(
-                'list' => 'Overview',
-                'add' => 'Add',
-	    )
-	),
-
-		'slides' => array(
-	    'name'  => 'Slides',
+	    'name'  => 'Vragen',
 	    'items' => array(
                 'list' => 'Overview',
                 'add' => 'Add',
