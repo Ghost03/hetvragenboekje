@@ -267,7 +267,7 @@
 
                             <ul>
                                 <?php 
-                                    $top3 = $db->fetchAll('SELECT * FROM questions WHERE date_created > DATE_SUB(NOW(), INTERVAL 24 HOUR) LIMIT 3');
+                                    $top3 = $db->fetchAll('SELECT * FROM questions WHERE date_created > DATE_SUB(NOW(), INTERVAL 24 HOUR) ORDER BY date_created DESC LIMIT 3');
 							 if(!$top3)
 							 {
 								echo '<li>Er zijn geen vragen gesteld vandaag.</li>';
