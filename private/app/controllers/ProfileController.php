@@ -77,7 +77,6 @@ class ProfileController extends CrudController {
             $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
             $targetFile = rtrim( $targetPath,'/' ) . '/' . $_FILES['Filedata']['name'];
             
-            // Validate the file type
             $fileTypes = array('jpg','jpeg','gif','png');
             $fileParts = pathinfo( $_FILES['Filedata']['name'] );
             
@@ -85,7 +84,7 @@ class ProfileController extends CrudController {
                 move_uploaded_file($tempFile, $targetFile);
                 $q = $db->prepare('UPDATE users SET image = :image WHERE id = :id');
                 $q->bindValue(':image', $_FILES['Filedata']['name']);
-                $q->bindValue(':id', $user['id']);
+                $q->bindValue(':id', $user_id);
                 $q->execute();
                 echo '1';
             } else {

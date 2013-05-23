@@ -14,11 +14,11 @@
 
 				<?php if( $this->user['image'] ): ?>
 
-					<img id="thumb" width="100" height="100" src="uploads/images/<?= $this->user['image'] ?>" />
+					<img id="thumb" width="150" height="150" src="uploads/images/<?= $this->user['image'] ?>" />
 
 				<?php else: ?>
 
-					<img id="thumb" width="100" height="100" src="assets/img/profile_unknown.png" />
+					<img id="thumb" width="150" height="150" src="assets/img/profile_unknown.png" />
 
 				<?php endif; ?>
 
@@ -49,10 +49,11 @@
 $(function() {
     $('#file_upload').uploadify({
     	'buttonText' : 'Upload Profielfoto',
+    	'swf'      : 'assets/swf/uploadify.swf',
     	'checkExisting' : 'check-exists',
-        'swf'      : 'assets/swf/uploadify.swf',
         'uploader' : 'photo',
         'uploadLimit' : 1,
+        'fileSizeLimit' : '150KB',
         'onUploadComplete' : function(file) {
             alert('The file ' + file.name + ' finished processing.');
             $("#thumb").attr("src", "uploads/images/" + file.name);

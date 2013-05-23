@@ -13,9 +13,13 @@ class TagController extends AppController {
        // Queries
        $questions = $db->fetchAll('SELECT * FROM questions WHERE tags LIKE ? ORDER BY date_created DESC LIMIT 5', '%' . $tag . '%');
 
+       // Data 
+       $app_id = "117716921766168";
+
        // Views
        $this->view->questions = $questions;
        $this->view->tag = $tag;
+       $this->view->appID = $app_id;
     }
     
 }
