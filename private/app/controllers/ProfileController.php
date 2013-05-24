@@ -81,11 +81,16 @@ class ProfileController extends CrudController {
             
             if (in_array($fileParts['extension'], $fileTypes)) {
                 move_uploaded_file($tempFile, $targetFile);
-                $q = $db->prepare('UPDATE users SET image = :image WHERE id = :id');
-                $q->bindValue(':image', $_FILES['Filedata']['name']);
-                $q->bindValue(':id', $user_id);
-                $q->execute();
-                echo '1';
+
+                $fileCheckExists = $_SERVER['DOCUMENT_ROOT'] . $targetFolder . $_FILES['Filedata']['name'];
+
+                if(file_exists($fileCheckExists)) {
+                    $q = $db->prepare('UPDATE users SET image = :image WHERE id = :id');
+                    $q->bindValue(':image', $_FILES['Filedata']['name']);
+                    $q->bindValue(':id', $user_id);
+                    $q->execute();
+                }
+
             } else {
                 echo 'Invalid file type.';
             }

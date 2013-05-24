@@ -56,7 +56,6 @@ $(function() {
         'uploadLimit' : 1,
         'fileSizeLimit' : '150KB',
         'onUploadSuccess' : function(file, data, response) {
-            alert('De  foto' + file.name + ' is succesvol geupload');
             $("#thumb").attr("src", "uploads/images/" + file.name);
         }
     });
