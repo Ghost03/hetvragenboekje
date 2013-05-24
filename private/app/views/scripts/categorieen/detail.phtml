@@ -5,8 +5,6 @@
 	<?php 
 		$db = Zend_Registry::get('db');
 
-		$sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $category['name'] . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
-
 		if( $this->questions ):
 
 			foreach($this->questions as $question): 
@@ -19,6 +17,8 @@
 			$date = new Zend_Date($question['date_created']);
 			
 			($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
+			
+			$sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $category['name'] . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
 	?>
 
 			<div class="question">
