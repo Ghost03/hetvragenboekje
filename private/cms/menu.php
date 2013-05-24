@@ -15,5 +15,13 @@ return array(
 	    'items' => array(
                 'list' => 'Overzicht'
 	    )
+	),
+
+		'categorieen' => array(
+	    'name'  => 'Categorieen',
+	    'items' => array(
+                'list' => 'Overzicht',
+                'add' => 'Toevoegen'
+	    )
 	)
 );
