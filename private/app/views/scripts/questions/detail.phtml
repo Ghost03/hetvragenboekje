@@ -105,7 +105,11 @@
 
                 <div class="question-image">
                 
-                    <img src="assets/img/preview.png" />
+                    <?php if($answerer['image']): ?>
+                        <img width="150" height="150" src="uploads/images/<?php echo $answerer['image'] ?>" />
+                    <?php else: ?>
+                        <img src="assets/img/preview.png" />
+                    <?php endif; ?>
 
                 </div>
 
