@@ -418,7 +418,7 @@ input[type="password"]
 
 .shadow-border-2
 {
-    margin: -43px 0px 0px 10px;
+    margin: -41px 0px 0px 10px;
 }
 .shadow-border{
     background: url("../img/shadow_1.png") no-repeat left;
@@ -426,7 +426,7 @@ input[type="password"]
 
 .shadow-border-2
 {
-    background: url("../img/shadow_2.png") no-repeat left;
+    background: url("../img/shadow_right.png") no-repeat left;
     margin-bottom: 20px;
 }
 
@@ -959,10 +959,12 @@ input[type="submit"]
     margin: -1px 0 0 0;
 }
 
-.twitter-share:hover,
 .fb-share:hover{
-    background-color: red;
-    /* HOVER? */
+    background: url('../img/share_fb_hover.png');
+}
+
+.twitter-share:hover{
+    background: url('../img/share_tweet_hover.png');
 }
 
 .preview img {
