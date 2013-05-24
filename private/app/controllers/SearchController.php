@@ -26,8 +26,16 @@ class SearchController extends AppController {
 		$arr = array();
 
 		foreach($questions as $k => $question):
+            
+            $q = $db->prepare('SELECT * categories WHERE id = :id');
+            $q->bindValue(':id', $question['category_id']);
+            $category = $q->fetch(PDO::FETCH_ASSOC);
+
+            $arr[$k]['category'] = $category['name'];
+            $arr[$k]['category-url'] = $category['url'];
 			$arr[$k]['name'] = $question['name'];
             $arr[$k]['url'] = sanitize($question['name']);
+
         endforeach;
 
         header( "Content-type: text/json" );

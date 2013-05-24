@@ -19,6 +19,36 @@
 
     </form> 
 
+  <div id="search-results">
+
+      <div id="result">
+
+          <div class="info">
+
+              <a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a>
+              
+              <p>
+                  <a href="question/kent-iemand-misschien-de-nederlandse-band-digital-emotion-en-wanneer-deze-precies-is-opgericht-en-ontbonden" class="title">Kent iemand misschien de Nederlandse band Digital Emotion en wanneer deze precies is opgericht en ontbonden?</a>
+              </p>
+        
+          </div>
+       
+         <div class="data">
+          
+          <span class="date">Geplaatst op: 13 mei 2013</span>
+          
+          <span class="answers"><img src="assets/img/comment.png">Nog niet beantwoord.</span>
+
+              <span class="user">Fons</span>
+          
+         </div>
+
+      </div>
+
+      <div class="shadow-border">&nbsp;</div>
+
+  </div>
+
 	<?php if($this->results): ?>
 
   		<ul id="results-questions">
@@ -61,11 +91,13 @@ $(function() {
             contentType: "application/jsons", 
 		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
 		        success: function (data) {
+                console.log(data);
                 for (var i in data) { 
                   if(data.length < 10) {
                     $('#loadmore').hide();
                   }
-                  $('#results-questions').append($('<li><a href="question/' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li><div class="shadow-border-search">&nbsp;</div>').fadeIn(500));
+                  //$('#results-questions').append($('<li><a href="question/' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li><div class="shadow-border-search">&nbsp;</div>').fadeIn(500));
+                  $('#search-results').append($('<div id="result"><div class="info"><a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a><p><a href="question/' + data[i]['url'] + '" class="title">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></p></div><div class="data"><span class="date">Geplaatst op: 13 mei 2013</span><span class="answers"><img src="assets/img/comment.png">Nog niet beantwoord.</span><span class="user">Fons</span></div></div><div class="shadow-border">&nbsp;</div>').fadeIn(500));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }
