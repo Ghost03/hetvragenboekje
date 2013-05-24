@@ -1,4 +1,7 @@
-<?php if(!empty( $_POST['s'] )): ?>
+<?php 
+$db = Zend_Registry::get('db');
+if(!empty( $_POST['s'] )): 
+?>
 
 <h1 class="header"><?php $x = ( $this->total == 1 ) ? "resultaat": "resultaten"; echo $this->total . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
 
@@ -19,60 +22,63 @@
 
     </form> 
 
-  <div id="search-results">
-
-      <div id="result">
-
-          <div class="info">
-
-              <a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a>
-              
-              <p>
-                  <a href="question/kent-iemand-misschien-de-nederlandse-band-digital-emotion-en-wanneer-deze-precies-is-opgericht-en-ontbonden" class="title">Kent iemand misschien de Nederlandse band Digital Emotion en wanneer deze precies is opgericht en ontbonden?</a>
-              </p>
-        
-          </div>
-       
-         <div class="data">
-          
-          <span class="date">Geplaatst op: 13 mei 2013</span>
-          
-          <span class="answers"><img src="assets/img/comment.png">Nog niet beantwoord.</span>
-
-              <span class="user">Fons</span>
-          
-         </div>
-
-      </div>
-
-      <div class="shadow-border">&nbsp;</div>
-
-  </div>
-
 	<?php if($this->results): ?>
 
-  		<ul id="results-questions">
+  		<div id="search-results">
   			
   			<?php 
   				$i = 0;
   				foreach($this->results as $result):
-  					if (strlen($result['name']) <= 70) {
+
+  					if (strlen($result['name']) <= 150)
 					   $result['name'] = $result['name'];
-					} else {
-					   $result['name'] = substr($result['name'], 0, strpos(wordwrap($result['name'], 70), "\n")) . "...";
-					}
-  					echo '<li><a href="question/' . $result['url'] . '">' . str_ireplace( $this->search, "<span>" . $this->search . "</span>", $result['name'] ) . '</a></li>
-            <div class="shadow-border-search">&nbsp;</div>';
+					  else
+              $result['name'] = substr($result['name'], 0, strpos(wordwrap($result['name'], 150), "\n")) . "...";
+
+            $date = new Zend_Date($result['date_created']);
+            $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $result['id']) );
+            ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
+            $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $result['user_id']);
+
+          ?>
+  				
+            <div id="result">
+
+                <div class="info">
+
+                      <a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a>
+                      
+                      <p>
+                          <a href="question/<?php echo $result['url'] ?>" class="title"><?php echo str_ireplace( $this->search, "<span>" . $this->search . "</span>", $result['name'] ) ?></a>
+                      </p>
+                
+                </div>
+               
+                <div class="data">
+                  
+                  <span class="date">Geplaatst op <?php echo $date->toString("dd MMMM YYYY") ?></span>
+                  
+                  <span class="answers"><img src="assets/img/comment.png"><?php echo $answers ?></span>
+
+                  <span class="user"><?php echo $user ?></span>
+                  
+                </div>
+
+              </div>
+
+              <div class="shadow-border">&nbsp;</div>
+
+        <?php
   				endforeach;
   			?>
 
-  		</ul>
+  	</div>
 
-	  	<?php if( $this->total > 10): ?>
-	  		<span id="loadmore" loaded="10">Meer vragen</span>
-	  	<?php endif; ?>
+    	<?php if( $this->total > 10): ?>
+    		<span id="loadmore" loaded="10">Meer vragen</span>
+    	<?php endif; ?>
 
-  	<?php endif; ?>
+  <?php endif; ?>
 
 </div>
 
@@ -97,7 +103,7 @@ $(function() {
                     $('#loadmore').hide();
                   }
                   //$('#results-questions').append($('<li><a href="question/' + data[i]['url'] + '">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></li><div class="shadow-border-search">&nbsp;</div>').fadeIn(500));
-                  $('#search-results').append($('<div id="result"><div class="info"><a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a><p><a href="question/' + data[i]['url'] + '" class="title">' + data[i]['name'].replace(input, '<span>' + input + '</span>') + '</a></p></div><div class="data"><span class="date">Geplaatst op: 13 mei 2013</span><span class="answers"><img src="assets/img/comment.png">Nog niet beantwoord.</span><span class="user">Fons</span></div></div><div class="shadow-border">&nbsp;</div>').fadeIn(500));
+                  $('#search-results').append($('<div id="result"><div class="info"><a href="categorieen/' + data[i]['category-url'] + '" class="category">' + data[i]['category'] + '</a><p><a href="question/' + data[i]['url'] + '" class="title">' + data[i]['question'].replace(input, '<span>' + input + '</span>') + '</a></p></div><div class="data"><span class="date">Geplaatst op: ' + data[i]['date'] + '</span><span class="answers"><img src="assets/img/comment.png">' + data[i]['answers'] + '</span><span class="user">' + data[i]['name'] + '</span></div></div><div class="shadow-border">&nbsp;</div>').fadeIn(500));
                 }
 		            $('#loadmore').attr('loaded', loaded + 10);
 		        }

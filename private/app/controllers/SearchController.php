@@ -27,14 +27,34 @@ class SearchController extends AppController {
 
 		foreach($questions as $k => $question):
             
-            $q = $db->prepare('SELECT * categories WHERE id = :id');
-            $q->bindValue(':id', $question['category_id']);
+            // Queries
+            $q = $db->prepare('SELECT * FROM categories WHERE id = :id');
+            $q->bindValue(':id', $question['category_id'], PDO::PARAM_INT);
+            $q->execute();
             $category = $q->fetch(PDO::FETCH_ASSOC);
 
+            $q = $db->prepare('SELECT name FROM users WHERE id = :id');
+            $q->bindValue(':id', $question['user_id'], PDO::PARAM_STR);
+            $q->execute();
+            $name = $q->fetch(PDO::FETCH_ASSOC);
+
+            $q = $db->prepare('SELECT * FROM answers WHERE question_id = :question_id');
+            $q->bindValue(':question_id', $question['id'], PDO::PARAM_INT);
+            $q->execute();
+            $answers = count($q->fetchAll(PDO::FETCH_ASSOC));
+
+            // Data
+            ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
+            $date = new Zend_Date($question['date_created']);
+
+            // JSON Data
             $arr[$k]['category'] = $category['name'];
             $arr[$k]['category-url'] = $category['url'];
-			$arr[$k]['name'] = $question['name'];
-            $arr[$k]['url'] = sanitize($question['name']);
+			$arr[$k]['question'] = $question['name'];
+            $arr[$k]['url'] = $question['url'];
+            $arr[$k]['date'] = $date->toString("dd MMMM YYYY");
+            $arr[$k]['name'] = $name['name'];
+            $arr[$k]['answers'] = $answers;
 
         endforeach;
 
