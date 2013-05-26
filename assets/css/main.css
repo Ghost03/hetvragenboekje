@@ -1057,3 +1057,15 @@ input[type="submit"]
     bottom: 22px;
     left: -448px;
 }
+
+.circular {
+    width: 65px;
+    height: 65px;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    margin: 0 0 10px 115px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}

@@ -217,14 +217,22 @@
                     <div class="box-content">
 
                        <div id="login" class="loginFix">
-					  
+
+                        <?php if($user['image']): ?>
+					       
+                            <div class="circular" style="background: url('uploads/images/<?php echo $user['image']; ?>')">&nbsp;</div>
+
+                         <?php else: ?>
+
                           <div class="profile-img"><img src="assets/img/user.png"/></div>
+
+                        <?php endif; ?>
 
                           <ul class="user_info">
 
-						<li class="dark"><span class="gestelde-vragen">Mijn gestelde vragen: <a href="questions"><?= $total_questions ?></a></span></li>
-						<li class="light"><span class="beantwoorde-vragen">Mijn beantwoorde vragen: <a href="questions"><?= $total_answers ?></a></span></li>
-						<li class="dark"><span class="stel-een-vraag"><a href="steleenvraag">Stel een vraag</a></span></li>
+    						<li class="dark"><span class="gestelde-vragen">Mijn gestelde vragen: <a href="questions"><?= $total_questions ?></a></span></li>
+    						<li class="light"><span class="beantwoorde-vragen">Mijn beantwoorde vragen: <a href="questions"><?= $total_answers ?></a></span></li>
+    						<li class="dark"><span class="stel-een-vraag"><a href="steleenvraag">Stel een vraag</a></span></li>
 
                           </ul>
 
