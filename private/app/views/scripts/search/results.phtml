@@ -1,19 +1,20 @@
-<?php 
+<?php
 $db = Zend_Registry::get('db');
-if(!empty( $_POST['s'] )): 
-?>
+if (!empty($_POST['s'])):
+    ?>
 
-<h1 class="header"><?php $x = ( $this->total == 1 ) ? "resultaat": "resultaten"; echo $this->total . '&nbsp'.   $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+    <h1 class="header"><?php $x = ( $this->total == 1 ) ? "resultaat" : "resultaten";
+    echo $this->total . '&nbsp' . $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
 
 <?php else: ?>
 
-<h1 class="header">Zoek naar vragen</h1>
+    <h1 class="header">Zoek naar vragen</h1>
 
 <?php endif; ?>
 
 <div class="shadow-border">&nbsp;</div>
 
-  <div class="search-results">
+<div class="search-results">
 
     <form action="zoeken" method="POST">
 
@@ -22,92 +23,90 @@ if(!empty( $_POST['s'] )):
 
     </form> 
 
-	<?php if($this->results): ?>
+<?php if ($this->results): ?>
 
-  		<div id="search-results">
-  			
-  			<?php 
-  				$i = 0;
-  				foreach($this->results as $result):
+        <div id="search-results">
 
-  					if (strlen($result['name']) <= 150)
-					   $result['name'] = $result['name'];
-					  else
-              $result['name'] = substr($result['name'], 0, strpos(wordwrap($result['name'], 150), "\n")) . "...";
+		  <?php
+		  $i = 0;
+		  foreach ($this->results as $result):
 
-            $date = new Zend_Date($result['date_created']);
-            $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $result['id']) );
-            ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
-            $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $result['user_id']);
+			 if (strlen($result['name']) <= 150)
+				$result['name'] = $result['name'];
+			 else
+				$result['name'] = substr($result['name'], 0, strpos(wordwrap($result['name'], 150), "\n")) . "...";
 
-          ?>
-  				
-            <div id="result">
+			 $date = new Zend_Date($result['date_created']);
+			 $answers = count($db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $result['id']));
+			 ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
+			 $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $result['user_id']);
+			 ?>
 
-                <div class="info">
+	   	   <div id="result">
 
-                      <a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a>
-                      
-                      <p>
-                          <a href="question/<?php echo $result['url'] ?>" class="title"><?php echo str_ireplace( $this->search, "<span>" . $this->search . "</span>", $result['name'] ) ?></a>
-                      </p>
-                
-                </div>
-               
-                <div class="data">
-                  
-                  <span class="date">Geplaatst op <?php echo $date->toString("dd MMMM YYYY") ?></span>
-                  
-                  <span class="answers"><img src="assets/img/comment.png"><?php echo $answers ?></span>
+	   		  <div class="info">
 
-                  <span class="user"><?php echo $user ?></span>
-                  
-                </div>
+	   			 <a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a>
 
-              </div>
+	   			 <p>
+	   				<a href="question/<?php echo $result['url'] ?>" class="title"><?php echo str_ireplace($this->search, "<span>" . $this->search . "</span>", $result['name']) ?></a>
+	   			 </p>
 
-              <div class="shadow-border">&nbsp;</div>
+	   		  </div>
 
-        <?php
-  				endforeach;
-  			?>
+	   		  <div class="data">
 
-  	</div>
+	   			 <span class="date">Geplaatst op <?php echo $date->toString("dd MMMM YYYY") ?></span>
 
-    	<?php if( $this->total > 10): ?>
-    		<span id="loadmore" loaded="10">Meer vragen</span>
-    	<?php endif; ?>
+	   			 <span class="answers"><img src="assets/img/comment.png"><?php echo $answers ?></span>
 
-  <?php endif; ?>
+	   			 <span class="user"><?php echo $user ?></span>
+
+	   		  </div>
+
+	   	   </div>
+
+	   	   <div class="shadow-border">&nbsp;</div>
+
+			 <?php
+		  endforeach;
+		  ?>
+
+        </div>
+
+	   <?php if ($this->total > 10): ?>
+	       <span id="loadmore" loaded="10">Meer vragen</span>
+	   <?php endif; ?>
+
+    <?php endif; ?>
 
 </div>
 
 <script type="text/javascript">
 
-$(function() {
-    $('#loadmore').click(function() {
+    $(function() {
+	   $('#loadmore').click(function() {
     	
-    	var loaded = parseInt( $(this).attr('loaded') );
-    	var input = $(".search-input").val();
+		  var loaded = parseInt( $(this).attr('loaded') );
+		  var input = $(".search-input").val();
 
-	    	$.ajax({
-		        url:'zoeken-meer',
-		        type:'get',
-            dataType: "json",
-            contentType: "application/jsons", 
-		        data:{'from': loaded, 'to' : loaded + 10, 's' : input},
-		        success: function (data) {
-                console.log(data);
-                for (var i in data) { 
-                  if(data.length < 10) {
-                    $('#loadmore').hide();
-                  }
-                  $('#search-results').append($('<div id="result"><div class="info"><a href="categorieen/' + data[i]['category-url'] + '" class="category">' + data[i]['category'] + '</a><p><a href="question/' + data[i]['url'] + '" class="title">' + data[i]['question'].replace(input, '<span>' + input + '</span>') + '</a></p></div><div class="data"><span class="date">Geplaatst op: ' + data[i]['date'] + '</span><span class="answers"><img src="assets/img/comment.png">' + data[i]['answers'] + '</span><span class="user">' + data[i]['name'] + '</span></div></div><div class="shadow-border">&nbsp;</div>').fadeIn(500));
-                }
-		            $('#loadmore').attr('loaded', loaded + 10);
-		        }
-	    	});
-	});
-});
+		  $.ajax({
+			 url:'zoeken-meer',
+			 type:'get',
+			 dataType: "json",
+			 contentType: "application/jsons", 
+			 data:{'from': loaded, 'to' : loaded + 10, 's' : input},
+			 success: function (data) {
+				for (var i in data) { 
+				    if(data.length < 10) {
+					   $('#loadmore').hide();
+				    }
+				    $('#search-results').append($('<div id="result"><div class="info"><a href="categorieen/' + data[i]['category-url'] + '" class="category">' + data[i]['category'] + '</a><p><a href="question/' + data[i]['url'] + '" class="title">' + data[i]['question'].replace(input, '<span>' + input + '</span>') + '</a></p></div><div class="data"><span class="date">Geplaatst op: ' + data[i]['date'] + '</span><span class="answers"><img src="assets/img/comment.png">' + data[i]['answers'] + '</span><span class="user">' + data[i]['name'] + '</span></div></div><div class="shadow-border">&nbsp;</div>').fadeIn(500));
+				}
+				$('#loadmore').attr('loaded', loaded + 10);
+			 }
+		  });
+	   });
+    });
 
 </script>
