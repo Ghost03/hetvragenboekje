@@ -1,6 +1,7 @@
 <?php
  $db = Zend_Registry::get('db'); 
- $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' .$this->question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $this->question['name'] . "&caption=" . $this->question['name'] . "&redirect_uri=" . $this->baseurl . 'question/' . $this->question['url'];
+ $cname = str_replace("&", "en", $this->category['name']);
+ $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' .$this->question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $this->question['name'] . "&caption=" . $cname . "&redirect_uri=" . $this->baseurl . 'question/' . $this->question['url'];
 
 if($this->question['tags'])
 {
