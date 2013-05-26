@@ -58,7 +58,7 @@ class LoginController extends CrudController {
 	  else
 	  {
 		  unset($user['hash']);
-		  $_SESSION['user'] = $user['name'];
+		  $_SESSION['user'] = $user['email'];
 		  $this->_redirect('/questions');
 	  }
     }

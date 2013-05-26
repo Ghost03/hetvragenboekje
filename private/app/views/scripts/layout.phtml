@@ -2,12 +2,6 @@
  $config = Zend_Registry::get('config');
  $db = Zend_Registry::get('db');
  $request = Zend_Controller_Front::getInstance()->getRequest();
-
- // TO DO: INLOGGEN FIXEN
-
- // Als ingelogd om te testen voor pagina's
-
-
 ?>
 
 <!DOCTYPE html>
@@ -206,11 +200,9 @@
 
 				    </div>
 
-                    <!-- TO DO: DESIGN NIEUWE LOGIN VORMGEVING -->
-
                     <?php else: 
 
-                    $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
+                    $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_SESSION['user']);
                     $total_questions = count( $db->fetchAll('SELECT * FROM questions WHERE user_id = ?', $user['id']) );
                     $total_answers = count( $db->fetchAll('SELECT * FROM answers WHERE user_id = ?', $user['id']) );
 
@@ -218,7 +210,7 @@
 
                     <div class="head">
 
-                       <h1>Welkom, <?php echo $_SESSION['user']; ?></h1>
+                       <h1>Welkom, <?php echo $user['name']; ?></h1>
 
                     </div>
 

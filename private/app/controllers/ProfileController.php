@@ -39,7 +39,7 @@ class ProfileController extends CrudController {
         $form = $this->view->form = new ProfileForm;
         $form->setAttrib('enctype', 'multipart/form-data');
 
-        $user = $db->fetchRow('SELECT * FROM users WHERE name = ?', $_SESSION['user']);
+        $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_SESSION['user']);
 
         // Prefill form
         $form->populate($user);
@@ -66,7 +66,7 @@ class ProfileController extends CrudController {
         $this->view->layout()->disableLayout();
 
         $user = $_SESSION['user'];
-        $user_id = $db->fetchOne("SELECT id FROM users WHERE name = ?", $user);
+        $user_id = $db->fetchOne("SELECT id FROM users WHERE email = ?", $user);
 
         $targetFolder = '/uploads/images/';
 
