@@ -406,6 +406,10 @@ input[type="password"]
     min-height: 263px;
 }
 
+.content-right .box .box-content .errors{
+    height: 12px;
+}
+
 .content-right .box .box-content input[type="text"],
 .content-right .box .box-content input[type="password"] 
 {
