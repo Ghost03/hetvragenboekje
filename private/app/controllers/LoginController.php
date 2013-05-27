@@ -50,7 +50,7 @@ class LoginController extends CrudController {
 	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
 
 	   if (!$emailDB) {
-		  $data = array("login-error" => "E-mail bestaat niet.");
+		  $data = array("login-error" => "Onjuiste gegevens");
 		  $this->_forward("home", "page", 'default', $data);
 	   }
 	   else
@@ -70,7 +70,7 @@ class LoginController extends CrudController {
 	  $user = $db->fetchRow($q, $email);
 
 	  if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
-		$data = array("login-error" => "Verkeerd wachtwoord.");
+		$data = array("login-error" => "Onjuiste gegevens");
 		$this->_forward("home", "page", 'default', $data);
 	  }
 	  else
