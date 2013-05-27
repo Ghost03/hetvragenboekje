@@ -26,7 +26,7 @@ class AnswerController extends CrudController {
 
        $user = $db->fetchRow('SELECT * FROM users WHERE id = ?', $user_id);
 
-       if (!isset($_SESSION['user']) || $_SESSION['user'] != $user['name']) {
+       if (!isset($_SESSION['user']) || $_SESSION['user'] != $user['email']) {
         exit;
        }
        else {
