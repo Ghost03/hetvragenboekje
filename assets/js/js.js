@@ -6,11 +6,13 @@ $(function()
 		  {
 			 $(this).removeClass("switch");
 			 $(this).addClass("switch-active");
+			 $(this).children('input[name="remember"]').val("1")
 		  }
 		  else
 		  {
 			 $(this).addClass("switch");
 			 $(this).removeClass("switch-active");
+			 $(this).children('input[name="remember"]').val("0")
 			 
 		  }
     });

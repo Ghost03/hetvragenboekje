@@ -76,9 +76,22 @@ class LoginController extends CrudController {
 	  else
 	  {
 		  unset($user['hash']);
+		  $rememberMe = $_POST['remember'];
+		  if($rememberMe == 1)
+		  {
+			 $seconds = 60 * 60 * 24 * 7; // 7 days
+			 Zend_Session::rememberMe($seconds);
+		  }
+		  else
+		  {
+			 Zend_Session::ForgetMe();
+		  }
 		  $_SESSION['user'] = $user['email'];
 		  $this->_redirect('/questions');
+		  
 	  }
+	  
+	  
     }
 
     public function forgotpasswordAction() {

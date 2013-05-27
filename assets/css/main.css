@@ -467,12 +467,12 @@ input[type="password"]
 #login .login-box .switch-active
 {
     background: url('../img/switch.png');
-    background-position-y: 20px;
 }
 
 #login .login-box .switch
 {
     background: url('../img/switch.png');
+    background-position-y: 20px;
 }
 
 #registreren input[type="submit"]
