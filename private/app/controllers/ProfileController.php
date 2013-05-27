@@ -37,7 +37,6 @@ class ProfileController extends CrudController {
         // Includes
         $db = Zend_Registry::get('db');
         $form = $this->view->form = new ProfileForm;
-        $form->setAttrib('enctype', 'multipart/form-data');
 
         $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_SESSION['user']);
 
@@ -49,6 +48,8 @@ class ProfileController extends CrudController {
             if(!$form->isValid($_POST)) break;
             
             $values = $form->getValues();
+
+            $_SESSION['user'] = $values['email'];
 
             $this->_merge($user, $values);
                 
