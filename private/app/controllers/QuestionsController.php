@@ -63,7 +63,7 @@ class QuestionsController extends CrudController {
         $answers = $db->fetchAll('SELECT * FROM answers WHERE question_id = ? ORDER BY date_created', $question['id']);
 	    $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
         $questioner = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
-        $user = $db->fetchRow('SELECT * FROM users WHERE id = ?', $question['user_id']);
+        $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_SESSION['user']);
 	   
         $questiondate = new Zend_Date($question['date_created']);
 		
