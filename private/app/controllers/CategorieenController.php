@@ -10,7 +10,7 @@ class CategorieenController extends AppController {
         $config = Zend_Registry::get('config');
         
         // Queries
-        $q = $db->prepare('SELECT * FROM categories ORDER BY name');
+        $q = $db->prepare('SELECT * FROM categories ORDER BY id ASC');
         $q->execute();
         
         $categories = $q->fetchAll(PDO::FETCH_ASSOC);
