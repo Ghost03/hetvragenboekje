@@ -4,12 +4,15 @@
 
 <?php 
     $db = Zend_Registry::get('db');
+    $tags = array();
 
     foreach($this->questions as $question): 
 
     $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
     $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
-    $tags = explode(';', $question['tags']);
+    
+    if(!empty($question['tags']))
+        $tags = explode(';', $question['tags']);
 
     $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
     $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);

@@ -3,11 +3,16 @@
  $cname = str_replace("&", "en", $this->category['name']);
  $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' .$this->question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $this->question['name'] . "&caption=" . $cname . "&redirect_uri=" . $this->baseurl . 'question/' . $this->question['url'];
 
+$tags = array();
+
 if($this->question['tags'])
 {
-    $tags = ",";
-    $tags .= str_replace(";",",",$this->question['tags']);
+    $twittertag = ",";
+    $twittertag .= str_replace(";",",",$this->question['tags']);
 }
+
+if(!empty($this->question['tags']))
+    $tags = explode(';', $this->question['tags']);
 
 
 ?>
@@ -31,7 +36,7 @@ if($this->question['tags'])
         <p>
             <span class="question-title"><?php echo $this->question['name']; ?></span>
             <a href="<?= $sharelink ?>" class="fb-share">Share</a>
-            <a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$this->question['url'];?>&counturl=<?=$this->baseurl.'question/'.$this->question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $this->category['name']).$tags;?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
+            <a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$this->question['url'];?>&counturl=<?=$this->baseurl.'question/'.$this->question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $this->category['name']).$twittertag;?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
         </p>
 
     </div>
@@ -85,7 +90,7 @@ if($this->question['tags'])
 
 <div class="tags">
 
-    <?php foreach($this->tags as $tag) echo '<span><a href="tag/' . $tag . '">#' . $tag . '</a></span>'; ?>
+    <?php foreach($tags as $tag): echo '<span><a href="tag/' . $tag . '">#' . $tag . '</a></span>'; endforeach; ?>
 
 </div>
 

@@ -6,14 +6,17 @@
 
 <?php 
     $db = Zend_Registry::get('db');
+    $tags = array();
 
-    foreach($this->questions as $question): 
+    foreach($this->questions as $key => $question): 
 	
     $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
     $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
     $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
 
-    $tags = explode(';', $question['tags']);
+    if(!empty($question['tags']))
+        $tags = explode(';', $question['tags']);
+
     $date = new Zend_Date($question['date_created']);
 
     ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
@@ -59,7 +62,7 @@
 
     <div class="tags">
 
-        <?php foreach($tags as $tag) echo '<span><a href="tag/' . $tag . '">#' . $tag . '</a></span>'; ?>
+        <?php foreach($tags as $tag): echo '<span><a href="tag/' . $tag . '">#' . $tag . '</a></span>'; endforeach; ?>
 
     </div>
 
