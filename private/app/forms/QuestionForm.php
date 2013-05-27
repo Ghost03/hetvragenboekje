@@ -17,6 +17,7 @@ class QuestionForm extends Sparx_BaseForm
         $this->addElement($element);
 
         $element = new Sparx_SimpleTextarea('name');
+        $element->setAttrib('maxlength', '182');
         $this->addElement($element);
 
         $element = new Sparx_SimpleText('tags');

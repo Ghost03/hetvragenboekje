@@ -22,6 +22,8 @@ return array(
     'printpdf' => new Zend_Controller_Router_Route('printpdf', array('controller' => 'questions', 'action' => 'generatehtml')),
     'createpdf' => new Zend_Controller_Router_Route('createpdf', array('controller' => 'questions', 'action' => 'createpdf')),
 
+    'wachtwoord-vergeten' => new Zend_Controller_Router_Route('wachtwoord-vergeten', array('controller' => 'login', 'action' => 'forgotpassword')),
+
     'photo' => new Zend_Controller_Router_Route('photo', array('controller' => 'profile', 'action' => 'photo')),
     'check-exists' => new Zend_Controller_Router_Route('check-exists', array('controller' => 'profile', 'action' => 'checkexists')),
 

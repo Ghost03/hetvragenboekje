@@ -26,13 +26,27 @@ class QuestionsController extends CrudController {
         $user_id = $db->fetchOne('SELECT id FROM users WHERE email = ?', $session);
         $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created', $user_id);
 
+       	if(!isset($_GET['page']))
+        	$_GET['page'] = 1;
+
+        $view = Zend_Layout::getMvcInstance()->getView();
+      	$paginator = Zend_Paginator::factory( $questions );
+      	$paginator->setCurrentPageNumber( (int) @$_GET['page'] )
+      			  ->setItemCountPerPage(10);
+            
+        $pagination = $view->paginationControl( $paginator, 'Sliding', 'pagination.phtml' );
+
 	    // Data 
 	    $app_id = "117716921766168";
 	   
         // Views
-        $this->view->questions = $questions;
 	    $this->view->appID = $app_id;
 	    $this->view->baseurl = $config->baseurl;
+	    $this->view->pagination = $pagination;
+
+	   	$this->view->questions = Zend_Paginator::factory( $questions )
+                                 ->setCurrentPageNumber( (int) @$_GET['page'] )
+                                 ->setItemCountPerPage(10);
     }
 
     public function detailAction()

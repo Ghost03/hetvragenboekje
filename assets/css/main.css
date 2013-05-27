@@ -1203,3 +1203,9 @@ input[type="submit"]
 .magenta {
  color: #d3327a;
 }
+
+.vergeten {
+    font-size: 10px;
+    color: #000;
+    margin: 0 0 0 -10px;
+}

@@ -19,6 +19,24 @@ class LoginController extends CrudController {
         $hash = sha1($hash.substr($salt,6));
         return $hash;
     }
+
+    private static function _createRandomPassword() { 
+
+	    $chars = "abcdefghijkmnopqrstuvwxyz023456789"; 
+	    srand((double)microtime()*1000000); 
+	    $i = 0; 
+	    $pass = '' ; 
+
+	    while ($i <= 7) { 
+	        $num = rand() % 33; 
+	        $tmp = substr($chars, $num, 1); 
+	        $pass = $pass . $tmp; 
+	        $i++; 
+	    } 
+
+	    return $pass; 
+
+	} 
     
     public function checkemailAction() {
 	   $ajaxEmail = $_POST['email'];
@@ -61,6 +79,50 @@ class LoginController extends CrudController {
 		  $_SESSION['user'] = $user['email'];
 		  $this->_redirect('/questions');
 	  }
+    }
+
+    public function forgotpasswordAction() {
+
+    	$config = Zend_Registry::get('config');
+        $db = Zend_Registry::get('db');
+
+        if( isset($_POST['submit'] ) ) {
+
+        	if(!empty($_POST['email'])) {
+
+		        $auth = array('auth' => 'login',
+		                      'username' => $config->mailer->username,
+		                      'password' => $config->mailer->password);
+
+		        $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_POST['email']);
+
+		        if(!$user)
+		        	$this->_redirect('wachtwoord-vergeten');
+
+		        $randomPass = self::_createRandomPassword();
+		        $salt = self::_generateSalt();
+	            $hash = self::_hashPassword($randomPass, $salt);
+
+		        $q = $db->prepare('UPDATE users SET hash = :hash, salt = :salt');
+		        $q->bindValue(':hash', $hash);
+		        $q->bindValue(':salt', $salt);
+		 		$q->execute();
+
+		        $transport = new Zend_Mail_Transport_Smtp($config->mailer->smtp, $auth);
+
+		        $mail = new Zend_Mail();
+		        $mail->setBodyText('Je bent je wachtwoord vergeten. Je nieuwe wachtwoord is: <b>' . $randomPass . '</b>');
+		        $mail->setBodyHtml('Je bent je wachtwoord vergeten. Je nieuwe wachtwoord is: <b>' . $randomPass . '</b>');
+		        $mail->setFrom($config->mailer->email, 'Het Vragenboekje');
+		        $mail->addTo($user['email'], $user['name'] . ' ' . $user['lastname']);
+		        $mail->setSubject('Wachtwoord vergeten - Het Vragenboekje');
+		        $mail->send($transport);
+
+    		}
+	    	else {
+	    		$this->_redirect('wachtwoord-vergeten');
+	    	}
+        }
     }
 }
 
