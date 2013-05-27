@@ -47,7 +47,7 @@ h5            { font-size: 14px; padding: 0 0 5px 0; }
 h6            { font-size: 12px; padding: 0 0 5px 0; }
 
 
-a              { color: #57a000; text-decoration: none; }
+a              { color: #d3327a; text-decoration: none; }
 a:hover     { color: #000; }
 a:active     { color: #777; }
 a:focus     { outline: 1px; }
@@ -84,8 +84,8 @@ p {
 .button {
 				font-family: Verdana, Arial, sans-serif;
                 display: inline-block;
-                background: #459300 url('../images/bg-button-green.gif') top left repeat-x !important;
-                border: 1px solid #459300 !important;
+                background: #d3327a url('../../../assets/img/navigation.png') top left repeat-x !important;
+                border: 1px solid #d3327a !important;
                 padding: 4px 7px 4px 7px !important;
                 color: #fff !important;
                 font-size: 11px !important;
@@ -204,7 +204,7 @@ a.arrow_level2 {
                 }
 
 #sidebar #main-nav li a.nav-top-item {
-                background: transparent url('../images/bg-menu-item-green.gif') right center no-repeat; /* Background image for default color scheme - green */
+                background: transparent url('../images/bg-menu-item-pink.png') right center no-repeat; /* Background image for default color scheme - green */
                 padding: 10px 15px;
                 color: #fff;
                 font-size: 14px;
