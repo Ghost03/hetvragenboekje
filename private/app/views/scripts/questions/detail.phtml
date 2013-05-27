@@ -19,7 +19,7 @@ if($this->question['tags'])
 
     <div class="question-image">
     
-        <img src="assets/img/preview.png" />
+        <img src="assets/img/categories/150x150/<?= $this->question['category_id'] ?>.png" />
 
     </div>
 
@@ -116,7 +116,7 @@ if($this->question['tags'])
                     <?php if($answerer['image']): ?>
                         <img width="150" height="150" src="uploads/images/<?php echo $answerer['image'] ?>" />
                     <?php else: ?>
-                        <img src="assets/img/preview.png" />
+                        <img src="assets/img/profile_unknown.png" />
                     <?php endif; ?>
 
                 </div>
