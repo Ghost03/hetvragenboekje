@@ -4,7 +4,7 @@
         <!-- <li class="desc disabled"><a href="#"><?php echo $this->firstItemNumber; ?>-<?php echo $this->lastItemNumber; ?> / <?php echo $this->totalItemCount; ?></a></li> -->
        
         <?php if (isset($this->previous)): ?>
-                <li class="first"><a href="<?php echo urldecode( $this->url() ); ?>?page=<?php echo $this->first; ?>"><?php echo $this->first; ?> &larr;</a></li>
+                <li class="first"><a class="magenta" href="<?php echo urldecode( $this->url() ); ?>?page=<?php echo $this->first; ?>"><?php echo $this->first; ?> &larr;</a></li>
         <?php endif; ?>
        
         <?php 
