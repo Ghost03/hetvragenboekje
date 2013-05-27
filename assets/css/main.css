@@ -387,6 +387,9 @@ input[type="password"]
     padding-left: 30px;
     padding-top: 10px;
 }
+
+
+
 .content-right .box .box-content
 {
     position: relative;
@@ -397,6 +400,10 @@ input[type="password"]
     z-index: 998;
     top: -37px;
     border: 1px solid #dddddd;
+}
+
+.content-right .box #first-box{
+    min-height: 263px;
 }
 
 .content-right .box .box-content input[type="text"],
