@@ -13,7 +13,8 @@ class QuestionForm extends Sparx_BaseForm
         $element = new Sparx_SimpleSelect('category_id');
         $element->setShort()
                 ->setRequired(true)
-                ->addMultiOptions($categories);
+                ->addMultiOptions($categories)
+                ->setAttrib('class', 'magenta');
         $this->addElement($element);
 
         $element = new Sparx_SimpleTextarea('name');
@@ -21,6 +22,7 @@ class QuestionForm extends Sparx_BaseForm
         $this->addElement($element);
 
         $element = new Sparx_SimpleText('tags');
+        $element->setAttrib('class', 'magenta');
         $this->addElement($element);
     }
 }

@@ -6,15 +6,18 @@ class ProfileForm extends Sparx_BaseForm
     {
         $element = new Sparx_SimpleText('name');
         $element->setRequired(true)
-                ->addFilter('StripTags');
+                ->addFilter('StripTags')
+                ->setAttrib('class', 'magenta');
         $this->addElement($element);
 
         $element = new Sparx_SimpleText('lastname');
-        $element->addFilter('StripTags');
+        $element->addFilter('StripTags')
+                ->setAttrib('class', 'magenta');
         $this->addElement($element);
 
         $element = new Sparx_SimpleText('email');
-        $element->addFilter('StripTags');
+        $element->addFilter('StripTags')
+                ->setAttrib('class', 'magenta');
         $this->addElement($element);
     }
 }
