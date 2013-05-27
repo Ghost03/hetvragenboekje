@@ -11,23 +11,32 @@ class PageController extends AppController {
 	  $r_error = $params['register-error'];
 	  $config = Zend_Registry::get('config');
 	  
-       // Includes
-       $db = Zend_Registry::get('db');
+      // Includes
+      $db = Zend_Registry::get('db');
         
-       // Queries
-       $questions = $db->fetchAll('SELECT * FROM questions ORDER BY date_created DESC LIMIT 5');
+      // Queries
+      $questions = $db->fetchAll('SELECT * FROM questions ORDER BY date_created DESC');
 
 	  // Data 
 	  $app_id = "117716921766168";
-	  
-	  
-       // Views
-       $this->view->questions = $questions;
+
+	  if(!isset($_GET['page']))
+        $_GET['page'] = 1;
+
+      $view = Zend_Layout::getMvcInstance()->getView();
+      $paginator = Zend_Paginator::factory( $questions );
+      $paginator->setCurrentPageNumber( (int) @$_GET['page'] )
+      			->setItemCountPerPage(10);
+            
+      $pagination = $view->paginationControl( $paginator, 'Sliding', 'pagination.phtml' );
+
+      // Views
+      $this->view->questions = $questions;
 	  $this->view->l_error = $l_error;
 	  $this->view->r_error = $r_error;
 	  $this->view->appID = $app_id;
 	  $this->view->baseurl = $config->baseurl;
-	  
+	  $this->view->pagination = $pagination;
     }
     
 }
