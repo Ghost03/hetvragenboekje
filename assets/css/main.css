@@ -65,7 +65,7 @@ body {
 }
 
 .menu {
-    background: url('../img/navigation.jpg') repeat-x;
+    background: url('../img/navigation.png') repeat-x;
     height: 40px;
 }
 
@@ -191,7 +191,7 @@ input[type="password"]
 }
 
 .header {
-    background: url('../img/article.jpg') repeat-x;
+    background: url('../img/article.png') repeat-x;
     height: 48px;
     color: white;
     line-height: 45px;
@@ -482,7 +482,7 @@ input[type="password"]
 
 input[type="submit"]
 {
-    background: url('../img/navigation.jpg');
+    background: url('../img/navigation.png');
     color: #fff;
     float: right;
     border: 0px;
@@ -588,7 +588,7 @@ input[type="submit"]
 #loadmore {
     display: block;
     margin: 0 0 20px 0;
-    background: url('../img/navigation.jpg');
+    background: url('../img/navigation.png');
     width: 100px;
     text-align: center;
     cursor: pointer;

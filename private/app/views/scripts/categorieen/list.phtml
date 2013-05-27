@@ -16,11 +16,11 @@
 
 	?>
 
-	<div class="category <?= $class; ?>" id="c<?= $i; ?>">
+	<a href="<?= $this->config->baseurl . $this->request->controller . '/' . $category['url']; ?>"> <div class="category <?= $class; ?>" id="c<?= $i; ?>">
+		   
+    <span class="name"><?php echo $category['name']; ?></span> 
 
-		<a href="<?= $this->config->baseurl . $this->request->controller . '/' . $category['url']; ?>" class="name"><?php echo $category['name']; ?></a> 
-
-	</div>
+    </div></a>
 
 	<?php endforeach; ?>
 
