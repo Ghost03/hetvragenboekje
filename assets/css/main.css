@@ -762,7 +762,7 @@ input[type="submit"]
 }
 
 .steleenvraagform {
-    height: 400px;
+    height: 460px;
 }
 
 #formulier .stel-een-vraag-image {
@@ -801,6 +801,11 @@ input[type="submit"]
 #formulier .submit {
     float: left;
     padding: 5px 10px;
+}
+
+#formulier .formulier-top {
+ height: 50px;
+ background: url('../img/magenta_balk.png') repeat-x;
 }
 
 .thumbs-up {
