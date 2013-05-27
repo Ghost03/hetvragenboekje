@@ -17,7 +17,6 @@ class QuestionForm extends Sparx_BaseForm
         $this->addElement($element);
 
         $element = new Sparx_SimpleTextarea('name');
-        $element->setRequired(true);
         $this->addElement($element);
 
         $element = new Sparx_SimpleText('tags');

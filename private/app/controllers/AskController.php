@@ -15,30 +15,52 @@ class AskController extends CrudController {
 
     public function indexAction()
     {   
+        // Request
+        $request = Zend_Controller_Front::getInstance()->getRequest();
+        $params = $request->getParams();
+        $steleenvraag_error = $params['steleenvraag-error'];
+
+        var_dump($steleenvraag-error);
+        exit;
+
     	// Includes
         $db = Zend_Registry::get('db');
         $form = $this->view->form = new QuestionForm;
 
-        $user_id = $db->fetchOne('SELECT id FROM users WHERE name = ?', $_SESSION['user']);
+        $user_id = $db->fetchOne('SELECT id FROM users WHERE email = ?', $_SESSION['user']);
 
         while($_POST) {
 
             if(!$form->isValid($_POST)) break;
             
-            $values = $form->getValues();
+                $values = $form->getValues();
 
-    		$values['user_id'] = $user_id;
-    		$values['url'] = sanitize($values['name']);
-            $values['date_created'] = date("Y-m-d H:i:s");
+                if ( !$values['name'] ) {
+                    $data = array("steleenvraag-error" => "Vul een vraag in");
+                    $this->_forward("index", "ask", 'default', $data);
+                }
 
-            $this->_add($values);
-                
-            $this->_redirect('question/' . $values['url']);
+                $checkExists = $db->fetchAll('SELECT * FROM questions WHERE name = ?', $values['name']);
+
+                if($checkExists)
+                    $this->_redirect('question/' . sanitize($values['name']));
+
+            else {
+
+        		$values['user_id'] = $user_id;
+        		$values['url'] = sanitize($values['name']);
+                $values['date_created'] = date("Y-m-d H:i:s");
+
+                $this->_add($values);
+                    
+                $this->_redirect('question/' . $values['url']);
+            }
         }
 
         // Views
         $this->view->user = $user;
         $this->view->categories = $categories;
+        $this->view->steleenvraag_error = $steleenvraag_error;
     }
 }
 
