@@ -710,7 +710,7 @@ input[type="submit"]
 
 #top-3 {
     position: absolute;
-    top: 60px;
+    top: 53px;
 }
 
 #top-3 ul {
@@ -719,17 +719,22 @@ input[type="submit"]
 
 #top-3 .favo {
     background: url('../img/favo.png') no-repeat left;
-    padding: 0 0 0 40px;
+    padding: 0 0 10px 40px;
     margin: 0 0 15px 0;
-    line-height: 22px;
+    line-height: 44px;
     width: 230px;
     height: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+#top-3 .favo:last-child {
+    border: none;
 }
 
 #top-3 .favo a {
     color: black;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
     font-family: candara;
     text-transform: capitalize;
 }

@@ -280,7 +280,7 @@
                                         if (strlen($question['name']) <= 30)
                                             $question['name'] = $question['name'];
                                         else
-                                            $question['name'] = substr($question['name'], 0, strpos(wordwrap($question['name'], 30), "\n")) . "...";
+                                            $question['name'] = substr($question['name'], 0, strpos(wordwrap($question['name'], 30), "\n")) . "... ?";
                                 ?>
                                         <li class="favo"><a href="question/<?= $question['url'] ?>"><?= $question['name'] ?></a></li>
 
