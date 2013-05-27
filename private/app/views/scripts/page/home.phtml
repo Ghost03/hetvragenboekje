@@ -11,19 +11,14 @@
 	
     $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
     $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
-    $tags = explode(';', $question['tags']);
-
-    $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
     $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
 
-    foreach($question_ratings as $question_rating)
-        $question_rating = $question_rating['total'] / $question_rating['votes'];
-    
+    $tags = explode(';', $question['tags']);
     $date = new Zend_Date($question['date_created']);
 
     ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
     $cname = str_replace("&", "en", $category['name']);
-     $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $cname . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
+    $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $cname . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
     
 ?>
 
@@ -31,7 +26,7 @@
 
         <div class="question-image">
         
-            <img src="assets/img/preview.png" />
+            <img src="assets/img/categories/150x150/<?= $question['category_id'] ?>.png" />
 
         </div>
 
