@@ -1219,3 +1219,7 @@ input[type="submit"]
     color: #000;
     margin: 0 0 0 -10px;
 }
+
+#formulier table label, #formulier table input{
+    display: inherit;
+}

@@ -25,15 +25,20 @@
 			</div>
 
 			<input type="file" name="file" id="file_upload" >
-
-			<label for="name">* Naam:</label>
-			<?php echo $this->form->getElement('name'); ?><br />
-
-			<label for="lastname">Achternaam:</label>
-			<?php echo $this->form->getElement('lastname'); ?><br />
-
-			<label for="email">Email:</label>
-			<?php echo $this->form->getElement('email'); ?><br /><br />
+			<table width="350">
+			    <tr>
+				   <td width="350"><label for="name">* Naam:</label></td>
+				   <td><?php echo $this->form->getElement('name'); ?></td>
+			    </tr>
+			    <tr>
+				   <td><label for="lastname">Achternaam:</label></td>
+				   <td><?php echo $this->form->getElement('lastname'); ?></td>
+			    </tr>
+			    <tr>
+				   <td><label for="email">Email:</label></td>
+				   <td><?php echo $this->form->getElement('email'); ?></td>
+			    </tr>
+			</table>
 
 			<input type="submit" class="submit" value="Aanpassen" />
 
