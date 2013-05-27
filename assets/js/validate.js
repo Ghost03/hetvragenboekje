@@ -68,12 +68,12 @@ $(function()
 			 name: {
 				required: true,
 				minlength: 2,
-				maxlength: 182
+				maxlength: 150
 			 }
 		  },
 		  messages: {
 			 categorie_id: "Selecteer een categorie",
-			 name: "Stel uw vraag met minimaal 2 karakters en maximaal 182."
+			 name: "Stel uw vraag met minimaal 2 karakters en maximaal 150."
 		  }
 	   });
 	   
