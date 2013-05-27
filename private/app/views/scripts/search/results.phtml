@@ -40,13 +40,14 @@ if (!empty($_POST['s'])):
 			 $answers = count($db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $result['id']));
 			 ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
 			 $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $result['user_id']);
+			 $category = $db->fetchRow('SELECT name FROM categories WHERE id = ?', $result['category_id']);
 			 ?>
 
 	   	   <div id="result">
 
 	   		  <div class="info">
 
-	   			 <a href="categorieen/entertainment-en-muziek" class="category">Entertainment &amp; Muziek</a>
+	   			 <a href="categorieen/entertainment-en-muziek" class="category"><?php echo $category['name'] ?></a>
 
 	   			 <p>
 	   				<a href="question/<?php echo $result['url'] ?>" class="title"><?php echo str_ireplace($this->search, "<span>" . $this->search . "</span>", $result['name']) ?></a>

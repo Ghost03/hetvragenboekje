@@ -268,13 +268,25 @@
                             <ul>
                                 <?php 
                                     $top3 = $db->fetchAll('SELECT * FROM questions WHERE date_created > DATE_SUB(NOW(), INTERVAL 24 HOUR) ORDER BY date_created DESC LIMIT 3');
-							 if(!$top3)
-							 {
-								echo '<li>Er zijn geen vragen gesteld vandaag.</li>';
-							 }
-								
-                                    foreach($top3 as $question)
-                                        echo '<li class="favo"><a href="question/' . $question['url'] . '">' . $question['name'] . '</a></li>';
+        							if(!$top3):
+                                ?>
+        						
+                                        <li>Er zijn geen vragen gesteld vandaag.</li>        						
+
+								<?php 
+                                    else:
+                                    foreach($top3 as $question):
+
+                                        if (strlen($question['name']) <= 30)
+                                            $question['name'] = $question['name'];
+                                        else
+                                            $question['name'] = substr($question['name'], 0, strpos(wordwrap($question['name'], 30), "\n")) . "...";
+                                ?>
+                                        <li class="favo"><a href="question/<?= $question['url'] ?>"><?= $question['name'] ?></a></li>
+
+                                <?php
+                                    endforeach;
+                                    endif;
                                 ?>
                             </ul>
 
