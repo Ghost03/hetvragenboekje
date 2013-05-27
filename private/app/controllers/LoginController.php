@@ -103,11 +103,13 @@ class LoginController extends CrudController {
 
         	if(!empty($_POST['email'])) {
 
+        		$email = mysql_real_escape_string($_POST['email']);
+
 		        $auth = array('auth' => 'login',
 		                      'username' => $config->mailer->username,
 		                      'password' => $config->mailer->password);
 
-		        $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_POST['email']);
+		        $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $email);
 
 		        if(!$user)
 		        	$this->_redirect('wachtwoord-vergeten');
@@ -116,9 +118,10 @@ class LoginController extends CrudController {
 		        $salt = self::_generateSalt();
 	            $hash = self::_hashPassword($randomPass, $salt);
 
-		        $q = $db->prepare('UPDATE users SET hash = :hash, salt = :salt');
+		        $q = $db->prepare('UPDATE users SET hash = :hash, salt = :salt WHERE email = :email');
 		        $q->bindValue(':hash', $hash);
 		        $q->bindValue(':salt', $salt);
+		        $q->bindValue(':email', $email);
 		 		$q->execute();
 
 		        $transport = new Zend_Mail_Transport_Smtp($config->mailer->smtp, $auth);
