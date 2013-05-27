@@ -61,7 +61,7 @@ class RegisterController extends CrudController {
 
 			 $_SESSION['user'] = $values['email'];
 
-			 $this->_redirect('/questions');
+			 $this->_redirect('/');
 		  }
 		  
             
