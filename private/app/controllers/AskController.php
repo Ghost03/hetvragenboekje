@@ -20,9 +20,6 @@ class AskController extends CrudController {
         $params = $request->getParams();
         $steleenvraag_error = $params['steleenvraag-error'];
 
-        var_dump($steleenvraag-error);
-        exit;
-
     	// Includes
         $db = Zend_Registry::get('db');
         $form = $this->view->form = new QuestionForm;
@@ -33,27 +30,19 @@ class AskController extends CrudController {
 
             if(!$form->isValid($_POST)) break;
             
-                $values = $form->getValues();
-
-                if ( !$values['name'] ) {
-                    $data = array("steleenvraag-error" => "Vul een vraag in");
-                    $this->_forward("index", "ask", 'default', $data);
-                }
-
                 $checkExists = $db->fetchAll('SELECT * FROM questions WHERE name = ?', $values['name']);
 
                 if($checkExists)
                     $this->_redirect('question/' . sanitize($values['name']));
-
             else {
 
         		$values['user_id'] = $user_id;
         		$values['url'] = sanitize($values['name']);
-                $values['date_created'] = date("Y-m-d H:i:s");
+               $values['date_created'] = date("Y-m-d H:i:s");
 
-                $this->_add($values);
+               $this->_add($values);
                     
-                $this->_redirect('question/' . $values['url']);
+               $this->_redirect('question/' . $values['url']);
             }
         }
 

@@ -1,5 +1,6 @@
 $(function()
     {
+	   
 	   $("#inloggen").validate({
 		  errorElement: "div",
 		  errorContainer: $("div.errors"),
@@ -51,6 +52,31 @@ $(function()
 			 rpassword2: "Wachtwoord komt niet overeen"
 		  }
 	   });
+	   
+	   $("#steleenvraag").validate({
+		  errorElement: "div",
+		  errorContainer: $("div.errors"),
+		  errorPlacement: function(error, element) {
+			 $(".errors").html("");
+		
+			 error.appendTo(element.parent("fieldset").parent("form").parent("div").children(".errors"));
+		  },
+		  rules: {
+			 categorie_id:{
+				required: true
+			 },
+			 name: {
+				required: true,
+				minlength: 2,
+				maxlength: 182
+			 }
+		  },
+		  messages: {
+			 categorie_id: "Selecteer een categorie",
+			 name: "Stel uw vraag met minimaal 2 karakters en maximaal 182."
+		  }
+	   });
+	   
 	   var l_emailError = $("#l-email-error").text();
 	   $("#login").children(".errors").append('<div for="email" class="error" style="">'+l_emailError+'</div>')
 	   var r_emailError = $("#r-email-error").text();
