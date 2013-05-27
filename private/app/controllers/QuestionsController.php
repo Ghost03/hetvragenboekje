@@ -24,7 +24,7 @@ class QuestionsController extends CrudController {
         // Queries
         $session = $_SESSION['user'];
         $user_id = $db->fetchOne('SELECT id FROM users WHERE email = ?', $session);
-        $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created', $user_id);
+        $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created DESC', $user_id);
 
        	if(!isset($_GET['page']))
         	$_GET['page'] = 1;
