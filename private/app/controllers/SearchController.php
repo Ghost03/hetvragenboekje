@@ -33,8 +33,8 @@ class SearchController extends AppController {
             $q->execute();
             $category = $q->fetch(PDO::FETCH_ASSOC);
 
-            $q = $db->prepare('SELECT name FROM users WHERE id = :id');
-            $q->bindValue(':id', $question['user_id'], PDO::PARAM_STR);
+            $q = $db->prepare('SELECT * FROM users WHERE id = :id');
+            $q->bindValue(':id', $question['user_id']);
             $q->execute();
             $name = $q->fetch(PDO::FETCH_ASSOC);
 
