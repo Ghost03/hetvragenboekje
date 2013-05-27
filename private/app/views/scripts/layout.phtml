@@ -282,7 +282,7 @@
                                         else
                                             $question['name'] = substr($question['name'], 0, strpos(wordwrap($question['name'], 30), "\n")) . "... ?";
                                 ?>
-                                        <li class="favo"><a href="question/<?= $question['url'] ?>"><?= $question['name'] ?></a></li>
+                                        <li class="favo"><a href="question/<?= $question['url'] ?>"><?= ucfirst(strtolower($question['name'])) ?></a></li>
 
                                 <?php
                                     endforeach;

@@ -736,7 +736,6 @@ input[type="submit"]
     text-decoration: none;
     font-size: 14px;
     font-family: candara;
-    text-transform: capitalize;
 }
 
 #top-3 .favo a:hover {
