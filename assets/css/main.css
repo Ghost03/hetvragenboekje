@@ -1068,7 +1068,7 @@ input[type="submit"]
 }
 
 .pagination {
-  margin: 20px 0;
+  margin: 0 0 20px 0;
 }
 .pagination ul {
   display: inline-block;
@@ -1194,4 +1194,8 @@ input[type="submit"]
 .pagination-mini ul > li > span {
   padding: 1px 6px;
   font-size: 10.5px;
+}
+
+.magenta {
+ color: #d3327a;
 }

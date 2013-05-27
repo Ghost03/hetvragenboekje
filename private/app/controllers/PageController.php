@@ -31,12 +31,15 @@ class PageController extends AppController {
       $pagination = $view->paginationControl( $paginator, 'Sliding', 'pagination.phtml' );
 
       // Views
-      $this->view->questions = $questions;
 	  $this->view->l_error = $l_error;
 	  $this->view->r_error = $r_error;
 	  $this->view->appID = $app_id;
 	  $this->view->baseurl = $config->baseurl;
 	  $this->view->pagination = $pagination;
+
+	  $this->view->questions = Zend_Paginator::factory( $questions )
+                             ->setCurrentPageNumber( (int) @$_GET['page'] )
+                             ->setItemCountPerPage(10);
     }
     
 }

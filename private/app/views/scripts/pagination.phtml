@@ -1,5 +1,5 @@
 <?php if ($this->pageCount): ?>
-<div class="pagination paginationControl pagination-small">
+<div class="pagination paginationControl">
         <ul>
         <!-- <li class="desc disabled"><a href="#"><?php echo $this->firstItemNumber; ?>-<?php echo $this->lastItemNumber; ?> / <?php echo $this->totalItemCount; ?></a></li> -->
        
@@ -21,7 +21,7 @@
                 if( ($this->first < $page) && ($page < $this->last) || $page == $this->current)
                 {
         ?>
-                  <li class="<?php echo $class; ?>"><a style="cursor: pointer;" href="<?php echo urldecode( $this->url() ); ?>?page=<?php echo $page; ?>"><?php echo $page; ?></a></li>
+                  <li class="<?php echo $class; ?>"><a class="magenta" style="cursor: pointer; color: #d3327a;" href="<?php echo urldecode( $this->url() ); ?>?page=<?php echo $page; ?>"><?php echo $page; ?></a></li>
         <?php
                 }
         }
@@ -35,7 +35,7 @@
         ?>
        
         <?php if (isset($this->next)): ?>
-                <li class="last"><a href="<?php echo urldecode( $this->url() ); ?>?page=<?php echo $this->last; ?>">&rarr; <?php echo $this->last; ?></a></li>
+                <li class="last"><a class="magenta" href="<?php echo urldecode( $this->url() ); ?>?page=<?php echo $this->last; ?>">&rarr; <?php echo $this->last; ?></a></li>
         <?php endif; ?>
  
         </ul>
