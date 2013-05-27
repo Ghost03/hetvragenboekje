@@ -54,7 +54,8 @@ $action = $request->getActionName();
                         <?php echo $this->partial('cms/menu.phtml') ?>
                     <div id=profile-links>
                     <br/>
-                    <a href="user/logout">Uitloggen</a>                    
+                    <a href="user/logout">Uitloggen</a> <br />
+                    <a style="margin: 0 5px 0 0;" href="<?= $config->baseurl ?>">Website</a>                     
                     </div>
                     <?php endif ?>
                 </div>
