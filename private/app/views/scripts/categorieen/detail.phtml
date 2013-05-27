@@ -16,8 +16,6 @@
 			
 			if(!empty($question['tags']))
         		$tags = explode(';', $question['tags']);
-
-        	var_dump($tags);
 			
 			$date = new Zend_Date($question['date_created']);
 			
