@@ -49,6 +49,14 @@ class ProfileController extends CrudController {
             
             $values = $form->getValues();
 
+            $newpassword = $_POST['newpassword'];
+
+            $salt = self::_generateSalt();
+            $hash = self::_hashPassword($newpassword, $salt);
+
+            $values['hash'] = $hash;
+            $values['salt'] = $salt;
+
             $_SESSION['user'] = $values['email'];
 
             $this->_merge($user, $values);
