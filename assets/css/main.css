@@ -958,7 +958,7 @@ input[type="submit"]
 .fb-share { 
     display: block;
     float: left;
-    background: url("../img/share_fb.png");
+    background: url("../img/share_fb.png") no-repeat;
     height: 26px;
     width: 77px;
     font-size: 0px;
@@ -967,7 +967,7 @@ input[type="submit"]
 
 .twitter-share { 
     display: block;
-    background: url("../img/share_tweet.png");
+    background: url("../img/share_tweet.png") no-repeat;
     height: 26px;
     width: 79px;
     font-size: 0px;
@@ -976,11 +976,11 @@ input[type="submit"]
 }
 
 .fb-share:hover{
-    background: url('../img/share_fb_hover.png');
+    background: url('../img/share_fb_hover.png') no-repeat;
 }
 
 .twitter-share:hover{
-    background: url('../img/share_tweet_hover.png');
+    background: url('../img/share_tweet_hover.png') no-repeat;
 }
 
 .preview img {
