@@ -149,7 +149,7 @@ class LoginController extends CrudController {
 	   $date = date("Y-m-d H:i:s");
 	   $exp_date = $reset['expiration'];
 
-	   if( $date < $exp_date ) {
+	   if( $reset && $date < $exp_date ) {
 
 		   	echo '<form action="resetpassword" method="POST">
 		   		<label for="password">Nieuw wachtwoord:</label>
