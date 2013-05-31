@@ -23,6 +23,8 @@ return array(
     'createpdf' => new Zend_Controller_Router_Route('createpdf', array('controller' => 'questions', 'action' => 'createpdf')),
 
     'wachtwoord-vergeten' => new Zend_Controller_Router_Route('wachtwoord-vergeten', array('controller' => 'login', 'action' => 'forgotpassword')),
+    'reset' => new Zend_Controller_Router_Route('reset', array('controller' => 'login', 'action' => 'reset')),
+    'resetpassword' => new Zend_Controller_Router_Route('resetpassword', array('controller' => 'login', 'action' => 'resetpassword')),
 
     'photo' => new Zend_Controller_Router_Route('photo', array('controller' => 'profile', 'action' => 'photo')),
     'check-exists' => new Zend_Controller_Router_Route('check-exists', array('controller' => 'profile', 'action' => 'checkexists')),

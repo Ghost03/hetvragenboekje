@@ -102,21 +102,31 @@ class LoginController extends CrudController {
 			 if (!$user)
 				$this->_redirect('wachtwoord-vergeten');
 
-			 $randomPass = self::_createRandomPassword();
-			 $salt = self::_generateSalt();
-			 $hash = self::_hashPassword($randomPass, $salt);
+			 // Date
+			 $date = date("Y-m-d H:i");
+			 $time = new DateTime($date);
+			 $time->add(new DateInterval('PT30M'));
+			 
+			 // Data
+			 $uniqid = uniqid();
+			 $user_id = $user['id'];
+			 $expiration = $time->format('Y-m-d H:i');
+			 $ip = $_SERVER['REMOTE_ADDR'];
 
-			 $q = $db->prepare('UPDATE users SET hash = :hash, salt = :salt WHERE email = :email');
-			 $q->bindValue(':hash', $hash);
-			 $q->bindValue(':salt', $salt);
-			 $q->bindValue(':email', $email);
-			 $q->execute();
+		 	 $q = $db->prepare('INSERT INTO user_reset (reset_id, user_id, expiration, ip) VALUES (:reset_id, :user_id, :expiration, :ip)');
+	         $q->bindValue(':reset_id', $uniqid);
+	         $q->bindValue(':user_id', $user_id);
+	         $q->bindValue(':expiration', $expiration);
+	         $q->bindValue(':ip', $ip);
+	 		 $q->execute();
+
+		 	 $temporarylink = $config->baseurl . 'reset?id=' . $uniqid;
 
 			 $transport = new Zend_Mail_Transport_Smtp($config->mailer->smtp, $auth);
 
 			 $mail = new Zend_Mail();
-			 $mail->setBodyText('Je bent je wachtwoord vergeten. Je nieuwe wachtwoord is: <b>' . $randomPass . '</b>');
-			 $mail->setBodyHtml('Je bent je wachtwoord vergeten. Je nieuwe wachtwoord is: <b>' . $randomPass . '</b>');
+			 $mail->setBodyText('Je hebt een nieuw wachtwoord aangevraagd. Klik op de volgende link om een nieuw wachtwoord te verkrijgen.' . $temporarylink . '');
+			 $mail->setBodyHtml('Je hebt een nieuw wachtwoord aangevraagd. Klik op de volgende link om een nieuw wachtwoord te verkrijgen.' . $temporarylink . '');
 			 $mail->setFrom($config->mailer->email, 'Het Vragenboekje');
 			 $mail->addTo($user['email'], $user['name'] . ' ' . $user['lastname']);
 			 $mail->setSubject('Wachtwoord vergeten - Het Vragenboekje');
@@ -126,6 +136,67 @@ class LoginController extends CrudController {
 			 $this->_redirect('wachtwoord-vergeten');
 		  }
 	   }
+    }
+
+    public function resetAction() {
+
+	   $config = Zend_Registry::get('config');
+	   $db = Zend_Registry::get('db');
+
+	   $reset_id = $_GET['id'];
+	   $reset = $db->fetchRow('SELECT * FROM user_reset WHERE reset_id = ?', $reset_id);
+
+	   $date = date("Y-m-d H:i:s");
+	   $exp_date = $reset['expiration'];
+
+	   if( $date < $exp_date ) {
+
+		   	echo '<form action="resetpassword" method="POST">
+		   		<label for="password">Nieuw wachtwoord:</label>
+		   		<input type="password" id="password" name="password" /><br />
+		   		<input type="hidden" name="reset_id" value="' . $reset_id . '" />
+		   		<input type="submit" name="submit" />
+		   	</form>';
+	   }
+	   else {
+	   	 $this->_redirect('reset?id=' . $reset_id);
+	   }
+
+    }
+
+    public function resetpasswordAction() {
+
+       $config = Zend_Registry::get('config');
+	   $db = Zend_Registry::get('db');
+
+	    if(isset($_POST['submit']))  {
+
+			if(!empty($_POST['password']) && !empty($_POST['reset_id'])) {
+
+				$reset_id = $_POST['reset_id'];
+				$password = $_POST['password'];
+			    $salt = self::_generateSalt();
+			    $hash = self::_hashPassword($password, $salt);
+
+			    $reset = $db->fetchRow('SELECT * FROM user_reset WHERE reset_id = ?', $reset_id);
+
+			   	$q = $db->prepare('UPDATE users SET hash = :hash, salt = :salt WHERE id = :id');
+		        $q->bindValue(':hash', $hash);
+		        $q->bindValue(':salt', $salt);
+		        $q->bindValue(':id', $reset['user_id']);
+		 		$q->execute();
+
+		 		$d = $db->prepare('DELETE FROM user_reset WHERE reset_id = :reset_id');
+	   			$d->bindValue(':reset_id', $_POST['reset_id']);
+	   			$d->execute();
+
+	   			$this->_redirect('categorieen');
+	   		}
+
+	   	}	
+	   	else {
+	   		$this->_redirect('wachtwoord-vergeten');
+	   	}
     }
 
 }
