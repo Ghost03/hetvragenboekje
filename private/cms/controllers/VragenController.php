@@ -10,10 +10,22 @@ class VragenController extends Cms {
 
     public function listAction() 
     {
-        $q = $this->_db->prepare('SELECT * FROM questions ORDER BY date_created DESC');
-        $q->execute();
+
+        if(isset( $_GET['s'] )) {
+            $value = trim($_GET['s']);
+            $q = $this->_db->prepare('SELECT * FROM questions WHERE name LIKE :search ORDER BY date_created DESC');
+            $q->bindValue(':search', '%' . $value . '%', PDO::PARAM_STR);
+            $q->execute();
+            $items = $q->fetchAll(PDO::FETCH_ASSOC);  
+        }
+        else {
+            $q = $this->_db->prepare('SELECT * FROM questions ORDER BY date_created DESC');
+            $q->execute();
+            $items = $q->fetchAll(PDO::FETCH_ASSOC);    
+        }
         
-        $this->view->items = $q->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->view->items = $items;
         
     }
 

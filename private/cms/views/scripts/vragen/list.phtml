@@ -1,8 +1,19 @@
 <?php
 $this->layout()->title = $this->translate('Vragen overzicht');
 $db = Zend_Registry::get('db');
+$items = $this->items;
 ?>
 <section class=categories>
+
+    <form action="vragen/list" method="GET">
+
+        <input type="text" class="text-input" style="width: 50%" name="s" placeholder="Zoek op vragen" />&nbsp;
+        <input type="submit" class="button" value="Zoeken" />
+
+    </form>
+
+    <?php if( items ): ?>
+
     <table>
         <thead>
             <tr>
@@ -12,8 +23,7 @@ $db = Zend_Registry::get('db');
         </thead>
         <tbody>
             <?php 
-            $items = $this->items;
-            foreach($items as $i => $item):
+            foreach( $items as $i => $item ):
             ?>
             <tr>
                 <td><?php echo $item['name']; ?></td>
@@ -25,4 +35,11 @@ $db = Zend_Registry::get('db');
             ?>
         </tbody>
     </table>
+
+    <?php else: ?>
+
+     <p>Helaas, geen resultaten gevonden op zoekterm "<?php echo $_GET['s']; ?>"</p>
+
+    <?php endif; ?>
+
 </section>
