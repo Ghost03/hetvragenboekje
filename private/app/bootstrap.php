@@ -18,8 +18,13 @@ require_once LIB_PATH . 'utils.php';
 set_include_path(LIB_PATH  . PATH_SEPARATOR .
                  CONTROLLERS_PATH . PATH_SEPARATOR .
                  FORM_PATH . PATH_SEPARATOR .
+                 MODEL_PATH . PATH_SEPARATOR);
+
+/*HP 5.3 OpenBase DIR temporary fix lan (GET INCLUDE PATH ERUIT HALEN): set_include_path(LIB_PATH  . PATH_SEPARATOR .
+                 CONTROLLERS_PATH . PATH_SEPARATOR .
+                 FORM_PATH . PATH_SEPARATOR .
                  MODEL_PATH . PATH_SEPARATOR .
-                 get_include_path());
+                 get_include_path());*/
 
 require_once 'Zend/Loader/Autoloader.php';
 $loader = Zend_Loader_Autoloader::getInstance();
