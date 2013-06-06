@@ -27,6 +27,10 @@ body {
     display: none;
 }
 
+.clear {
+    clear: both;
+}
+
 .clearfix:after {
     content: ".";
     display: block;
@@ -50,7 +54,7 @@ body {
 
 .top {
     height: 50px;
-    background: #000;
+    background: url('../img/header.png') repeat-x;
     padding: 30px 0;
 }
 
@@ -62,6 +66,12 @@ body {
 .top .logo {
     background: url('../img/logo.png') no-repeat;
     height: 49px;
+    width: 367px;
+    float: left;
+}
+
+.top #slider {
+    margin: -79px 0 0 350px;
 }
 
 .menu {
@@ -519,7 +529,7 @@ input[type="submit"]
 /* FOOTER */
 
 .footer {
-    background: url('../img/footer.png') repeat-x;
+    background: url('../img/footer.png') #000 repeat-x;
     width: 100%;
     height: 287px;
     padding: 20px 0;
@@ -541,6 +551,7 @@ input[type="submit"]
 .footer-row ul li {
     padding: 5px 0 5px 20px;
     background: url('../img/arrow.png') no-repeat left;
+    background-size: 5%;
 }
 
 .footer-row ul li a {
@@ -1227,4 +1238,12 @@ input[type="submit"]
 
 #formulier table label, #formulier table input{
     display: inherit;
+}
+
+/* MEDIA */
+
+@media screen and (max-device-width: 480px) {
+    body {
+      width: 968px;
+    }
 }

@@ -1,0 +1,77 @@
+<h1 class="header">Vragen</h1>
+<span id="l-email-error"class="hidden"><?=$this->l_error?></span>
+<span id="r-email-error"class="hidden"><?=$this->r_error?></span>
+
+<div class="shadow-border">&nbsp;</div>
+
+<?php 
+    $db = Zend_Registry::get('db');
+    $tags = array();
+
+    foreach($this->questions as $key => $question): 
+	
+    $category = $db->fetchRow('SELECT name, url FROM categories WHERE id = ?', $question['category_id']);
+    $answers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
+    $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
+
+    if(!empty($question['tags']))
+        $tags = explode(';', $question['tags']);
+
+    $date = new Zend_Date($question['date_created']);
+
+    ($answers == 0 ? $answers = "Nog niet beantwoord." : $answers .= "x beantwoord");
+    $cname = str_replace("&", "en", $category['name']);
+    $sharelink = "https://www.facebook.com/dialog/feed?app_id=" . $this->appID . "&link=" . $this->baseurl . 'question/' . $question['url'] . "&picture=". $this->baseurl . "assets/img/fb.png&name=" . $question['name'] . "&caption=" . $cname . "&redirect_uri=" . $this->baseurl . 'question/' . $question['url'];
+    
+?>
+
+    <div class="question">
+
+        <div class="question-image">
+        
+            <img src="assets/img/categories/150x150/<?= $question['category_id'] ?>.png" />
+
+        </div>
+
+        <div class="question-info">
+
+            <a href="categorieen/<?= $category['url'] ?>" class="category"><?php echo $category['name']; ?></a>
+            
+            <p>
+                <a href="question/<?= $question['url'] ?>" class="title"><?php echo $question['name']; ?></a>
+                <a href="<?= $sharelink ?>" class="fb-share">Share</a>
+                <a href="https://twitter.com/share?url=<?=$this->baseurl.'question/'.$question['url'];?>&counturl=<?=$this->baseurl.'question/'.$question['url'];?>&hashtags=HetVragenboekje,<?=str_replace(" & ", ",", $category['name']); foreach($tags as $tag) echo ",".$tag;?>&text=Weet%20jij%20het%20antwoord%20op%20deze%20vraag?" class="twitter-share">Tweet</a>
+            </p>
+
+		  
+        </div>
+	   
+	   <div class="question-data">
+		  
+		  <span class="date">Geplaatst op: <?php echo $date->toString("dd MMMM YYYY");?></span>
+		  
+		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
+
+          <span class="user"><?php echo $user; ?></span>
+		  
+	   </div>
+
+    </div>
+
+    <div class="shadow-border">&nbsp;</div>
+
+    <div class="tags">
+
+        <?php foreach($tags as $tag): echo '<span><a href="tag/' . $tag . '">#' . $tag . '</a></span>'; endforeach; ?>
+
+    </div>
+
+<?php endforeach; ?>
+
+<div class="pagination">
+
+    <ul>
+        <?= @$this->pagination; ?>
+    </ul>
+
+</div>

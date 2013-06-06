@@ -4,7 +4,7 @@ return array(
     
     // PAGES ROUTING
     
-    'home' => new Zend_Controller_Router_Route('/', array('controller' => 'page','action' => 'home')),
+    'home' => new Zend_Controller_Router_Route('/', array('controller' => 'index','action' => 'home')),
     'categorieen' => new Zend_Controller_Router_Route('categorieen', array('controller' => 'categorieen', 'action' => 'list')),
     'categorie' => new Zend_Controller_Router_Route('categorieen/:categorie', array('controller' => 'categorieen', 'action' => 'detail')),
     'zoeken' => new Zend_Controller_Router_Route('zoeken', array('controller' => 'search', 'action' => 'results')),

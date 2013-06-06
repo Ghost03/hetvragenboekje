@@ -1,5 +1,7 @@
 $(function()
 {
+	// Remember me
+
     $("#switch").on("click", function()
     {
 	   if($("#switch").hasClass("switch"))
@@ -16,6 +18,8 @@ $(function()
 			 
 		  }
     });
+
+    // Focus fields
     
     $("input").on("focus",function()
     {
@@ -25,11 +29,29 @@ $(function()
     });
     
     $("input").placeholder();
+
+    // Header images
    
     var pathArray = window.location.pathname.split( '/' );
     var url = pathArray[0];
     var items = Array(1,2,3,4,5,6,7,8,9,10,11,12);
     var item = items[Math.floor(Math.random()*items.length)];
     $(".search-img").html('<img src="'+url+'assets/img/categories/150x150/'+item+'.png" />');
+
+
+    // Slides
+
+    var images = 'assets/img/slides/slide*.png';
+	var i = 1;
+
+	setInterval(function() {
+	    var path = images.replace('*', i);
+	    var slide = $("#slider");
+	    slide.fadeOut(function() {
+		    $(this).attr("src", path).fadeIn("slow");
+		});
+	    i = i + 1;
+	    if (i == 3) i = 1;
+	}, 10000);
     
 });
