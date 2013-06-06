@@ -40,19 +40,22 @@ $(function()
 
 
     // Slides
+    function slide() {
+	    var images = 'assets/img/slides/slide*.png';
+		var i = 2;
+		var delay = 10000;
 
-    var images = 'assets/img/slides/slide*.png';
-	var i = 2;
-	var delay = 10000;
+		setInterval(function() {
+		    var path = images.replace('*', i);
+		    var slide = $("#slider");
+		    slide.fadeOut(function() {
+			    $(this).attr("src", path).fadeIn("slow");
+			});
+		    i = i + 1;
+		    if (i == 3) i = 1;
+		}, delay);
+	}
 
-	setInterval(function() {
-	    var path = images.replace('*', i);
-	    var slide = $("#slider");
-	    slide.fadeOut(function() {
-		    $(this).attr("src", path).fadeIn("slow");
-		});
-	    i = i + 1;
-	    if (i == 3) i = 1;
-	}, delay);
+	slide();
     
 });
