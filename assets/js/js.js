@@ -42,7 +42,8 @@ $(function()
     // Slides
 
     var images = 'assets/img/slides/slide*.png';
-	var i = 1;
+	var i = 2;
+	var delay = 10000;
 
 	setInterval(function() {
 	    var path = images.replace('*', i);
@@ -52,6 +53,6 @@ $(function()
 		});
 	    i = i + 1;
 	    if (i == 3) i = 1;
-	}, 10000);
+	}, delay);
     
 });
