@@ -42,7 +42,7 @@ class RegisterController extends CrudController {
 
 		  if ($emailDB) {
 			 $data = array("register-error" => "E-mail bestaat al.");
-			 $this->_forward("home", "page", 'default', $data);
+			 $this->_forward("home", "home", 'default', $data);
 			 break;
 		  }
 		  else

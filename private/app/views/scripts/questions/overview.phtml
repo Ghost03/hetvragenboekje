@@ -14,13 +14,9 @@
     if(!empty($question['tags']))
         $tags = explode(';', $question['tags']);
 
-    $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
     $user = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
-
-    foreach($question_ratings as $question_rating)
-        $question_rating = $question_rating['total'] / $question_rating['votes'];
     
-     $date = new Zend_Date($question['date_created']);
+    $date = new Zend_Date($question['date_created']);
 
     ($answers == 0 ? $answers = "Nog niet beantwoord" : $answers .= "x beantwoord");
     $cname = str_replace("&", "en", $category['name']);
@@ -77,3 +73,60 @@
     </ul>
 
 </div>
+
+<?php if( $this->questions ): ?>
+ 
+<!-- Modal -->
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+    <h3 id="myModalLabel">Met het vragenboekje kun je..</h3>
+
+  </div>
+
+  <div class="modal-body">
+
+    <h2>Een vraag stellen</h2>
+    
+    <p>
+        Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
+    </p>
+
+    <h2>Een vraag beantwoorden</h2>
+
+    <p>
+        Help anderen en geef antwoorden op recent gestelde vragen. Deel je kennis.
+    </p>
+
+    <h2>Profielen bekijken</h2>
+    
+    <p>
+        Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
+    </p>
+
+  </div>
+
+  <div class="modal-footer">
+
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Sluiten</button>
+
+  </div>
+
+</div>
+
+<link href="assets/css/modal.css" rel="stylesheet" type="text/css" />
+<script src="assets/js/bootstrap-modal.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+    $('#myModal').modal('toggle')
+});
+
+</script>
+
+<?php endif; ?>

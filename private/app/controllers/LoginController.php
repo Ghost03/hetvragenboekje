@@ -49,7 +49,7 @@ class LoginController extends CrudController {
 
 	   if (!$emailDB) {
 		  $data = array("login-error" => "Onjuiste gegevens");
-		  $this->_forward("home", "page", 'default', $data);
+		  $this->_forward("home", "home", 'default', $data);
 	   } else {
 		  $this->_forward("login", "login", 'default', $array);
 	   }
@@ -67,7 +67,7 @@ class LoginController extends CrudController {
 
 	   if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
 		  $data = array("login-error" => "Onjuiste gegevens");
-		  $this->_forward("home", "page", 'default', $data);
+		  $this->_forward("home", "home", 'default', $data);
 	   } else {
 		  unset($user['hash']);
 		  $rememberMe = $_POST['remember'];
@@ -116,23 +116,23 @@ class LoginController extends CrudController {
 			 $expiration = $time->format('Y-m-d H:i');
 			 $ip = $_SERVER['REMOTE_ADDR'];
 
-		 	 /*$q = $db->prepare('INSERT INTO user_reset (reset_id, user_id, expiration, ip) VALUES (:reset_id, :user_id, :expiration, :ip)');
+		 	 $q = $db->prepare('INSERT INTO user_reset (reset_id, user_id, expiration, ip) VALUES (:reset_id, :user_id, :expiration, :ip)');
 	         $q->bindValue(':reset_id', $uniqid);
 	         $q->bindValue(':user_id', $user_id);
 	         $q->bindValue(':expiration', $expiration);
 	         $q->bindValue(':ip', $ip);
-	 		 $q->execute();*/
+	 		 $q->execute();
 
 		 	 $temporarylink = $config->baseurl . 'reset?id=' . $uniqid;
 
 		 	 $this->view->temporarylink = $temporarylink;
-			 $text = $view->partial('mail/password-forgot.phtml', array('link' => $temporarylink));
+			 $text = $view->partial('mail/password-forgot.phtml', array('link' => $temporarylink, 'config' => $config));
 
 			 $transport = new Zend_Mail_Transport_Smtp($config->mailer->smtp, $auth);
 
 			 $mail = new Zend_Mail();
 			 $mail->setBodyText($text, 'utf-8');
-			 $mail->setBodyHtml('Je hebt een nieuw wachtwoord aangevraagd. Klik op de volgende link om een nieuw wachtwoord te verkrijgen.' . $temporarylink . '');
+			 $mail->setBodyHtml($text, 'utf-8');
 			 $mail->setFrom($config->mailer->email, 'Het Vragenboekje');
 			 $mail->addTo($user['email'], $user['name'] . ' ' . $user['lastname']);
 			 $mail->setSubject('Wachtwoord vergeten - Het Vragenboekje');
