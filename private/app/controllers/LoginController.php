@@ -91,6 +91,9 @@ class LoginController extends CrudController {
 
 		  if (!empty($_POST['email'])) {
 
+		  	 $view = Zend_Layout::getMvcInstance()->getView();
+
+
 			 $email = $_POST['email'];
 
 			 $auth = array('auth' => 'login',
@@ -113,19 +116,22 @@ class LoginController extends CrudController {
 			 $expiration = $time->format('Y-m-d H:i');
 			 $ip = $_SERVER['REMOTE_ADDR'];
 
-		 	 $q = $db->prepare('INSERT INTO user_reset (reset_id, user_id, expiration, ip) VALUES (:reset_id, :user_id, :expiration, :ip)');
+		 	 /*$q = $db->prepare('INSERT INTO user_reset (reset_id, user_id, expiration, ip) VALUES (:reset_id, :user_id, :expiration, :ip)');
 	         $q->bindValue(':reset_id', $uniqid);
 	         $q->bindValue(':user_id', $user_id);
 	         $q->bindValue(':expiration', $expiration);
 	         $q->bindValue(':ip', $ip);
-	 		 $q->execute();
+	 		 $q->execute();*/
 
 		 	 $temporarylink = $config->baseurl . 'reset?id=' . $uniqid;
+
+		 	 $this->view->temporarylink = $temporarylink;
+			 $text = $view->partial('mail/password-forgot.phtml', array('link' => $temporarylink));
 
 			 $transport = new Zend_Mail_Transport_Smtp($config->mailer->smtp, $auth);
 
 			 $mail = new Zend_Mail();
-			 $mail->setBodyText('Je hebt een nieuw wachtwoord aangevraagd. Klik op de volgende link om een nieuw wachtwoord te verkrijgen.' . $temporarylink . '');
+			 $mail->setBodyText($text, 'utf-8');
 			 $mail->setBodyHtml('Je hebt een nieuw wachtwoord aangevraagd. Klik op de volgende link om een nieuw wachtwoord te verkrijgen.' . $temporarylink . '');
 			 $mail->setFrom($config->mailer->email, 'Het Vragenboekje');
 			 $mail->addTo($user['email'], $user['name'] . ' ' . $user['lastname']);
