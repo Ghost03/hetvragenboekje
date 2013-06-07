@@ -1291,6 +1291,47 @@ input[type="submit"]
     display: inherit;
 }
 
+/* CONTACT */
+
+.contact a {
+    color: #000;
+    font-weight: bold;
+}
+
+.contact input[type="text"], .contact textarea {
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background: white;
+    box-shadow: inset 1px 1px 5px #ddd;
+    width: 380px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 10px;
+    position: relative;
+    color: #333;
+}
+
+.contact input[type="submit"] {
+    float: left;
+}
+
+.contact #contact_select {
+    margin: 0 0 20px 0;
+    padding: 10px 8px;
+    width: 641px;
+}
+
+.contact .contact_option {
+    padding: 10px;
+    line-height: 24px;
+    background: white;
+}
+
+.contact #contact_beheerders p {
+    margin: 0 0 10px 0;
+}
+
 /* MEDIA */
 
 @media screen and (max-device-width: 480px) {

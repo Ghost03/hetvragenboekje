@@ -31,4 +31,6 @@ return array(
 
     'thumbsup' => new Zend_Controller_Router_Route('thumbsup', array('controller' => 'answer', 'action' => 'thumbsup')),
     'tag' => new Zend_Controller_Router_Route('tag/:tag', array('controller' => 'tag', 'action' => 'detail')),
+
+    'contact' => new Zend_Controller_Router_Route('contact', array('controller' => 'contact', 'action' => 'overview'))
 );
