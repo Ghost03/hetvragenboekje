@@ -68,6 +68,7 @@ $(function() {
         'fileSizeLimit' : '150KB',
         'onUploadSuccess' : function(file, data, response) {
             $("#thumb").attr("src", "uploads/images/" + file.name);
+		  $("#login .circular").css('background-image', 'url("uploads/images/' + file.name + '")');
         }
     });
 });
