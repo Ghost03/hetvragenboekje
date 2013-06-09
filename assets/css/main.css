@@ -543,8 +543,7 @@ input[type="password"]
 
 #login .login-box .switch
 {
-    background: url('../img/switch.png');
-    background-position-y: 20px;
+    background: url("../img/switch.png") repeat scroll 0 20px;
 }
 
 #registreren input[type="submit"]
