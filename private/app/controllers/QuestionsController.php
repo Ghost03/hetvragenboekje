@@ -24,6 +24,7 @@ class QuestionsController extends CrudController {
         // Queries
         $session = $_SESSION['user'];
         $user_id = $db->fetchOne('SELECT id FROM users WHERE email = ?', $session);
+        $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $session);
         $questions = $db->fetchAll('SELECT * FROM questions WHERE user_id = ? ORDER BY date_created DESC', $user_id);
 
        	if(!isset($_GET['page']))
@@ -38,11 +39,21 @@ class QuestionsController extends CrudController {
 
 	    // Data 
 	    $app_id = "117716921766168";
+
+	    // Answer data
+        if($_POST) {
+        	$q = $db->prepare("UPDATE users SET guide = 1 WHERE email = :email");
+        	$q->bindValue(':email', $session);
+        	$q->execute();
+
+        	$this->_redirect('/questions');
+        }
 	   
         // Views
 	    $this->view->appID = $app_id;
 	    $this->view->baseurl = $config->baseurl;
 	    $this->view->pagination = $pagination;
+	    $this->view->user = $user;
 
 	   	$this->view->questions = Zend_Paginator::factory( $questions )
                                  ->setCurrentPageNumber( (int) @$_GET['page'] )
