@@ -31,23 +31,26 @@ class CategorieenController extends AppController {
         $category = $db->fetchRow('SELECT * FROM categories WHERE url = ?', $request->categorie);
         $questions = $db->fetchAll('SELECT * FROM questions WHERE category_id = ? ORDER BY date_created', $category['id']);
 
-        // Functions
-        foreach($questions as $question):
-            $question_ratings = $db->fetchAll('SELECT * FROM votes WHERE question_id = ?', $question['id']);
-
-            foreach($question_ratings as $question_rating)
-                $question_rating = $question_rating['total'] / $question_rating['votes'];
-
-        endforeach;
-
         // Data
         $app_id = "117716921766168";
-        
+
+        if(!isset($_GET['page']))
+            $_GET['page'] = 1;
+
+        $view = Zend_Layout::getMvcInstance()->getView();
+        $paginator = Zend_Paginator::factory( $questions );
+        $paginator->setCurrentPageNumber( (int) @$_GET['page'] )
+                    ->setItemCountPerPage(10);
+                
+        $pagination = $view->paginationControl( $paginator, 'Sliding', 'pagination.phtml' );
+
         // Views
         $this->view->appID = $app_id;
         $this->view->category = $category;
-        $this->view->questions = $questions;
-        $this->view->question_rating = $question_rating;
+        $this->view->pagination = $pagination;
+        $this->view->questions = Zend_Paginator::factory( $questions )
+                                 ->setCurrentPageNumber( (int) @$_GET['page'] )
+                                 ->setItemCountPerPage(10);
     }
     
 }

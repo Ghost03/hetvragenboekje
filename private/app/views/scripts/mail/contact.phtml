@@ -1,0 +1,95 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>Het Vragenboekje - Wachtwoord Vergeten</title>
+   <style type="text/css">
+   	a {color: #4A72AF;}
+	body, #header h1, #header h2, p {margin: 0; padding: 0;}
+	#main {border: 1px solid #cfcece;}
+	img {display: block;}
+	#top-message p, #bottom-message p {color: #3f4042; font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+	#header h1 {color: #ffffff !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; font-size: 24px; margin-bottom: 0!important; padding-bottom: 0; }
+	#header h2 {color: #ffffff !important; font-family: Arial, Helvetica, sans-serif; font-size: 24px; margin-bottom: 0 !important; padding-bottom: 0; }
+	#header p {color: #ffffff !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; font-size: 12px;  }
+	h1, h2, h3, h4, h5, h6 {margin: 0 0 0.8em 0;}
+	h3 {font-size: 28px; color: #444444 !important; font-family: Arial, Helvetica, sans-serif; }
+	h4 {font-size: 22px; color: #4A72AF !important; font-family: Arial, Helvetica, sans-serif; }
+	h5 {font-size: 18px; color: #444444 !important; font-family: Arial, Helvetica, sans-serif; }
+	p {font-size: 12px; color: #444444 !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; line-height: 1.5;}
+   </style>
+</head>
+
+<body>
+<table width="100%" cellpadding="50" cellspacing="0" style="background: url('<?php echo $this->config->baseurl ?>assets/img/body-bg.png')"><tr><td>
+
+	<table id="main" width="650" align="center" cellpadding="0" cellspacing="15" bgcolor="ffffff">
+		<tr>
+			<td>
+				<table id="header" cellpadding="10" cellspacing="0" align="center" bgcolor="000000">
+					<tr>
+						<td width="638" height="110" style="padding: 10px 0 0 0; background: url('<?php echo $this->config->baseurl ?>assets/img/logo.png') no-repeat center;"></td>
+					</tr>
+				</table><!-- header -->
+			</td>
+		</tr><!-- header -->
+		
+		<tr>
+			<td>
+				<table id="content-2" cellpadding="0" cellspacing="0" border="0" align="center">
+					<tr>
+						<td width="638" style="background: url('<?php echo $this->config->baseurl ?>assets/img/navigation.png') repeat-x;" border="0"><p style="font-weight: bold; font-size: 12px; color: #fff !important; text-align: center; ">Nieuw bericht via contactformulier</p></td>
+					</tr>
+					<tr>
+						<td width="638" height="9" style="background: url('<?php echo $this->config->baseurl ?>assets/img/shadow570.png') no-repeat left;"></td>
+					</tr>
+				</table><!-- content-2 -->
+			</td>
+		</tr>
+
+		<tr>
+
+		<td>
+			<table id="content-2" cellpadding="0" cellspacing="0" border="0" align="center">
+
+				<td width="100" align="center">
+					<p style="font-size: 14px; margin: 0 0 5px 0; font-weight: bold;">Naam</p>
+					<p style="font-size: 14px; margin: 0 0 5px 0;"><?php echo $this->name; ?></p>
+				</td>
+
+				<td width="100" align="center">
+					<p style="font-size: 14px; margin: 0 0 5px 0; font-weight: bold;">Email</p>
+					<p style="font-size: 14px; margin: 0 0 5px 0;"><?php echo $this->email; ?></p>
+				</td>
+
+				<td width="100" align="center">
+					<p style="font-size: 14px; margin: 0 0 5px 0; font-weight: bold;">Onderwerp</p>
+					<p style="font-size: 14px; margin: 0 0 5px 0;"><?php echo $this->subject; ?></p>
+				</td>
+
+				<?php if($this->username): ?>
+
+					<td width="100" align="center">
+						<p style="font-size: 14px; margin: 0 0 5px 0; font-weight: bold;">Gebruikersnaam</p>
+						<p style="font-size: 14px; margin: 0 0 5px 0;"><?php echo $this->username; ?></p>
+					</td>
+
+				<?php endif; ?>
+
+			</table>
+
+		</td>
+
+		<tr>
+			<td width="400" align="center">
+				<p style="font-size: 14px; margin: 0 0 5px 0; font-weight: bold;">Bericht</p>
+				<p style="font-size: 14px; margin: 0 0 5px 0;"><?php echo $this->message; ?></p>
+			</td>
+		</tr>
+
+		</tr>
+		
+	</table><!-- main -->
+</td></tr></table><!-- wrapper -->
+
+</body>
+</html>

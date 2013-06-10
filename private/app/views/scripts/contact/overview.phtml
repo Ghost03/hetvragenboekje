@@ -64,35 +64,27 @@
 
       <p>Gebruik dit formulier om contact op te nemen met de beheerders.</p>
 
-      <form method="post" action="http://www.Het Vragenboekje.nl/contact" class="tableless validate">
+      <form method="post" action="contactsend" class="tableless validate">
 
          <div>
+            
             <label for="name">Naam:<sup>*</sup></label><br>
-            <input type="text" name="name" id="name" value="" size="25" class="required"><br>
+            <input type="text" name="name" id="name" value="" size="25" class="required magenta"><br>
 
             <label for="username">Gebruikersnaam:</label><br>
-            <input type="text" name="username" id="username" value="" size="25"><br>
+            <input type="text" name="username" id="username" value="" class="magenta" size="25"><br>
 
             <label for="email">E-mail:<sup>*</sup></label><br>
-            <input type="text" name="email" id="email" value="" size="25" class="required email"><br>
+            <input type="text" name="email" id="email" value="" size="25" class="required email magenta"><br>
 
             <label for="subject">Onderwerp:<sup>*</sup></label><br>
-            <input type="text" name="subject" id="subject" value="" size="50" class="required full"><br>
+            <input type="text" name="subject" id="subject" value="" size="50" class="required full magenta"><br>
 
             <label for="message">Bericht:<sup>*</sup></label><br>
 
-            <textarea name="message" id="message" cols="50" rows="1" class="required expanding full spellcheck growfield" style="overflow: hidden; height: 60px;"></textarea>
+            <textarea name="message" id="message" cols="50" rows="1" class="required expanding full spellcheck growfield magenta" style="overflow: hidden; height: 60px;"></textarea>
 
             <span class="error_location message"></span><br>
-
-            <div style="display:none;visibility:hidden;">
-
-               <label for="url">Laat dit veld leeg:</label>
-               <input type="text" name="url" id="url" value="" autocomplete="off" size="50"><br>
-
-            </div>
-
-            <input type="hidden" name="reason" id="reason" value="melden">
 
             <input type="submit" class="submit" value="Versturen" id="submit"><br>
 
