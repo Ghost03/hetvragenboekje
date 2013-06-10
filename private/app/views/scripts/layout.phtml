@@ -73,7 +73,9 @@
                 <li <?php if($request->controller == 'categorieen') echo 'class="active"'; ?>><a href="categorieen">Categorieën</a></li>
                 <li <?php if($request->controller == 'search') echo 'class="active"'; ?>><a href="zoeken">Zoeken</a></li>
                 <li <?php if($request->controller == 'contact') echo 'class="active"'; ?>><a href="contact">Contact</a></li>
-                <?php if(isset($_SESSION['user'])): ?><li <?php if($request->controller == 'question' && $request->action == 'overview') echo 'class="active"'; ?>><a href="questions">Mijn vragen</a></li><?php endif; ?>
+                
+                <?php if(isset($_SESSION['user'])): ?><li <?php if($request->controller == 'questions') echo 'class="active"'; ?>><a href="questions">Mijn vragen</a></li><?php endif; ?>
+
 			 <?php $user = $db->fetchRow('SELECT * FROM users WHERE email = ?', $_SESSION['user']); if(isset($_SESSION['user']) && $user['admin'] == 1):?><li style="float: right;"><a href="cms">Controlepaneel</a></li><?php endif;?>
                 
                 <!-- SUBMENU
