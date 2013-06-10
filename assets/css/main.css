@@ -843,6 +843,7 @@ input[type="submit"]
     padding: 20px;
     border: 1px solid #ccc;
     margin: 0 0 20px 0;
+        font-size: 16px;
 }
 
 .steleenvraagform {
@@ -874,19 +875,16 @@ input[type="submit"]
     border: 1px solid #bbb;
     background: white;
     box-shadow: inset 1px 1px 5px #ddd;
+    font-size: 16px;
 }
 
-#formulier input[type="text"], input[type="password"], #formulier select {
+#formulier input[type="text"], #formulier input[type="password"], #formulier select {
     border-radius: 5px;
     border: 1px solid #bbb;
     background: white;
     box-shadow: inset 1px 1px 5px #ddd;
     width: 408px;
-}
-
-#formulier select {
-    width: 418px;
-    padding: 0 0 0 15px;
+    font-size: 16px;
 }
 
 #formulier label {
@@ -898,6 +896,7 @@ input[type="submit"]
     text-transform: uppercase;
     font-weight: bold;
     padding: 0 0 0 10px;
+    width: 410px;
 }
 
 #formulier label, #formulier input, #formulier select {
@@ -906,8 +905,9 @@ input[type="submit"]
     padding: 5px;
 }
 
-#formlier input {
-    padding: 10px;
+#formulier select {
+    padding: 5px 5px 5px 15px;
+    width: 420px;
 }
 
 #formulier .submit {
@@ -1402,6 +1402,25 @@ input[type="submit"]
 
 .contact #contact_beheerders p {
     margin: 0 0 10px 0;
+}
+
+/* PROFILE PAGE */
+
+#profile-right {
+    float: left;
+    width: 300px;
+    border: 1px solid;
+}
+
+#profile-right label {
+    width: 100px;
+}
+
+#profile-left {
+    float: left;
+    width: 150px;
+    border: 1px solid;
+    margin: 0 20px 0 0;
 }
 
 /* MEDIA */

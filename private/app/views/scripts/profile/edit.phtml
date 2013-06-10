@@ -8,53 +8,52 @@
 
 <div class="shadow-border-3">&nbsp;</div>
 
-<div id="formulier">
 
-	<div class="formulier-top">&nbsp;</div>
+<div id="formulier" class="steleenvraagform">
 
-	<form enctype="multipart/form-data" action="profiel" method="POST">
+	<div class="stel-een-vraag-image">
+
+		<div class="preview">
+
+			<?php if( $this->user['image'] ): ?>
+
+				<img id="thumb" width="150" height="150" src="uploads/images/<?= $this->user['image'] ?>" />
+
+			<?php else: ?>
+
+				<img id="thumb" width="150" height="150" src="assets/img/profile_unknown.png" />
+
+			<?php endif; ?>
+
+		</div>
+
+		<input type="file" name="file" id="file_upload" >
+		
+	</div>
+
+	<form id="steleenvraag" enctype="multipart/form-data" action="profiel" method="POST">
 
 		<fieldset>
 
-			<div class="preview">
+		   <label for="name">* Naam:</label></td>
+		   <td><?php echo $this->form->getElement('name'); ?></td>
 
-				<?php if( $this->user['image'] ): ?>
+		   <td><label for="lastname">Achternaam:</label></td>
+		   <td><?php echo $this->form->getElement('lastname'); ?></td>
 
-					<img id="thumb" width="150" height="150" src="uploads/images/<?= $this->user['image'] ?>" />
+		   <td><label for="email">Email:</label></td>
+		   <td><?php echo $this->form->getElement('email'); ?></td>
 
-				<?php else: ?>
+		   <td><label for="new-pass">Nieuw wachtwoord:</label></td>
+		   <td><input type="password" id="new-pass" name="newpassword" /></td>
 
-					<img id="thumb" width="150" height="150" src="assets/img/profile_unknown.png" />
-
-				<?php endif; ?>
-
-			</div>
-
-			<input type="file" name="file" id="file_upload" >
-			<table width="350">
-			    <tr>
-				   <td width="350"><label for="name">* Naam:</label></td>
-				   <td><?php echo $this->form->getElement('name'); ?></td>
-			    </tr>
-			    <tr>
-				   <td><label for="lastname">Achternaam:</label></td>
-				   <td><?php echo $this->form->getElement('lastname'); ?></td>
-			    </tr>
-			    <tr>
-				   <td><label for="email">Email:</label></td>
-				   <td><?php echo $this->form->getElement('email'); ?></td>
-			    </tr>
-			    <tr>
-				   <td><label for="new-pass">Nieuw wachtwoord:</label></td>
-				   <td><input type="password" id="new-pass" name="newpassword" /></td>
-			    </tr>
-			</table>
-
-			<input type="submit" class="submit" value="Aanpassen" />
+		   <input type="submit" class="submit" value="Aanpassen" />
 
 		</fieldset>
 
 	</form>
+
+	<div class="errors"></div>
 
 </div>
 
