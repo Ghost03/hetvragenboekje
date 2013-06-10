@@ -49,7 +49,7 @@ class LoginController extends CrudController {
 
 	   if (!$emailDB) {
 		  $data = array("login-error" => "Onjuiste gegevens");
-		  $this->_forward("home", "home", 'default', $data);
+		  $this->_forward("home", "Index", 'default', $data);
 	   } else {
 		  $this->_forward("login", "login", 'default', $array);
 	   }
@@ -67,11 +67,12 @@ class LoginController extends CrudController {
 
 	   if (!$user || $user['hash'] != self::_hashPassword($password, $user['salt'])) {
 		  $data = array("login-error" => "Onjuiste gegevens");
-		  $this->_forward("home", "home", 'default', $data);
+		  $this->_forward("home", "Index", 'default', $data);
 	   } else {
 		  unset($user['hash']);
 		  $rememberMe = $_POST['remember'];
 		  if ($rememberMe == 1) {
+			 Zend_Session::ForgetMe();
 			 $seconds = 60 * 60 * 24 * 7; // 7 days
 			 Zend_Session::rememberMe($seconds);
 		  } else {
