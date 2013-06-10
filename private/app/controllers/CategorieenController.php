@@ -40,8 +40,8 @@ class CategorieenController extends AppController {
         $view = Zend_Layout::getMvcInstance()->getView();
         $paginator = Zend_Paginator::factory( $questions );
         $paginator->setCurrentPageNumber( (int) @$_GET['page'] )
-                    ->setItemCountPerPage(10);
-                
+                  ->setItemCountPerPage(10);
+
         $pagination = $view->paginationControl( $paginator, 'Sliding', 'pagination.phtml' );
 
         // Views

@@ -117,8 +117,8 @@ class QuestionsController extends CrudController {
 	   $question = $db->fetchRow('SELECT * FROM questions WHERE id = ?', $question_id);
 	   $answer = $db->fetchRow('SELECT * FROM answers WHERE id = ?', $answer_id);
 	   $category = $db->fetchRow('SELECT * FROM categories WHERE id = ?', $question['category_id']);
-	   $userQ = $db->fetchOne('SELECT name FROM users WHERE id = ?', $question['user_id']);
-	   $userA = $db->fetchOne('SELECT name FROM users WHERE id = ?', $answer['user_id']);
+	   $userQ = $db->fetchRow('SELECT name FROM users WHERE id = ?', $question['user_id']);
+	   $userA = $db->fetchRow('SELECT name FROM users WHERE id = ?', $answer['user_id']);
 	   $thumbs = count($db->fetchAll('SELECT * FROM thumbs WHERE answer_id = ?', $answer['id']));
 	   
 	   $countedAnswers = count( $db->fetchAll('SELECT * FROM answers WHERE question_id = ?', $question['id']) );
@@ -136,8 +136,9 @@ class QuestionsController extends CrudController {
 		  "countedAnswers" => $countedAnswers,
 		  "dateQ" => $dateQ->toString("dd MMMM YYYY"),
 		  "dateA" => $dateA->toString("dd MMMM YYYY"),
-		  "userQ" => $userQ,
-		  "userA" => $userA,
+		  "userQ" => $userQ['name'],
+		  "userA" => $userA['name'],
+		  "userAimg" => $userA['image'],
 		  "dateToday" => $dateToday->toString("dd MMMM YYYY"),
 		  "thumbs" => $thumbs
 	   );

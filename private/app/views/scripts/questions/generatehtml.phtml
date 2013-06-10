@@ -13,7 +13,7 @@
 		  <div class="shadow-border1">&nbsp;</div>
 		  <div class="question">
 			 <div class="question-image">
-				 <img src="assets/img/preview.png" />
+                	<img src="assets/img/categories/150x150/<?php echo $this->data['category']['id'] ?>.png" />
 			 </div>
 			 <div class="question-info">
 				<span class="category"><?php echo $this->data['category']['name']; ?></span>
@@ -30,16 +30,22 @@
 		  <h1 class="header">Antwoord </h1>
 		  <div class="shadow-border3">&nbsp;</div>
 		 <div class="answer">
+
                 <div class="answer-image">
-                    <img src="assets/img/profile_unknown.png" />
+                	<?php if($this->data['userAimg']): ?>
+                    	<img src="assets/img/<?php echo $this->data['userAimg'] ?>" />
+                    <?php else: ?>
+                    	<img src="assets/img/profile_unknown.png" />
+                    <?php endif; ?>
                 </div>
+
                 <div class="answer-info">
                     <span style="display: block; float: left; margin-right: 5px;">Beantwoord door: <?php echo $this->data['userA']; ?> </span>
                     <p class="title"><?php echo $this->data['answer']['name']; ?></p>
                 </div>
 			<div class="answer-data">
 				<span class="date">Geplaatst op: <?php echo $this->data['dateA'];?></span>
-				<span class="votes"><img src="assets/img/up.png"/>+<?php echo $this->data['thumbs'];?></span>
+				<span class="votes"><img src="assets/img/up-active.png"/>+<?php echo $this->data['thumbs'];?></span>
 			</div>
             </div>
 		  <div class="shadow-border2">&nbsp;</div>
