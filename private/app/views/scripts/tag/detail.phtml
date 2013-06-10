@@ -2,11 +2,15 @@
 	$db = Zend_Registry::get('db');
 ?>
 
-<h1 class="header">Vragen onder tag "<?php echo $this->tag; ?>"</h1>
+<h1 class="header">
+
+   <span class="header-bg">Vragen onder tag "<?php echo $this->tag; ?>"</span>
+
+</h1>
 
 <span id="email-error"class="hidden"><?=$this->error?></span>
 
-<div class="shadow-border">&nbsp;</div>
+<div class="shadow-border-3">&nbsp;</div>
 
 <?php 
 	

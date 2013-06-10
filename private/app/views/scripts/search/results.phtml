@@ -1,18 +1,26 @@
 <?php
-$db = Zend_Registry::get('db');
-if (!empty($_POST['s'])):
-    ?>
+	$db = Zend_Registry::get('db');
+	if (!empty($_POST['s'])):
+?>
 
-    <h1 class="header"><?php $x = ( $this->total == 1 ) ? "resultaat" : "resultaten";
-    echo $this->total . '&nbsp' . $x; ?> voor zoekterm "<?php echo $this->search; ?>"</h1>
+    <h1 class="header">
+
+   		<span class="header-bg"><?php $x = ( $this->total == 1 ) ? "resultaat" : "resultaten";
+    echo $this->total . '&nbsp' . $x; ?> voor zoekterm "<?php echo $this->search; ?>"</span>
+
+	</h1>
 
 <?php else: ?>
 
-    <h1 class="header">Zoek naar vragen</h1>
+    <h1 class="header">
+
+   		<span class="header-bg">Zoeken naar vragen</span>
+
+	</h1>
 
 <?php endif; ?>
 
-<div class="shadow-border">&nbsp;</div>
+<div class="shadow-border-3">&nbsp;</div>
 
 <div class="search-results">
 

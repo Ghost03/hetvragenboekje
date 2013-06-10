@@ -209,10 +209,21 @@ input[type="password"]
     height: 48px;
     color: white;
     line-height: 45px;
+    padding: 2px 0 0 0;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+.header .header-bg {
+    display: block;
+    background: url('../img/v.png') no-repeat 15px 13px;
+}
+
+.header-fix {
+    margin: -26px 0 0 ;
 }
 
 .question {
@@ -404,11 +415,11 @@ input[type="password"]
 }
 
 .tags span:hover {
-    background: black;
+    background: #000 url('../img/home_active.png') repeat-x;
 }
 
 .tags span:hover:before {
-    border-color: transparent black transparent transparent;
+    border-color: transparent #a4275f transparent transparent;
 }
 
 .tags span a {
@@ -492,7 +503,7 @@ input[type="password"]
 {
     margin: -41px 0px 0px 10px;
 }
-.shadow-border{
+.shadow-border {
     background: url("../img/shadow_1.png") no-repeat left;
 }
 
@@ -500,6 +511,12 @@ input[type="password"]
 {
     background: url("../img/shadow_right.png") no-repeat left;
     margin-bottom: 20px;
+}
+
+.shadow-border-3
+{
+    background: url("../img/shadow_1.png") no-repeat left;
+    margin: -26px 0 20px 0px;
 }
 
 #login, #registreren
@@ -846,13 +863,41 @@ input[type="submit"]
 }
 
 #formulier textarea {
-    max-width: 400px;
+    width: 408px;
     max-height: 100px;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 5px;
     font-family: arial;
     color: #d3327a;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background: white;
+    box-shadow: inset 1px 1px 5px #ddd;
+}
+
+#formulier input[type="text"], input[type="password"], #formulier select {
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background: white;
+    box-shadow: inset 1px 1px 5px #ddd;
+    width: 408px;
+}
+
+#formulier select {
+    width: 418px;
+    padding: 0 0 0 15px;
+}
+
+#formulier label {
+    color: white;
+    font-family: arial;
+    font-size: 14px;
+    border-radius: 5px;
+    background: url('../img/navigation.png');
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 0 0 10px;
 }
 
 #formulier label, #formulier input, #formulier select {
@@ -868,6 +913,10 @@ input[type="submit"]
 #formulier .submit {
     float: left;
     padding: 5px 10px;
+}
+
+#formulier .submit:hover {
+    background: #000 url('../img/home_active.png') repeat-x;
 }
 
 #formulier .formulier-top {
@@ -952,8 +1001,16 @@ input[type="submit"]
     float: left;
 }
 
+.short_nav .edit a:hover {
+    background: #000 url('../img/home_active.png') repeat-x;
+}
+
 .short_nav .logout {
     float: right;
+}
+
+.short_nav .logout a:hover {
+    background: #000 url('../img/home_active.png') repeat-x;
 }
 
 .errors
@@ -1308,22 +1365,31 @@ input[type="submit"]
     border: 1px solid #bbb;
     background: white;
     box-shadow: inset 1px 1px 5px #ddd;
-    width: 380px;
+    width: 425px;
     margin-bottom: 15px;
     font-size: 12px;
     line-height: 16px;
-    padding: 10px;
+    padding: 8px;
     position: relative;
     color: #333;
+}
+
+.contact label {
+    margin: 0 0 5px 0;
 }
 
 .contact input[type="submit"] {
     float: left;
 }
 
+.contact input[type="submit"]:hover {
+    float: left;
+    background: #000 url('../img/home_active.png') repeat-x;
+}
+
 .contact #contact_select {
     margin: 0 0 20px 0;
-    padding: 10px 8px;
+    padding: 10px 11px;
     width: 641px;
 }
 
@@ -1331,6 +1397,7 @@ input[type="submit"]
     padding: 10px;
     line-height: 24px;
     background: white;
+    border: 1px solid #dddddd;
 }
 
 .contact #contact_beheerders p {

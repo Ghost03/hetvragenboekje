@@ -122,7 +122,7 @@
   font-size: 20px;
   font-weight: bold;
   line-height: 20px;
-  color: #000000;
+  color: #000;
   text-shadow: 0 1px 0 #ffffff;
   opacity: 0.2;
   filter: alpha(opacity=20);
@@ -150,4 +150,19 @@ button.close {
 
 #myModalLabel {
   font-size: 25px;
+}
+
+.modal-footer .sluiten {
+  background: #d3327a;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.modal-footer .sluiten:hover {
+  background: #000 url('../img/home_active.png') repeat-x;
 }
