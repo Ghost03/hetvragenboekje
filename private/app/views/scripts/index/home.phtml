@@ -33,8 +33,12 @@
     <div class="question">
 
         <div class="question-image">
-        
-            <img src="assets/img/categories/150x150/<?= $question['category_id'] ?>.png" />
+            
+            <a href="question/<?= $question['url'] ?>">
+            
+                <img src="assets/img/categories/150x150/<?= $question['category_id'] ?>.png" />
+            
+            </a>
 
         </div>
 
@@ -55,7 +59,7 @@
 		  
 		  <span class="date">Geplaatst op: <?php echo $date->toString("dd MMMM YYYY");?></span>
 		  
-		  <span class="answers"><img src="assets/img/comment.png"/><?php echo $answers;?></span>
+		  <span class="answers"><img src="assets/img/comment.png"/><a class="magenta" href="question/<?= $question['url'] ?>"><?php echo $answers;?></a></span>
 
           <span class="user"><?php echo $user; ?></span>
 		  
