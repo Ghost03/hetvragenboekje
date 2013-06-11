@@ -53,23 +53,47 @@ $(function()
 	   $(this).next().toggle('slow')
     })
 
-    // Slides
-    function slide() {
-	    var images = 'assets/img/slides/slide*.png';
-		var i = 2;
-		var delay = 10000;
+    // Slider
 
-		setInterval(function() {
-		    var path = images.replace('*', i);
-		    var slide = $("#slider");
-		    slide.fadeOut(function() {
-			    $(this).attr("src", path).fadeIn("slow");
-			});
-		    i = i + 1;
-		    if (i == 3) i = 1;
-		}, delay);
+	var slider = {
+	    
+	    header: function(){
+	        
+		    var images = 'assets/img/slides/slide*.png';
+			var i = 2;
+			var delay = 10000;
+
+			setInterval(function() {
+			    var path = images.replace('*', i);
+			    var slide = $("#slider");
+			    slide.fadeOut(function() {
+				    $(this).attr("src", path).fadeIn("slow");
+				});
+			    i = i + 1;
+			    if (i == 3) i = 1;
+			}, delay);
+	        
+	    },
+	            
+	    ads: function() {
+
+		    var images = 'assets/img/advertisement/*.png';
+			var i = 1;
+			var delay = 5000;
+
+			setInterval(function() {
+			    var path = images.replace('*', i);
+			    var slide = $("#advertisement");
+			    slide.fadeOut(function() {
+				    $(this).attr("src", path).fadeIn("slow");
+				});
+			    i = i + 1;
+			    if (i == 3) i = 1;
+			}, delay);
+	        
+	    }
+
 	}
 
-	slide();
-    
+
 });
