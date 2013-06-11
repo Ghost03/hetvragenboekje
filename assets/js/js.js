@@ -47,8 +47,7 @@ $(function()
 
     //F.A.Q.
     
-    $("#info p").hide();
-    $(".disclaimer p").show();
+    $("#info .faq p").hide();
 
     $("#info h3").on("click", function(){
 	   $(this).next().toggle('slow')
