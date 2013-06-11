@@ -42,11 +42,12 @@ class LoginController extends CrudController {
 
 	   if (!isset($ajaxEmail))
 		  exit;
+
 	   $db = Zend_Registry::get('db');
 
 	   $emailDB = $db->fetchRow('SELECT * FROM `users` WHERE email = ?', $ajaxEmail);
 
-	   if ($forgotten == "true") {
+	   if ($forgotten == true) {
 		  $array = array("email" => $ajaxEmail);
 		  if (!$emailDB) {
 			 $data = array("user-error" => "Onjuiste gegevens");
@@ -96,12 +97,15 @@ class LoginController extends CrudController {
     }
 
     public function forgotpasswordAction() {
+    	
 	   $config = Zend_Registry::get('config');
 	   $db = Zend_Registry::get('db');
 	   
 	   $request = Zend_Controller_Front::getInstance()->getRequest();
 	   $params = $request->getParams();
 	   $error = $params['user-error'];
+
+	   if($error) $this->view->error = $error;
 	  
 	   if (isset($_POST['submit'])) {
 
