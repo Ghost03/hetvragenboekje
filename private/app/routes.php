@@ -33,6 +33,11 @@ return array(
     'tag' => new Zend_Controller_Router_Route('tag/:tag', array('controller' => 'tag', 'action' => 'detail')),
 
     'contact' => new Zend_Controller_Router_Route('contact', array('controller' => 'contact', 'action' => 'overview')),
-    'contactsend' => new Zend_Controller_Router_Route('contactsend', array('controller' => 'contact', 'action' => 'contactsend'))
+    'contactsend' => new Zend_Controller_Router_Route('contactsend', array('controller' => 'contact', 'action' => 'contactsend')),
     
+    'voorwaarden' => new Zend_Controller_Router_Route('voorwaarden', array('controller' => 'info', 'action' => 'voorwaarden')),
+    'richtlijnen' => new Zend_Controller_Router_Route('richtlijnen', array('controller' => 'info', 'action' => 'richtlijnen')),
+    'faq' => new Zend_Controller_Router_Route('faq', array('controller' => 'info', 'action' => 'faq')),
+    'overons' => new Zend_Controller_Router_Route('overons', array('controller' => 'info', 'action' => 'overons')),
+    'disclaimer' => new Zend_Controller_Router_Route('disclaimer', array('controller' => 'info', 'action' => 'disclaimer'))
 );
