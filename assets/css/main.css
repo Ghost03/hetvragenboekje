@@ -1441,9 +1441,9 @@ input[type="submit"]
 
 #info{
     padding: 10px;
-line-height: 24px;
-background: white;
-border: 1px solid #dddddd;
+    line-height: 24px;
+    background: white;
+    border: 1px solid #dddddd;
 }
 
 #info h2
