@@ -1,6 +1,14 @@
 <h1 class="header">
 
+  <?php if( count($this->questions) ): ?>
+   
    <span class="header-bg">Mijn Vragen</span>
+
+  <?php else: ?>
+
+   <span class="header-bg">Geen vragen gesteld</span>
+
+  <?php endif; ?>
 
 </h1>
 
@@ -82,7 +90,7 @@
 
 </div>
 
-<?php if( !$this->questions && $this->user['guide'] == 0 ): ?>
+<?php if( !count($this->questions) && $this->user['guide'] == 0 ): ?>
  
 <!-- Modal -->
 
@@ -92,7 +100,7 @@
 
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
-    <h3 id="myModalLabel">Welkom op het vragenboekje..</h3>
+    <h3 id="myModalLabel">Welkom op het vragenboekje.. Je kunt hier..</h3>
 
   </div>
 
@@ -104,17 +112,47 @@
         Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
     </p>
 
+    <div class="modal-image">
+
+        <img src="assets/img/guide/steleenvraag.png" />
+
+    </div>
+
     <h2>Een vraag beantwoorden</h2>
 
     <p>
         Help anderen en geef antwoorden op recent gestelde vragen. Deel je kennis.
     </p>
 
-    <h2>Profielen bekijken</h2>
+    <div class="modal-image">
+
+        <img src="assets/img/guide/beantwoord.png" />
+
+    </div>
+
+    <h2>Profiel bewerken</h2>
     
     <p>
         Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
     </p>
+
+    <div class="modal-image">
+
+        <img src="assets/img/guide/profielbewerken.png" />
+
+    </div>
+
+    <h2>Vragen printen op A5-formaat</h2>
+    
+    <p>
+        Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
+    </p>
+
+    <div class="modal-image">
+
+        <img src="assets/img/guide/printpdf.png" />
+
+    </div>
 
   </div>
 

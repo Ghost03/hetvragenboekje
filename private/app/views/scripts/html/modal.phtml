@@ -1,0 +1,89 @@
+<!-- Modal -->
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+    <h3 id="myModalLabel">Welkom op het vragenboekje.. Je kunt hier..</h3>
+
+  </div>
+
+  <div class="modal-body">
+
+    <h2>Een vraag stellen</h2>
+    
+    <p>
+        Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
+    </p>
+
+    <div class="modal-image">
+
+        <img src="assets/img/guide/steleenvraag.png" />
+
+    </div>
+
+    <h2>Een vraag beantwoorden</h2>
+
+    <p>
+        Help anderen en geef antwoorden op recent gestelde vragen. Deel je kennis.
+    </p>
+
+    <div class="modal-image">
+
+        <img src="assets/img/guide/beantwoord.png" />
+
+    </div>
+
+    <h2>Profiel bewerken</h2>
+    
+    <p>
+        Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
+    </p>
+
+    <div class="modal-image">
+
+        <img src="assets/img/guide/profielbewerken.png" />
+
+    </div>
+
+    <h2>Vragen printen op A5-formaat</h2>
+    
+    <p>
+        Bereik heel Nederland. Stel je vraag online op Het Vragenboekje en alle andere gebruikers kunnen meteen antwoord geven. Je vraag wordt bovendien speciaal onder de aandacht gebracht bij mensen waarvan wij denken dat zij het antwoord weten.
+    </p>
+
+    <div class="modal-image">
+
+        <img src="assets/img/guide/printpdf.png" />
+
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+
+    <button class="btn sluiten" style="float: right;" data-dismiss="modal" aria-hidden="true">Sluiten</button>
+
+        <form action="questions" method="POST">
+
+        <input type="hidden" name="guide" value="1" />
+        <input type="submit" class="sluiten" style="margin: 2px 10px 0 0" name="submit" value="Melding niet meer weergeven" />
+
+    </form>
+
+  </div>
+
+</div>
+
+<link href="assets/css/modal.css" rel="stylesheet" type="text/css" />
+<script src="assets/js/bootstrap-modal.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+    $('#myModal').modal('toggle');
+});
+
+</script>

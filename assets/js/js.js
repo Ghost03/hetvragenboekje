@@ -38,6 +38,13 @@ $(function()
     var item = items[Math.floor(Math.random()*items.length)];
     $(".search-img").html('<img src="'+url+'assets/img/categories/150x150/'+item+'.png" />');
 
+    // Handleiding
+
+    $('.handleiding a').click(function() {
+    	$('#modal').load('private/app/views/scripts/html/modal.phtml');
+    	return false;
+    });
+
 
     // Slides
     function slide() {

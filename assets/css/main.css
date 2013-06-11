@@ -692,6 +692,10 @@ input[type="submit"]
     border-radius: 4px;
 }
 
+#loadmore:hover {
+    background: #000 url('../img/home_active.png') repeat-x;
+}
+
 /* ANSWERS */
 
 .answer {
@@ -976,6 +980,10 @@ input[type="submit"]
 
 .user_info .stel-een-vraag {
     background:  url('../img/stelvraag.png') no-repeat left;
+}
+
+.user_info .handleiding {
+    background:  url('../img/manual.png') no-repeat left;
 }
 
 .short_nav {
