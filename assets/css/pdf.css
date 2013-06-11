@@ -24,6 +24,10 @@ body
     /*border-right: 2px dotted #000;*/
 }
 
+.magenta {
+    color: #d3327a;
+}
+
 #logo
 {
     position: relative;;

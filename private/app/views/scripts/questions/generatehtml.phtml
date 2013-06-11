@@ -14,7 +14,7 @@
 		  <div class="question">
 			 <div class="question-image">
                 	<img src="assets/img/categories/150x150/<?php echo $this->data['category']['id'] ?>.png" />
-				<?php echo $this->data['userQ']; ?>
+				<span class="magenta"><?php echo $this->data['userQ']; ?></span>
 			 </div>
 			 <div class="question-info">
 				<span class="category"><?php echo $this->data['category']['name']; ?></span>
@@ -37,7 +37,7 @@
                     <?php else: ?>
                     	<img src="assets/img/profile_unknown.png" />
                     <?php endif; ?>
-					<?php echo $this->data['userA']; ?>
+					<span class="magenta"><?php echo $this->data['userA']; ?></span>
                 </div>
 
                 <div class="answer-info">
