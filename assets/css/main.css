@@ -1445,16 +1445,21 @@ input[type="submit"]:hover {
 
 #info{
     padding: 10px;
-line-height: 24px;
-background: white;
-border: 1px solid #dddddd;
+    line-height: 24px;
+    background: white;
+    border: 1px solid #dddddd;
 }
 
 #info h2
 {
     font-weight: bold;
     margin-left: 10px;
-    
+}
+
+#info h3{
+    margin-left: 10px;
+    padding: 5px 0px;
+    text-decoration: underline;
 }
 
 #info p

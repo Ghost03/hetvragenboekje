@@ -45,6 +45,13 @@ $(function()
     	return false;
     });
 
+    //F.A.Q.
+    
+    $("#info p").hide();
+
+    $("#info h3").on("click", function(){
+	   $(this).next().toggle('slow')
+    })
 
     // Slides
     function slide() {
