@@ -21,7 +21,7 @@ body
     position: absolute;
     width: 50%;
     height: 100%;
-    border-right: 2px dotted #000;
+    /*border-right: 2px dotted #000;*/
 }
 
 #logo
@@ -32,13 +32,14 @@ body
     height: 70px;
     background: url("../img/logo.png") no-repeat #000 center;
     color: #fff;
+    margin: 0 0 10px 42px;
 }
 
 #notepad
 {
     position: absolute;
     right: 0px;
-    width: 50%;
+    width: 46%;
     height: 100%;
     border-left: 2px dashed #000;
 }
@@ -49,7 +50,7 @@ body
     height: 100%;
     bottom: 0px;
     width: 100%;
-    background: url("../img/scissors.png") no-repeat 49.99% bottom;
+    background: url("../img/scissors.png") no-repeat 589px bottom;
 }
 
 /* Question */
@@ -63,6 +64,7 @@ body
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
+    margin: 0 0 0 42px;
 }
 
 .shadow-border1,
@@ -70,17 +72,18 @@ body
 .shadow-border3{
     position: relative;
     background: url("../img/shadow_1.png") no-repeat top center;
+    margin: 0 0 0 43px;
     
 }
 
 .shadow-border1
 {
-    top: -8px;
+    top: -6px;
 }
 
 .shadow-border3
 {
-    top: -10px;
+    top: -1px;
 }
 .question {
     position: relative;
@@ -88,11 +91,13 @@ body
     height: 183px;
     width: 100%;
     border: 1px solid #dddddd;
+    margin: 0 0 0 42px;
 }
 
 .question-image {
     width: 150px;
     margin: 15px;
+
 }
 
 .question-info {
@@ -156,6 +161,7 @@ body
     height: 183px;
     width: 100%;
     border: 1px solid #dddddd;
+        margin: 0 0 0 42px;
 }
 
 .answer-image {
