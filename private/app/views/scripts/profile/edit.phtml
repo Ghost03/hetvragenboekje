@@ -66,8 +66,6 @@ $(function() {
     	'swf'      : 'assets/swf/uploadify.swf',
     	'checkExisting' : 'check-exists',
         'uploader' : 'photo',
-        'queueSizeLimit' : 1,
-        'uploadLimit' : 1,
         'fileSizeLimit' : '150KB',
         'onUploadSuccess' : function(file, data, response) {
             $("#thumb").attr("src", "uploads/images/" + file.name);
