@@ -38,5 +38,6 @@ return array(
     'voorwaarden' => new Zend_Controller_Router_Route('voorwaarden', array('controller' => 'info', 'action' => 'voorwaarden')),
     'richtlijnen' => new Zend_Controller_Router_Route('richtlijnen', array('controller' => 'info', 'action' => 'richtlijnen')),
     'faq' => new Zend_Controller_Router_Route('faq', array('controller' => 'info', 'action' => 'faq')),
-    'overons' => new Zend_Controller_Router_Route('overons', array('controller' => 'info', 'action' => 'overons'))
+    'overons' => new Zend_Controller_Router_Route('overons', array('controller' => 'info', 'action' => 'overons')),
+    'disclaimer' => new Zend_Controller_Router_Route('disclaimer', array('controller' => 'info', 'action' => 'disclaimer'))
 );

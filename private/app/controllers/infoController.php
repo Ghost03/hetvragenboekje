@@ -18,6 +18,10 @@ class InfoController extends AppController {
     {   
 
     }
+     public function disclaimerAction()
+    {   
+
+    }
 }
 
 ?>
