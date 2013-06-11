@@ -77,6 +77,19 @@ $(function()
 		  }
 	   });
 	   
+	   $("#wachtwoordvergeten").validate({
+		   rules: {
+			 email: {
+				required: true,
+				email: true
+			 }
+		  },
+		  messages: {
+			 email: "Vul een valide e-mailadres in"
+		  }
+	   })
+	   
+	   
 	   var l_emailError = $("#l-email-error").text();
 	   $("#login").children(".errors").append('<div for="email" class="error" style="">'+l_emailError+'</div>')
 	   var r_emailError = $("#r-email-error").text();
