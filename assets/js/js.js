@@ -77,23 +77,29 @@ $(function()
 	            
 	    ads: function() {
 
-		    var images = 'assets/img/advertisement/*.png';
-			var i = 1;
+	    
+		    var images = 'assets/img/prom/slide*.png';
+			var i = 2;
 			var delay = 5000;
-
+			$("#prom").children().on("click", function()
+		 {
+			 window.location.href = "mailto:sales@hetvragenboekje.nl";
+		 });
 			setInterval(function() {
 			    var path = images.replace('*', i);
-			    var slide = $("#advertisement");
+			    var slide = $("#prom").children("img");
 			    slide.fadeOut(function() {
 				    $(this).attr("src", path).fadeIn("slow");
 				});
 			    i = i + 1;
-			    if (i == 3) i = 1;
+			    if (i == 4) i = 1;
 			}, delay);
 	        
 	    }
 
 	}
+	slider.header();
+	slider.ads();
 
 
 });
