@@ -27,9 +27,6 @@ class ContactController extends AppController {
     		$view = Zend_Layout::getMvcInstance()->getView();
     		$text = $view->partial('mail/contact.phtml', array('name' => $name, 'username' => $username, 'email' => $email, 'subject' => $subject, 'message' => $message));
 
-    		var_dump($text);
-    		exit;
-
 			$mail = new Zend_Mail();
 			$mail->setBodyText($text, 'utf-8');
 			$mail->setBodyHtml($text, 'utf-8');
