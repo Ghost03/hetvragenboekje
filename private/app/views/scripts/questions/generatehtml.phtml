@@ -14,11 +14,11 @@
 		  <div class="question">
 			 <div class="question-image">
                 	<img src="assets/img/categories/150x150/<?php echo $this->data['category']['id'] ?>.png" />
+				<?php echo $this->data['userQ']; ?>
 			 </div>
 			 <div class="question-info">
 				<span class="category"><?php echo $this->data['category']['name']; ?></span>
 				<span class="title"><?php echo $this->data['question']['name']; ?></span><br /><br />
-				<span class="title"><?php echo $this->data['userQ']; ?></span>
 			 </div>
 			 <div class="question-data">
 				<span class="date">Geplaatst op: <?php echo $this->data['dateQ'];?></span>
