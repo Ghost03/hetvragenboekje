@@ -1,0 +1,50 @@
+<?php
+$this->layout()->title = $this->translate('Antwoorden overzicht');
+$db = Zend_Registry::get('db');
+$items = $this->items;
+?>
+<section class=categories>
+
+    <form action="antwoorden/list" method="GET">
+
+        <input type="text" class="text-input" style="width: 50%" name="s" placeholder="Zoek op antwoorden" />&nbsp;
+        <input type="submit" class="button" value="Zoeken" />
+
+    </form>
+
+    <?php if( items ): ?>
+
+    <table>
+        <thead>
+            <tr>
+                <th><?php echo $this->translate('Antwoord');?>
+                <th>Gebruiker
+                <th>Wijzig
+                <th>Verwijder
+        </thead>
+        <tbody>
+            <?php 
+            foreach( $items as $i => $item ):
+
+            $user = $db->fetchRow('SELECT * FROM users WHERE id = ?', $item['user_id']);
+
+            ?>
+            <tr>
+                <td><?php echo $item['name']; ?></td>
+                <td><?php echo $user['name']; ?></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])) ?>"><?php echo $this->translate('Wijzig');?></a></td>
+                <td class=delete><a href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])) ?>"><?php echo $this->translate('Verwijder');?></a></td>
+            </tr>
+            <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+
+    <?php else: ?>
+
+     <p>Helaas, geen resultaten gevonden op zoekterm "<?php echo $_GET['s']; ?>"</p>
+
+    <?php endif; ?>
+
+</section>

@@ -17,6 +17,13 @@ return array(
 	    )
 	),
 
+		'antwoorden' => array(
+	    'name'  => 'Antwoorden',
+	    'items' => array(
+                'list' => 'Overzicht'
+	    )
+	),
+
 		'categorieen' => array(
 	    'name'  => 'Categorieen',
 	    'items' => array(
