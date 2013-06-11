@@ -39,7 +39,7 @@ body
 {
     position: absolute;
     right: 0px;
-    width: 47%;
+    width: 48%;
     height: 100%;
     border-left: 2px dashed #000;
 }
@@ -50,7 +50,7 @@ body
     height: 100%;
     bottom: 0px;
     width: 100%;
-    background: url("../img/scissors.png") no-repeat 589px bottom;
+    background: url("../img/scissors.png") no-repeat 567px bottom;
 }
 
 /* Question */
