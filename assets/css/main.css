@@ -580,6 +580,10 @@ input[type="submit"]
     margin-top: -5px;
 }
 
+input[type="submit"]:hover {
+    background: #000 url('../img/home_active.png') repeat-x;
+}
+
 /* icons */
 
 .password-img{
