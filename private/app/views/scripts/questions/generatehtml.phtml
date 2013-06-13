@@ -33,9 +33,9 @@
 
                 <div class="answer-image">
                 	<?php if($this->data['userAimg']): ?>
-                    	<img src="assets/img/<?php echo $this->data['userAimg'] ?>" />
+                    	<img width="150" height="150" src="uploads/images/<?php echo $this->data['userAimg'] ?>" />
                     <?php else: ?>
-                    	<img src="assets/img/profile_unknown.png" />
+                    	<img width="150" height="150" src="assets/img/profile_unknown.png" />
                     <?php endif; ?>
 					<span class="magenta"><?php echo $this->data['userA']; ?></span>
                 </div>
